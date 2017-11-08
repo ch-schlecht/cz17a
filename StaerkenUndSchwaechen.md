@@ -6,19 +6,30 @@
 		+ Java (auch Android)
 		+ C , C++
 		+ PHP , HTML , CSS , SQL , JavaScript
+		+ Arbeiten mit Datenbanken
+		- in manchen Sachen sehr festgefahren --> bennenung von Variablen etc. (richtung Ungarische-Notation)
 	
 	*Struckturell:
 		+ Struckturierte UML etc. in Quelltext umwandeln  
 		- Entwickeln von Konzepten
+		- Eher drauf los programmieren, experementiell
 
 	*Organisatorisch:
-		- Ideen Durchsetzten	
-		- Struckturietes Aufarbeiten von Informationen
+		+ pünktlich
+		+ Struckturierte Darstellungen für Informationen
+		- Ideen Durchsetzten	 
+		- Übernimmt ungerne große Verantwortung
 
 	*Kreativ:
 		° Entwickeln von Design
 		° Erstellen von Ressourcen
 		- Responsive Designs
+
+	*Gamification:
+		+ Interesse an Psychologischen Themen
+		+ Selber "Spieler/Gamer"
+		- Eher neu in dem Thema
+		
 
 -------------------------------------------------------------------------
 
