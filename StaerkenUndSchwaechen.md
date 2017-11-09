@@ -52,4 +52,27 @@
 		- ungeduldig (vor allem wenn etwas nicht funktioniert)
 		- "from scratch" Implementieren, Konzepte entwickeln
 		
+-----------------------------------------------------------------------
+			#  Thomas Gerbert #	|| Rolle: -
+
+
+	*Programmieren:
+		+ Java
+		+ Python, C Basics
+		- keine Erfahrung mit größeren Projekten
+
+	*Organisatorisch:
+		+ pünktlich	 
+		- Übernimmt ungerne große Verantwortung
+		- kann ohne Deadline nicht arbeiten
+
+	*Kreativ:
+		+ Ideen Einbringung
+
+
+	*Gamification:
+		+ Interesse an Psychologischen Themen
+		+ Selber "Spieler/Gamer"
+		- Eher neu in dem Thema
+		
 		
