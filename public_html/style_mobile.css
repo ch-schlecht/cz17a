@@ -1,0 +1,192 @@
+h1{
+    font-size: x-large;
+}
+
+#title
+{
+ text-align: center;
+ color: #FFFFFF; 
+
+}
+
+#cute{
+    width: 32px;
+    height: 32px;
+     vertical-align: middle;
+}
+
+
+#info{
+    text-align: center;
+}
+
+.dropdown-content{
+    display: none;   
+}
+
+html{
+    background: url(bg/bg001.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:100%;
+    width: 100%;
+}
+
+body{
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(15,15,15,0.5); 
+    border-radius: 2pt;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+
+
+}
+
+nav li a{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+nav li {
+    display: inline-block;
+}
+
+
+.active{
+    background-color: #008000;
+}
+
+
+
+#last{
+    float: right;
+}
+
+
+
+#newsletter
+{
+    margin-top: 100px;
+    vertical-align: center;
+
+    padding-bottom: 20px;
+    text-align:center;
+    color: #FFFFFF;
+
+   border: inset #808080 2pt;
+
+  width: 30%;
+
+      clear:both;
+   min-width: 220px;
+   margin: auto;
+
+    background-color: rgba(15,15,15,0.6);
+
+}
+
+#h2{
+    padding-bottom: 5px;
+}
+
+#brief{
+
+vertical-align: middle;
+}
+
+#middle{
+
+vertical-align: middle;
+}
+
+
+
+#brief:hover{
+border: solid #FF0000 5px;
+
+}
+
+
+.social{
+    position: absolute;
+    top: 1%;
+    left: 90%;
+     margin-right: -10%;
+}
+
+
+
+
+#info{
+              
+      clear:both;
+   min-width: 220px;
+   margin: auto;
+    color: #FFFFFF;
+}
+
+
+
+body{
+    
+    color: #FFFFFF;
+}
+
+
+
+#news{
+margin-top: 10px;
+      width: 96%;
+    border: solid #000000 5pt;
+    border-radius: 2pt;
+    background-color: rgba(15,15,15,0.6);
+    font-size: medium;
+}
+#news h2{
+    text-align: center;
+}
+#news a{
+    color: #DFDFDF;
+}
+#rules{
+
+    border: solid #000000 5pt;
+    border-radius: 2pt;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    background-color: rgba(15,15,15,0.6);
+    font-size: small;
+}
+
+#rules h2{
+    text-align: center;
+}
+
+#rules a{
+    color: #DFDFDF;
+}
+
+
