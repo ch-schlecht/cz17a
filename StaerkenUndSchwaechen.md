@@ -90,27 +90,27 @@ Felix Fink || Rolle: -
 
 
 **Organisatorisch:**
-```
+
 		- benötige feste Planung vor Abgaben
-```
+
 
 **Kreativ:**
-```
+
 		+ Ideenreich (wenn nicht unter Stress)
 		+ Interesse an Designentwicklung
-```
+
 
 **Gamifikation:**
-```
+
 		+ Interresse an der Psychologie
 		- noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung
-```
+
 
 **Persönlich:**
-```
+
 		+ Kommunikationsfähig
 		+ Teamfähig
-```
+
 
 ---
 
