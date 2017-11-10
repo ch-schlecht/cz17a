@@ -17,8 +17,11 @@
 	*Organisatorisch:
 		+ pünktlich
 		+ Struckturierte Darstellungen für Informationen
+		+ Sehr Motiviert wenn mich ein Thema Interessiert / Spaß macht (beim Programmieren fast immer)
+		- Vermeidet zusatzarbeit bei uninteressanten Themen
 		- Ideen Durchsetzten	 
 		- Übernimmt ungerne große Verantwortung
+		
 
 	*Kreativ:
 		° Entwickeln von Design
