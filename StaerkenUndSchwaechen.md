@@ -83,11 +83,11 @@ Felix Fink || Rolle: -
 
 
 **Programmieren:**
-		```
+		`
 		+ Java 
 		+ geringe Kenntnisse mit Android Studio
 		- nur sehr geringfügig außerhalb des OOP programmiert
-		```
+		`
 
 
 **Organisatorisch:**
