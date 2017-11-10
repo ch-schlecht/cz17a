@@ -83,28 +83,28 @@ Felix Fink || Rolle: -
 
 
 **Programmieren:**
-	+ Java 
-	+ geringe Kenntnisse mit Android Studio
-	- nur sehr geringfügig außerhalb des OOP programmiert
+>	+ Java 
+>	+ geringe Kenntnisse mit Android Studio
+>	- nur sehr geringfügig außerhalb des OOP programmiert
 
 
 **Organisatorisch:**
-	- benötige feste Planung vor Abgaben
+>	- benötige feste Planung vor Abgaben
 
 
 **Kreativ:**
-	+ Ideenreich (wenn nicht unter Stress)
-	+ Interesse an Designentwicklung
+>	+ Ideenreich (wenn nicht unter Stress)
+>	+ Interesse an Designentwicklung
 
 
 **Gamifikation:**
-	+ Interresse an der Psychologie
-	- noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung
+>	+ Interresse an der Psychologie
+<	- noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung
 
 
 **Persönlich:**
-	+ Kommunikationsfähig
-	+ Teamfähig
+>	+ Kommunikationsfähig
+>	+ Teamfähig
 
 
 ---
