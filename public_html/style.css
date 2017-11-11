@@ -161,8 +161,10 @@ h3{
          border: 1px solid black;
     }
 
-#last{
+#git{
     float: right;
+    padding: 0px 0px;
+    border-left: 1px solid #BDBDBD;
 }
 
 .black-box{

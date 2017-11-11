@@ -45,7 +45,7 @@ include 'header.php';
                 <td>(vorerst) Webmaster</td>
             </tr>
              <tr>
-                <td>Fabian Ziegner</td>
+                <td><a href="#FZ">Fabian Ziegner</a></td>
                 <td></td>
             </tr>
             </table>
@@ -174,6 +174,39 @@ include 'header.php';
         <b>Sonstiges:</b>   <br/>
             +Lernt schnell neue Sachen
               </p>
+              
+              
+              
+       <h3 id="FZ">Fabian Ziegner</h3>
+	 <p>
+	
+	<b>Programmieren:</b> <br/>
+		+ Java            <br/>
+		+ C                    <br/>
+		+ Interesse an Datenbankverwaltung  <br/>
+		- wenige eigene Projekte au&szlig;erhalb der MuP- und OOP-Aufgaben <br/>
+		- Modellierung meist vernachl&auml;ssigt, gleich anfangen mit Programmieren  <br/>
+		
+	      <br/>
+	<b>Organisatorisch:</b>   <br/>
+		+ P&uuml;nktlichkeit  <br/>
+		+ Umsetzung f&auml;llt leicht, falls ein konkreter Plan steht <br/>
+		- schlechtes Zeitmanagement  <br/>
+		- Konzentrationsprobleme  <br/>
+	
+	  <br/>
+	<b>Sonstiges:</b>  <br/>
+		+ Teamf&auml;hig  <br/>
+		- schnell frustriert, falls etwas nicht funktioniert<br/>
+		  <br/>
+		
+	<b>Gamification:</b>   <br/>
+		+ Erfahrung mit Spielen <br/>
+		- noch keine Erfahrung mit der Gamification an sich  <br/>
+              
+              
+              </p>
+              
               
          </article>
     

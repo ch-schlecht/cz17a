@@ -23,6 +23,7 @@
                         <a class="nav" href="team.php">Das Team</a>
                     </div>
                     </li>
+                    <li id="git"><a class="nav" href="https://git.informatik.uni-leipzig.de/swp17/cz17a"><img width="18" height="18" src="res/gitlab.svg"/></a></li>
                 </ul>
                 </div>
             </nav>
