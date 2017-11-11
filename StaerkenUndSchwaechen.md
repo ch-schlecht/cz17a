@@ -6,7 +6,7 @@
 		+ Java (auch Android)
 		+ C , C++
 		+ PHP , HTML , CSS , SQL , JavaScript
-		+ Arbeiten mit Datenbanken
+		+ Arbeiten mit Datenbanken und Videospiel-Programmierung
 		- in manchen Sachen sehr festgefahren --> bennenung von Variablen etc. (richtung Ungarische-Notation)
 	
 	*Struckturell:

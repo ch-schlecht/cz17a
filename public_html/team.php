@@ -29,7 +29,7 @@ include 'header.php';
                 <td></td>
             </tr>
              <tr>
-                <td>Steven Lehmann</td>
+                <td><a href="#SL">Steven Lehmann</a></td>
                 <td></td>
             </tr>
              <tr>
@@ -110,6 +110,42 @@ include 'header.php';
             </p>
              
              
+             
+        <h3 id="SL">Steven Lehmann</h3>
+             
+            <p>
+            
+            <b>Programmieren</b> <br/>
+    +Java        <br/>
+    +Basics in Python, HTML und CSS     <br/>
+    +Interesse an Datenbanken und Videospiel-Programmierung      <br/>
+    -Benutzeroberfl&auml;chen      <br/>
+    -wenig eigene Projekte au&szlig;erhalb der Uni      <br/>
+
+        <br/>
+<b>Organisatorisch</b> <br/>
+    +P&uuml;nktlich und Organisiert   <br/>
+    -manchmal etwas langsam in der Umsetzung  <br/>
+    -&uuml;bernimmt ungern gro&szlig;e Verantwortung <br/>
+
+            <br/>
+<b>Kreativ</b>    <br/>
+    +Planung von Programmabl&auml;ufen <br/>
+    +Ideen f&uuml;r Konzepte,etc. <br/>
+    -Ideen und Konzepte scheitern gr&ouml;&szlig;tenteills an der Umsetzung  <br/>
+         <br/>
+
+<b>Sonstiges</b> <br/>
+    +Teamf&auml;hig <br/>
+    +Gaming-Erfahrung <br/>
+    -Gamification-Erfahrung fehlt aber  <br/>
+
+            
+            
+            
+            
+            </p> 
+             
              <h3 id="TG">Thomas Gerbert</h3>
              <p>
                 <b>Programmieren:</b><br/>
@@ -144,7 +180,7 @@ include 'header.php';
                 + Java (auch Android) <br/>
                 + C , C++  <br/>
                 + PHP , HTML , CSS , SQL , JavaScript <br/>
-                + Arbeiten mit Datenbanken <br/>
+                + Arbeiten mit Datenbanken und Videospiel-Programmierung<br/>
                 - in manchen Sachen sehr festgefahren --> bennenung von Variablen etc. (richtung Ungarische-Notation)     <br/>
                 <br/>
             <b>Struckturell:</b> <br/>
