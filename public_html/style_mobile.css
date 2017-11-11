@@ -91,3 +91,86 @@ nav li {
 
 
 
+
+
+
+
+
+
+
+
+h3{
+    font-size: 50px;
+}
+
+.article p, .article a{
+     font-size: 25px;
+
+    }
+
+#sus p{
+    font-size: 18px;
+}
+
+
+.article a {
+    color:white;
+    background-color: #0080FF;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    border: 1px outset #0040FF;
+    text-decoration: none;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+.article a:hover{
+    border: 1px inset #0040FF;
+}
+
+
+.article table{
+    margin: 0 auto;
+    font-size: 25px;
+    }
+
+.article table a{
+    text-decoration: none;
+    color: black;
+    background-color: #E6E6E6;
+    border: none ;
+    padding: 0px 0px 0px 0px;
+    }
+
+.article table a:hover{
+    background-color: #D8D8D8;
+    border: none;
+}
+
+
+
+
+
+    table,td,th{
+         border: 1px solid black;
+    }
+
+.black-box{
+    color: white;
+    background-color: #000000;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+}
+
+
+
+
+
+
+

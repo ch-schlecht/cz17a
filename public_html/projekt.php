@@ -15,6 +15,9 @@ include 'header.php';
             Ziel ist es eine App bzw. Weboberfl&auml;che zu entwickeln, welche es Firmen und deren Mitarbeitern erm&ouml;glicht &uuml;ber eine 
             Weiterbildungsapp ihr Wissen auszutauschen, zu pr&uuml;fen und dabei Spa&szlig; zu haben.</p>
 
+            <p><a href="team.php" role="button">Zum Team &raquo;</a>
+            <a href="protokolle.php" role="button">Zu den Protokollen &raquo;</a></p>
+
         </article>
 
 
