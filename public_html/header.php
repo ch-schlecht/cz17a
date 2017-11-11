@@ -19,7 +19,7 @@
                     <li><a class="nav" id="nav_home" href="index.php">Home</a></li>
                     <li class="dropdown"><a class="nav" id="nav_projekt"  class="dropbtn" href="projekt.php">Das Projekt</a>
                     <div class="dropdown-content">
-                    <!--    <a href="protokolle.php">Protokolle</a> -->
+                        <a class="nav" href="protokolle.php">Protokolle</a>
                         <a class="nav" href="team.php">Das Team</a>
                     </div>
                     </li>

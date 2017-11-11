@@ -107,10 +107,24 @@ h2{
     font-size: 70px;
 }
 
-.article p{
+.article p, .article a{
      font-size: 25px;
      
     }
+
+.article a{
+    color:white;
+    background-color: #0080FF;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    border: 1px outset #0040FF;
+    text-decoration: none;
+}
+
+.article a:hover{
+    border: 1px inset #0040FF;
+}
+
 
 .article table{
     margin: 0 auto;
@@ -125,4 +139,16 @@ h2{
 #last{
     float: right;
 }
+
+.black-box{
+    color: white;
+    background-color: #000000;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+    
+}
+
 
