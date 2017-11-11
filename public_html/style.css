@@ -107,12 +107,21 @@ h2{
     font-size: 70px;
 }
 
+h3{
+    font-size: 50px;
+}
+
 .article p, .article a{
      font-size: 25px;
      
     }
+    
+#sus p{
+    font-size: 18px;
+}
+    
 
-.article a{
+.article a -table{
     color:white;
     background-color: #0080FF;
     border-radius: 5px;
@@ -130,6 +139,12 @@ h2{
     margin: 0 auto;
     font-size: 25px;
     }
+
+.article table a{
+    text-decoration: none;
+    color: black;
+    }
+
 
 
     table,td,th{
