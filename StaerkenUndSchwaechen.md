@@ -21,6 +21,7 @@
 		- Vermeidet zusatzarbeit bei uninteressanten Themen
 		- Ideen Durchsetzten	 
 		- ‹bernimmt ungerne groﬂe Verantwortung
+		- Wenn etwas nicht klappt schnell ungeduldig und festgebissen
 		
 
 	*Kreativ:
@@ -32,6 +33,9 @@
 		+ Interesse an Psychologischen Themen
 		+ Selber "Spieler/Gamer"
 		- Eher neu in dem Thema
+	
+	*Sonstiges:
+		+Lernt schnell neue Sachen
 		
 
 -------------------------------------------------------------------------
