@@ -121,3 +121,31 @@ Felix Fink || Rolle: -
 
 ---
 
+			# Fabian Ziegner #	|| Rolle: -
+	
+	
+	*Programmieren:
+		+ Java
+		+ C
+		+ Interesse an Datenbankverwaltung
+		- wenige eigene Projekte außerhalb der MuP- und OOP-Aufgaben
+		- Modellierung meist vernachlässigt, gleich anfangen mit Programmieren
+		
+	
+	*Organisatorisch:
+		+ Pünktlichkeit
+		+ Umsetzung fällt leicht, falls ein konkreter Plan steht
+		- schlechtes Zeitmanagement
+		- Konzentrationsprobleme
+	
+	
+	*Sonstiges:
+		+ Teamfähig
+		- schnell frustriert, falls etwas nicht funktioniert
+		
+		
+	*Gamification:
+		+ Erfahrung mit Spielen
+		- noch keine Erfahrung mit der Gamification an sich
+		
+-------------------------------------------------------------------------
