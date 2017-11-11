@@ -149,3 +149,33 @@ Felix Fink || Rolle: -
 		- noch keine Erfahrung mit der Gamification an sich
 		
 -------------------------------------------------------------------------
+
+			#  Steven Lehmann # || Rolle: -
+			
+			
+	*Programmieren
+		+Java
+		+Basics in Python, HTML und CSS
+		+Interesse an Datenbanken und Videospiel-Programmierung
+		-Benutzeroberflächen
+		-wenig eigene Projekte außerhalb der Uni
+		
+	
+	*Organisatorisch
+		+Pünktlich und Organisiert
+		-manchmal etwas langsam in der Umsetzung
+		-übernimmt ungern große Verantwortung
+		
+
+	*Kreativ
+		+Planung von Programmabläufen
+		+Ideen für Konzepte,etc. 
+		-Ideen und Konzepte scheitern größtenteills an der Umsetzung
+		
+
+	*Sonstiges
+		+Teamfähig
+		+Gaming-Erfahrung
+		-Gamification-Erfahrung fehlt aber
+
+-------------------------------------------------------------------------
