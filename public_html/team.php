@@ -22,11 +22,11 @@ include 'header.php';
             </tr>
              <tr>
                 <td><a href="#CS">Christian Schlecht</a></td>
-                <td>(vorerst) Projektleiter</td>
+                <td>Projektleiter</td>
             </tr>
              <tr>
-                <td>Willy Steinbach</td>
-                <td></td>
+                <td><a href="#WS">Willy Steinbach</a></td>
+                <td>Stellvertrentener Projektleiter</td>
             </tr>
              <tr>
                 <td><a href="#SL">Steven Lehmann</a></td>
@@ -110,12 +110,50 @@ include 'header.php';
             </p>
              
              
+        <h3 id="WS">Willy Steinbach</h3>     
+        <p>
+            
+    <b>Programmieren:</b>  <br/>
+        + Java (auch au&szlig;erhalb des OOP)      <br/>
+        
+        
+    <b>Organisatorisch:</b> <br/>
+        + gut selbst Organisiert    <br/>
+        + &uuml;bernimmt gerne Verantwortung  <br/>
+        - versucht P&uuml;nktlich zu sein    <br/>
+        + kommt mit Stress Situationen gut um   <br/>
+    
+    
+    <b>Kreativ:</b>     <br/>
+        + Design- und Oberfl&auml;chenentwicklung   <br/>
+    
+    
+    <b>Sonstiges:</b>   <br/>
+        + Teamf&auml;hig     <br/>
+        + sehr kommunikativ   <br/>
+        - keine Erfahrung in der Erstellung gro&szlig;er Projekte <br/>
+        + schnell lernf&auml;hig  <br/>
+    
+        
+        
+        
+        </p>
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
              
         <h3 id="SL">Steven Lehmann</h3>
              
             <p>
             
-            <b>Programmieren</b> <br/>
+            <b>Programmieren:</b> <br/>
     +Java        <br/>
     +Basics in Python, HTML und CSS     <br/>
     +Interesse an Datenbanken und Videospiel-Programmierung      <br/>
@@ -123,19 +161,19 @@ include 'header.php';
     -wenig eigene Projekte au&szlig;erhalb der Uni      <br/>
 
         <br/>
-<b>Organisatorisch</b> <br/>
+<b>Organisatorisch:</b> <br/>
     +P&uuml;nktlich und Organisiert   <br/>
     -manchmal etwas langsam in der Umsetzung  <br/>
     -&uuml;bernimmt ungern gro&szlig;e Verantwortung <br/>
 
             <br/>
-<b>Kreativ</b>    <br/>
+<b>Kreativ:</b>    <br/>
     +Planung von Programmabl&auml;ufen <br/>
     +Ideen f&uuml;r Konzepte,etc. <br/>
     -Ideen und Konzepte scheitern gr&ouml;&szlig;tenteills an der Umsetzung  <br/>
          <br/>
 
-<b>Sonstiges</b> <br/>
+<b>Sonstiges:</b> <br/>
     +Teamf&auml;hig <br/>
     +Gaming-Erfahrung <br/>
     -Gamification-Erfahrung fehlt aber  <br/>

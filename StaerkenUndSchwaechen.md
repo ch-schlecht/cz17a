@@ -1,4 +1,4 @@
------------------------------------------------------------------------
+﻿-----------------------------------------------------------------------
 			# Michael Fritz #	|| Rolle: -
 
 
@@ -40,7 +40,7 @@
 
 -------------------------------------------------------------------------
 
-			# Christian Schlecht #	|| Rolle: Projektleiter (vorerst)
+			# Christian Schlecht #	|| Rolle: Projektleiter
 	
 	
 	*Programmieren:
@@ -179,7 +179,7 @@ Felix Fink || Rolle: -
 		-Gamification-Erfahrung fehlt aber
 
 -------------------------------------------------------------------------
-            # Willy Steinbach || Rolle: - 
+            # Willy Steinbach || Rolle: Stellvertretener Projektleiter 
             
     *Programmieren
         + Java (auch außerhalb des OOP)
