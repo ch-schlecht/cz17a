@@ -296,16 +296,16 @@ include 'header.php';
 		° Semantic Web <br/>
 		- Dokumentation von Quellcode <br/>
 		- Testen <br/>
-		- Grafische Oberflächen (außer für iOS)  <br/>
+		- Grafische Oberfl&auml;chen (au&szlig;er f&uuml;r iOS)  <br/>
 		
 	      <br/>
 	<b>Organisatorisch:</b>   <br/>
-		+ gewissenhaftes und präzises Arbeiten <br/>
-		+ Pünktlichkeit <br/>
+		+ gewissenhaftes und pr&auml;zises Arbeiten <br/>
+		+ P&uuml;nktlichkeit <br/>
 		+ Zeitmanagement <br/>
-		- häufiges Aufschieben von unangenehmen Aufgaben <br/>
+		- h&auml;ufiges Aufschieben von unangenehmen Aufgaben <br/>
 		- abends/nachts produktiver <br/>
-		- spätes Antworten auf Nachrichten  <br/>
+		- sp&auml;tes Antworten auf Nachrichten  <br/>
 	
 	  <br/>
 	<b>Kreativ:</b>  <br/>
@@ -313,14 +313,14 @@ include 'header.php';
 		  <br/>
 		
 	<b>Sonstiges:</b>   <br/>
-		+ Dinge erklären <br/>
-		+ Vorträge / Präsentationen halten <br/>
+		+ Dinge erkl&auml;ren <br/>
+		+ Vortr&auml;ge / Pr&auml;sentationen halten <br/>
 		° kommunikativ <br/>
 		° wirtschaftswissenschaftliche Kenntnisse <br/>
-		° breites Interessengebiet (sich dadurch zwar für viel begeistern, aber dafür oft nur oberflächlich) <br/>
+		° breites Interessengebiet (sich dadurch zwar f&uuml;r viel begeistern, aber daf&uuml;r oft nur oberfl&auml;chlich) <br/>
 		- Gedanken ausformulieren und aufschreiben <br/>
 		- Administratives <br/>
-		- andere von den eigenen Ideen überzeugen  <br/>
+		- andere von den eigenen Ideen &uuml;berzeugen  <br/>
               
               
               </p>
