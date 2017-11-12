@@ -15,18 +15,18 @@
 		- Eher drauf los programmieren, experementiell
 
 	*Organisatorisch:
-		+ p¸nktlich
-		+ Struckturierte Darstellungen f¸r Informationen
-		+ Sehr Motiviert wenn mich ein Thema Interessiert / Spaﬂ macht (beim Programmieren fast immer)
+		+ p√ºnktlich
+		+ Struckturierte Darstellungen f√ºr Informationen
+		+ Sehr Motiviert wenn mich ein Thema Interessiert / Spa√ü macht (beim Programmieren fast immer)
 		- Vermeidet zusatzarbeit bei uninteressanten Themen
 		- Ideen Durchsetzten	 
-		- ‹bernimmt ungerne groﬂe Verantwortung
+		- √úbernimmt ungerne gro√üe Verantwortung
 		- Wenn etwas nicht klappt schnell ungeduldig und festgebissen
 		
 
 	*Kreativ:
-		∞ Entwickeln von Design
-		∞ Erstellen von Ressourcen
+		¬∞ Entwickeln von Design
+		¬∞ Erstellen von Ressourcen
 		- Responsive Designs
 
 	*Gamification:
@@ -52,8 +52,8 @@
 	
 	*Organisatorisch:
 		+ Arbeit/Kommunikation im Team
-		+ p¸nktlich bzw. zuverl‰ssig
-		- manchmal chaotisch (alles am besten sofort anfangen, nicht erst eins fertig und dann das n‰chste)
+		+ p√ºnktlich bzw. zuverl√§ssig
+		- manchmal chaotisch (alles am besten sofort anfangen, nicht erst eins fertig und dann das n√§chste)
 	
 	*Sonstiges:
 		- ungeduldig (vor allem wenn etwas nicht funktioniert)
@@ -66,11 +66,11 @@
 	*Programmieren:
 		+ Java
 		+ Python, C Basics
-		- keine Erfahrung mit grˆﬂeren Projekten
+		- keine Erfahrung mit gr√∂√üeren Projekten
 
 	*Organisatorisch:
-		+ p¸nktlich	 
-		- ‹bernimmt ungerne groﬂe Verantwortung
+		+ p√ºnktlich	 
+		- √úbernimmt ungerne gro√üe Verantwortung
 		- kann ohne Deadline nicht arbeiten
 
 	*Kreativ:
@@ -93,12 +93,12 @@ Felix Fink || Rolle: -
 
 		+ Java 
 		+ geringe Kenntnisse mit Android Studio
-		- nur sehr geringf¸gig auﬂerhalb des OOP programmiert
+		- nur sehr geringf√ºgig au√üerhalb des OOP programmiert
 
 
 **Organisatorisch:**
 
-		- benˆtige feste Planung vor Abgaben
+		- ben√∂tige feste Planung vor Abgaben
 
 
 **Kreativ:**
@@ -113,10 +113,10 @@ Felix Fink || Rolle: -
 		- noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung
 
 
-**Persˆnlich:**
+**Pers√∂nlich:**
 
-		+ Kommunikationsf‰hig
-		+ Teamf‰hig
+		+ Kommunikationsf√§hig
+		+ Teamf√§hig
 
 
 ---
@@ -128,19 +128,19 @@ Felix Fink || Rolle: -
 		+ Java
 		+ C
 		+ Interesse an Datenbankverwaltung
-		- wenige eigene Projekte auﬂerhalb der MuP- und OOP-Aufgaben
-		- Modellierung meist vernachl‰ssigt, gleich anfangen mit Programmieren
+		- wenige eigene Projekte au√üerhalb der MuP- und OOP-Aufgaben
+		- Modellierung meist vernachl√§ssigt, gleich anfangen mit Programmieren
 		
 	
 	*Organisatorisch:
-		+ P¸nktlichkeit
-		+ Umsetzung f‰llt leicht, falls ein konkreter Plan steht
+		+ P√ºnktlichkeit
+		+ Umsetzung f√§llt leicht, falls ein konkreter Plan steht
 		- schlechtes Zeitmanagement
 		- Konzentrationsprobleme
 	
 	
 	*Sonstiges:
-		+ Teamf‰hig
+		+ Teamf√§hig
 		- schnell frustriert, falls etwas nicht funktioniert
 		
 		
@@ -157,25 +157,48 @@ Felix Fink || Rolle: -
 		+Java
 		+Basics in Python, HTML und CSS
 		+Interesse an Datenbanken und Videospiel-Programmierung
-		-Benutzeroberfl‰chen
-		-wenig eigene Projekte auﬂerhalb der Uni
+		-Benutzeroberfl√§chen
+		-wenig eigene Projekte au√üerhalb der Uni
 		
 	
 	*Organisatorisch
-		+P¸nktlich und Organisiert
+		+P√ºnktlich und Organisiert
 		-manchmal etwas langsam in der Umsetzung
-		-¸bernimmt ungern groﬂe Verantwortung
+		-√ºbernimmt ungern gro√üe Verantwortung
 		
 
 	*Kreativ
-		+Planung von Programmabl‰ufen
-		+Ideen f¸r Konzepte,etc. 
-		-Ideen und Konzepte scheitern grˆﬂtenteills an der Umsetzung
+		+Planung von Programmabl√§ufen
+		+Ideen f√ºr Konzepte,etc. 
+		-Ideen und Konzepte scheitern gr√∂√ütenteills an der Umsetzung
 		
 
 	*Sonstiges
-		+Teamf‰hig
+		+Teamf√§hig
 		+Gaming-Erfahrung
 		-Gamification-Erfahrung fehlt aber
 
 -------------------------------------------------------------------------
+            # Willy Steinbach || Rolle: - 
+            
+    *Programmieren
+        + Java (auch au√üerhalb des OOP)
+        
+        
+    *Organisatorisch
+        + gut selbst Organisiert
+        + √ºbernimmt gerne Verantwortung
+        - versucht P√ºnktlich zu sein
+        + kommt mit Stress Situationen gut um
+    
+    
+    *Kreativ
+        + Design- und Oberfl√§chenentwicklung
+    
+    
+    *Sonstiges
+        + Teamf√§hig
+        + sehr kommunikativ
+        - keine Erfahrung in der Erstellung gro√üer Projekte
+        + schnell lernf√§hig
+    
