@@ -33,7 +33,7 @@ include 'header.php';
                 <td></td>
             </tr>
              <tr>
-                <td>Lisa Vogelsberg</td>
+                <td><a href="#LV">Lisa Vogelsberg</a></td>
                 <td></td>
             </tr>
              <tr>
@@ -120,8 +120,8 @@ include 'header.php';
     <b>Organisatorisch:</b> <br/>
         + gut selbst Organisiert    <br/>
         + &uuml;bernimmt gerne Verantwortung  <br/>
-        - versucht P&uuml;nktlich zu sein    <br/>
-        + kommt mit Stress Situationen gut um   <br/>
+        - versucht p&uuml;nktlich zu sein    <br/>
+        + kommt mit Stresssituationen gut um   <br/>
     
     
     <b>Kreativ:</b>     <br/>
@@ -154,29 +154,29 @@ include 'header.php';
             <p>
             
             <b>Programmieren:</b> <br/>
-    +Java        <br/>
-    +Basics in Python, HTML und CSS     <br/>
-    +Interesse an Datenbanken und Videospiel-Programmierung      <br/>
-    -Benutzeroberfl&auml;chen      <br/>
-    -wenig eigene Projekte au&szlig;erhalb der Uni      <br/>
+    + Java        <br/>
+    + Basics in Python, HTML und CSS     <br/>
+    + Interesse an Datenbanken und Videospiel-Programmierung      <br/>
+    - Benutzeroberfl&auml;chen      <br/>
+    - wenig eigene Projekte au&szlig;erhalb der Uni      <br/>
 
         <br/>
 <b>Organisatorisch:</b> <br/>
-    +P&uuml;nktlich und Organisiert   <br/>
-    -manchmal etwas langsam in der Umsetzung  <br/>
-    -&uuml;bernimmt ungern gro&szlig;e Verantwortung <br/>
+    + p&uuml;nktlich und organisiert   <br/>
+    - manchmal etwas langsam in der Umsetzung  <br/>
+    - &uuml;bernimmt ungern gro&szlig;e Verantwortung <br/>
 
             <br/>
 <b>Kreativ:</b>    <br/>
-    +Planung von Programmabl&auml;ufen <br/>
-    +Ideen f&uuml;r Konzepte,etc. <br/>
-    -Ideen und Konzepte scheitern gr&ouml;&szlig;tenteills an der Umsetzung  <br/>
+    + Planung von Programmabl&auml;ufen <br/>
+    + Ideen f&uuml;r Konzepte,etc. <br/>
+    - Ideen und Konzepte scheitern gr&ouml;&szlig;tenteills an der Umsetzung  <br/>
          <br/>
 
 <b>Sonstiges:</b> <br/>
-    +Teamf&auml;hig <br/>
-    +Gaming-Erfahrung <br/>
-    -Gamification-Erfahrung fehlt aber  <br/>
+    + Teamf&auml;hig <br/>
+    + Gaming-Erfahrung <br/>
+    - Gamification-Erfahrung fehlt aber  <br/>
 
             
             
@@ -197,11 +197,11 @@ include 'header.php';
     - kann ohne Deadline nicht arbeiten                                 <br/>
                                                                              <br/>
 <b>Kreativ:</b>                                                                         <br/>
-    + Ideen Einbringung                                                                <br/>
+    + Ideeneinbringung                                                                <br/>
                                                                                             <br/>
 
 <b>Gamification:</b>                                                                                   <br/>
-    + Interesse an Psychologischen Themen                                                             <br/>
+    + Interesse an psychologischen Themen                                                             <br/>
     + Selber "Spieler/Gamer"                                                                               <br/>
     - Eher neu in dem Thema                                                                                    
 
@@ -219,19 +219,19 @@ include 'header.php';
                 + C , C++  <br/>
                 + PHP , HTML , CSS , SQL , JavaScript <br/>
                 + Arbeiten mit Datenbanken und Videospiel-Programmierung<br/>
-                - in manchen Sachen sehr festgefahren --> bennenung von Variablen etc. (richtung Ungarische-Notation)     <br/>
+                - in manchen Sachen sehr festgefahren --> Bennenung von Variablen etc. (richtung Ungarische-Notation)     <br/>
                 <br/>
-            <b>Struckturell:</b> <br/>
-                + Struckturierte UML etc. in Quelltext umwandeln <br/> 
+            <b>Strukturell:</b> <br/>
+                + Strukturierte UML etc. in Quelltext umwandeln <br/> 
                 - Entwickeln von Konzepten <br/>
-                - Eher drauf los programmieren, experementiell <br/>
+                - Eher drauf los programmieren, experimentell <br/>
               <br/>
             <b>Organisatorisch: </b><br/>
                 + p&uuml;nktlich    <br/>
-                + Struckturierte Darstellungen f&uuml;r Informationen <br/>
-                + Sehr Motiviert wenn mich ein Thema Interessiert / Spa&szlig; macht (beim Programmieren fast immer)<br/>
+                + Strukturierte Darstellungen f&uuml;r Informationen <br/>
+                + Sehr Motiviert, wenn mich ein Thema Interessiert / Spa&szlig; macht (beim Programmieren fast immer)<br/>
                 - Vermeidet zusatzarbeit bei uninteressanten Themen  <br/>
-                - Ideen Durchsetzten <br/>     
+                - Ideen durchsetzten <br/>     
                 - &Uuml;bernimmt ungerne gro&szlig;e Verantwortung <br/>
                 - Wenn etwas nicht klappt schnell ungeduldig und festgebissen <br/>
                 <br/>
@@ -241,12 +241,12 @@ include 'header.php';
                 - Responsive Designs <br/>
                 <br/>
         <b>Gamification:</b> <br/>
-            + Interesse an Psychologischen Themen  <br/>
+            + Interesse an psychologischen Themen  <br/>
             + Selber "Spieler/Gamer"  <br/>
             - Eher neu in dem Thema   <br/>
           <br/>
         <b>Sonstiges:</b>   <br/>
-            +Lernt schnell neue Sachen
+            + Lernt schnell neue Sachen
               </p>
               
               
@@ -277,6 +277,50 @@ include 'header.php';
 	<b>Gamification:</b>   <br/>
 		+ Erfahrung mit Spielen <br/>
 		- noch keine Erfahrung mit der Gamification an sich  <br/>
+              
+              
+              </p>
+
+
+
+	<h3 id="LV">Lisa Vogelsberg</h3>
+	 <p>
+	
+	<b>Programmieren:</b> <br/>
+		+ Java, C++, Swift, Objective-C <br/>
+		+ Code gut strukturalisieren <br/>
+		+ Datenbanken <br/>
+		+ Code Reviews <br/>
+		+ Arbeit mit GIT
+		° PHP, HTML, CSS (nur theoretisches Wissen) <br/>
+		° Semantic Web <br/>
+		- Dokumentation von Quellcode <br/>
+		- Testen <br/>
+		- Grafische Oberflächen (außer für iOS)  <br/>
+		
+	      <br/>
+	<b>Organisatorisch:</b>   <br/>
+		+ gewissenhaftes und präzises Arbeiten <br/>
+		+ Pünktlichkeit <br/>
+		+ Zeitmanagement <br/>
+		- häufiges Aufschieben von unangenehmen Aufgaben <br/>
+		- abends/nachts produktiver <br/>
+		- spätes Antworten auf Nachrichten  <br/>
+	
+	  <br/>
+	<b>Kreativ:</b>  <br/>
+		° Modellierung<br/>
+		  <br/>
+		
+	<b>Sonstiges:</b>   <br/>
+		+ Dinge erklären <br/>
+		+ Vorträge / Präsentationen halten <br/>
+		° kommunikativ <br/>
+		° wirtschaftswissenschaftliche Kenntnisse <br/>
+		° breites Interessengebiet (sich dadurch zwar für viel begeistern, aber dafür oft nur oberflächlich) <br/>
+		- Gedanken ausformulieren und aufschreiben <br/>
+		- Administratives <br/>
+		- andere von den eigenen Ideen überzeugen  <br/>
               
               
               </p>

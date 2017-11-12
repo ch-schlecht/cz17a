@@ -7,21 +7,21 @@
 		+ C , C++
 		+ PHP , HTML , CSS , SQL , JavaScript
 		+ Arbeiten mit Datenbanken und Videospiel-Programmierung
-		- in manchen Sachen sehr festgefahren --> bennenung von Variablen etc. (richtung Ungarische-Notation)
+		- in manchen Sachen sehr festgefahren --> Bennenung von Variablen etc. (richtung Ungarische-Notation)
 	
-	*Struckturell:
-		+ Struckturierte UML etc. in Quelltext umwandeln  
+	*Strukturell:
+		+ Strukturierte UML etc. in Quelltext umwandeln  
 		- Entwickeln von Konzepten
-		- Eher drauf los programmieren, experementiell
+		- Eher drauf los programmieren, experimentell
 
 	*Organisatorisch:
 		+ pünktlich
-		+ Struckturierte Darstellungen für Informationen
-		+ Sehr Motiviert wenn mich ein Thema Interessiert / Spaß macht (beim Programmieren fast immer)
-		- Vermeidet zusatzarbeit bei uninteressanten Themen
-		- Ideen Durchsetzten	 
+		+ Strukturierte Darstellungen für Informationen
+		+ Sehr Motiviert, wenn mich ein Thema Interessiert / Spaß macht (beim Programmieren fast immer)
+		- Vermeidet Zusatzarbeit bei uninteressanten Themen
+		- Ideen durchsetzten	 
 		- Übernimmt ungerne große Verantwortung
-		- Wenn etwas nicht klappt schnell ungeduldig und festgebissen
+		- Wenn etwas nicht klappt, schnell ungeduldig und festgebissen
 		
 
 	*Kreativ:
@@ -30,7 +30,7 @@
 		- Responsive Designs
 
 	*Gamification:
-		+ Interesse an Psychologischen Themen
+		+ Interesse an psychologischen Themen
 		+ Selber "Spieler/Gamer"
 		- Eher neu in dem Thema
 	
@@ -74,11 +74,11 @@
 		- kann ohne Deadline nicht arbeiten
 
 	*Kreativ:
-		+ Ideen Einbringung
+		+ Ideeneinbringung
 
 
 	*Gamification:
-		+ Interesse an Psychologischen Themen
+		+ Interesse an psychologischen Themen
 		+ Selber "Spieler/Gamer"
 		- Eher neu in dem Thema
 		
@@ -154,29 +154,29 @@ Felix Fink || Rolle: -
 			
 			
 	*Programmieren
-		+Java
-		+Basics in Python, HTML und CSS
-		+Interesse an Datenbanken und Videospiel-Programmierung
-		-Benutzeroberflächen
-		-wenig eigene Projekte außerhalb der Uni
+		+ Java
+		+ Basics in Python, HTML und CSS
+		+ Interesse an Datenbanken und Videospiel-Programmierung
+		- Benutzeroberflächen
+		- wenig eigene Projekte außerhalb der Uni
 		
 	
 	*Organisatorisch
-		+Pünktlich und Organisiert
-		-manchmal etwas langsam in der Umsetzung
-		-übernimmt ungern große Verantwortung
+		+ Pünktlich und Organisiert
+		- manchmal etwas langsam in der Umsetzung
+		- übernimmt ungern große Verantwortung
 		
 
 	*Kreativ
-		+Planung von Programmabläufen
-		+Ideen für Konzepte,etc. 
-		-Ideen und Konzepte scheitern größtenteills an der Umsetzung
+		+ Planung von Programmabläufen
+		+ Ideen für Konzepte,etc. 
+		- Ideen und Konzepte scheitern größtenteills an der Umsetzung
 		
 
 	*Sonstiges
-		+Teamfähig
-		+Gaming-Erfahrung
-		-Gamification-Erfahrung fehlt aber
+		+ Teamfähig
+		+ Gaming-Erfahrung
+		- Gamification-Erfahrung fehlt aber
 
 -------------------------------------------------------------------------
             # Willy Steinbach || Rolle: Stellvertretener Projektleiter 
@@ -188,8 +188,8 @@ Felix Fink || Rolle: -
     *Organisatorisch
         + gut selbst Organisiert
         + übernimmt gerne Verantwortung
-        - versucht Pünktlich zu sein
-        + kommt mit Stress Situationen gut um
+        - versucht pünktlich zu sein
+        + kommt mit Stresssituationen gut um
     
     
     *Kreativ
@@ -201,4 +201,42 @@ Felix Fink || Rolle: -
         + sehr kommunikativ
         - keine Erfahrung in der Erstellung großer Projekte
         + schnell lernfähig
+
+-------------------------------------------------------------------------
+            # Lisa Vogelsberg || Rolle: - 
+            
+    *Programmieren
+        + Java, C++, Swift, Objective-C
+	+ Code gut strukturalisieren
+	+ Datenbanken
+	+ Code Reviews
+	+ Arbeit mit GIT
+	° PHP, HTML, CSS (nur theoretisches Wissen)
+	° Semantic Web
+	- Dokumentation von Quellcode
+	- Testen
+	- Grafische Oberflächen (außer für iOS)
+        
+        
+    *Organisatorisch
+	+ gewissenhaftes und präzises Arbeiten
+	+ Pünktlichkeit
+        + Zeitmanagement
+        - häufiges Aufschieben von unangenehmen Aufgaben
+	- abends/nachts produktiver
+	- spätes Antworten auf Nachrichten
     
+    *Kreativ
+	° Modellierung
+    
+    
+    *Sonstiges
+	+ Dinge erklären
+	+ Vorträge / Präsentationen halten
+	° kommunikativ
+	° wirtschaftswissenschaftliche Kenntnisse
+	° breites Interessengebiet (sich dadurch zwar für viel begeistern, aber dafür oft nur oberflächlich)
+	- Gedanken ausformulieren und aufschreiben
+        - Administratives
+	- andere von den eigenen Ideen überzeugen
+        
