@@ -25,6 +25,22 @@ include 'header.php';
 
         </article>
 
+        <article class="article">
+            <h2>Richtung des Projektes</h2>
+            <p>
+                <b>"Gamifizierung" des Spiels:</b><br/>
+                    Das eigentliche Wissensquiz wird zu Spiel mit strategischen und zuf&auml;lligen Elementen.
+                    Sprich, es sollen Mechanismen entwickelt werden, die eine gewisse Zuf&auml;lligkeit beinhaltet und strategisches Vorgehen (Antworten) notwendig macht um zu gewinnen.
+                    Damit gewinnt nicht der Kl&uuml;gste, sondern der mit Gl&uuml;ck und Strategie.
+                    Ziel ist es einen solchen Mechanismus sowie einen Feedbackmechanismen zur F&ouml;rderung von strategischen Vorgehen zu entwickeln. 
+                    Hei&szlig;t also, es soll eine oder mehrere "Spielvarianten" entwickelt werden UND es sollen Dashboards o.&auml;. entwickelt werden, 
+                    welche das Verhalten auf diesen Spielvarianten visualisieren.
+                    In der Recherchephase wird zu evaluieren sein, welche Spielvarianten denkbar sind, hiervon soll mindestens eine gemeinsam mit dem "Auftraggeber" abgestimmt 
+                    und umgesetzt werden. Gleiches gilt f&uuml;r die Visualisierung, welche abh&auml;ngig von der Spielvariante ist. 
+                    Grunds&auml;tzliche werden in der Recherchephase zun&auml;chst nur Feedbackmechanismen zu sammeln sein.
+            </p>
+        </article>
+
 
 
         </div>
