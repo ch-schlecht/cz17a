@@ -16,7 +16,7 @@ include 'header.php';
             Weiterbildungsapp ihr Wissen auszutauschen, zu pr&uuml;fen und dabei Spa&szlig; zu haben.</p>
 
 
-            <p class="black-box">W&ouml;chentlicher Termin: <br/> Dienstag 16:00:00 <br/> Hainetra&szlig;e 11 - InfAI</p>
+            <p class="black-box">W&ouml;chentlicher Termin: <br/> Dienstag 15:00:00 <br/> Hainetra&szlig;e 11 - InfAI</p>
 
 
 
