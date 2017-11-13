@@ -38,7 +38,7 @@ include 'header.php';
             </tr>
              <tr>
                 <td><a href="#TG">Thomas Gerbert</a></td>
-                <td></td>
+                <td>Kocht Kaffee</td>
             </tr>
              <tr>
                 <td><a href="#MF">Michael Fritz</a></td>
@@ -178,6 +178,53 @@ include 'header.php';
     + Gaming-Erfahrung <br/>
     - Gamification-Erfahrung fehlt aber  <br/>
 
+
+
+
+
+	<h3 id="LV">Lisa Vogelsberg</h3>
+	 <p>
+
+	<b>Programmieren:</b> <br/>
+		+ Java, C++, Swift, Objective-C <br/>
+		+ Code gut strukturalisieren <br/>
+		+ Datenbanken <br/>
+		+ Code Reviews <br/>
+		+ Arbeit mit GIT  <br/>
+		~ PHP, HTML, CSS (nur theoretisches Wissen) <br/>
+		~ Semantic Web <br/>
+		- Dokumentation von Quellcode <br/>
+		- Testen <br/>
+		- Grafische Oberfl&auml;chen (au&szlig;er f&uuml;r iOS)  <br/>
+
+	      <br/>
+	<b>Organisatorisch:</b>   <br/>
+		+ gewissenhaftes und pr&auml;zises Arbeiten <br/>
+		+ P&uuml;nktlichkeit <br/>
+		+ Zeitmanagement <br/>
+		- h&auml;ufiges Aufschieben von unangenehmen Aufgaben <br/>
+		- abends/nachts produktiver <br/>
+		- sp&auml;tes Antworten auf Nachrichten  <br/>
+
+	  <br/>
+	<b>Kreativ:</b>  <br/>
+		~ Modellierung<br/>
+		  <br/>
+
+	<b>Sonstiges:</b>   <br/>
+		+ Dinge erkl&auml;ren <br/>
+		+ Vortr&auml;ge / Pr&auml;sentationen halten <br/>
+		~ kommunikativ <br/>
+		~ wirtschaftswissenschaftliche Kenntnisse <br/>
+		~ breites Interessengebiet (sich dadurch zwar f&uuml;r viel begeistern, aber daf&uuml;r oft nur oberfl&auml;chlich) <br/>
+		- Gedanken ausformulieren und aufschreiben <br/>
+		- Administratives <br/>
+		- andere von den eigenen Ideen &uuml;berzeugen  <br/>
+
+
+              </p>
+
+
             
             
             
@@ -236,8 +283,8 @@ include 'header.php';
                 - Wenn etwas nicht klappt schnell ungeduldig und festgebissen <br/>
                 <br/>
             <b>Kreativ:</b> <br/>
-                 Entwickeln von Design      <br/>
-                 Erstellen von Ressourcen  <br/>
+                ~ Entwickeln von Design      <br/>
+                ~ Erstellen von Ressourcen  <br/>
                 - Responsive Designs <br/>
                 <br/>
         <b>Gamification:</b> <br/>
@@ -282,49 +329,6 @@ include 'header.php';
               </p>
 
 
-
-	<h3 id="LV">Lisa Vogelsberg</h3>
-	 <p>
-	
-	<b>Programmieren:</b> <br/>
-		+ Java, C++, Swift, Objective-C <br/>
-		+ Code gut strukturalisieren <br/>
-		+ Datenbanken <br/>
-		+ Code Reviews <br/>
-		+ Arbeit mit GIT
-		° PHP, HTML, CSS (nur theoretisches Wissen) <br/>
-		° Semantic Web <br/>
-		- Dokumentation von Quellcode <br/>
-		- Testen <br/>
-		- Grafische Oberfl&auml;chen (au&szlig;er f&uuml;r iOS)  <br/>
-		
-	      <br/>
-	<b>Organisatorisch:</b>   <br/>
-		+ gewissenhaftes und pr&auml;zises Arbeiten <br/>
-		+ P&uuml;nktlichkeit <br/>
-		+ Zeitmanagement <br/>
-		- h&auml;ufiges Aufschieben von unangenehmen Aufgaben <br/>
-		- abends/nachts produktiver <br/>
-		- sp&auml;tes Antworten auf Nachrichten  <br/>
-	
-	  <br/>
-	<b>Kreativ:</b>  <br/>
-		° Modellierung<br/>
-		  <br/>
-		
-	<b>Sonstiges:</b>   <br/>
-		+ Dinge erkl&auml;ren <br/>
-		+ Vortr&auml;ge / Pr&auml;sentationen halten <br/>
-		° kommunikativ <br/>
-		° wirtschaftswissenschaftliche Kenntnisse <br/>
-		° breites Interessengebiet (sich dadurch zwar f&uuml;r viel begeistern, aber daf&uuml;r oft nur oberfl&auml;chlich) <br/>
-		- Gedanken ausformulieren und aufschreiben <br/>
-		- Administratives <br/>
-		- andere von den eigenen Ideen &uuml;berzeugen  <br/>
-              
-              
-              </p>
-              
               
          </article>
     

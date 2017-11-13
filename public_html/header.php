@@ -23,6 +23,13 @@
                         <a class="nav" href="team.php">Das Team</a>
                     </div>
                     </li>
+                  <!--
+                    <li class="nav">
+                        <form action="filter.php" method="post">
+                        <input type="Text" name="search"/>
+                        <input type="Submit" value="Suche"/>
+                        </form></li>
+                      -->
                     <li id="git"><a class="nav" href="https://git.informatik.uni-leipzig.de/swp17/cz17a"><img width="18" height="18" src="res/gitlab.svg"/></a></li>
                 </ul>
                 </div>
