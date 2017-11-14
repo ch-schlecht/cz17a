@@ -36,46 +36,25 @@ include 'header.inc.php';
     <article class="article" id="uebersicht">  <!--  Links to all Protokolls-->
        <h2>&Uuml;bersicht</h2>
        <p><a href="#1" role="button">Sitzung 1 &raquo;</a> vom 07-11-2017</p>
+       <p><a href="#2" role="button">Sitzung 2 &raquo;</a> vom 14-11-2017</p>
     </article>
 
 
 
     <article class="article anchor" id="1">    <!-- First meeting -->
-            <h2>Sitzung 1</h2>
-            
-            <p class="black-box"> <!-- Basic Information of Protocoll -->
-              Ort:           Hainestra&szlig;e 11 - InfAI <br/>
-              Datum:         Di, 07-11-2017 <br/>
-              Uhrzeit:       16:00:00 <br/>
-              Protokoll von: Christian Schlecht <br/>
-            </p>
-            
-            
-            <p>
-            <b>Allgemein:</b><br/>
-                -Kennenlernrunde  <br/>
-                -Deadline der ersten Aufgabe: Montag 13-11-17 23:59:00 <br/>
-                -St&auml;rken und Schw&auml;chen im Bezug auf Organisation, Strukturierung, Programmierung als Datei im Git <br/>
-                -Git: Alle m&uuml;ssen einen Commit gemacht haben <br/>
-                -Rollenverteilung muss gekl&auml;rt sein <br/>
-                -Projektleiter vorerst: Christian Schlecht <br/>
-                <br/>
-            <b>Aufgaben:</b><br/>
-                -Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung) <br/>
-                -Dokument mit St&auml;rken und Schw&auml;chen <br/>
-                -Neue Issues, Meilenstein <br/>
-                -Doodle f&uuml;r Pr&auml;senstermin <br/>
-                <br/>
-            <b>Themen:</b><br/>
-                -Soziale Netzwerke innerhalb von Unternehmen<br/>
-                -Quiz hat hohe Attraktivit&auml;t in der Gesellschaft<br/>
-                <br/>
-            <b>Fragestellungen zum n&auml;chsten Treffen:</b><br/>
-                -Entweder Quizapp oder ContentCreation (genauere Beschreibung in der Mail vom Betreuer)<br/>
-                -Gedanken machen, welche der beiden Richtungen<br/>
-            </p>
+          
+          <?php include 'protokolle/protokoll_1.html'?>
 
     </article>
+    
+    <article class="article anchor" id="2">    <!-- First meeting -->
+
+       
+          
+        <?php include 'protokolle/protokoll_2.html'?>
+
+    </article>
+    
 
          </div>
     </body>

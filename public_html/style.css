@@ -130,7 +130,13 @@ h3{
 }
     
 
-.article a {
+.black-box a{
+ color: white;
+ text-decoration: underline;
+}
+
+
+.article a -.black-box{
     color:white;
     background-color: #0080FF;
     border-radius: 5px;
@@ -139,7 +145,7 @@ h3{
     text-decoration: none;
 }
 
-.article a:hover{
+.article a:hover -.black-box{
     border: 1px inset #0040FF;
 }
 
