@@ -29,46 +29,6 @@ include 'header.inc.php';
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
 
-
-    <!--
-    <script type="text/javascript">//<![CDATA[
-        window.onload = function(){
-            
-        // Create a connection to the file.
-        var Connect = new XMLHttpRequest();
-        // Define which file to open and send the request.
-        Connect.open("GET", "Aufwand.xml", false);
-        Connect.setRequestHeader("Content-Type", "text/xml");
-        Connect.send(null);
-        // Place the response in an XML document.
-        var TheDocument = Connect.responseXML;
-        // Place the root node in an element.
-        var Rows = TheDocument.childNodes[0];
-        // Retrieve each customer in turn.
-        for (var i = 0; i < Rows.children.length; i++){
-            var Row = Rows.children[i];
-            // Access each of the data values.
-            var who = Row.getElementsByTagName("who");
-            var A = Row.getElementsByTagName("A");
-            var S = Row.getElementsByTagName("S");
-            var Zeit = Row.getElementsByTagName("Zeit");
-            // Write the data to the page.
-            document.write("<tr><td>");
-            document.write(who[0].textContent.toString());
-            document.write("</td><td>");
-   document.write(A[0].textContent.toString());
-   document.write("</td><td>");
-   document.write(S[0].textContent.toString());
-   document.write("</td><td>");
-   document.write(Zeit[0].textContent.toString());
-   document.write("</td></tr>");
-  }
-  alert("Done");    
-        }
-//]]>        
-</script>
-
-        -->
         
     <!--
             Imorted Header from header.php
@@ -78,8 +38,8 @@ include 'header.inc.php';
    <?php 
    
    
-if (file_exists('aufwand.xml')) {
-   $xml = simplexml_load_file('aufwand.xml');
+if (file_exists('Aufwand.xml')) {
+   $xml = simplexml_load_file('Aufwand.xml');
 
    /*für alle Analysen*/
    foreach($xml->Analyse as $Analyse){
