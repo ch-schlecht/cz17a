@@ -130,13 +130,10 @@ h3{
 }
     
 
-.black-box a{
- color: white;
- text-decoration: underline;
-}
 
 
-.article a -.black-box{
+
+.article a {
     color:white;
     background-color: #0080FF;
     border-radius: 5px;
@@ -145,8 +142,20 @@ h3{
     text-decoration: none;
 }
 
-.article a:hover -.black-box{
+.article a:hover {
     border: 1px inset #0040FF;
+}
+
+
+.black-box a{
+ border: none;
+ background-color: black;
+ color: white;
+ text-decoration: underline;
+}
+
+.black-box a:hover{
+    border: none;
 }
 
 /*--Start Table--*/
