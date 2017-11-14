@@ -171,6 +171,7 @@ table,td,th{
 /*--End Table--*/
 
 
+
 .anchor{ /*Offset for anchor elements because of fixed navbar*/
     padding-top: 90px;
 }
