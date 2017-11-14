@@ -1,13 +1,12 @@
-#title
+#title /*Main Title of every site*/
 {
  text-align: center;
  color: #000000; 
  font-size: 50pt;
-
 }
 
 
-.navbar-fixed-top{
+.navbar-fixed-top{ /*fixed navbar on top of site*/
     position: fixed;
     top: 0px;
     left: 0px;
@@ -16,18 +15,18 @@
     border-bottom: 1px solid #BDBDBD;
 }
 
-.navbar-content{
+.navbar-content{  /*content of navbar starts 20% left of page*/
     margin-left: 20%;
 }
 
-#nav_name{
-        font-size: x-large;
-      font-weight: bold;
-      padding: 9px 16px;
+#nav_name{  /*Name of Project in Navbar*/
+    font-size: x-large;
+    font-weight: bold;
+    padding: 9px 16px;
 
 }
 
-.nav{
+.nav{    /*single content of navbar*/
     display: inline-block;
     color: #6E6E6E;
     text-align: center;
@@ -47,15 +46,17 @@ nav ul {
 
 nav li {
     float: left;
-
     
 }
 
 
 
-nav li a:hover, .dropdown:hover .dropbtn {
+nav li a:hover, .dropdown:hover .dropbtn {    /*hover for navbar content*/
     color: #424242;
 }
+
+
+/*--Start Dropdown mechanism--*/
 
 nav li.dropdown {
     display: inline-block;
@@ -83,11 +84,19 @@ nav li.dropdown {
     display: block;
 }
 
-.active{
-    background-color: #D8D8D8;
+/*--End Dropdown mechanism--*/
+
+
+#git{  /*git logo/link on right end of navbar*/
+    float: right;
+    padding: 0px 0px;
+    border-left: 1px solid #BDBDBD;
 }
 
 
+.active{ /*color of active element in navbar (not in use)*/
+    background-color: #D8D8D8;
+}
 
 
 .article{
@@ -134,6 +143,7 @@ h3{
     border: 1px inset #0040FF;
 }
 
+/*--Start Table--*/
 
 .article table{
     margin: 0 auto;
@@ -153,32 +163,27 @@ h3{
     border: none;
 }
 
+table,td,th{
+    border: 1px solid black;
+}
 
-.anchor{
+
+/*--End Table--*/
+
+
+.anchor{ /*Offset for anchor elements because of fixed navbar*/
     padding-top: 90px;
 }
 
 
-
-    table,td,th{
-         border: 1px solid black;
-    }
-
-#git{
-    float: right;
-    padding: 0px 0px;
-    border-left: 1px solid #BDBDBD;
-}
-
-.black-box{
+.black-box{ /*black box of information (for dates)*/
     color: white;
     background-color: #000000;
     border-radius: 2px;
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
-   
-    
+       
 }
 
 

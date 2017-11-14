@@ -9,19 +9,26 @@ include 'header.php';
    <script type="text/javascript">
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';
     </script>
-    <body>
+    
+    
+    <!--
+            Imorted Header from header.php
+            opened a <div id="content">
+    -->
 
-    <article class="article" id="uebersicht">
+    
+
+    <article class="article" id="uebersicht">  <!--  Links to all Protokolls-->
        <h2>&Uuml;bersicht</h2>
        <p><a href="#1" role="button">Sitzung 1 &raquo;</a> vom 07-11-2017</p>
     </article>
 
 
 
-    <article class="article" id="1">
+    <article class="article anchor" id="1">    <!-- First meeting -->
             <h2>Sitzung 1</h2>
             
-            <p class="black-box">
+            <p class="black-box"> <!-- Basic Information of Protocoll -->
               Ort:           Hainestra&szlig;e 11 - InfAI <br/>
               Datum:         Di, 07-11-2017 <br/>
               Uhrzeit:       16:00:00 <br/>
