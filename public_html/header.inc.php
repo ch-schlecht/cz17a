@@ -39,6 +39,7 @@
                     <div class="dropdown-content"> <!-- content under Projekt -->
                         <a class="nav" href="protokolle.php">Protokolle</a>
                         <a class="nav" href="team.php">Das Team</a>
+                        <a class="nav" href="aufwand.php">Aufwand</a>
                     </div>
                     </li>
                   <!--
