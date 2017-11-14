@@ -1,14 +1,21 @@
--kennenlernrunde
--deadline erste aufgabe: montag 13.11 23:59
--stärken und schwächen im Bezug auf Organisation, Strukturierung, Programmierung als Datei im Git
--Git: alle müssen einen Commit gemacht haben
+Allgemein:
+-Kennenlernrunde
+-Deadline der ersten Aufgabe: Montag 13-11-17 23:59:00
+-Stärken und Schwächen im Bezug auf Organisation, Strukturierung, Programmierung als Datei im Git
+-Git: Alle müssen einen Commit gemacht haben
 -Rollenverteilung muss geklärt sein
 -Projektleiter vorerst: Christian Schlecht
--TODO: Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung), Dokument mit Stärken und Schwächen, neue Issues
+
+Aufgaben:
+-Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung)
+-Dokument mit Stärken und Schwächen
+-Neue Issues, Meilenstein
 -Doodle für Präsenstermin
 
+Themen:
+-Soziale Netzwerke innerhalb von Unternehmen
+-Quiz hat hohe Attraktivität in der Gesellschaft
 
--soziale Netzwerke innerhalb von Unternehmen
--quiz hat hohe Attarktivität in der Gesellschaft
--entweder quizapp oder ContentCreation (genauere Beschreibung in Mail von Betreuern)
--gedanken machen, welche der beiden Richtungen
+Fragestellungen zum nächsten Treffen:
+-Entweder Quizapp oder ContentCreation (genauere Beschreibung in der Mail vom Betreuer)
+-Gedanken machen, welche der beiden Richtungen

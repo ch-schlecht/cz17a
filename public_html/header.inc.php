@@ -1,6 +1,6 @@
 <?php 
 /**
- * header.php
+ * header.inc.php
  *
  * Header containing navbar for every file at server
  *
