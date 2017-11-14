@@ -8,8 +8,14 @@ include 'header.php';
    <script type="text/javascript">
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';
     </script>
+    
+    <!--
+            Imorted Header from header.php
+            opened a <div id="content">
+    -->
 
-        <article class="article">
+
+        <article class="article"> <!-- Infomation about the Project and meeting -->
             <h2>Das Projekt</h2>
             <p>Unser Projekt befasst sich mit der betrieblichen Weiterbildung durch Gamifiaction. </br>
             Ziel ist es eine App bzw. Weboberfl&auml;che zu entwickeln, welche es Firmen und deren Mitarbeitern erm&ouml;glicht &uuml;ber eine 
@@ -20,12 +26,13 @@ include 'header.php';
 
 
 
+            <!-- links to under-categoris of project --> 
             <p><a href="team.php" role="button">Zum Team &raquo;</a>
             <a href="protokolle.php" role="button">Zu den Protokollen &raquo;</a></p>
 
         </article>
 
-        <article class="article">
+        <article class="article">   <!-- short description of the project -->
             <h2>Richtung des Projektes</h2>
             <p>
                 <b>"Gamifizierung" des Spiels:</b><br/>
