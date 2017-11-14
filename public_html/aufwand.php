@@ -16,24 +16,9 @@
 */
 
 session_start();
-//include 'header.inc.php';
+include 'header.inc.php';
 
 
-if (file_exists('aufwand.xml')) {
-   $xml = simplexml_load_file('aufwand.xml');
-
-   /*für alle Analysen*/
-
-    /*Für alle Dones*/
-    echo $xml->done[0]['who'];
-    echo $xml->done[0]['A'];
-    echo $xml->done[0]['S'];
-    echo $xml->done[0]['Zeit'];
-    echo $xml->done[0];
-
-} else {
-   exit('Konnte Datei nicht laden.');
-}
 
 
 
@@ -90,27 +75,48 @@ if (file_exists('aufwand.xml')) {
             opened a <div id="content">
     -->
 
-    <!--
-        <article class="article" id="team"> <!-- table of team-members an positions 
-            <h2>Phase A1</h2>
-            
-            <p>Anfang bis 13-11-17</p>
-            
-            <table>
-            <tr>
-                <th>Wer?</th>
-                <th>Aufwand</th>
-                <th>Schwierigkeit</th>
-                <th>Zeit</th>
-            </tr>
-            <!-- HERE 
-            
-            
-            </table>
+   <?php 
+   
+   
+if (file_exists('aufwand.xml')) {
+   $xml = simplexml_load_file('aufwand.xml');
+
+   /*für alle Analysen*/
+   foreach($xml->Analyse as $Analyse){
+        echo '<article class="article">';
+        echo "<h2>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";
+        echo"<table>";
+        echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufwand</th><th>Schwierigkeit</th><th>Zeit</th></tr>";
 
 
-        </article>
-        -->
+        foreach($Analyse->done as $done){
+            echo "<tr>";
+            echo "<td>".$done['who']."</td>";
+            echo "<td>".$done."</td>";
+            echo"<td>".$done['A']."</td>";
+            echo"<td>".$done['S']."</td>";
+            echo"<td>".$done['Zeit']."</td>";
+
+            echo"</tr>";
+        }
+
+       echo "</table>";
+
+        echo "</article>";
+   }
+
+    /*Für alle Dones*/
+    echo $xml->done[0]['who'];
+    echo $xml->done[0]['A'];
+    echo $xml->done[0]['S'];
+    echo $xml->done[0]['Zeit'];
+    echo $xml->done[0];
+
+} else {
+   exit('Konnte Datei nicht laden.');
+}
+   
+    ?>
         </div>
     </body>
         
