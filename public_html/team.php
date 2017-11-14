@@ -8,7 +8,7 @@ include 'header.php';
    <script type="text/javascript">
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';
     </script>
-    
+
         <article class="article" id="team">
             <h2>Unser Team</h2>
             <table>
@@ -38,7 +38,7 @@ include 'header.php';
             </tr>
              <tr>
                 <td><a href="#TG">Thomas Gerbert</a></td>
-                <td>Kocht Kaffee</td>
+                <td></td>
             </tr>
              <tr>
                 <td><a href="#MF">Michael Fritz</a></td>
@@ -56,61 +56,48 @@ include 'header.php';
          <article class="article" id="sus">
               <h2>St&auml;rken und Schw&auml;chen</h2>
              
+                <h3 id="FF" class="anchor">Felix Fink</h3>
+                <p>
+                    <b>Programmieren:</b><br/>
+                        + Java <br/>
+                        + geringe Kenntnisse mit Android Studio    <br/>
+                        - nur sehr geringf&uuml;gig au&szlig;erhalb des OOP programmiert    <br/>
+                        <br/>
+                    <b>Organisatorisch:</b>   <br/>
+                        - ben&ouml;tige feste Planung vor Abgaben  <br/>
+                        <br/>
+                    <b>Kreativ:</b>  <br/>
+                        + Ideenreich (wenn nicht unter Stress) <br/>
+                        + Interesse an Designentwicklung  <br/>
+                        <br/>
+                    <b>Gamifikation:</b>    <br/>
+                        + Interresse an der Psychologie <br/>
+                        - noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung    <br/>
+                        <br/>
+                    <b>Pers&ouml;nlich:</b>        <br/>
+                        + Kommunikationsf&auml;hig   <br/>
+                        + Teamf&auml;hig
+                </p>
+            <h3 id="CS" class="anchor">Christian Schlecht</h3>
+                <p>
+                    <b>Programmieren:</b><br/>
+                        + Java (vor allem im Rahmen OOP)<br/>
+                        + Basics in Python, JavaScript     <br/>
+                        + Arbeit mit Libraries (z.B. mit p5.js gearbeitet)   <br/>
+                        - Rekursionen <br/>
+                        - Backend Kenntnisse  <br/>
+                        <br/>
+                    <b>Organisatorisch:</b>    <br/>
+                        + Arbeit/Kommunikation im Team  <br/>
+                        + p&uuml;nktlich bzw. zuverl&auml;ssig <br/>
+                        - manchmal chaotisch (alles am besten sofort anfangen, nicht erst eins fertig und dann das n&auml;chste) <br/>
+                        <br/>
+                    <b>Sonstiges:</b>     <br/>
+                        - ungeduldig (vor allem wenn etwas nicht funktioniert)  <br/>
+                        - "from scratch" Implementieren, Konzepte entwickeln 
+                </p>
              
-             <h3 id="FF">Felix Fink</h3>
-             <p>
-            <b>Programmieren:</b><br/>
-
-    + Java                       <br/>
-    + geringe Kenntnisse mit Android Studio    <br/>
-    - nur sehr geringf&uuml;gig au&szlig;erhalb des OOP programmiert    <br/>
-<br/>
-<b>Organisatorisch:</b>   <br/>
-
-    - ben&ouml;tige feste Planung vor Abgaben  <br/>
-    <br/>
-<b>Kreativ:</b>  <br/>
-
-    + Ideenreich (wenn nicht unter Stress) <br/>
-    + Interesse an Designentwicklung  <br/>
-    <br/>
-<b>Gamifikation:</b>    <br/>
-
-    + Interresse an der Psychologie <br/>
-    - noch keine Erfahrung im Bezug auf die betriebliche Weiterbildung    <br/>
-    <br/>
-<b>Pers&ouml;nlich:</b>        <br/>
-
-    + Kommunikationsf&auml;hig   <br/>
-    + Teamf&auml;hig
-             
-             
-             </p>
-             
-             
-             <h3 id="CS">Christian Schlecht</h3>
-            <p>
-            <b>Programmieren:</b><br/>
-    + Java (vor allem im Rahmen OOP)<br/>
-    + Basics in Python, JavaScript     <br/>
-    + Arbeit mit Libraries (z.B. mit p5.js gearbeitet)   <br/>
-    - Rekursionen <br/>
-    - Backend Kenntnisse  <br/>
-            <br/>
-<b>Organisatorisch:</b>    <br/>
-    + Arbeit/Kommunikation im Team  <br/>
-    + p&uuml;nktlich bzw. zuverl&auml;ssig <br/>
-    - manchmal chaotisch (alles am besten sofort anfangen, nicht erst eins fertig und dann das n&auml;chste) <br/>
-       <br/>
-<b>Sonstiges:</b>     <br/>
-    - ungeduldig (vor allem wenn etwas nicht funktioniert)  <br/>
-    - "from scratch" Implementieren, Konzepte entwickeln 
-
-            
-            </p>
-             
-             
-        <h3 id="WS">Willy Steinbach</h3>     
+        <h3 id="WS" class="anchor">Willy Steinbach</h3>     
         <p>
             
     <b>Programmieren:</b>  <br/>
@@ -149,7 +136,7 @@ include 'header.php';
              
              
              
-        <h3 id="SL">Steven Lehmann</h3>
+        <h3 id="SL" class="anchor">Steven Lehmann</h3>
              
             <p>
             
@@ -182,7 +169,7 @@ include 'header.php';
 
 
 
-	<h3 id="LV">Lisa Vogelsberg</h3>
+	<h3 id="LV" class="anchor">Lisa Vogelsberg</h3>
 	 <p>
 
 	<b>Programmieren:</b> <br/>
@@ -231,7 +218,7 @@ include 'header.php';
             
             </p> 
              
-             <h3 id="TG">Thomas Gerbert</h3>
+             <h3 id="TG" class="anchor">Thomas Gerbert</h3>
              <p>
                 <b>Programmieren:</b><br/>
     + Java                           <br/>
@@ -259,7 +246,7 @@ include 'header.php';
              
              
              
-              <h3 id="MF">Michael Fritz</h3>
+              <h3 id="MF" class="anchor">Michael Fritz</h3>
               <p>
               <b>Programmieren:</b>  <br/>
                 + Java (auch Android) <br/>
@@ -298,7 +285,7 @@ include 'header.php';
               
               
               
-       <h3 id="FZ">Fabian Ziegner</h3>
+       <h3 id="FZ" class="anchor">Fabian Ziegner</h3>
 	 <p>
 	
 	<b>Programmieren:</b> <br/>
