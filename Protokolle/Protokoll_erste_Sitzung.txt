@@ -9,7 +9,7 @@ Allgemein:
 Aufgaben:
 -Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung)
 -Dokument mit Stärken und Schwächen
--Neue Issues, Mailenstein
+-Neue Issues, Meilenstein
 -Doodle für Präsenstermin
 
 Themen:

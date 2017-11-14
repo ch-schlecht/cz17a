@@ -63,7 +63,7 @@ include 'header.php';
             <b>Aufgaben:</b><br/>
                 -Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung) <br/>
                 -Dokument mit St&auml;rken und Schw&auml;chen <br/>
-                -Neue Issues, Mailenstein <br/>
+                -Neue Issues, Meilenstein <br/>
                 -Doodle f&uuml;r Pr&auml;senstermin <br/>
                 <br/>
             <b>Themen:</b><br/>
