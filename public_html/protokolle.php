@@ -1,4 +1,19 @@
 <?php
+/**
+ * protokolle.php
+ *
+ * Collection of Protocoll
+ *
+ * @category    Information
+ * @package     public_html
+ * @author      Michael Fritz <mf35luzo@studserv.uni-leipzig.de>
+ * @copyright   2017 Michael Fritz
+ * @version     1.0.0
+ * @since       File avaible since Release 1.0.0
+ *
+ *
+*/
+
 session_start();
 include 'header.php';
 
@@ -37,20 +52,28 @@ include 'header.php';
             
             
             <p>
--kennenlernrunde  <br/>
--deadline erste aufgabe: montag 13.11 23:59 <br/>
--st&auml;rken und schw&auml;chen im Bezug auf Organisation, Strukturierung, Programmierung als Datei im Git <br/>
--Git: alle m&uuml;ssen einen Commit gemacht haben    <br/>
--Rollenverteilung muss gekl&auml;rt sein  <br/>
--Projektleiter vorerst: Christian Schlecht    <br/>
--TODO: Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung), Dokument mit St&auml;rken und Schw&auml;chen, neue Issues <br/>
--Doodle f&uuml;r Pr&auml;senstermin              <br/>
-<br/>
--soziale Netzwerke innerhalb von Unternehmen  <br/>
--quiz hat hohe Attarktivit&auml;t in der Gesellschaft     <br/>
--entweder quizapp oder ContentCreation (genauere Beschreibung in Mail von Betreuern)    <br/>
--gedanken machen, welche der beiden Richtungen   <br/>
-</p>
+            <b>Allgemein:</b><br/>
+                -Kennenlernrunde  <br/>
+                -Deadline der ersten Aufgabe: Montag 13-11-17 23:59:00 <br/>
+                -St&auml;rken und Schw&auml;chen im Bezug auf Organisation, Strukturierung, Programmierung als Datei im Git <br/>
+                -Git: Alle m&uuml;ssen einen Commit gemacht haben <br/>
+                -Rollenverteilung muss gekl&auml;rt sein <br/>
+                -Projektleiter vorerst: Christian Schlecht <br/>
+                <br/>
+            <b>Aufgaben:</b><br/>
+                -Webseite starten (darauf Projektbeschreibung, Teamzusammensetzung) <br/>
+                -Dokument mit St&auml;rken und Schw&auml;chen <br/>
+                -Neue Issues, Mailenstein <br/>
+                -Doodle f&uuml;r Pr&auml;senstermin <br/>
+                <br/>
+            <b>Themen:</b><br/>
+                -Soziale Netzwerke innerhalb von Unternehmen<br/>
+                -Quiz hat hohe Attraktivit&auml;t in der Gesellschaft<br/>
+                <br/>
+            <b>Fragestellungen zum n&auml;chsten Treffen:</b><br/>
+                -Entweder Quizapp oder ContentCreation (genauere Beschreibung in der Mail vom Betreuer)<br/>
+                -Gedanken machen, welche der beiden Richtungen<br/>
+            </p>
 
     </article>
 

@@ -1,3 +1,21 @@
+<?php 
+/**
+ * header.php
+ *
+ * Header containing navbar for every file at server
+ *
+ * @category    Include
+ * @package     public_html
+ * @author      Michael Fritz <mf35luzo@studserv.uni-leipzig.de>
+ * @copyright   2017 Michael Fritz
+ * @version     1.0.0
+ * @since       File avaible since Release 1.0.0
+ *
+ *
+*/
+
+ ?>
+
 <!DOCTYPE HTML>
 <html>
     <header>

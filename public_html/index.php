@@ -1,4 +1,20 @@
 <?php
+/**
+ * index.php
+ *
+ * Main Page
+ *
+ * @category    Information
+ * @package     public_html
+ * @author      Michael Fritz <mf35luzo@studserv.uni-leipzig.de>
+ * @copyright   2017 Michael Fritz
+ * @version     1.0.0
+ * @since       File avaible since Release 1.0.0
+ *
+ *
+*/
+
+
 session_start();
 include 'header.php';
 
