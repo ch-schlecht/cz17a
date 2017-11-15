@@ -154,7 +154,7 @@
 		- Gamification-Erfahrung fehlt aber
 
 -------------------------------------------------------------------------
-# Willy Steinbach # || Rolle: Stellvertretener Projektleiter 
+# Willy Steinbach # || Rolle: Stellvertretender Projektleiter 
 =====================================================
             
     *Programmieren:
