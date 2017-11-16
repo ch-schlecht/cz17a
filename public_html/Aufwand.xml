@@ -11,7 +11,7 @@
 	<Analyse von="2017-11-14" bis="2017-11-21" gruppe="cz17a" createdBy="MF" createdAt="2017-11-14">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="0.5"> 2. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="1">Protokoll</done>
-		<done who="MF" A="2" S="1" Zeit="2">Website Wartung und Erweiterung</done>
+		<done who="MF" A="2" S="1" Zeit="4">Website Wartung und Erweiterung</done>
 		<done who="FF" A="3" S="2" Zeit="3">Meilenstein und passende Issues anlegen und verwalten</done>
 		<done who="FF" A="3" S="3" Zeit="4">Mit dem Thema Gamification auseinander setzen</done>
 		<done who="MF" A="3" S="2" Zeit="3">Mit dem Thema Gamification auseinander setzen</done>
