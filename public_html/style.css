@@ -158,6 +158,16 @@ h3{
     border: none;
 }
 
+
+.canvas-container {
+  position: relative;
+  height: 40vh;
+  width: 40vw;
+  margin: auto;
+}
+
+
+
 /*--Start Table--*/
 
 .article table{
