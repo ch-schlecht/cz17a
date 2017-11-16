@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 /**
  * header.inc.php
  *
@@ -20,13 +20,10 @@
 <html>
     <header>
         <title>Gamification</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>   <!-- scale to device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no", charset="utf-8"/>   <!-- scale to device -->
         <link rel="stylesheet" media="(orientation: portrait)" type="text/css" href="style_mobile.css" /> <!-- load mobile css on all horizontal-orientated devices-->
         <link rel="stylesheet"  media="(orientation: landscape)" type="text/css" href="style.css"/>    <!-- load other css for vertial-orientated devices (like pc) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   <!-- include jquery -->
-   
-         
-   
     </header>
     <body>
     
