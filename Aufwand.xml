@@ -3,7 +3,7 @@
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1"> 1. Praezenstreffen</done>
 		<done who="CS" A="1" S="1" Zeit="0.5">Protokoll</done>
 		<done who="MF" A="3" S="3" Zeit="7">Website erstellen (+versuche mit jekyll)</done>
-		<done who="MF" A="1" S="1" Zeit="0.16">QM von SuS</done>
+		<done who="MF" A="1" S="1" Zeit="0.25">QM von SuS</done>
 		<done who="FF,CS,WS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="0.5">StaerkenUndSchwaechen</done>
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Verwaltung der Issues</done>
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1">Klaerung der Richtung des Projekts</done>
@@ -17,6 +17,6 @@
 		<done who="MF" A="3" S="2" Zeit="3">Mit dem Thema Gamification auseinander setzen</done>
 		<done who="FF, MF" A="3" S="3" Zeit="1.5">Aufwandsanalyse betreiben und auf Website stellen</done>	
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
-		<done who="TG,MF,FF" A="1" S="2" zeit="0.5">SSH Einrichten</done>
+		<done who="TG,MF,FF" A="1" S="2" Zeit="0.5">SSH Einrichten</done>
 	</Analyse>
 </Bericht>
