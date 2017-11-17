@@ -153,7 +153,7 @@ if (file_exists('Aufwand.xml')) {
         labels: ['FF','CS','SL','LV','TG','MF','FZ','WS'],
         datasets: [{
             label: 'Pie-Chart',
-            backgroundColor: ['rgb(255,255,255)','rgb(255,0,0)','rgb(0,255,0)','rgb(255,255,50)','rgb(255,128,0)','rgb(0,0,255)','rgb(51,255,255)','rgb(255,0,255)'],
+            backgroundColor: ['rgb(200,200,200)','rgb(200,0,0)','rgb(0,200,0)','rgb(200,200,50)','rgb(200,120,0)','rgb(0,0,200)','rgb(45,200,200)','rgb(200,0,200)'],
             borderColor: 'rgb(0,0,0)',
             data: [".$FF.",".$CS.",".$SL.",".$LV.",".$TG.",".$MF.",".$FZ.",".$WS."]
         }]
