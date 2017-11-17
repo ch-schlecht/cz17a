@@ -29,15 +29,17 @@ include 'header.inc.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
     <script type="text/javascript">
         $(document).ready(function(){
-	$("dt").click(function(){ // trigger
+	$("dt").click(function(e){ // trigger
 		$(this).next("dd").slideToggle("fast"); // blendet beim Klick auf "dt" die nächste "dd" ein.
 		$(this).children("a").toggleClass("closed open"); // wechselt beim Klick auf "dt" die Klasse des enthaltenen a-Tags von "closed" zu "open".
-	   });
+	   
+	     e.preventDefault();
+       });
     });
 
     
     </script>
-        
+   
     <!--
             Imorted Header from header.php
             opened a <div id="content">
@@ -140,7 +142,7 @@ if (file_exists('Aufwand.xml')) {
        
        echo "<p><b>Gesamt: ".$gesamt." h</b>  ||  <b>Team: ".$team." h</b></p>";
        
-       echo "<dt class='anchor' id='c".$i."' ><a id='switch' href='#c".$i."' class='closed'><div id='sign'>&#9658;</div> Diagramm<hr style='display:inline-block; vertical-align: middle;  width:40vw'/></a></dt>";
+       echo "<dt><a id='switch' href='#' class='closed'><div id='sign'>&#9658;</div> Diagramm<hr style='display:inline-block; vertical-align: middle;  width:40vw'/></a></dt>";
        echo "<dd><div class='canvas-container'><canvas id='chart".$i."'></canvas></div></dd>";
        
        echo "
