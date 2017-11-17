@@ -17,5 +17,6 @@
 		<done who="MF" A="3" S="2" Zeit="3">Mit dem Thema Gamification auseinander setzen</done>
 		<done who="FF, MF" A="3" S="3" Zeit="1.5">Aufwandsanalyse betreiben und auf Website stellen</done>	
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
+		<done who="TG,MF,FF" A="1" S="2" zeit="0.5">SSH Einrichten</done>
 	</Analyse>
 </Bericht>
