@@ -26,18 +26,16 @@ include 'header.inc.php';
    <script type="text/javascript">
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
-    <script type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>  <!--scripts for charts (used pie-chart) -->
+    <script type="text/javascript">   //script for toggle display of pie-chart
         $(document).ready(function(){
-	$("dt").click(function(e){ // trigger
-		$(this).next("dd").slideToggle("fast"); // blendet beim Klick auf "dt" die nächste "dd" ein.
-		$(this).children("a").toggleClass("closed open"); // wechselt beim Klick auf "dt" die Klasse des enthaltenen a-Tags von "closed" zu "open".
+	       $("dt").click(function(e){ // trigger
+		      $(this).next("dd").slideToggle("fast"); // enables next "dd" at click on "dt"
+		      $(this).children("a").toggleClass("closed open"); // changed class of a in "dt" from "closed" to "open"
 	   
-	     e.preventDefault();
-       });
-    });
-
-    
+	           e.preventDefault(); //remove jump effect of a href
+            });
+        });
     </script>
    
     <!--
@@ -45,23 +43,23 @@ include 'header.inc.php';
             opened a <div id="content">
     -->
 
-   <?php 
+<?php 
    
-$i = 0;  
-
-$gesamt = 0;
-$team = 0;
-$time = 0;
+$i = 0;  //counter for number of "analysen"
+$gesamt = 0;  //time spend by all (team time only counts once)
+$team = 0;    //time spendet as team (min. 6 people)
+$time = 0;    //var for cast time out of xml
 
 
 
 
 if (file_exists('Aufwand.xml')) {
-   $xml = simplexml_load_file('Aufwand.xml');
+   $xml = simplexml_load_file('Aufwand.xml'); //load xml
 
-   /*für alle Analysen*/
+   /*for all Analysen*/
    foreach($xml->Analyse as $Analyse){
        
+       /*Time spendet of every one in this week*/
         $FF = 0.0;
         $CS = 0.0;
         $SL = 0.0;
@@ -73,33 +71,32 @@ if (file_exists('Aufwand.xml')) {
 
        
 
-        echo '<article class="article">';
-        echo "<h2 id='analyse'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";
-        echo"<table>";
-        echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufw.</th><th>Schw.</th><th>Zeit</th></tr>";
+        echo '<article class="article">';                                                           //create article for ever week
+        echo "<h2 id='analyse'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";       //Title of article
+        echo"<table>";                                                                              //start table
+        echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufw.</th><th>Schw.</th><th>Zeit</th></tr>"; //Table header
 
 
-        foreach($Analyse->done as $done){
-            $time = (double)$done['Zeit'];
+        foreach($Analyse->done as $done){  //for every solved task
+            $time = (double)$done['Zeit']; //cast time to double
             
+            /*basic info into table*/
             echo "<tr>";
-            echo "<td>".$done['who']."</td>";
+            echo "<td>".$done['who']."</td>"; 
             echo "<td>".$done."</td>";
             echo"<td>".$done['A']."</td>";
             echo"<td>".$done['S']."</td>";
-            if($time < 1){
-                echo "<td>".($time*60)."m</td>";
+            if($time < 1){         //if time spendet is less then 1 hour
+                echo "<td>".($time*60)."m</td>";  //calculate minutes
             }
             else{
-                echo"<td>".$time."h</td>";    
+                echo"<td>".$time."h</td>"; //else write in hours   
             }
             
             
 
             $user = explode(",",$done['who']);
-            foreach($user as $p){
-                             //TODO wenn mehrere
-                             
+            foreach($user as $p){ //for every one worked on one task
                              
             switch($p){
                 case "FF":
