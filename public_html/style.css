@@ -159,7 +159,12 @@ h3{
 }
 
 
+dd{
+    display: none;
+}
+
 .canvas-container {
+  
   position: relative;
   height: 40vh;
   width: 40vw;
@@ -195,7 +200,29 @@ table,td,th{
 
 /*--End Table--*/
 
+#analyse{
+    text-align: center;
+    font-size: 48px;
+}
 
+#switch{
+    background-color: #E6E6E6;
+    border: none;
+    color: black;
+    font-size: medium;
+}
+
+
+.closed #sign{
+    display: inline-block;
+}
+
+.open #sign{
+    display: inline-block;
+    writing-mode: vertical-rl;
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
 
 .anchor{ /*Offset for anchor elements because of fixed navbar*/
     padding-top: 90px;

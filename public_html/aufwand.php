@@ -20,8 +20,6 @@ include 'header.inc.php';
 
 
 
-
-
 ?>
 
 <html>
@@ -29,7 +27,16 @@ include 'header.inc.php';
      document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
+    <script type="text/javascript">
+        $(document).ready(function(){
+	$("dt").click(function(){ // trigger
+		$(this).next("dd").slideToggle("fast"); // blendet beim Klick auf "dt" die nächste "dd" ein.
+		$(this).children("a").toggleClass("closed open"); // wechselt beim Klick auf "dt" die Klasse des enthaltenen a-Tags von "closed" zu "open".
+	   });
+    });
 
+    
+    </script>
         
     <!--
             Imorted Header from header.php
@@ -41,6 +48,11 @@ include 'header.inc.php';
 $i = 0;  
 
 $gesamt = 0;
+$team = 0;
+$time = 0;
+
+
+
 
 if (file_exists('Aufwand.xml')) {
    $xml = simplexml_load_file('Aufwand.xml');
@@ -60,61 +72,76 @@ if (file_exists('Aufwand.xml')) {
        
 
         echo '<article class="article">';
-        echo "<h2>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";
+        echo "<h2 id='analyse'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";
         echo"<table>";
-        echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufwand</th><th>Schwierigkeit</th><th>Zeit</th></tr>";
+        echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufw.</th><th>Schw.</th><th>Zeit</th></tr>";
 
 
         foreach($Analyse->done as $done){
+            $time = (double)$done['Zeit'];
+            
             echo "<tr>";
             echo "<td>".$done['who']."</td>";
             echo "<td>".$done."</td>";
             echo"<td>".$done['A']."</td>";
             echo"<td>".$done['S']."</td>";
-            echo"<td>".$done['Zeit']."</td>";
-
+            if($time < 1){
+                echo "<td>".($time*60)."m</td>";
+            }
+            else{
+                echo"<td>".$time."h</td>";    
+            }
+            
+            
 
             $user = explode(",",$done['who']);
             foreach($user as $p){
                              //TODO wenn mehrere
+                             
+                             
             switch($p){
                 case "FF":
-                    $FF +=(double)$done['Zeit'];
+                    $FF +=$time;
                     break;
                 case "CS":
-                    $CS +=(double)$done['Zeit'];
+                    $CS +=$time;
                     break;
                 case "SL":
-                    $SL += (double)$done['Zeit'];
+                    $SL +=$time;
                     break;
                 case "LV":
-                    $LV += (double)$done['Zeit'];
+                    $LV +=$time;
                     break;
                 case "TG":
-                    $TG += (double)$done['Zeit'];
+                    $TG +=$time;
                     break;
                 case "MF":
-                    $MF += (double)$done['Zeit'];
+                    $MF +=$time;
                     break;
                 case "FZ":
-                    $FZ += (double)$done['Zeit'];
+                    $FZ +=$time;
                     break;
                 case "WS":
-                    $WS += (double)$done['Zeit'];
+                    $WS +=$time;
                     break;
                 }
             }
 
-            $gesamt += (double)$done['Zeit'];
+            $gesamt +=$time;
+
+            if(sizeof($user) >= 6){
+                $team += $time;
+            }
 
             echo"</tr>";
         }
 
        echo "</table>";
        
-       echo "<p><b>Gesamt: ".$gesamt." h</b></p>";
+       echo "<p><b>Gesamt: ".$gesamt." h</b>  ||  <b>Team: ".$team." h</b></p>";
        
-       echo "<div class='canvas-container'><canvas id='chart".$i."'></canvas></div>";
+       echo "<dt class='anchor' id='c".$i."' ><a id='switch' href='#c".$i."' class='closed'><div id='sign'>&#9658;</div> Diagramm<hr style='display:inline-block; vertical-align: middle;  width:40vw'/></a></dt>";
+       echo "<dd><div class='canvas-container'><canvas id='chart".$i."'></canvas></div></dd>";
        
        echo "
        <script type='text/javascript'>
@@ -143,13 +170,6 @@ if (file_exists('Aufwand.xml')) {
         echo "</article>";
         $i++;
    }
-
-    /*Für alle Dones*/
-    echo $xml->done[0]['who'];
-    echo $xml->done[0]['A'];
-    echo $xml->done[0]['S'];
-    echo $xml->done[0]['Zeit'];
-    echo $xml->done[0];
 
 } else {
    exit('Konnte Datei nicht laden.');
