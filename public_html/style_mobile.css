@@ -30,11 +30,9 @@ h3{
 }
 
 
-#nav_name{
-        font-size: x-large;
-      font-weight: bold;
-      padding: 9px 16px;
 
+#nav_name{
+        display:none;
 }
 
 
@@ -99,11 +97,16 @@ nav li {
 
 
 
-
-
-
-
-
+ 
+.article{
+    margin-top: 15vh;
+    background-color: #E6E6E6;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
 
 
 
