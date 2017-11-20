@@ -30,6 +30,7 @@ include 'header.inc.php';
 
         <article class="article" id="team"> <!-- table of team-members an positions -->
             <h2>Unser Team</h2>
+            <div class="table-wrapper">
             <table>
             <tr>
                 <th>Name</th>
@@ -68,6 +69,7 @@ include 'header.inc.php';
                 <td></td>
             </tr>
             </table>
+            </div>
             
 
         </article>

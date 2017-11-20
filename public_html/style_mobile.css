@@ -103,8 +103,6 @@ nav li {
     background-color: #E6E6E6;
     border-radius: 5px;
     padding-top: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
     padding-bottom: 50px;
 }
 
@@ -152,6 +150,14 @@ nav li {
 table,td,th{
          border: 1px solid black;
     }
+
+
+.table-wrapper {
+    overflow: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
 
 .black-box{
     color: white;

@@ -75,6 +75,7 @@ if (file_exists('Aufwand.xml')) {
 
         echo '<article class="article">';                                                           //create article for ever week
         echo "<h2 id='analyse'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";       //Title of article
+        echo "<div class='table-wrapper'>"; //Div for table on mobile-device
         echo"<table>";                                                                              //start table
         echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufw.</th><th>Schw.</th><th>Zeit</th></tr>"; //Table header
 
@@ -138,6 +139,7 @@ if (file_exists('Aufwand.xml')) {
         }
 
        echo "</table>";
+       echo "</div>";
        
        echo "<p><b>Gesamt: ".$gesamt." h</b>  ||  <b>Team: ".$team." h</b></p>";
        
