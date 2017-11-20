@@ -170,6 +170,22 @@ table,td,th{
 
 }
 
+
+.black-box a{
+ border: none;
+ background-color: black;
+ color: white;
+ text-decoration: underline;
+}
+
+.black-box a:hover{
+    border: none;
+}
+
+
+
+
+
 .canvas-container {
 
   height: 40vh;
