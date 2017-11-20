@@ -7,12 +7,16 @@
 }
 
 h1{
+    font-size: xx-large;
+}
+
+h2{
     font-size: x-large;
 }
 
 
-h2{
-    padding-bottom: 5px;
+h3{
+    font-size: large;
 }
 
 
@@ -20,7 +24,7 @@ h2{
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
+    width: 100vw;
     background-color: #F2F2F2;
     border-bottom: 1px solid #BDBDBD;
 }
@@ -75,6 +79,12 @@ nav li {
     display: inline-block;
 }
 
+#git{  /*git logo/link on right end of navbar*/
+    float: right;
+    padding: 0px 0px;
+    border-left: 1px solid #BDBDBD;
+}
+
 
 .active{
     background-color: #008000;
@@ -96,9 +106,6 @@ nav li {
 
 
 
-h3{
-    font-size: 50px;
-}
 
 .article p, .article a{
      font-size: 25px;
@@ -139,7 +146,7 @@ h3{
 
 
 
-    table,td,th{
+table,td,th{
          border: 1px solid black;
     }
 
@@ -152,6 +159,41 @@ h3{
     padding-bottom: 10px;
 
 
+}
+
+.canvas-container {
+
+  height: 40vh;
+  width: 40vw;
+  margin: auto;
+}
+
+#analyse{
+    text-align: center;
+    font-size: 48px;
+}
+
+#switch{
+    background-color: #E6E6E6;
+    border: none;
+    color: black;
+    font-size: medium;
+}
+
+
+.closed #sign{
+    display: inline-block;
+}
+
+.open #sign{
+    display: inline-block;
+    writing-mode: vertical-rl;
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+.anchor{ /*Offset for anchor elements because of fixed navbar*/
+    padding-top: 90px;
 }
 
 

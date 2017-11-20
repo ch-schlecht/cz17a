@@ -5,18 +5,28 @@
  font-size: 50pt;
 }
 
+h2{
+    font-size: 70px;
+}
+
+h3{
+    font-size: 50px;
+}
+
+
+
 
 .navbar-fixed-top{ /*fixed navbar on top of site*/
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
+    width: 100vw;
     background-color: #F2F2F2;
     border-bottom: 1px solid #BDBDBD;
 }
 
 .navbar-content{  /*content of navbar starts 20% left of page*/
-    margin-left: 20%;
+    margin-left: 20vw;
 }
 
 #nav_name{  /*Name of Project in Navbar*/
@@ -100,25 +110,17 @@ nav li.dropdown {
 
 
 .article{
-    margin-top: 100px;
+    margin-top: 10vh;
     background-color: #E6E6E6;
     border-radius: 5px;
     margin-left: 20%;
-    margin-right: 20%;
+    margin-right: 20vw;
     padding-top: 10px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 50px;
 }
 
-
-h2{
-    font-size: 70px;
-}
-
-h3{
-    font-size: 50px;
-}
 
 .article p, .article a{
      font-size: 25px;
@@ -164,8 +166,7 @@ dd{
 }
 
 .canvas-container {
-  
-  
+    
   height: 40vh;
   width: 40vw;
   margin: auto;
