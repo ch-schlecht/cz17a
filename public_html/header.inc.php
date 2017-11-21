@@ -32,13 +32,20 @@
                 <ul>                                                         
                    <li class="nav" id="nav_name">Gamification</li>
                     <li><a class="nav" id="nav_home" href="index.php">Home</a></li>
-                    <li class="dropdown"><a class="nav" id="nav_projekt"  class="dropbtn" href="projekt.php">Das Projekt</a>  <!-- Dropdown  Menu -->
+                    <li class="dropdown"><a class="nav" id="nav_member"  class="dropbtn" href="team.php">Unser Team</a>  <!-- Dropdown  Menu -->
                     <div class="dropdown-content"> <!-- content under Projekt -->
-                        <a class="nav" href="protokolle.php">Protokolle</a>
-                        <a class="nav" href="team.php">Das Team</a>
                         <a class="nav" href="aufwand.php">Aufwand</a>
                     </div>
                     </li>
+                    
+                    <li class="dropdown"><a class="nav" id="nav_projekt"  class="dropbtn" href="projekt.php">Das Projekt</a>  <!-- Dropdown  Menu -->
+                    <div class="dropdown-content"> <!-- content under Projekt -->
+                        <a class="nav" href="protokolle.php">Protokolle</a>
+                        <a class="nav" href="phasen.php">Phasen</a>
+                    </div>
+                    </li>
+                    
+                    
                   <!--
                     <li class="nav">
                         <form action="filter.php" method="post">

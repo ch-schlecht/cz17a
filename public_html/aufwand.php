@@ -24,7 +24,7 @@ include 'header.inc.php';
 
 <html>
    <script type="text/javascript">
-     document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
+     document.getElementById("nav_member").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>  <!--scripts for charts (used pie-chart) -->
     <script type="text/javascript">   //script for toggle display of pie-chart

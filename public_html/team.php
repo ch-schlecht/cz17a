@@ -20,7 +20,7 @@ include 'header.inc.php';
 <!DOCTYPE HTML>
 <html>
    <script type="text/javascript">                                                
-     document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
+     document.getElementById("nav_member").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
 
     <!--  
@@ -70,6 +70,10 @@ include 'header.inc.php';
             </tr>
             </table>
             </div>
+            
+            <p>
+             <a href="aufwand.php" role="button">Zu den Aufwandsanalysen &raquo;</a></p>
+            </p>
             
 
         </article>

@@ -122,18 +122,50 @@ nav li.dropdown {
 }
 
 
-.article p, .article a{
+
+
+.article p, .article a, .article li{
      font-size: 25px;
      
     }
+.article li{
+ margin-left: 5vw;
+}
     
 #sus p{
     font-size: 18px;
 }
+
+
+
+
+
+.bar{
+    margin-top: 10px;
+}    
+
+.bar-el{
+    padding-left: 1%;
+    width: 7.5%;
     
+    float: left;
+    color: white;
+    background-color: black;
+    border-right: 2px solid #6E6E6E;
+}
+#A1{
+    background-color: green;
+    border-radius: 25px 0px 0px 25px;
+}
 
+#A2{
+    background-color: red;
+}
 
-
+#R5{
+    border-right: none;
+    border-radius: 0px 25px 25px 0px;
+}
 
 .article a {
     color:white;

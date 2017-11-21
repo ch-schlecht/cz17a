@@ -43,10 +43,9 @@ include 'header.inc.php';
 
 
             <!-- links to under-categoris of project --> 
-            <p><a href="team.php" role="button">Zum Team &raquo;</a>
+            <p>
             <a href="protokolle.php" role="button">Zu den Protokollen &raquo;</a>
-            <a href="aufwand.php" role="button">Zu den Aufwandsanalysen &raquo;</a></p>
-
+           </p>
         </article>
 
         <article class="article">   <!-- short description of the project -->
