@@ -45,6 +45,7 @@ include 'header.inc.php';
             <!-- links to under-categoris of project --> 
             <p>
             <a href="protokolle.php" role="button">Zu den Protokollen &raquo;</a>
+            <a href="phasen.php" role="button">Zu den Phasen &raquo;</a>
            </p>
         </article>
 
