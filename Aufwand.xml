@@ -28,5 +28,6 @@
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Protokoll</done>
 		<done who="MF" A="1" S="1" Zeit="0.5">Protokoll nach Vorlage</done>
 		<done who="MF" A="2" S="1" Zeit="1.5">Website Wartung und Erweiterung</done>
+		<done who="SL" A="3" S="2" Zeit="2.5">Recherche</done>
 	</Analyse>
 </Bericht>
