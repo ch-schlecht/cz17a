@@ -69,7 +69,7 @@ if (file_exists('Aufwand.xml')) {
         $FZ = 0.0;
         $WS = 0.0;
         $team = 0.0;
-        $geasmt = 0.0;
+        $gesamt = 0.0;
 
        
 

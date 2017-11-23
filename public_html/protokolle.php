@@ -37,6 +37,7 @@ include 'header.inc.php';
        <h2>&Uuml;bersicht</h2>
        <p><a href="#1" role="button">Sitzung 1 &raquo;</a> vom 07-11-2017</p>
        <p><a href="#2" role="button">Sitzung 2 &raquo;</a> vom 14-11-2017</p>
+       <p><a href="#3" role="button">Sitzung 3 &raquo;</a> vom 22-11-2017</p>
     </article>
 
 
@@ -54,6 +55,15 @@ include 'header.inc.php';
         <?php include 'protokolle/protokoll_2.html'?>
 
     </article>
+    
+    <article class="article anchor" id="3">    <!-- First meeting -->
+
+
+        <?php include 'protokolle/protokoll_3.html'?>
+
+    </article>
+
+    
     
 
          </div>
