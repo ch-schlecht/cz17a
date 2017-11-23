@@ -6,6 +6,7 @@
 		<done who="MF" A="1" S="1" Zeit="0.25">QM von SuS</done>
 		<done who="FF,CS,WS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="0.5">StaerkenUndSchwaechen</done>
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Verwaltung der Issues</done>
+		<done who="LV" A="3" S="3" Zeit="2">Stärken und Schwächen</done>
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1">Klaerung der Richtung des Projekts</done>
 	</Analyse>
 	<Analyse von="2017-11-13" bis="2017-11-29" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-14">
@@ -17,6 +18,7 @@
 		<done who="FF" A="3" S="3" Zeit="4">Mit dem Thema Gamification auseinander setzen</done>
 		<done who="MF" A="3" S="2" Zeit="3">Mit dem Thema Gamification auseinander setzen</done>
 		<done who="CS" A="3" S="2" Zeit="2">Recherche zu Konzepten</done>
+		<done who="LV" A="3" S="3" Zeit="11">Recherche</done>
 		<done who="FF, MF" A="3" S="3" Zeit="1.5">Aufwandsanalyse betreiben und auf Website stellen</done>	
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
 		<done who="TG,MF,FF" A="1" S="2" Zeit="0.5">SSH Einrichten</done>
