@@ -1,5 +1,5 @@
 <Bericht>
-	<Analyse von="2017-11-06" bis="2017-11-13" gruppe="cz17a" createdBy="MF" createdAt="2017-11-13">
+	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a" phase="A1" createdBy="MF" createdAt="2017-11-13">
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1"> 1. Praezenstreffen</done>
 		<done who="CS" A="1" S="1" Zeit="0.5">Protokoll</done>
 		<done who="MF" A="3" S="3" Zeit="7">Website erstellen (+versuche mit jekyll)</done>
@@ -8,10 +8,10 @@
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Verwaltung der Issues</done>
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1">Klaerung der Richtung des Projekts</done>
 	</Analyse>
-	<Analyse von="2017-11-14" bis="2017-11-21" gruppe="cz17a" createdBy="MF" createdAt="2017-11-14">
+	<Analyse von="2017-11-13" bis="2017-11-29" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-14">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="0.5"> 2. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="1">Protokoll</done>
-		<done who="MF" A="2" S="1" Zeit="6">Website Wartung und Erweiterung</done>
+		<done who="MF" A="2" S="1" Zeit="4.5">Website Wartung und Erweiterung</done>
 		<done who="MF" A="2" S="3" Zeit="1.5">Responsive Webdesign</done>
 		<done who="FF" A="3" S="2" Zeit="3">Meilenstein und passende Issues anlegen und verwalten(+ Markdown recherche)</done>
 		<done who="FF" A="3" S="3" Zeit="4">Mit dem Thema Gamification auseinander setzen</done>
@@ -20,5 +20,11 @@
 		<done who="FF, MF" A="3" S="3" Zeit="1.5">Aufwandsanalyse betreiben und auf Website stellen</done>	
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
 		<done who="TG,MF,FF" A="1" S="2" Zeit="0.5">SSH Einrichten</done>
+	</Analyse>
+	<Analyse von="2017-11-20" bis="2017-11-26" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-14">
+		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 3. Praezenstreffen</done>
+		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Protokoll</done>
+		<done who="MF" A="1" S="1" Zeit="0.5">Protokoll nach Vorlage</done>
+		<done who="MF" A="2" S="1" Zeit="1.5">Website Wartung und Erweiterung</done>
 	</Analyse>
 </Bericht>
