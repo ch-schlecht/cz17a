@@ -1,0 +1,14 @@
+-in der Gamification im wesentlichen 2 Formen des Feedbacks:
+	-durch Punkte, Resultate:
+		-das sind alle direkt visuellen Errungenschaften, also Progress Bars, Badges, Achievements,... (Erläuterungen dazu hat Micha ja schon)
+		-einerseits direkt nach abgeschlossener Aktion (Bsp. Frage richtig beantwortet -> Achievement bekommen)
+		-aber auch Badges, Rankings durch Reviews von Mitspielern und Kollegen ist möglich
+	-textuell:
+		-z.B. durch Team-Chats, Kommentare zu Leistungen, etc.
+-feedback hat mehrere Effekte:
+	-zum einen Lerneffekt: das Ergebnis einer abgeschlossenen Aktion fördert das persönliche Reflektieren ("Warum hab ich das jetzt falsch gemacht?")
+	-positives Feedback fördert Selbstvertrauen
+	-falls das Feedback öffentlich sichtbar ist, kann dadurch auch Stolz und Anerkennung ausgelöst werden
+-hat aber natürlich auch Risiken:
+	-beim textuellen Feedback: Mobbing, nicht gerechtfertigte Kritik kann in Chats auftreten und muss dementsprechend verhindert/überwacht werden
+	-öffentliches Feedback kann auch Neid fördern --> speziell in der betrieblichen Weiterbildung kritisch für Arbeitsklima
