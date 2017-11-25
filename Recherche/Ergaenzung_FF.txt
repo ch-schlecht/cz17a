@@ -1,0 +1,49 @@
+Recherche:
+	
+Begriffe:
+
+-Gamification:
+
+Das Begriff Gamification ist von dem englischen Wort „Game“ abgeleitet, welches für „Spiel“ steht. Somit kann man als eingedeutschtes Synonym dafür auch Spielifikation oder Spielifizierung verwenden.
+Dabei werden spieltypische Elemente und Vorgänge in einen spielfremden Zusammenhang gebracht. Das grobe Ziel einer jeden Spielifizierung ist die Motivationssteigerung des Anwenders für die Kernleistung und somit verstärkt mit der Anwendung zu interagieren.
+Man vermittelt dem Benutzer den Eindruck von Selbstständigkeit und Entscheidungsfreiheit.
+Dies wird im wesentlichen erreicht, indem man ihm die Möglichkeit einräumt eigene Lösungswege und Strategien für bestimmte Sachverhalte zu entwickeln, somit gibt man dem Benutzer das Gefühl sich an dem Spiel zu beteiligen.  
+Zudem kann man unter Verwendung einer Spielifikation eine Verhaltensänderung des Nutzers bewirken oder die Meinung zu einer bestimmten Thematik stark verändern und somit beeinflussen.
+Häufig verwendete Spielmechaniken sind beispielsweise erreichbare Ziele, Punkte oder Errungenschaften. 
+
+
+-Quest:
+	
+Der Begriff Quest bedeutet so viel wie „Suche“ oder „Frage“, wobei damit eine zu lösende Aufgaben für den Benutzer formuliert wird, welche er in einer bestimmten Zeit zu absolvieren hat.
+Diese Aufgaben sind häufig nicht alleinstehend, sondern sind in Verbindung mit anderen Aufgaben gleichzeitig oder nacheinander zu lösen. 
+Das Ziel ist es Qualifikationen, Erfahrungen oder auch die Teamfähigkeit zu trainieren.
+
+
+-Badges:
+
+Der Begriff Badge bedeutet im Bereich des E-Learning so viel wie „Abzeichen“ oder „Plakette“. Diese Abzeichen sind unter anderem digitale Zertifikate oder Lernabzeichen, welche das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten, Kenntnisse in einem bestimmten Bereich oder die erfolgreiche Teilnahme an einer Veranstaltung bestätigen. Das Ziel dieser Abzeichen ist es als Leistungsindikator zu fungieren, den Lernenden zu helfen sich im Lernprozess zu orientieren und nach außen hin als eine Form von Anerkennung zu sorgen.
+
+
+
+
+
+Konzept:
+
+Ein Ziel der Applikation ist es unter Verwendung von Gruppenscores und Gruppenquests die Teamarbeit der einzelnen Personen zu stärken. Indem man einen Bezug zu den anderen „Spielern“ hat und nicht nur noch für sich selbst als Individuum verantwortlich ist, stärkt man den Teamgedanken und verhindert zudem, dass der einzelne „Spieler“ die Aufgaben nicht ernst nimmt und vernachlässigt.
+
+
+
+
+
+
+
+Quellen:
+https://de.wikipedia.org/wiki/Badge
+https://www.e-teaching.org/lehrszenarien/pruefung/pruefungsform/badges_pattern/
+https://openbadges.org
+https://de.wikipedia.org/wiki/Gamification
+http://wirtschaftslexikon.gabler.de/Definition/gamification.html
+https://de.wikipedia.org/wiki/Quest
+http://oldschoolrunescape.wikia.com/wiki/Quests
+
+
