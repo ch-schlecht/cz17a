@@ -30,5 +30,7 @@
 		<done who="MF" A="2" S="1" Zeit="1.5">Website Wartung und Erweiterung</done>
 		<done who="SL" A="3" S="2" Zeit="2.5">Recherche</done>
 		<done who="CS" A="3" S="2" Zeit="2">Recherche</done>
+		<done who="TG" A="3" S="2" Zeit="1">Recherche</done>
+		<done who="CS" A="3" S="2" Zeit="1">brainstorm game-general conditions </done>
 	</Analyse>
 </Bericht>

@@ -1,0 +1,34 @@
+Game-based learning:
+
+"Korrektes Game-based Learning nutzt intrinsische Erfahrungen, 
+die weit über ein Belohnungssystem hinausgehen, 
+bei dem der Lernende eine Belohnung erreichen oder eine Herausforderung erfüllen möchte,
+aber die Lerninhalte vergisst."
+
+intrinsische: 	aus eigenem Antrieb herraus
+		durch in der Sache liegende Anreize
+
+http://peter.baumgartner.name/2016/02/01/belohnung-ist-noch-keine-gamification/
+
+
+zu Spielmechanik:
+	-beim Quiz sehr viele Fragen richtig beantwortet, 
+	 könnte zusätzliche Fragen („Bonus-Fragen“) angezeigt werden.
+
+zum Feedback:
+	-Belohnungen sind nicht alles für Gamification
+		-können hinderlich am Lernerfolg sein
+		-müssen richtig eingesetzt werden
+
+Datenschutz:
+	Datenschutz ist der Schutz vor missbräuchlicher Datenverarbeitung, 
+	Schutz des Rechts auf informationelle Selbstbestimmung, 
+	Schutz des Persönlichkeitsrechts bei der Datenverarbeitung und auch Schutz der Privatsphäre. 
+	Datenschutz wird häufig als Recht verstanden, 
+	dass jeder Mensch grundsätzlich selbst darüber entscheiden darf, 
+	wem wann welche seiner persönlichen Daten zugänglich sein sollen.
+	...
+	Der Datenschutz soll der in der zunehmend digitalen und vernetzten Informationsgesellschaft bestehenden Tendenz zum sogenannten gläsernen Menschen,
+	dem Ausufern staatlicher Überwachungsmaßnahmen (Überwachungsstaat) und der Entstehung von Datenmonopolen von Privatunternehmen entgegenwirken.
+
+	Q: https://de.wikipedia.org/wiki/Datenschutz 
