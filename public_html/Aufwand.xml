@@ -1,4 +1,4 @@
-<Bericht>
+﻿<Bericht>
 	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a" phase="A1" createdBy="MF" createdAt="2017-11-13">
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1"> 1. Praezenstreffen</done>
 		<done who="CS" A="1" S="1" Zeit="0.5">Protokoll</done>
@@ -9,7 +9,7 @@
 		<done who="LV" A="3" S="3" Zeit="2">Stärken und Schwächen</done>
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1">Klaerung der Richtung des Projekts</done>
 	</Analyse>
-	<Analyse von="2017-11-13" bis="2017-11-29" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-14">
+	<Analyse von="2017-11-13" bis="2017-11-19" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-19">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="0.5"> 2. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="1">Protokoll</done>
 		<done who="MF" A="2" S="1" Zeit="4.5">Website Wartung und Erweiterung</done>
@@ -23,11 +23,17 @@
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
 		<done who="TG,MF,FF" A="1" S="2" Zeit="0.5">SSH Einrichten</done>
 	</Analyse>
-	<Analyse von="2017-11-20" bis="2017-11-26" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-14">
+	<Analyse von="2017-11-20" bis="2017-11-26" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-26">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 3. Praezenstreffen</done>
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Protokoll</done>
 		<done who="MF" A="1" S="1" Zeit="0.5">Protokoll nach Vorlage</done>
 		<done who="MF" A="2" S="1" Zeit="1.5">Website Wartung und Erweiterung</done>
 		<done who="SL" A="3" S="2" Zeit="2.5">Recherche</done>
+		<done who="CS" A="3" S="2" Zeit="3.5">Recherche + Erweiterung Recherchebericht</done>
+		<done who="TG" A="3" S="2" Zeit="1">Recherche</done>
+		<done who="CS" A="3" S="2" Zeit="1">brainstorm game-general conditions </done>
+		<done who="FZ" A="3" S="3" Zeit="3.5">Recherche</done>
 	</Analyse>
+	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-27">
+	</Analyse>	
 </Bericht>
