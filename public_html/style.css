@@ -113,7 +113,7 @@ nav li.dropdown {
     margin-top: 15vh;
     background-color: #E6E6E6;
     border-radius: 5px;
-    margin-left: 20%;
+    margin-left: 20vw;
     margin-right: 20vw;
     padding-top: 10px;
     padding-left: 50px;
@@ -154,11 +154,14 @@ nav li.dropdown {
     border-right: 2px solid #6E6E6E;
 }
 #A1{
-    background-color: green;
     border-radius: 25px 0px 0px 25px;
 }
 
-#A2{
+.done{
+    background-color: green;
+}
+
+.ak{
     background-color: red;
 }
 
@@ -257,9 +260,6 @@ table,td,th{
     -moz-transform: rotate(90deg);
 }
 
-.anchor{ /*Offset for anchor elements because of fixed navbar*/
-    padding-top: 90px;
-}
 
 
 .black-box{ /*black box of information (for dates)*/

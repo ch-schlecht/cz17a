@@ -35,9 +35,9 @@ include 'header.inc.php';
         <h2>Fortschritt</h2>
         
         <div class="bar">
-            <div class="bar-el" id="A1">A1</div>
-            <div class="bar-el" id="A2">A2</div>
-            <div class="bar-el" id="A3">A3</div>
+            <div class="bar-el done" id="A1">A1</div>
+            <div class="bar-el done" id="A2">A2</div>
+            <div class="bar-el ak" id="A3">A3</div>
             <div class="bar-el" id="M1">M1</div>
             <div class="bar-el" id="A4">A4</div>
             <div class="bar-el" id="R1">R1</div>
@@ -48,7 +48,11 @@ include 'header.inc.php';
             <div class="bar-el" id="R5">R5</div>
         </div>
         
+        <!-- Aktuelle Phase: <b>A3</b> -->
+        
         <br/>
+        <br/>
+        <hr/>
         <p>
         Die erste Phase und Abgabe <b>A1</b> wurde <font color="green">abgeschlossen</font>   <br/>
         Aspekte dieser Phase waren: <br/>
@@ -57,6 +61,16 @@ include 'header.inc.php';
         <li>Aufsetzten der Website</li>
         <li>Vergabe der Rollen</li>
         </p>
+        <hr/>
+        
+        <p>Die zweite Phase und Abgabe <b>A2</b> wurde <font color="green">abgeschlossen</font><br/>
+        Hauptaufgabe dieser Phase waren das Erstellen eines Rechercheberichts, welcher sich mit dem Thema Gamification auseinander setzt:
+        <li>Konzepte</li>
+        <li>Begriffe</li>
+        <li>Aspekte</li>
+        </p>
+        <hr/>
+        
 
     </article>
     

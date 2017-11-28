@@ -29,11 +29,16 @@
 		<done who="MF" A="1" S="1" Zeit="0.5">Protokoll nach Vorlage</done>
 		<done who="MF" A="2" S="1" Zeit="1.5">Website Wartung und Erweiterung</done>
 		<done who="SL" A="3" S="2" Zeit="2.5">Recherche</done>
-		<done who="CS" A="3" S="2" Zeit="3.5">Recherche + Erweiterung Recherchebericht</done>
+		<done who="CS" A="3" S="3" Zeit="4.5">Recherche + Erweiterung Recherchebericht + QM Recherchebericht</done>
+		<done who="LV" A="3" S="3" Zeit="1.5"> Erweiterung Recherchebericht</done>
 		<done who="TG" A="3" S="2" Zeit="1">Recherche</done>
 		<done who="CS" A="3" S="2" Zeit="1">brainstorm game-general conditions </done>
 		<done who="FZ" A="3" S="3" Zeit="3.5">Recherche</done>
+		<done who="WS" A="3" S="3" Zeit="4">Recherchebericht formuliert</done>
+		<done who="FF" A="3" S="3" Zeit="2">Recherche Gamification</done>
+		<done who="FF" A="3" S="3" Zeit="1">Latex Recherche</done>
 	</Analyse>
-	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-27">
+	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-11-27">
+		<done who="MF" A="1" S="1" Zeit="1">Website wartung und erweiterung</done>
 	</Analyse>	
 </Bericht>

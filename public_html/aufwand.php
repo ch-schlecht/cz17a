@@ -52,6 +52,18 @@ $time = 0;    //var for cast time out of xml
 
 
 
+        $FF_g = 0.0;
+        $CS_g = 0.0;
+        $SL_g = 0.0;
+        $LV_g = 0.0;
+        $TG_g = 0.0;
+        $MF_g = 0.0;
+        $FZ_g = 0.0;
+        $WS_g = 0.0;
+        $gesamt_g = 0.0;
+        $team_g = 0.0;
+
+
 
 if (file_exists('Aufwand.xml')) {
    $xml = simplexml_load_file('Aufwand.xml'); //load xml
@@ -135,8 +147,22 @@ if (file_exists('Aufwand.xml')) {
                 $team += $time;
             }
 
+
             echo"</tr>";
         }
+
+        
+                $FF_g += $FF;
+                $CS_g += $CS;
+                $SL_g += $SL;
+                $LV_g += $LV;
+                $TG_g += $TG;
+                $MF_g += $MF;
+                $FZ_g += $FZ;
+                $WS_g += $WS;
+                $team_g += $team;
+                $gesamt_g += $gesamt;
+
 
        echo "</table>";
        echo "</div>";
@@ -173,6 +199,42 @@ if (file_exists('Aufwand.xml')) {
         echo "</article>";
         $i++;
    }
+   echo "<article class='article' id='ges'>
+            <h2>Gesamtes Project</h2>
+   
+            <p><b>Gesamt Zeit: ".$gesamt_g." h</b></p>
+            <p>Davon Team-Stunden: ".$team_g." h</p>
+   
+            <div class='canvas-container'><canvas id='chart_ges'></canvas></div>;
+
+       <script type='text/javascript'>
+       var ctx = document.getElementById('chart_ges').getContext('2d');
+       var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+        labels: ['FF','CS','SL','LV','TG','MF','FZ','WS'],
+        datasets: [{
+            label: 'Pie-Chart',
+            backgroundColor: ['rgb(200,200,200)','rgb(200,0,0)','rgb(0,200,0)','rgb(200,200,50)','rgb(200,120,0)','rgb(0,0,200)','rgb(45,200,200)','rgb(200,0,200)'],
+            borderColor: 'rgb(0,0,0)',
+            data: [".$FF_g.",".$CS_g.",".$SL_g.",".$LV_g.",".$TG_g.",".$MF_g.",".$FZ_g.",".$WS_g."]
+        }]
+    },
+    options: {responsive: true,
+    maintainAspectRatio: false
+    }
+});
+
+
+     </script>
+
+   
+   
+   </article>";
+   
+   
+   
+   
 
 } else {
    exit('Konnte Datei nicht laden.');
