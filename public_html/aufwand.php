@@ -68,6 +68,29 @@ $time = 0;    //var for cast time out of xml
 if (file_exists('Aufwand.xml')) {
    $xml = simplexml_load_file('Aufwand.xml'); //load xml
 
+
+   echo "
+   <article class='article'>
+   <h2>&Uuml;bersicht</h2>
+";
+
+foreach($xml->Analyse as $Analyse){
+    echo"<p><a href='#analyse".($i)."'>Analyse ".($i+1)."</a> vom ".$Analyse['createdAt']."</p>";
+    $i++;
+}
+    echo "<p><a href='#analyse_g'>Gesamtem Projekt</a></p>";
+
+$i  = 0;
+
+echo "   
+   
+   
+   </article>
+   ";
+
+
+
+
    /*for all Analysen*/
    foreach($xml->Analyse as $Analyse){
        
@@ -86,7 +109,7 @@ if (file_exists('Aufwand.xml')) {
        
 
         echo '<article class="article">';                                                           //create article for ever week
-        echo "<h2 id='analyse'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";       //Title of article
+        echo "<h2 class='anchor' id='analyse".$i."'>Analyse von ".$Analyse['von']." bis ".$Analyse['bis']."</h2>";       //Title of article
         echo "<div class='table-wrapper'>"; //Div for table on mobile-device
         echo"<table>";                                                                              //start table
         echo"<tr><th>Mitglieder</th><th>Thema</th><th>Aufw.</th><th>Schw.</th><th>Zeit</th></tr>"; //Table header
@@ -199,12 +222,12 @@ if (file_exists('Aufwand.xml')) {
         echo "</article>";
         $i++;
    }
-   echo "<article class='article' id='ges'>
-            <h2>Gesamtes Project</h2>
+   echo "<article class='article' id='analyse_g'>
+            <h2>Gesamtes Projekt</h2>
    
             <p><b>Gesamt Zeit: ".$gesamt_g." h</b></p>
             <p>Davon Team-Stunden: ".$team_g." h</p>
-   
+            <hr/>
             <div class='canvas-container'><canvas id='chart_ges'></canvas></div>;
 
        <script type='text/javascript'>

@@ -42,6 +42,7 @@
                     <div class="dropdown-content"> <!-- content under Projekt -->
                         <a class="nav" href="protokolle.php">Protokolle</a>
                         <a class="nav" href="phasen.php">Phasen</a>
+                        <a class="nav" href="abgabe.php">Abgaben</a>
                     </div>
                     </li>
                     

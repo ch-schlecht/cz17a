@@ -260,6 +260,9 @@ table,td,th{
     -moz-transform: rotate(90deg);
 }
 
+.anchor{
+    padding-top: 3vh;
+}
 
 
 .black-box{ /*black box of information (for dates)*/
