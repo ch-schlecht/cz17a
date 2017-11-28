@@ -41,7 +41,7 @@ include 'header.inc.php';
             </p>
             <hr/>
             <p>
-            <a href="abgabe/A2/Recherchebericht.php">Recherchebericht</a>   
+            <a href="abgabe/A2/Recherchebericht.pdf">Recherchebericht</a>   
             <a href="abgabe/A2/Aufwand.xml">Aufwandsanalyse</a>
             </p>
         </article>
