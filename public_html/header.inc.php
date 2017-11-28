@@ -14,6 +14,23 @@
  *
 */
 
+
+session_start();
+if(!isset($_SESSION['old'])){
+    $_SESSION['old'] = false;   
+}
+
+if(isset($_GET['old'])){
+    if($_GET['old'] === "true"){
+        $_SESSION['old'] = true;
+    }
+    else{
+        $_SESSION['old'] = false;
+    }
+    
+}
+
+
  ?>
 
 <!DOCTYPE HTML>
@@ -22,7 +39,16 @@
         <title>Gamification</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"; charset="utf-8"/>   <!-- scale to device -->
         <link rel="stylesheet" media="(orientation: portrait)" type="text/css" href="style_mobile.css" /> <!-- load mobile css on all horizontal-orientated devices-->
-        <link rel="stylesheet"  media="(orientation: landscape)" type="text/css" href="style.css"/>    <!-- load other css for vertial-orientated devices (like pc) -->
+<?php
+  
+if(isset($_SESSION['old']) && $_SESSION['old'] == true){
+    echo '        <link rel="stylesheet"  media="(orientation: landscape)" type="text/css" href="style_old.css"/>';
+}else{
+    echo ' <link rel="stylesheet"  media="(orientation: landscape)" type="text/css" href="style.css"/>';
+
+}
+
+?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   <!-- include jquery -->
     </header>
     <body>
@@ -46,6 +72,18 @@
                     </div>
                     </li>
                     
+                    <div class="right">
+                    <li id="git">
+                    <?php 
+                        if(isset($_SESSION['old']) && $_SESSION['old'] == true){
+                          echo '<a class="nav" href="?old=false">Neues Design</a>';
+
+                        }else{
+                          echo '<a class="nav" href="?old=true">Altes Design</a>';
+    
+                        }                    
+                     ?>
+                     </li>
                     
                   <!--
                     <li class="nav">
@@ -55,6 +93,7 @@
                         </form></li>
                       -->
                     <li id="git"><a class="nav" href="https://git.informatik.uni-leipzig.de/swp17/cz17a"><img width="18" height="18" src="res/gitlab.svg"/></a></li> <!-- link to git -->
+                </div>
                 </ul>
                 </div>
             </nav>

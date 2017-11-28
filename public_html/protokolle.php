@@ -14,7 +14,6 @@
  *
 */
 
-session_start();
 include 'header.inc.php';
 
 ?>

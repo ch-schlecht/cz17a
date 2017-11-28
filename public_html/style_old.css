@@ -22,7 +22,7 @@ h3{
     left: 0px;
     width: 100vw;
     background-color: #F2F2F2;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #BDBDBD;
 }
 
 .navbar-content{  /*content of navbar starts 20% left of page*/
@@ -35,12 +35,6 @@ h3{
     padding: 9px 16px;
 
 }
-
-.right{
-    padding-right: 2vw;
-    
-}
-
 
 .nav{    /*single content of navbar*/
     display: inline-block;
@@ -115,19 +109,10 @@ nav li.dropdown {
 }
 
 
-
-
-body {
-    background-image: url("res/quiz.png");
-    background-repeat: repeat;
-
-}
-
 .article{
     margin-top: 15vh;
     background-color: #E6E6E6;
     border-radius: 5px;
-    border: 2px solid black;
     margin-left: 20vw;
     margin-right: 20vw;
     padding-top: 10px;
@@ -187,7 +172,7 @@ body {
 
 .article a {
     color:white;
-    background-color: #11bbdd;
+    background-color: #0080FF;
     border-radius: 5px;
     padding: 5px 5px 5px 5px;
     border: 1px outset #0040FF;                          
@@ -222,6 +207,10 @@ dd{
   margin: auto;
 }
 
+
+.right{
+    padding-right: 2vw;
+}
 
 
 /*--Start Table--*/
@@ -289,5 +278,4 @@ table,td,th{
     padding-bottom: 10px;
        
 }
-
 
