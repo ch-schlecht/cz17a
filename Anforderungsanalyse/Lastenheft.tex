@@ -30,30 +30,49 @@ Gewinnen soll dabei aber nicht immer nur derjenige, der am meisten weiß, sonder
 Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen, die sich während ihrer Arbeitszeit mit dem Quiz beschäftigen. Die Teilnahme erfolgt anonym dahingehend, dass nicht festgestellt werden kann, welche reale Person gerade an dem Quiz teilnimmt.
 
 \chapter{Funktionale Anforderungen}
-\section{Muss-Ziele}
-%zwischen begin/end itemize können mit item stichpunkte gesetzt werden, auch Schachtelung möglich
-\begin{itemize}
-\item Dashboard zur Auswertung
-\item Client muss bei jedem Login vom Server wiedererkannt werden
-\item Datenbank zur internen Speicherung von Fragen und spielerbezogenen Daten
-\item ACL zum Administrieren
-\item Gamification Elemente:
-\begin{itemize}
-\item Badges
-\item Ranking-System
-\end{itemize}
-\end{itemize}
+%LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
+\section{Hauptanforderungen}
+%Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
+\begin{description}
+\item[/LF0010/] Die Auswertung von Spielergebnissen soll über ein Dashboard erfolgen
+\item[/LF0020/] Client muss bei jedem Login vom Server wiedererkannt werden.
+\item[/LF0030/] Fragen und spielerbezogene Daten müssen gespeichert werden können
+\item[/LF0040/] ACL zum Administrieren
+\end{description}
+Gamification Elemente:
+\begin{description}
+\item[/LF0050/] Badges
+\item[/LF0060/] Ranking-System
+\end{description}
+\section{Optionale Anforderungen}
+\begin{description}
+\item[/LFXXXX/]
+\end{description}
 
 \chapter{Nicht-funktionale Anforderungen}
-\section{Muss-Ziele}
-\begin{itemize}
-\item 
-\end{itemize}
+\section{Hauptanforderungen}
+\begin{description}
+\item[/LL0010/]
+\item[/LL0020/]
+\item[/LL00XX/]
+\end{description}
+\section{Optionale Anforderungen}
+\begin{description}
+\item[/LL0010/]
+\item[/LL0020/]
+\item[/LL00XX/]
+\end{description}
 
 \chapter{Qualitätsmatrix nach ISO 25010}
-\begin{itemize}
-\item
-\end{itemize}
+% Erzeugt eine Tabelle. Die zweiten Parameter geben allgemeine Einstellungen für die Spalten an. l:linksbündig, c:center und r:rechtsbündig. Mit & wird eine Spalte erstellt, \\ erstellt eine neue Zeile. \hline erzeugt eine horizontale Linie.
+\begin{tabular}{|l|c|c|c|}
+\hline
+		& Kopfelement1 & Kopfelement2 & Kopfelement3 \\
+\hline
+Quali1  &              &              &              \\     
+Quali2  &              &              &              \\     
+\hline
+\end{tabular}
 
 \chapter{Lieferumfang und Abnahmekriterium}
 \begin{itemize}
