@@ -30,13 +30,36 @@ Gewinnen soll dabei aber nicht immer nur derjenige, der am meisten weiß, sonder
 Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen, die sich während ihrer Arbeitszeit mit dem Quiz beschäftigen. Die Teilnahme erfolgt anonym dahingehend, dass nicht festgestellt werden kann, welche reale Person gerade an dem Quiz teilnimmt.
 
 \chapter{Funktionale Anforderungen}
-%LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
+%LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
 \section{Hauptanforderungen}
 %Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
+\subsection{An- und Abmelden}
+\begin{description}
+\item[/LF0010/] Registrierung \\
+Ein Nutzer soll sich unter Angabe eines Nutzernamens, Passworts und E-Mail registrieren können.
+\item[/LF0020/] Anmelden \\
+Ein Nutzer soll sich mit seinem Nickname und Passwort einloggen können.
+\item[/LF0030/] Abmelden \\
+Der Nutzer soll sich vom System abmelden können.
+\item[/LF0040/] Passwort anfordern \\
+Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
+\end{description}
+\subsection{Quiz}
+\begin{description}
+\item[/LF0010/] Fragenpool \\
+Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
+\item[/LF0020/] \ \\
+Jede Quizrunde soll dynamisch aus * Fragen zusammengestellt werden.
+\item[/LF0030/] Antwort auswählen \\
+Der Spieler soll aus vier Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
+%LV: Die nächste Anforderung muss weitergehend spezifiziert werden bzw. um weitere Anforderungen erweitert werden, was einem zusätzlich noch angezeigt wird oder wann und wie sich ein Score verändert.
+\item[/LF0040/] \ \\ 
+Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. %LV: Vielleicht auch, was die richtige Antwort war, wenn man falsch lag?
+\item[/LF0050/] Ergebnisse ausgeben \\
+Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen.
+\end{description}
 \begin{description}
 \item[/LF0010/] Wissenspiel für 5 Spieler
-\item[/LF0020/] Die Auswertung von Spielergebnissen soll über ein Dashboard erfolgen
-\item[/LF0030/] Client muss bei jedem Login vom Server wiedererkannt werden.
 \item[/LF0040/] Fragen und spielerbezogene Daten müssen gespeichert werden können
 \item[/LF0050/] ACL zum Administrieren
 \item[/LF0060/] Erstellen von Wissensspielen
@@ -45,14 +68,25 @@ Gamification Elemente:
 \begin{description}
 \item[/LF0070/] Badges
 \item[/LF0080/] Ranking-System/Leaderboards 
+\item[/LF0080/] Ein Leaderboard soll die besten * Mitspieler bzw. nur deren Punkte anzeigen.
 \item[/LF0090/] Ratingsystem für Fragen und Antworten
 \item[/LF0100/] Freischalten von Inhalten
 \end{description}
-\section{Optionale Anforderungen}
+\subsection{Dashboard}
 \begin{description}
-\item[/LF0010/] Spielerprofil, das vom User selbst eingerichtet werden kann
+\item[/LF0010/] Die Auswertung von Spielergebnissen soll über ein Dashboard erfolgen
 \end{description}
-
+\section{Optionale Anforderungen}
+\subsection{Spielerprofil}
+\begin{description}
+\item[/LF0010/] \ \\ 
+Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
+	\begin{itemize}
+	\item Nutzername
+	\item Profilbild (optional)
+	\item Kuze Nachricht (optional)
+	\end{itemize}
+\end{description}
 \chapter{Nicht-funktionale Anforderungen}
 \section{Hauptanforderungen}
 \begin{description}
