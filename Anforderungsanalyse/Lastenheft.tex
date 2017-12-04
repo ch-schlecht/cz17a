@@ -85,7 +85,7 @@ Eine interne Datenbank verfügt über folgende Daten:
 			\begin{itemize}
 			\item durchschnittliche Antwortzeit
 			\item Prozentsatz der richtigen Antworten
-			\item durchschnittliche/höchste Punktzahl
+			\item durchschnittliche/höchste/gesamte Punktzahl
 			\item insgesamt gespielte/gewonnen Runden
 			\item Badges
 			\end{itemize}
@@ -99,20 +99,40 @@ Eine interne Datenbank verfügt über folgende Daten:
 		\item wie viele Punkte bringt die Frage
 		\end{itemize}
 	\end{itemize}
-\item[/LF0070/] ACL zum Administrieren
+\item[/LF0070/] Import von Fragen \ \\
+Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
+\item[/LF0070/] Access Control List \ \\
+Folgende Kontrollzustände sollen eingerichtet werden:
+	\begin{itemize}
+	\item Administrator \ \\
+	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten.
+	\item User \ \\
+	Dieser ist in der Lage, das Spiel zu spielen und seine persönlichen Daten einzusehen.
+	\end{itemize}
+
 \end{description}
 %CS: denkt ihr wir sollten alle Gamification Elemente direkt als Muss-Ziel verankern? was wenn sich ergibt, dass es nicht/schlecht umsetzbar ist
 Gamification Elemente:
 \begin{description}
-\item[/LF0080/] Badges
-\item[/LF0090/] Ranking-System/Leaderboards 
-\item[/LF0100/] Ein Leaderboard soll die besten * Mitspieler bzw. nur deren Punkte anzeigen.
-\item[/LF0110/] Ratingsystem für Fragen und Antworten
-\item[/LF0120/] Freischalten von Inhalten
+\item[/LF0080/] Badges \ \\
+Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese werden auf dem Profil ausgestellt.
+\item[/LF0100/] Leaderboard \ \\
+(siehe Spielmechaniken) Am Ende einer Runde soll eine Übersicht über Punktestände, Gewinner und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
 \subsection{Dashboard}
 \begin{description}
-\item[/LF0010/] Die Auswertung von Spielergebnissen soll über ein Dashboard erfolgen
+\item[/LF0010/] Das persönliche Dashboard bildet eine Übersicht über folgende Daten:
+	\begin{itemize}
+	\item Fragenstatistiken:
+		\begin{itemize}
+		\item durchschnittliche Antwortzeit
+		\item Prozentsatz der richtigen Antworten
+		\item durchschnittliche/höchste/gesamte Punktzahl
+		\item insgesamt gespielte/gewonnen Runden
+		\end{itemize}
+	\item Badges
+	\item Anzahl bzw. Prozentsatz der erreichten freischaltbaren Inhalten
+	\end{itemize}
 \end{description}
 \section{Optionale Anforderungen}
 \subsection{Spielerprofil}
@@ -127,6 +147,10 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\end{itemize}
 \end{description}
 \begin{itemize}
+\item[/LF0120/] Freischalten von Inhalten \ \\
+Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden.
+\item[/LF0110/] Ratingsystem für Fragen \ \\
+Es soll die Möglichkeit bestehen, nach Beantwortung einer Frage diese nach ihrer Qualität zu beurteilen.
 \item[/LF0020/] optionale Ergebnisansicht am Ende einer Runde \ \\
 Es soll weiterhin am Ende einer Runde möglich sein:
 		\begin{itemize}
@@ -145,7 +169,7 @@ Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteil
 \subsection{Datenschutz und Anonymität}
 \begin{description}
 \item[/LL0010/] Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minimal ist ein Benutzername festzulegen.
-\item[/LL0020/] Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben
+\item[/LL0020/] Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
 \item[/LL0030/] Es muss für den User möglich sein, sein Profil zu löschen.
 \end{description}
 \section{Optionale Anforderungen}
@@ -161,20 +185,30 @@ Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteil
 \hline
 		& hoch & mittel & niedrig& nicht anwendbar\\
 \hline
-Funktionalität  &              &              & 		&\\     
-Zuverlässigkeit	&              &              & 		&\\
-Effizienz 		&              &              & 		&\\
-Sicherheit  	&              &              & 		&\\
-Kompatibilität  &              &              & 		&\\
-Benutzbarkeit  	&              &              & 		&\\
-Wartbarkeit  	&              &              & 		&\\
-Portierbarkeit  &              &              & 		&\\
+Funktionalität  &x              &              & 		&\\     
+Zuverlässigkeit	&              & x             & 		&\\
+Effizienz 		&              &              & x		&\\
+Sicherheit  	&              & x             & 		&\\
+Kompatibilität  &              &x              & 		&\\
+Benutzbarkeit  	& x             &              & 		&\\
+Wartbarkeit  	&              &x              & 		&\\
+Portierbarkeit  &              &x              & 		&\\
 \hline
 \end{tabular}
 
 \chapter{Lieferumfang und Abnahmekriterium}
 \begin{itemize}
-\item
+\item Lieferumfang:
+	\begin{itemize}
+	\item Android-App als Client
+	\item Server mit Datenbankanbindung
+	\item Weboberfläche für den Administrator
+	
+	\end{itemize}
+\item Abnahmekriterien:
+	\begin{itemize}
+	\item 
+	\end{itemize}
 \end{itemize}
 
 \chapter{Vorprojekt}
