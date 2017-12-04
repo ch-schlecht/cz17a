@@ -47,5 +47,8 @@
 		<done who="CS" A="4" S="4" Zeit="4.5">Lastenheft Formulierungen + Erweiterungen</done>
 		<done who="SL" A="1" S="2" Zeit="1">Mit Latex auseinandersetzen</done>
 		<done who="SL" A="1" S="2" Zeit="2">Lastenheft Glossar + Überlegungen Vorprojekt</done>
+	</Analyse>
+	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
+		<done who="FF,CS,SL,TG,MF,FZ,WS A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
 	</Analyse>	
 </Bericht>
