@@ -73,7 +73,7 @@ Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolg
 	\end{itemize}
 \end{description}
 \begin{description}
-\item[/LF0060/] Speicherung von Fragen und Daten \ \\
+\item[/LF0080/] Speicherung von Fragen und Daten \ \\
 Eine interne Datenbank verfügt über folgende Daten:
 	\begin{itemize}
 	\item Spielerbezogene Daten:
@@ -99,9 +99,9 @@ Eine interne Datenbank verfügt über folgende Daten:
 		\item wie viele Punkte bringt die Frage
 		\end{itemize}
 	\end{itemize}
-\item[/LF0070/] Import von Fragen \ \\
+\item[/LF0090/] Import von Fragen \ \\
 Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
-\item[/LF0070/] Access Control List \ \\
+\item[/LF0100/] Access Control List \ \\
 Folgende Kontrollzustände sollen eingerichtet werden:
 	\begin{itemize}
 	\item Administrator \ \\
@@ -112,11 +112,10 @@ Folgende Kontrollzustände sollen eingerichtet werden:
 
 \end{description}
 %CS: denkt ihr wir sollten alle Gamification Elemente direkt als Muss-Ziel verankern? was wenn sich ergibt, dass es nicht/schlecht umsetzbar ist
-Gamification Elemente:
 \begin{description}
-\item[/LF0080/] Badges \ \\
+\item[/LF0110/] Badges \ \\
 Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese werden auf dem Profil ausgestellt.
-\item[/LF0100/] Leaderboard \ \\
+\item[/LF0120/] Leaderboard \ \\
 (siehe Spielmechaniken) Am Ende einer Runde soll eine Übersicht über Punktestände, Gewinner und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
 \subsection{Dashboard}
@@ -145,8 +144,6 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\item Kurze Nachricht (optional)
 	\item Achievements
 	\end{itemize}
-\end{description}
-\begin{itemize}
 \item[/LF0120/] Freischalten von Inhalten \ \\
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden.
 \item[/LF0110/] Ratingsystem für Fragen \ \\
@@ -163,14 +160,17 @@ Diese Runde ist die Letze einer Spielrunde und damit eine Jackpot-Frage.
 Je mehr Fragen richtig beantwortet wurden, desto mehr Anteile erhält man vom Jackpot.
 \item[/LF0040/] Strategische Modifikatoren \ \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
-\end{itemize}
+\end{description}
 \chapter{Nicht-funktionale Anforderungen}
 \section{Hauptanforderungen}
 \subsection{Datenschutz und Anonymität}
 \begin{description}
-\item[/LL0010/] Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minimal ist ein Benutzername festzulegen.
-\item[/LL0020/] Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
-\item[/LL0030/] Es muss für den User möglich sein, sein Profil zu löschen.
+\item[/LL0010/] Profildetails \ \\
+Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minimal ist ein Benutzername festzulegen.
+\item[/LL0020/] Bearbeitung des Profils \ \\ 
+Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
+\item[/LL0030/] Löschung des Profils \ \\ 
+Es muss für den User möglich sein, sein Profil zu löschen.
 \end{description}
 \section{Optionale Anforderungen}
 \begin{description}
@@ -219,20 +219,20 @@ Im Rahmen des Vorprojekts soll das wesentliche Grundgerüst, bestehend aus Daten
 \end{itemize}
 
 \chapter{Glossar}
-\begin{itemize}
-\item E-Learning (Electronical Learning) \\
+\begin{description}
+\item[E-Learning (Electronical Learning)]\ \\
 Prozess des Lernens unter Beihilfe von elektronischen beziehungsweise von digitalen Medien.
-\item Gamification \\
+\item[Gamification]\ \\
 Ist der Einsatz von Spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
-\item Feedback \\
+%\item Feedback \\
 
-\item Quests \\
+\item[Quests]\ \\
 Ist eine für den Benutzer formulierte Aufgabe, die in einer bestimmten Zeit zu absolvieren ist. Häufig werden sie in Verbindung mit anderen Aufgaben eingesetzt.
-\item Achivements \\
+%\item[Achivements]\ \\
 
-\item Badges \\
+\item[Badges] \ \\
 Bedeutet soviel wie "Abzeichen". Sie repräsentieren das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten oder Kenntnisse in bestimmten Bereichen oder als Beleg für die Teilnahme an bestimmten Veranstaltungen. Badges sind eine Form von Feedback.
-\item ACL (Access Control List) \\
+\item[ACL (Access Control List)]\ \\
 Technik zur Vergabe von Zugriffsrechten, z.B. für Nutzer und Anwendungen. Es ist eine feine Unterteilung in verschiedene Zugriffsgruppen möglich.
-\end{itemize}
+\end{description}
 \end{document}
