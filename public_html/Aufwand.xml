@@ -38,8 +38,17 @@
 		<done who="FF" A="3" S="3" Zeit="2">Recherche Gamification</done>
 		<done who="FF" A="3" S="3" Zeit="1">Latex Recherche</done>
 	</Analyse>
-	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-27">
+	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-11-27">
+		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 4. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="2">Wartung und Erweiterung der Website</done>
 		<done who="WS,MF,TG" A="2" S="3" Zeit="1">Game-General Conditions Meeting</done>
+		<done who="CS" A="1" S="1" Zeit="0.5">Issues + Milestone</done>
+		<done who="CS" A="1" S="2" Zeit="1">mit Latex auseinandersetzen</done>
+		<done who="CS" A="4" S="4" Zeit="4.5">Lastenheft Formulierungen + Erweiterungen</done>
+		<done who="SL" A="1" S="2" Zeit="1">Mit Latex auseinandersetzen</done>
+		<done who="SL" A="1" S="2" Zeit="2">Lastenheft Glossar + Überlegungen Vorprojekt</done>
+	</Analyse>
+	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
+		<done who="FF,CS,SL,TG,MF,FZ,WS" A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
 	</Analyse>	
 </Bericht>
