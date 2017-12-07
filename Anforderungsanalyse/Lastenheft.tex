@@ -16,7 +16,7 @@
 %Bei reports beginnt die Zählung von sections mit 0. Daher wurde hier chapter gewählt. Danach kann section gewählt werden, danach subsection und subsubsection
 \chapter{Ausgangssituation}
 %LV: Übernommen aus der Themenbeschreibung im OLAT
-Schon seit langer Zeit gilt die Devise: Wissen ist Macht. Daran hat sich auch im 21. Jahrhundert nichts geändert. Aus diesem Grund ist die Adaption von neuem Wissen unumgänglich, jedoch ist der Weg dahin meist nicht der Erfreulichste: Das Aneignen von Wissen wird meist mit Lesen, auswendig Lernen und ständigem Wiederholen in Verbindung gebracht und ist dementsprechend bei einem Großteil der Bevölkerung negativ konnotiert. Wissen lässt sich aber durchaus auch "spielerisch" aneignen, etwa wie dies kleine Kinder völlig unbewusst tun.\\
+Schon seit langer Zeit gilt die Devise: Wissen ist Macht. Daran hat sich auch im 21. Jahrhundert nichts geändert. Aus diesem Grund ist die Adaption von neuem Wissen unumgänglich, jedoch ist der Weg dahin meist nicht der Erfreulichste: Das Aneignen von Wissen wird meist mit Lesen, auswendig Lernen und ständigem Wiederholen in Verbindung gebracht und ist dementsprechend bei einem Großteil der Bevölkerung negativ konnotiert. Wissen lässt sich aber durchaus auch 'spielerisch' aneignen, etwa wie dies kleine Kinder völlig unbewusst tun.\\
 An diesem Punkt kommen die Wissenspiele zur Sprache. Für den privaten Gebrauch gibt es bereits viele, gut funktionierende, Ansätze, z.B Spiele wie Quizduell oder Fernsehshows wie "Wer wird Millionär". Für die betriebliche Weiterbildung, also Erschließung neuen Wissens innerhalb von Unternehmen, gibt es jedoch bisher nur wenig Anwendung solcher Ansätze. Das Institut für Angewandte Informatik der Universität Leipzig erprobt und erforscht zur Zeit im Rahmen des Projekts SB:Digital (http://sbdigital.infai.org/) gamifizierte Prozesse des Lernens.
 Das erhebliche Potenzial von Wissensspielen hat sich diesbezüglich bereits erwiesen. Angeknüpft an diese Forschungsergebnisse soll im Rahmen dieses Projektes ein gamifiziertes Wissenquiz zur Verwendung innerhalb von Unternehmen entstehen.
 \chapter{Zielsetzung und Produkteinsatz}
@@ -32,37 +32,37 @@ Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen,
 
 \chapter{Funktionale Anforderungen}
 %LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
-\section{Hauptanforderungen}
+\section{Muss-Ziele}
 %Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
 \subsection{An- und Abmelden}
 \begin{description}
-\item[/LF0010/] Registrierung \\
+\item[/LF0010/] Registrierung \ *\textit{Muss-Ziel}*\\
 Ein Nutzer soll sich unter Angabe eines Nutzernamens, Passworts und E-Mail registrieren können.
-\item[/LF0020/] Anmelden \\
+\item[/LF0020/] Anmelden \ *\textit{Muss-Ziel}*\\
 Ein Nutzer soll sich mit seinem Nickname und Passwort einloggen können.
-\item[/LF0030/] Abmelden \\
+\item[/LF0030/] Abmelden \ *\textit{Muss-Ziel}*\\
 Der Nutzer soll sich vom System abmelden können.
-\item[/LF0040/] Passwort anfordern \\
+\item[/LF0040/] Passwort anfordern \ *\textit{Muss-Ziel}*\\
 Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
-\item[/LF0050/] Spielerprofil \ \\
+\item[/LF0050/] Spielerprofil \ *\textit{Muss-Ziel}*\\
 Für jeden Nutzer soll ein persönliches Profil existieren, dass mindestens den Name enthält
 \end{description}
 \subsection{Quiz}
 \begin{description}
-\item[/LF0010/] Fragenpool \\
+\item[/LF0060/] Fragenpool \ *\textit{Muss-Ziel}*\\
 Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
-\item[/LF0020/] Quizrunde\ \\
+\item[/LF0070/] Quizrunde\ *\textit{Muss-Ziel}*\\
 Jede Quizrunde soll dynamisch aus * Fragen zusammengestellt werden.
-\item[/LF0030/] Antwort auswählen \\
+\item[/LF0080/] Antwort auswählen \ *\textit{Muss-Ziel}*\\
 Der Spieler soll aus * Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
 %LV: Die nächste Anforderung muss weitergehend spezifiziert werden bzw. um weitere Anforderungen erweitert werden, was einem zusätzlich noch angezeigt wird oder wann und wie sich ein Score verändert.
-\item[/LF0040/]Auswertung einer Frage \ \\ 
+\item[/LF0090/]Auswertung einer Frage \ *\textit{Muss-Ziel}*\\ 
 Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden %LV: Vielleicht auch, was die richtige Antwort war, wenn man falsch lag?
-\item[/LF0050/] Ergebnisse ausgeben \\
+\item[/LF0100/] Ergebnisse ausgeben \ *\textit{Muss-Ziel}*\\
 Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand aller Teilnehmer (Scoreboard),  individuelle Platzierung.
-\item[/LF0060/] Dauer einer Quizrunde \ \\
+\item[/LF0110/] Dauer einer Quizrunde \ *\textit{Muss-Ziel}*\\
  Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
-\item[/LF0070/] Spielablauf einer Quizrunde \ \\
+\item[/LF0120/] Spielablauf einer Quizrunde \ *\textit{Muss-Ziel}*\\
 	\begin{itemize}
 	\item jeder Spieler der Gruppe bekommt gleichzeitig die gleiche Frage bestellt.
 	\item beantwortet er die Frage richtig, erhält er die Punkte der Frage auf sein Konto, beantwortet er sie falsch, wandern 		die Punkte in einen Jackpot.
@@ -73,7 +73,7 @@ Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolg
 	\end{itemize}
 \end{description}
 \begin{description}
-\item[/LF0080/] Speicherung von Fragen und Daten \ \\
+\item[/LF0130/] Speicherung von Fragen und Daten \ *\textit{Muss-Ziel}*\\
 Eine interne Datenbank verfügt über folgende Daten:
 	\begin{itemize}
 	\item Spielerbezogene Daten:
@@ -97,15 +97,20 @@ Eine interne Datenbank verfügt über folgende Daten:
 		\item Schwierigkeit
 		\item kann eine Jackpot-Frage sein?
 		\item wie viele Punkte bringt die Frage
+		\item[XXXX] Statistik, wie oft die Frage falsch/richtig beantwortet wurde
 		\end{itemize}
 	\end{itemize}
-\item[/LF0090/] Import von Fragen \ \\
+\item[/LFXXXX/] Schwierigkeitsgrad der Fragen \ *\textit{Muss-Ziel}*\\
+Jeder Frage wird initial in der Datenbank ein Schwierigkeitsgrad zugeordnet, welche vom Fragenersteller festgelegt wird. Werden bestimmte Fragen oft falsch beantwortet, so erhöht sich der Schwierigkeitsgrad dynamisch, wird sie oft richtig beantwortet, so wird der Schwierigkeitsgrad herabgesetzt.
+\item[/LFXXXX/] Logik der Fragenauswahl \ *\textit{Muss-Ziel}*\\
+Generell erfolgt die Auswahl von Fragen, welche in einer Quizrunde gespielt werden, zufällig. Werden jedoch Fragen häufig falsch beantwortet, so ist die Wahrscheinlichkeit höher, dass diese Fragen öfter gespielt werden.
+\item[/LF0140/] Import von Fragen \ *\textit{Muss-Ziel}*\\
 Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
-\item[/LF0100/] Access Control List \ \\
+\item[/LF0150/] Access Control List \ *\textit{Muss-Ziel}*\\
 Folgende Kontrollzustände sollen eingerichtet werden:
 	\begin{itemize}
 	\item Administrator \ \\
-	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten.
+	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten. Zusätzlich ist er in der Lage, Batches zu verwalten, also neue zu erstellen, zu 			bearbeiten und zu löschen
 	\item User \ \\
 	Dieser ist in der Lage, das Spiel zu spielen und seine persönlichen Daten einzusehen.
 	\end{itemize}
@@ -113,14 +118,14 @@ Folgende Kontrollzustände sollen eingerichtet werden:
 \end{description}
 %CS: denkt ihr wir sollten alle Gamification Elemente direkt als Muss-Ziel verankern? was wenn sich ergibt, dass es nicht/schlecht umsetzbar ist
 \begin{description}
-\item[/LF0110/] Badges \ \\
-Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese werden auf dem Profil ausgestellt.
-\item[/LF0120/] Leaderboard \ \\
+\item[/LF0160/] Badges \ *\textit{Muss-Ziel}*\\
+Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
+\item[/LF0170/] Leaderboard \ *\textit{Muss-Ziel}*\\
 (siehe Spielmechaniken) Am Ende einer Runde soll eine Übersicht über Punktestände, Gewinner und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
 \subsection{Dashboard}
 \begin{description}
-\item[/LF0010/] Das persönliche Dashboard bildet eine Übersicht über folgende Daten:
+\item[/LF0180/] Das persönliche Dashboard bildet eine Übersicht über folgende Daten: \ *\textit{Muss-Ziel}*\\
 	\begin{itemize}
 	\item Fragenstatistiken:
 		\begin{itemize}
@@ -133,10 +138,10 @@ Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell
 	\item Anzahl bzw. Prozentsatz der erreichten freischaltbaren Inhalten
 	\end{itemize}
 \end{description}
-\section{Optionale Anforderungen}
+\section{Kann-Ziele}
 \subsection{Spielerprofil}
 \begin{description}
-\item[/LF0010/] \ \\ 
+\item[/LF0190/] optionale Profildetails\ *\textit{Kann-Ziel}*\\ 
 Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\begin{itemize}
 	\item Nutzername
@@ -144,39 +149,39 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\item Kurze Nachricht (optional)
 	\item Achievements
 	\end{itemize}
-\item[/LF0120/] Freischalten von Inhalten \ \\
+\item[/LF0200/] Freischalten von Inhalten \ *\textit{Kann-Ziel}*\\
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden.
-\item[/LF0110/] Ratingsystem für Fragen \ \\
+\item[/LF0210/] Ratingsystem für Fragen \ *\textit{Kann-Ziel}*\\
 Es soll die Möglichkeit bestehen, nach Beantwortung einer Frage diese nach ihrer Qualität zu beurteilen.
-\item[/LF0020/] optionale Ergebnisansicht am Ende einer Runde \ \\
+\item[/LF0220/] optionale Ergebnisansicht am Ende einer Runde \ *\textit{Kann-Ziel}*\\
 Es soll weiterhin am Ende einer Runde möglich sein:
 		\begin{itemize}
 		\item eine Übersicht über alle Fragen mit den jeweils richtigen Antworten einzusehen,
 		\item in dieser Runde erreichte Achievements anzuzeigen,
 		\end{itemize}
-\item[/LF0030/] Schnellfragerunde \ \\
+\item[/LF0230/] Schnellfragerunde \ *\textit{Kann-Ziel}*\\
 Diese Runde ist die Letze einer Spielrunde und damit eine Jackpot-Frage.
 Über eine bestimmte Zeitspanne können von jedem Spieler individuell so viele wie möglich Fragen beantwortet werden.
 Je mehr Fragen richtig beantwortet wurden, desto mehr Anteile erhält man vom Jackpot.
-\item[/LF0040/] Strategische Modifikatoren \ \\
+\item[/LF0240/] Strategische Modifikatoren \ *\textit{Kann-Ziel}*\\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
 \end{description}
 \chapter{Nicht-funktionale Anforderungen}
-\section{Hauptanforderungen}
+\section{Muss-Ziele}
 \subsection{Datenschutz und Anonymität}
 \begin{description}
-\item[/LL0010/] Profildetails \ \\
+\item[/LL0250/] Profildetails \ *\textit{Muss-Ziel}*\\
 Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minimal ist ein Benutzername festzulegen.
-\item[/LL0020/] Bearbeitung des Profils \ \\ 
+\item[/LL0260/] Bearbeitung des Profils \ *\textit{Muss-Ziel}*\\ 
 Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
-\item[/LL0030/] Löschung des Profils \ \\ 
+\item[/LL0270/] Löschung des Profils \ *\textit{Muss-Ziel}*\\ 
 Es muss für den User möglich sein, sein Profil zu löschen.
 \end{description}
-\section{Optionale Anforderungen}
+\section{Kann-Ziele}
 \begin{description}
-\item[/LL0010/]
-\item[/LL0020/]
-\item[/LL00XX/]
+\item[/LL0280/]
+\item[/LL0290/]
+\item[/LL03XX/]
 \end{description}
 
 \chapter{Qualitätsmatrix nach ISO 25010}
