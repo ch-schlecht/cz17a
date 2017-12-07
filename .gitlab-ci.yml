@@ -5,7 +5,7 @@ before_script:
 
 build_the_project:
   script:
-    - sh program.sh
+#    - sh program.sh
     - test -f result.md
 
 release-job:
