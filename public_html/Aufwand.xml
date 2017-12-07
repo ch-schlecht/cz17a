@@ -53,5 +53,6 @@
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">5. Praezenstreffen</done>
 		<done who="MF" A="2" S="1" Zeit="2">Protokoll</done>
 		<done who="MF" A="1" S="1" Zeit="0.5">Wartung von Git-Dateien</done>
+		<done who="MF" A="2" S="2" zeit="1">Diagramm</done>
 	</Analyse>	
 </Bericht>
