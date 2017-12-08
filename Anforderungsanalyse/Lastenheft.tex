@@ -6,6 +6,8 @@
 \usepackage[T1]{fontenc}
 %Passt Dokumentelemente an die Konventionen der deutschen Sprache (neue Rechtschreibung) an, z.b. Datumsangaben, Silbentrennung
 \usepackage[ngerman]{babel}
+%Grafikpaket
+\usepackage{graphicx}
 \title{Lastenheft}
 \author{Lisa Vogelsberg}
 \date{29.11.2017}
@@ -34,6 +36,15 @@ Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen,
 %LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
 \section{Muss-Ziele}
 %Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth, height=0.9\textheight]{Diagramm_002.jpg}
+	\caption{Spielablauf als Diagramm}
+	\label{img:Spielablauf}
+\end{figure}
+\subsection{Ablauf einer Spielrunde}
+Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
+Zm Anfang einer Spielrunde betritt ein Spieler die Lobby, in welcher er verweilt, bis mindestens fünf Spieler gefunden wurden. Ist dies geschehen, so beginnt das Spiel. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto, welches ihm stets angezeigt wird. Wird sie jedoch falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Frage zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen (richtigen) Antwort bestimmt (Der Schnellste bekommt den größten Anteil, danach absteigend). Falls der Jackpot einmal leer ist (z.B. nach Jackpot-Frage) werden automatisch vom System eine gewisse Anzahl Punkte hineingegeben, um zu gewährleisten, dass stets Punkte im Jackpot sind, sollte z.B. die nächste Frage wieder eine Jackpot-Frage sein. Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzen Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine Schnellraterunde angedacht.
 \subsection{An- und Abmelden}
 \begin{description}
 \item[/LF0010/] Registrierung \ *\textit{Muss-Ziel}*\\
@@ -62,16 +73,25 @@ Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, 
 Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand aller Teilnehmer (Scoreboard),  individuelle Platzierung.
 \item[/LF0110/] Dauer einer Quizrunde \ *\textit{Muss-Ziel}*\\
  Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
-\item[/LF0120/] Spielablauf einer Quizrunde \ *\textit{Muss-Ziel}*\\
-	\begin{itemize}
-	\item jeder Spieler der Gruppe bekommt gleichzeitig die gleiche Frage bestellt.
-	\item beantwortet er die Frage richtig, erhält er die Punkte der Frage auf sein Konto, beantwortet er sie falsch, wandern 		die Punkte in einen Jackpot.
-	\item je nach Schwierigkeitsgrad haben die Fragen einen unterschiedlichen Punktwert (schwer - viele Punkte, leicht - 			weniger Punkte)
-	\item zufällig kann eine Jackpot-Frage ausgelöst werden, in dieser Runde wird um die Punkte aus dem Jackpot gespielt. 			Diese ist von außen nicht von anderen Fragen zu unterscheiden. Jeder, der diese Frage richtig beantwortet, bekommt 			einen Anteil des Jackpots. Abhängig von der Schnelligkeit der Antwort wird dieser Prozentsatz festgelegt (der Erste 			bekommt am meisten, danach absteigend).
-	\item mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) wird die Wahrscheinlichkeit, dass eine 		Jackpot-Frage auftritt, höher.
-	\item Die letzte Frage einer Runde ist sicher eine Jackpot-Frage.
-	\end{itemize}
 \end{description}
+\subsection{Spielablauf einer Runde}
+\begin{description}
+\item[/LFXXXX/]gleiche Frage \ *\textit{Muss-Ziel}*\\
+ Jeder Spieler der Gruppe bekommt gleichzeitig die gleiche Frage bestellt.
+\item[/LFXXXX/]Punkteausschüttung der Frage \ *\textit{Muss-Ziel}* \\
+Wird eine Frage richtig beantwortet, erhält der Spieler die zur Frage zugehörige Punktzahl auf sein Konto,  beantwortet er die Frage falsch, wandern die Punkte in einen Jackpot.
+\item[/LFXXXX/]Jackpot-Frage\ *\textit{Muss-Ziel}*\\
+Eine Jackpot-Frage wird zufällig ausgelöst. Es wird um die Punkte im Jackpot gespielt. Äußerlich ist die Jackpot-Frage nicht von anderen Fragen zu unterscheiden.
+\item[/LFXXXX/] Punkteausschüttung einer Jackpot-Frage \ *\textit{Muss-Ziel}* \\
+Jeder, der die Jackpot-Frage richtig beantwortet, erhält garantiert einen Anteil der Punkte. Dieser ist Abhängigkeit von der Schnelligkeit der gegebenen Antwort(der Schnellste bekommt am meisten, danach absteigend).
+\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \ *\textit{Muss-Ziel}*\\
+ Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) wird die Wahrscheinlichkeit, dass eine 		Jackpot-Frage auftritt, höher.
+\item[/LFXXXX/] Neufüllung des Jackpots nach Leerung \ *\textit{Muss-Ziel}* \\
+Wurde der Jackpot im Rahmen einer Jackpot-Frage ausgeschüttet, so wird automatisch vom System eine festgelegte Anzahl von Punkten in den Jackpot gegeben (Garantie, dass falls die nächste Frage wieder Jackpot-Frage ist, stets Punkte enthalten sind)
+\item[/LFXXXX/]letzte Frage einer Spielrunde \ *\textit{Muss-Ziel}* \\
+Die letzte Frage einer Runde ist sicher eine Jackpot-Frage. Hierbei wird die Anzahl der Punkte im Jackpot verdoppelt und dann um diese gespielt.
+\end{description}
+\subsection{Speicherung der Daten}
 \begin{description}
 \item[/LF0130/] Speicherung von Fragen und Daten \ *\textit{Muss-Ziel}*\\
 Eine interne Datenbank verfügt über folgende Daten:
@@ -100,12 +120,19 @@ Eine interne Datenbank verfügt über folgende Daten:
 		\item[XXXX] Statistik, wie oft die Frage falsch/richtig beantwortet wurde
 		\end{itemize}
 	\end{itemize}
+\end{description}
+\subsection{Fragencharakteristiken}
+\begin{description}
 \item[/LFXXXX/] Schwierigkeitsgrad der Fragen \ *\textit{Muss-Ziel}*\\
 Jeder Frage wird initial in der Datenbank ein Schwierigkeitsgrad zugeordnet, welche vom Fragenersteller festgelegt wird. Werden bestimmte Fragen oft falsch beantwortet, so erhöht sich der Schwierigkeitsgrad dynamisch, wird sie oft richtig beantwortet, so wird der Schwierigkeitsgrad herabgesetzt.
+\item[/LFXXXX/] Punktzahl einer Frage \ *\textit{Muss-Ziel}* \\
+Die Punktzahl einer Frage wird anhand des Schwierigkeitsgrades der Frage festgelegt. Ändert sich der Schwierigkeitsgrad, so muss auch die Punktzahl der Frage verändert werden.
 \item[/LFXXXX/] Logik der Fragenauswahl \ *\textit{Muss-Ziel}*\\
 Generell erfolgt die Auswahl von Fragen, welche in einer Quizrunde gespielt werden, zufällig. Werden jedoch Fragen häufig falsch beantwortet, so ist die Wahrscheinlichkeit höher, dass diese Fragen öfter gespielt werden.
 \item[/LF0140/] Import von Fragen \ *\textit{Muss-Ziel}*\\
 Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
+\end{description}
+\begin{description}
 \item[/LF0150/] Access Control List \ *\textit{Muss-Ziel}*\\
 Folgende Kontrollzustände sollen eingerichtet werden:
 	\begin{itemize}
