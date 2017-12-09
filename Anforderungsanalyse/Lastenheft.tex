@@ -36,29 +36,41 @@ Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen,
 %LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
 \section{Muss-Ziele}
 %Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth, height=0.9\textheight]{Diagramm_002.jpg}
-	\caption{Spielablauf als Diagramm}
-	\label{img:Spielablauf}
-\end{figure}
-\subsection{Ablauf einer Spielrunde}
-Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
-Zm Anfang einer Spielrunde betritt ein Spieler die Lobby, in welcher er verweilt, bis mindestens fünf Spieler gefunden wurden. Ist dies geschehen, so beginnt das Spiel. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto, welches ihm stets angezeigt wird. Wird sie jedoch falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Frage zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen (richtigen) Antwort bestimmt (Der Schnellste bekommt den größten Anteil, danach absteigend). Falls der Jackpot einmal leer ist (z.B. nach Jackpot-Frage) werden automatisch vom System eine gewisse Anzahl Punkte hineingegeben, um zu gewährleisten, dass stets Punkte im Jackpot sind, sollte z.B. die nächste Frage wieder eine Jackpot-Frage sein. Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzen Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine Schnellraterunde angedacht.
 \subsection{An- und Abmelden}
 \begin{description}
 \item[/LF0010/] Registrierung \\
 Ein Nutzer soll sich unter Angabe eines Nutzernamens, Passworts und E-Mail registrieren können.
 \item[/LF0020/] Anmelden \\
 Ein Nutzer soll sich mit seinem Nickname und Passwort einloggen können.
+\item[/LF0040/] Anzeige der Accountübersicht \\
+Nach dem Anmelden kann der Benutzer die Startseite seines Spieler-Accounts einsehen. %Entsprechenden Verweis noch einfügen
 \item[/LF0030/] Abmelden \\
 Der Nutzer soll sich vom System abmelden können.
 \item[/LF0040/] Passwort anfordern \\
 Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
+
+%Falscher Ort für das Profil
 \item[/LF0050/] Spielerprofil \\
 Für jeden Nutzer soll ein persönliches Profil existieren, dass mindestens den Name enthält
 \end{description}
+
+% Hier können noch weitere Anforderungen folgen, die mit Einstellungen des Users zutun haben (Privatssphäre, Profil, ...)
+\subsection{Spieleraccount}
+\begin{description}
+\item[/LF0110/] Account Details \\
+Über den Account sollen folgende Informationen eingesehen werden können
+	\begin{itemize}
+	\item Angemeldeter Benutzername
+	\item Angemeldete E-Mail
+	\item Registrierungsdatum
+	\end{itemize}
+\item[/LF0120/] Änderung des Passworts \\
+Ein Benutzer soll sein Passwort beliebig häufig ändern können.
+\item[/LF0130/] Löschung des Accounts \\
+Der Benutzer soll selbstständig seinen Account wieder löschen können.
+\end{description}
 \subsection{Quiz}
+\subsubsection{Quiz}
 \begin{description}
 \item[/LF0060/] Fragenpool \\
 Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
@@ -74,7 +86,17 @@ Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolg
 \item[/LF0110/] Dauer einer Quizrunde \\
  Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
 \end{description}
-\subsection{Spielablauf einer Runde}
+\subsubsection{Spielablauf einer Runde}
+Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
+Zm Anfang einer Spielrunde betritt ein Spieler die Lobby, in welcher er verweilt, bis mindestens fünf Spieler gefunden wurden. Ist dies geschehen, so beginnt das Spiel. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto, welches ihm stets angezeigt wird. Wird sie jedoch falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Frage zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen (richtigen) Antwort bestimmt (Der Schnellste bekommt den größten Anteil, danach absteigend). Falls der Jackpot einmal leer ist (z.B. nach Jackpot-Frage) werden automatisch vom System eine gewisse Anzahl Punkte hineingegeben, um zu gewährleisten, dass stets Punkte im Jackpot sind, sollte z.B. die nächste Frage wieder eine Jackpot-Frage sein. Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzen Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine Schnellraterunde angedacht.
+
+%Die Grafik muss auch inhaltlich nochmal angepasst werden. Z.b. ist "Tritt bei" als Verzweigungsanweisung angegeben, obwohl da keine Verzweigung ist. Vielleicht können wir für den Schritt, um den Spielablauf zu zeigen, auch den Start zum Quiz komplett weglassen.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth, height=0.9\textheight]{Diagramm_002.jpg}
+	\caption{Spielablauf als Diagramm}
+	\label{img:Spielablauf}
+\end{figure}
 \begin{description}
 \item[/LFXXXX/]gleiche Frage \\
  Jeder Spieler der Gruppe bekommt gleichzeitig die gleiche Frage bestellt.
@@ -90,6 +112,28 @@ Jeder, der die Jackpot-Frage richtig beantwortet, erhält garantiert einen Antei
 Wurde der Jackpot im Rahmen einer Jackpot-Frage ausgeschüttet, so wird automatisch vom System eine festgelegte Anzahl von Punkten in den Jackpot gegeben (Garantie, dass falls die nächste Frage wieder Jackpot-Frage ist, stets Punkte enthalten sind)
 \item[/LFXXXX/]letzte Frage einer Spielrunde \\
 Die letzte Frage einer Runde ist sicher eine Jackpot-Frage. Hierbei wird die Anzahl der Punkte im Jackpot verdoppelt und dann um diese gespielt.
+\end{description}
+\subsubsection{Fragencharakteristiken}
+\begin{description}
+\item[/LFXXXX/] Schwierigkeitsgrad der Fragen \\
+Jeder Frage wird initial in der Datenbank ein Schwierigkeitsgrad zugeordnet, welche vom Fragenersteller festgelegt wird. Werden bestimmte Fragen oft falsch beantwortet, so erhöht sich der Schwierigkeitsgrad dynamisch, wird sie oft richtig beantwortet, so wird der Schwierigkeitsgrad herabgesetzt.
+\item[/LFXXXX/] Punktzahl einer Frage \\
+Die Punktzahl einer Frage wird anhand des Schwierigkeitsgrades der Frage festgelegt. Ändert sich der Schwierigkeitsgrad, so muss auch die Punktzahl der Frage verändert werden.
+\item[/LFXXXX/] Logik der Fragenauswahl \\
+Generell erfolgt die Auswahl von Fragen, welche in einer Quizrunde gespielt werden, zufällig. Werden jedoch Fragen häufig falsch beantwortet, so ist die Wahrscheinlichkeit höher, dass diese Fragen öfter gespielt werden.
+\item[/LF0140/] Import von Fragen \\
+Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
+\end{description}
+\begin{description}
+\item[/LF0150/] Access Control List \\
+Folgende Kontrollzustände sollen eingerichtet werden:
+	\begin{itemize}
+	\item Administrator \\
+	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten. Zusätzlich ist er in der Lage, Batches zu verwalten, also neue zu erstellen, zu 			bearbeiten und zu löschen
+	\item User \\
+	Dieser ist in der Lage, das Spiel zu spielen und seine persönlichen Daten einzusehen.
+	\end{itemize}
+
 \end{description}
 \subsection{Speicherung der Daten}
 \begin{description}
@@ -121,28 +165,7 @@ Eine interne Datenbank verfügt über folgende Daten:
 		\end{itemize}
 	\end{itemize}
 \end{description}
-\subsection{Fragencharakteristiken}
-\begin{description}
-\item[/LFXXXX/] Schwierigkeitsgrad der Fragen \\
-Jeder Frage wird initial in der Datenbank ein Schwierigkeitsgrad zugeordnet, welche vom Fragenersteller festgelegt wird. Werden bestimmte Fragen oft falsch beantwortet, so erhöht sich der Schwierigkeitsgrad dynamisch, wird sie oft richtig beantwortet, so wird der Schwierigkeitsgrad herabgesetzt.
-\item[/LFXXXX/] Punktzahl einer Frage \\
-Die Punktzahl einer Frage wird anhand des Schwierigkeitsgrades der Frage festgelegt. Ändert sich der Schwierigkeitsgrad, so muss auch die Punktzahl der Frage verändert werden.
-\item[/LFXXXX/] Logik der Fragenauswahl \\
-Generell erfolgt die Auswahl von Fragen, welche in einer Quizrunde gespielt werden, zufällig. Werden jedoch Fragen häufig falsch beantwortet, so ist die Wahrscheinlichkeit höher, dass diese Fragen öfter gespielt werden.
-\item[/LF0140/] Import von Fragen \\
-Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
-\end{description}
-\begin{description}
-\item[/LF0150/] Access Control List \\
-Folgende Kontrollzustände sollen eingerichtet werden:
-	\begin{itemize}
-	\item Administrator \\
-	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten. Zusätzlich ist er in der Lage, Batches zu verwalten, also neue zu erstellen, zu 			bearbeiten und zu löschen
-	\item User \\
-	Dieser ist in der Lage, das Spiel zu spielen und seine persönlichen Daten einzusehen.
-	\end{itemize}
 
-\end{description}
 %CS: denkt ihr wir sollten alle Gamification Elemente direkt als Muss-Ziel verankern? was wenn sich ergibt, dass es nicht/schlecht umsetzbar ist
 \begin{description}
 \item[/LF0160/] Badges \\

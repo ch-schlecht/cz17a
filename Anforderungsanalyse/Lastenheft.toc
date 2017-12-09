@@ -6,13 +6,14 @@
 \contentsline {section}{\numberline {2.3}Produkteinsatz}{3}
 \contentsline {chapter}{\numberline {3}Funktionale Anforderungen}{4}
 \contentsline {section}{\numberline {3.1}Muss-Ziele}{4}
-\contentsline {subsection}{\numberline {3.1.1}Ablauf einer Spielrunde}{4}
-\contentsline {subsection}{\numberline {3.1.2}An- und Abmelden}{4}
-\contentsline {subsection}{\numberline {3.1.3}Quiz}{6}
-\contentsline {subsection}{\numberline {3.1.4}Spielablauf einer Runde}{6}
-\contentsline {subsection}{\numberline {3.1.5}Speicherung der Daten}{7}
-\contentsline {subsection}{\numberline {3.1.6}Fragencharakteristiken}{8}
-\contentsline {subsection}{\numberline {3.1.7}Dashboard}{8}
+\contentsline {subsection}{\numberline {3.1.1}An- und Abmelden}{4}
+\contentsline {subsection}{\numberline {3.1.2}Spieleraccount}{4}
+\contentsline {subsection}{\numberline {3.1.3}Quiz}{5}
+\contentsline {subsubsection}{\nonumberline Quiz}{5}
+\contentsline {subsubsection}{\nonumberline Spielablauf einer Runde}{5}
+\contentsline {subsubsection}{\nonumberline Fragencharakteristiken}{6}
+\contentsline {subsection}{\numberline {3.1.4}Speicherung der Daten}{8}
+\contentsline {subsection}{\numberline {3.1.5}Dashboard}{9}
 \contentsline {section}{\numberline {3.2}Kann-Ziele}{9}
 \contentsline {subsection}{\numberline {3.2.1}Spielerprofil}{9}
 \contentsline {chapter}{\numberline {4}Nicht-funktionale Anforderungen}{11}
