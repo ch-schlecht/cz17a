@@ -13,10 +13,11 @@
 \contentsline {subsubsection}{\nonumberline Spielablauf einer Runde}{5}
 \contentsline {subsubsection}{\nonumberline Jackpot}{6}
 \contentsline {subsubsection}{\nonumberline Fragencharakteristiken}{8}
-\contentsline {subsection}{\numberline {3.1.4}Speicherung der Daten}{8}
-\contentsline {subsection}{\numberline {3.1.5}Dashboard}{9}
-\contentsline {section}{\numberline {3.2}Kann-Ziele}{9}
-\contentsline {subsection}{\numberline {3.2.1}Spielerprofil}{9}
+\contentsline {subsection}{\numberline {3.1.4}Access Control List}{8}
+\contentsline {subsection}{\numberline {3.1.5}Speicherung der Daten}{8}
+\contentsline {subsection}{\numberline {3.1.6}Dashboard}{9}
+\contentsline {section}{\numberline {3.2}Kann-Ziele}{10}
+\contentsline {subsection}{\numberline {3.2.1}Spielerprofil}{10}
 \contentsline {chapter}{\numberline {4}Nicht-funktionale Anforderungen}{11}
 \contentsline {section}{\numberline {4.1}Muss-Ziele}{11}
 \contentsline {subsection}{\numberline {4.1.1}Datenschutz und Anonymit\IeC {\"a}t}{11}

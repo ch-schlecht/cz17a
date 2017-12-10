@@ -149,15 +149,27 @@ Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
 
 \subsubsection{Fragencharakteristiken}
 \begin{description}
-\item[/LFXXXX/] Schwierigkeitsgrad der Fragen \\
-Jeder Frage wird initial in der Datenbank ein Schwierigkeitsgrad zugeordnet, welche vom Fragenersteller festgelegt wird. Werden bestimmte Fragen oft falsch beantwortet, so erhöht sich der Schwierigkeitsgrad dynamisch, wird sie oft richtig beantwortet, so wird der Schwierigkeitsgrad herabgesetzt.
+\item[/LFXX10/] Statischer Schwierigkeitsgrad der Fragen \\
+Jede Frage muss einen statischen Schwierigkeitsgrad zugeordnet bekommen, welcher vom Fragenersteller festgelegt wird.
+
+\item[/LFXX20/] Dynamischer Schwierigkeitsgrad der Fragen \\
+Jede Frage soll zusätzlich zu /LFXX10/ einen dynamischen Schwierigkeitsgrad erhalten, der steigt, wenn eine Frage oft falsch beantwortet wurde und sinkt, wenn sie oft richtig beantwortet wurde.
+
 \item[/LFXXXX/] Punktzahl einer Frage \\
-Die Punktzahl einer Frage wird anhand des Schwierigkeitsgrades der Frage festgelegt. Ändert sich der Schwierigkeitsgrad, so muss auch die Punktzahl der Frage verändert werden.
-\item[/LFXXXX/] Logik der Fragenauswahl \\
-Generell erfolgt die Auswahl von Fragen, welche in einer Quizrunde gespielt werden, zufällig. Werden jedoch Fragen häufig falsch beantwortet, so ist die Wahrscheinlichkeit höher, dass diese Fragen öfter gespielt werden.
+Jede Frage soll einen Grundpunktewert besitzen, der durch einen Multiplikator in Abhängigkeit des Schwierigkeitsgrades (LFXX10, LFXX20) der Frage verändert wird.
+
+\item[/LFXXXX/] Auswahl der Fragen \\
+Die Auswahl der Fragen einer Quizrunde aus der Menge der möglichen Fragen erfolgt zufällig.
+
+\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Frage \\
+Je häufiger eine Frage falsch beantwortet wurde, desto häufiger soll diese Frage ausgewählt werden.
+
 \item[/LF0140/] Import von Fragen \\
-Es muss möglich sein, Fragen per Excel oder CSV in die Datenbank zu importieren.
+Der Administrator soll Fragen im CSV- oder Excel-Format in die Datenbank importieren können.
 \end{description}
+
+%Große Baustelle
+\subsection{Access Control List}
 \begin{description}
 \item[/LF0150/] Access Control List \\
 Folgende Kontrollzustände sollen eingerichtet werden:
@@ -169,6 +181,7 @@ Folgende Kontrollzustände sollen eingerichtet werden:
 	\end{itemize}
 
 \end{description}
+
 \subsection{Speicherung der Daten}
 \begin{description}
 \item[/LF0130/] Speicherung von Fragen und Daten \\
