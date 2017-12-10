@@ -9,10 +9,10 @@
 \contentsline {subsection}{\numberline {3.1.1}An- und Abmelden}{4}
 \contentsline {subsection}{\numberline {3.1.2}Spieleraccount}{4}
 \contentsline {subsection}{\numberline {3.1.3}Quiz}{5}
-\contentsline {subsubsection}{\nonumberline Quiz}{5}
+\contentsline {subsubsection}{\nonumberline Rahmen}{5}
 \contentsline {subsubsection}{\nonumberline Spielablauf einer Runde}{5}
 \contentsline {subsubsection}{\nonumberline Jackpot}{6}
-\contentsline {subsubsection}{\nonumberline Fragencharakteristiken}{8}
+\contentsline {subsubsection}{\nonumberline Fragencharakteristiken}{6}
 \contentsline {subsection}{\numberline {3.1.4}Access Control List}{8}
 \contentsline {subsection}{\numberline {3.1.5}Speicherung der Daten}{8}
 \contentsline {subsection}{\numberline {3.1.6}Dashboard}{9}

@@ -77,7 +77,7 @@ Der Benutzer soll selbstständig seinen Account wieder löschen können.
 \end{description}
 \subsection{Quiz}
 
-\subsubsection{Quiz}
+\subsubsection{Rahmen}
 \begin{description}
 \item[/LF0060/] Fragenpool \\
 Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
@@ -117,7 +117,10 @@ Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält
 Jeder Spieler der Gruppe soll gleichzeitig die gleiche Frage beantworten müssen.
  
 \item[/LFXXXX/]Punkteausschüttung der Frage \\
-Wird eine Frage richtig beantwortet, erhält der Spieler die zur Frage zugehörige Punktzahl auf sein Konto,  beantwortet er die Frage falsch, wandern die Punkte in einen Jackpot.
+Wenn eine Frage richtig beantwortet wird, soll der Spieler die zur Frage zugehörige Punktzahl auf sein Konto bekommen, ansonsten gehen die Punkte in einen Jackpot.
+
+\item[/LFXXXX/] Letzte Frage einer Spielrunde \\
+Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
 \end{description}
 
 \subsubsection{Jackpot}
@@ -134,17 +137,9 @@ Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll 
 \item[/LFXXXX/] Punkteausschüttung einer Jackpot-Frage \\
 Jeder, der die Jackpot-Frage richtig beantwortet, soll garantiert einen Anteil der Punkte in Abhängigkeit von der Schnelligkeit der gegebenen Antwort (der Schnellste bekommt am meisten) erhalten.
 
-%Vorschlag
-\item[/LFXXXX/] Füllung des Jackpots
-Der Jackpot darf bei Auslösen einer Jackpotfrage nicht leer sein und wird zusätzlich zu 
-%/LF Nummer von Punkteausschüttung der Frage/ 
-vor jeder Frage um einen konstanten Wert erhöht.
+\item[/LFXXXX/] Füllen des Jackpots \\
+Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass vor dem Auftauchen einer Jackpotfrage der Jackpot nicht leer ist)
 
-\item[/LFXXXX/] Neufüllung des Jackpots nach Leerung \\
-Wurde der Jackpot im Rahmen einer Jackpot-Frage ausgeschüttet, soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass falls die nächste Frage wieder Jackpot-Frage ist, stets Punkte enthalten sind)
-
-\item[/LFXXXX/]Letzte Frage einer Spielrunde \\
-Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
 \end{description}
 
 \subsubsection{Fragencharakteristiken}
@@ -168,7 +163,6 @@ Je häufiger eine Frage falsch beantwortet wurde, desto häufiger soll diese Fra
 Der Administrator soll Fragen im CSV- oder Excel-Format in die Datenbank importieren können.
 \end{description}
 
-%Große Baustelle
 \subsection{Access Control List}
 \begin{description}
 \item[/LF0150/] Access Control List \\
