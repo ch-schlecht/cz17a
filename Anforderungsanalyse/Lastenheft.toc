@@ -18,11 +18,12 @@
 \contentsline {subsection}{\numberline {3.1.6}Dashboard}{9}
 \contentsline {section}{\numberline {3.2}Kann-Ziele}{10}
 \contentsline {subsection}{\numberline {3.2.1}Spielerprofil}{10}
-\contentsline {chapter}{\numberline {4}Nicht-funktionale Anforderungen}{11}
-\contentsline {section}{\numberline {4.1}Muss-Ziele}{11}
-\contentsline {subsection}{\numberline {4.1.1}Datenschutz und Anonymit\IeC {\"a}t}{11}
-\contentsline {section}{\numberline {4.2}Kann-Ziele}{11}
-\contentsline {chapter}{\numberline {5}Qualit\IeC {\"a}tsmatrix nach ISO 25010}{12}
-\contentsline {chapter}{\numberline {6}Lieferumfang und Abnahmekriterium}{13}
-\contentsline {chapter}{\numberline {7}Vorprojekt}{14}
-\contentsline {chapter}{\numberline {8}Glossar}{15}
+\contentsline {subsection}{\numberline {3.2.2}Dashboard}{11}
+\contentsline {chapter}{\numberline {4}Nicht-funktionale Anforderungen}{12}
+\contentsline {section}{\numberline {4.1}Muss-Ziele}{12}
+\contentsline {subsection}{\numberline {4.1.1}Datenschutz und Anonymit\IeC {\"a}t}{12}
+\contentsline {section}{\numberline {4.2}Kann-Ziele}{12}
+\contentsline {chapter}{\numberline {5}Qualit\IeC {\"a}tsmatrix nach ISO 25010}{13}
+\contentsline {chapter}{\numberline {6}Lieferumfang und Abnahmekriterium}{14}
+\contentsline {chapter}{\numberline {7}Vorprojekt}{15}
+\contentsline {chapter}{\numberline {8}Glossar}{16}
