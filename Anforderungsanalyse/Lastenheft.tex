@@ -283,10 +283,36 @@ Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minim
 Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
 \item[/LL0270/] Löschung des Profils \\ 
 Es muss für den User möglich sein, sein Profil zu löschen.
+\item[/LLXXXX/] Sicherheit der Accountdaten \ \\
+Die Zugangsdaten zum Einloggen müssen geschützt werden. Sie dürfen nicht im Klartext auftreten, sondern sollen verschlüsselt gespeichert werden.
 \end{description}
+\subsection{Fehlerunanfälligkeit}
+\begin{description}
+\item[/LLXXXX/] Handling von Falscheingaben \ \\
+Jegliche falschen Eingaben vom Benutzer müssen geeignet abgefangen werden.
+\item[/LLXXXX/] Absturz bei Fehler \ \\
+Bei Auftreten eines internen Fehlers soll minimaler Schaden auftreten (Datenverlust, etc.). Zu vermeiden ist in jedem Fall der Absturz des Programms.
+\end{description}
+\subsection{Wartung}
+\begin{description}
+\item[/LLXXXX/] Dokumentation \ \\
+Der Programmcode soll vollständig kommentiert und dokumentiert sein.
+\item[/LLXXXX/] einfache Wartung und Modularität \ \\
+Die Struktur des Programmcodes soll so aufgebaut sein, dass 'leicht' (auch von anderen Personen innerhalb der eventuellen Weiterentwicklung) Änderungen vorgenommen werden können. Damit in Verbindung steht die Modularisierung des Codes.
+\end{description}
+\subsection{Benutzerinteraktion}
+\begin{description}
+\item[/LLXXXX/] einfache grafische Interaktion \ \\
+Das User-Interface soll einfach gehalten werden, um Überforderung zu vermeiden. 
+\item[/LLXXXX/] Korrektheit von Eingaben \ \\
+Benutzereingaben müssen auf Korrektheit (d.h. richtiges Format, unerlaubte Zeichen, ...) geprüft und ggf. abgefangen werden.
+(siehe Fehlerunanfälligkeit).
+\end{description}
+
 \section{Kann-Ziele}
 \begin{description}
-\item[/LL0280/]
+\item[/LL0280/] Distribution an andere Versionen \ \\
+Das Programm soll von so vielen wie möglich Android-Versionen unterstützt werden.
 \item[/LL0290/]
 \item[/LL03XX/]
 \end{description}
@@ -309,26 +335,16 @@ Portierbarkeit  &              &x              & 		&\\
 \end{tabular}
 
 \chapter{Lieferumfang und Abnahmekriterium}
-\begin{itemize}
-\item Lieferumfang:
-	\begin{itemize}
-	\item Android-App als Client
-	\item Server mit Datenbankanbindung
-	\item Weboberfläche für den Administrator
-	
-	\end{itemize}
-\item Abnahmekriterien:
-	\begin{itemize}
-	\item 
-	\end{itemize}
-\end{itemize}
+\section{Lieferumfang}
+Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dekoumentation wird ebenfalls zur Verfügung gestellt.
+\section{Abnahmekriterien}
+Als Hauptabnahmekriterium wird ein funktionsfähiger Prototyp der Quiz-App vereinbart. Es sollen alle Muss-Ziele und optional ebenfalls so viele wie möglich Kann-Ziele umgesetzt werden. Der Lieferumfang soll eingehalten werden. Zusätzlich müssen zur Dokumentation ebenfalls ein eventueller Installationsguide. Die Qualität soll mit der Qualitätsmatrix übereinstimmen.
+
 
 \chapter{Vorprojekt}
-\begin{itemize}
-%CS: to discuss
-\item Mögliches Vorprojekt: \\
+
 Im Rahmen des Vorprojekts soll das wesentliche Grundgerüst, bestehend aus Datenbank, Server - und Client-Grundkonzept und Fragenmechanismus, erstellt werden. Dazu sollte es bereits möglich sein, Fragen in eine Datenbank mitsamt einer flexiblen Anzahl von Antwortmöglichkeiten einzulesen, zu speichern, sie abzufragen und anzeigen zu lassen. Es sollte weiterhin schon ein grundlegender Quizmechanismus implementiert werden, bei dem eine Frage mit mindestens vier Antwortmöglichkeiten gegeben ist und eine richtige Antwort enthält, welche der Spieler beantworten kann. Der Spieler muss weiterhin ein Feedback, in Form einer Nachricht o.ä., erhalten, um zu sehen, ob er die Frage richtig oder falsch beantwortet hat.
-\end{itemize}
+
 
 \chapter{Glossar}
 \begin{description}
