@@ -40,12 +40,16 @@ Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen,
 \begin{description}
 \item[/LF0010/] Registrierung \\
 Ein Nutzer soll sich unter Angabe eines Nutzernamens, Passworts und E-Mail registrieren können.
+
 \item[/LF0020/] Anmelden \\
 Ein Nutzer soll sich mit seinem Nickname und Passwort einloggen können.
+
 \item[/LF0040/] Anzeige der Accountübersicht \\
 Nach dem Anmelden kann der Benutzer die Startseite seines Spieler-Accounts einsehen. %Entsprechenden Verweis noch einfügen
+
 \item[/LF0030/] Abmelden \\
 Der Nutzer soll sich vom System abmelden können.
+
 \item[/LF0040/] Passwort anfordern \\
 Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
 
@@ -64,28 +68,39 @@ Für jeden Nutzer soll ein persönliches Profil existieren, dass mindestens den 
 	\item Angemeldete E-Mail
 	\item Registrierungsdatum
 	\end{itemize}
+	
 \item[/LF0120/] Änderung des Passworts \\
 Ein Benutzer soll sein Passwort beliebig häufig ändern können.
+
 \item[/LF0130/] Löschung des Accounts \\
 Der Benutzer soll selbstständig seinen Account wieder löschen können.
 \end{description}
 \subsection{Quiz}
+
 \subsubsection{Quiz}
 \begin{description}
 \item[/LF0060/] Fragenpool \\
 Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
+
 \item[/LF0070/] Quizrunde \\
 Jede Quizrunde soll dynamisch aus * Fragen zusammengestellt werden.
+
 \item[/LF0080/] Antwort auswählen \\
-Der Spieler soll aus * Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
+Der Spieler soll aus n Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
 %LV: Die nächste Anforderung muss weitergehend spezifiziert werden bzw. um weitere Anforderungen erweitert werden, was einem zusätzlich noch angezeigt wird oder wann und wie sich ein Score verändert.
 \item[/LF0090/]Auswertung einer Frage \\ 
 Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden %LV: Vielleicht auch, was die richtige Antwort war, wenn man falsch lag?
+
+\item[/LF0090/]Anzeige des Punktestands einer Quizrunde \\ 
+Der User muss während der Quizrunde jederzeit seinen aktuellen Punktestand sehen können.
+
 \item[/LF0100/] Ergebnisse ausgeben \\
 Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand aller Teilnehmer (Scoreboard),  individuelle Platzierung.
+
 \item[/LF0110/] Dauer einer Quizrunde \\
  Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
 \end{description}
+
 \subsubsection{Spielablauf einer Runde}
 Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
 Zm Anfang einer Spielrunde betritt ein Spieler die Lobby, in welcher er verweilt, bis mindestens fünf Spieler gefunden wurden. Ist dies geschehen, so beginnt das Spiel. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto, welches ihm stets angezeigt wird. Wird sie jedoch falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Frage zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen (richtigen) Antwort bestimmt (Der Schnellste bekommt den größten Anteil, danach absteigend). Falls der Jackpot einmal leer ist (z.B. nach Jackpot-Frage) werden automatisch vom System eine gewisse Anzahl Punkte hineingegeben, um zu gewährleisten, dass stets Punkte im Jackpot sind, sollte z.B. die nächste Frage wieder eine Jackpot-Frage sein. Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzen Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine Schnellraterunde angedacht.
@@ -98,21 +113,40 @@ Zm Anfang einer Spielrunde betritt ein Spieler die Lobby, in welcher er verweilt
 	\label{img:Spielablauf}
 \end{figure}
 \begin{description}
-\item[/LFXXXX/]gleiche Frage \\
- Jeder Spieler der Gruppe bekommt gleichzeitig die gleiche Frage bestellt.
+\item[/LFXXXX/]Verteilung der Fragen \\
+Jeder Spieler der Gruppe soll gleichzeitig die gleiche Frage beantworten müssen.
+ 
 \item[/LFXXXX/]Punkteausschüttung der Frage \\
 Wird eine Frage richtig beantwortet, erhält der Spieler die zur Frage zugehörige Punktzahl auf sein Konto,  beantwortet er die Frage falsch, wandern die Punkte in einen Jackpot.
-\item[/LFXXXX/]Jackpot-Frage \\
-Eine Jackpot-Frage wird zufällig ausgelöst. Es wird um die Punkte im Jackpot gespielt. Äußerlich ist die Jackpot-Frage nicht von anderen Fragen zu unterscheiden.
-\item[/LFXXXX/] Punkteausschüttung einer Jackpot-Frage \\
-Jeder, der die Jackpot-Frage richtig beantwortet, erhält garantiert einen Anteil der Punkte. Dieser ist Abhängigkeit von der Schnelligkeit der gegebenen Antwort(der Schnellste bekommt am meisten, danach absteigend).
-\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \\
- Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) wird die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt, höher.
-\item[/LFXXXX/] Neufüllung des Jackpots nach Leerung \\
-Wurde der Jackpot im Rahmen einer Jackpot-Frage ausgeschüttet, so wird automatisch vom System eine festgelegte Anzahl von Punkten in den Jackpot gegeben (Garantie, dass falls die nächste Frage wieder Jackpot-Frage ist, stets Punkte enthalten sind)
-\item[/LFXXXX/]letzte Frage einer Spielrunde \\
-Die letzte Frage einer Runde ist sicher eine Jackpot-Frage. Hierbei wird die Anzahl der Punkte im Jackpot verdoppelt und dann um diese gespielt.
 \end{description}
+
+\subsubsection{Jackpot}
+\begin{description}
+\item[/LFXXXX/] Ausschüttung des Jackpots \\
+Die Punkte des Jackpots können von den Spielern durch Beantwortung einer speziellen Frage (Jackpot-Frage) erhalten werden
+
+\item[/LFXXXX/]Auslösen der Jackpot-Frage \\
+Eine Jackpot-Frage soll zufällig ausgelöst werden und sich äußerlich nicht von anderen Fragen unterscheiden.
+
+\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \\
+Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt, steigen. Die letzte Frage einer Runde soll sicher eine Jackpot-Frage sein.
+
+\item[/LFXXXX/] Punkteausschüttung einer Jackpot-Frage \\
+Jeder, der die Jackpot-Frage richtig beantwortet, soll garantiert einen Anteil der Punkte in Abhängigkeit von der Schnelligkeit der gegebenen Antwort (der Schnellste bekommt am meisten) erhalten.
+
+%Vorschlag
+\item[/LFXXXX/] Füllung des Jackpots
+Der Jackpot darf bei Auslösen einer Jackpotfrage nicht leer sein und wird zusätzlich zu 
+%/LF Nummer von Punkteausschüttung der Frage/ 
+vor jeder Frage um einen konstanten Wert erhöht.
+
+\item[/LFXXXX/] Neufüllung des Jackpots nach Leerung \\
+Wurde der Jackpot im Rahmen einer Jackpot-Frage ausgeschüttet, soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass falls die nächste Frage wieder Jackpot-Frage ist, stets Punkte enthalten sind)
+
+\item[/LFXXXX/]Letzte Frage einer Spielrunde \\
+Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
+\end{description}
+
 \subsubsection{Fragencharakteristiken}
 \begin{description}
 \item[/LFXXXX/] Schwierigkeitsgrad der Fragen \\
@@ -226,35 +260,10 @@ Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minim
 Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
 \item[/LL0270/] Löschung des Profils \\ 
 Es muss für den User möglich sein, sein Profil zu löschen.
-\item[/LLXXXX/] Sicherheit der Accountdaten \ \\
-Die Zugangsdaten zum Einloggen müssen geschützt werden. Sie dürfen nicht im Klartext auftreten, sondern sollen verschlüsselt gespeichert werden.
-\end{description}
-\subsection{Fehlerunanfälligkeit}
-\begin{description}
-\item[/LLXXXX/] Handling von Falscheingaben \ \\
-Jegliche falschen Eingaben vom Benutzer müssen geeignet abgefangen werden.
-\item[/LLXXXX/] Absturz bei Fehler \ \\
-Bei Auftreten eines internen Fehlers soll minimaler Schaden auftreten (Datenverlust, etc.). Zu vermeiden ist in jedem Fall der Absturz des Programms.
-\end{description}
-\subsection{Wartung}
-\begin{description}
-\item[/LLXXXX/] Dokumentation \ \\
-Der Programmcode soll vollständig kommentiert und dokumentiert sein.
-\item[/LLXXXX/] einfache Wartung und Modularität \ \\
-Die Struktur des Programmcodes soll so aufgebaut sein, dass 'leicht' (auch von anderen Personen innerhalb der eventuellen Weiterentwicklung) Änderungen vorgenommen werden können. Damit in Verbindung steht die Modularisierung des Codes.
-\end{description}
-\subsection{Benutzerinteraktion}
-\begin{description}
-\item[/LLXXXX/] einfache grafische Interaktion \ \\
-Das User-Interface soll einfach gehalten werden, um Überforderung zu vermeiden. 
-\item[/LLXXXX/] Korrektheit von Eingaben \ \\
-Benutzereingaben müssen auf Korrektheit (d.h. richtiges Format, unerlaubte Zeichen, ...) geprüft und ggf. abgefangen werden.
-(siehe Fehlerunanfälligkeit).
 \end{description}
 \section{Kann-Ziele}
 \begin{description}
-\item[/LL0280/] Distribution an andere Versionen \ \\
-Das Programm soll von so vielen wie möglich Android-Versionen unterstützt werden.
+\item[/LL0280/]
 \item[/LL0290/]
 \item[/LL03XX/]
 \end{description}
@@ -274,17 +283,29 @@ Benutzbarkeit  	& x             &              & 		&\\
 Wartbarkeit  	&              &x              & 		&\\
 Portierbarkeit  &              &x              & 		&\\
 \hline
-\end{tabular}\\ \\
-Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
+\end{tabular}
 
 \chapter{Lieferumfang und Abnahmekriterium}
-\section{Lieferumfang}
-Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dekoumentation wird ebenfalls zur Verfügung gestellt.
-\section{Abnahmekriterien}
-Als Hauptabnahmekriterium wird ein funktionsfähiger Prototyp der Quiz-App vereinbart. Es sollen alle Muss-Ziele und optional ebenfalls so viele wie möglich Kann-Ziele umgesetzt werden. Der Lieferumfang soll eingehalten werden. Zusätzlich müssen zur Dokumentation ebenfalls ein eventueller Installationsguide. Die Qualität soll mit der Qualitätsmatrix übereinstimmen.
+\begin{itemize}
+\item Lieferumfang:
+	\begin{itemize}
+	\item Android-App als Client
+	\item Server mit Datenbankanbindung
+	\item Weboberfläche für den Administrator
 	
+	\end{itemize}
+\item Abnahmekriterien:
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{itemize}
+
 \chapter{Vorprojekt}
+\begin{itemize}
+%CS: to discuss
+\item Mögliches Vorprojekt: \\
 Im Rahmen des Vorprojekts soll das wesentliche Grundgerüst, bestehend aus Datenbank, Server - und Client-Grundkonzept und Fragenmechanismus, erstellt werden. Dazu sollte es bereits möglich sein, Fragen in eine Datenbank mitsamt einer flexiblen Anzahl von Antwortmöglichkeiten einzulesen, zu speichern, sie abzufragen und anzeigen zu lassen. Es sollte weiterhin schon ein grundlegender Quizmechanismus implementiert werden, bei dem eine Frage mit mindestens vier Antwortmöglichkeiten gegeben ist und eine richtige Antwort enthält, welche der Spieler beantworten kann. Der Spieler muss weiterhin ein Feedback, in Form einer Nachricht o.ä., erhalten, um zu sehen, ob er die Frage richtig oder falsch beantwortet hat.
+\end{itemize}
 
 \chapter{Glossar}
 \begin{description}
