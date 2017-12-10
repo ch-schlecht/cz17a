@@ -226,10 +226,35 @@ Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minim
 Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
 \item[/LL0270/] Löschung des Profils \\ 
 Es muss für den User möglich sein, sein Profil zu löschen.
+\item[/LLXXXX/] Sicherheit der Accountdaten \ \\
+Die Zugangsdaten zum Einloggen müssen geschützt werden. Sie dürfen nicht im Klartext auftreten, sondern sollen verschlüsselt gespeichert werden.
+\end{description}
+\subsection{Fehlerunanfälligkeit}
+\begin{description}
+\item[/LLXXXX/] Handling von Falscheingaben \ \\
+Jegliche falschen Eingaben vom Benutzer müssen geeignet abgefangen werden.
+\item[/LLXXXX/] Absturz bei Fehler \ \\
+Bei Auftreten eines internen Fehlers soll minimaler Schaden auftreten (Datenverlust, etc.). Zu vermeiden ist in jedem Fall der Absturz des Programms.
+\end{description}
+\subsection{Wartung}
+\begin{description}
+\item[/LLXXXX/] Dokumentation \ \\
+Der Programmcode soll vollständig kommentiert und dokumentiert sein.
+\item[/LLXXXX/] einfache Wartung und Modularität \ \\
+Die Struktur des Programmcodes soll so aufgebaut sein, dass 'leicht' (auch von anderen Personen innerhalb der eventuellen Weiterentwicklung) Änderungen vorgenommen werden können. Damit in Verbindung steht die Modularisierung des Codes.
+\end{description}
+\subsection{Benutzerinteraktion}
+\begin{description}
+\item[/LLXXXX/] einfache grafische Interaktion \ \\
+Das User-Interface soll einfach gehalten werden, um Überforderung zu vermeiden. 
+\item[/LLXXXX/] Korrektheit von Eingaben \ \\
+Benutzereingaben müssen auf Korrektheit (d.h. richtiges Format, unerlaubte Zeichen, ...) geprüft und ggf. abgefangen werden.
+(siehe Fehlerunanfälligkeit).
 \end{description}
 \section{Kann-Ziele}
 \begin{description}
-\item[/LL0280/]
+\item[/LL0280/] Distribution an andere Versionen \ \\
+Das Programm soll von so vielen wie möglich Android-Versionen unterstützt werden.
 \item[/LL0290/]
 \item[/LL03XX/]
 \end{description}
