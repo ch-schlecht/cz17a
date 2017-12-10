@@ -251,19 +251,21 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 \item[/LF0200/] Freischalten von Inhalten \\
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden.
 \item[/LF0210/] Ratingsystem für Fragen \\
-Es soll die Möglichkeit bestehen, nach Beantwortung einer Frage diese nach ihrer Qualität zu beurteilen.
+Es soll die Möglichkeit bestehen, nach Beantwortung einer Frage diese nach ihrer Qualität zu beurteilen. Diese kann vom Administrator eingesehen werden und leitet ihn an, die Fragen bei schlechter Bewertung zu verändern/löschen.
 \item[/LF0220/] optionale Ergebnisansicht am Ende einer Runde \\
 Es soll weiterhin am Ende einer Runde möglich sein:
 		\begin{itemize}
 		\item eine Übersicht über alle Fragen mit den jeweils richtigen Antworten einzusehen,
 		\item in dieser Runde erreichte Achievements anzuzeigen,
 		\end{itemize}
+Zusätzlich sollen die Ergebnisse von den letzten * Runden gespeichert werden können und später vom Dashboard aus aufrufbar sein.
 \item[/LF0230/] Schnellfragerunde \\
-Diese Runde ist die Letze einer Spielrunde und damit eine Jackpot-Frage.
-Über eine bestimmte Zeitspanne können von jedem Spieler individuell so viele wie möglich Fragen beantwortet werden.
-Je mehr Fragen richtig beantwortet wurden, desto mehr Anteile erhält man vom Jackpot.
+Diese Runde ist die Letzte einer Spielrunde und damit eine Jackpot-Frage. Der Jackpot wird in dieser Runde verdoppelt.
+Über eine festgelegte Zeitspanne beantwortet jeder Spieler so viele Fragen wie er schafft. Nach Ablauf wird die Anzahl der richtig beantworteten Fragen durch das System ermittelt.
+Wie bei jeder Jackpot-Frage gilt: Jeder, der (hier mindestens) eine Frage richtig beantwortet, erhält garantiert einen Anteil am Jackpot. Wer die meisten Fragen richtig beantwortet erhält den größten Anteil, danach absteigend.
 \item[/LF0240/] Strategische Modifikatoren \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
+Diese sind entweder alle bereits verfügbar und können vor dem Spielstart ausgewählt werden, oder werden durch Badges freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
 \end{description}
 
 \subsection{Dashboard}
