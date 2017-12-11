@@ -8,6 +8,9 @@
 \usepackage[ngerman]{babel}
 %Grafikpaket
 \usepackage{graphicx}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
 %\Chapter sorgt dafür, dass kein Seitenvorschub auftritt.
 \makeatletter
 \newcommand\Chapter{%
@@ -39,6 +42,10 @@
 	{\large \today \par}
 \end{titlepage}
 \tableofcontents
+
+\ihead{11.12.2017}
+\chead{Gruppe cz17a}
+\ohead{Christian Schlecht}
 
 %Bei reports beginnt die Zählung von sections mit 0. Daher wurde hier chapter gewählt. Danach kann section gewählt werden, danach subsection und subsubsection
 \Chapter{Ausgangssituation}
