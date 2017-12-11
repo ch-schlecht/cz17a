@@ -23,7 +23,7 @@ include 'header.inc.php';
 <!DOCTYPE HTML>
 <html>
    <script type="text/javascript">
-     document.getElementById("nav_home").style.backgroundColor = '#D8D8D8';
+     document.getElementById("nav_projekt").style.backgroundColor = '#D8D8D8';
     </script>
 
 
