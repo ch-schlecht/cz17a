@@ -51,9 +51,9 @@
 	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
 		<done who="FF,CS,SL,TG,MF,FZ,WS" A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">5. Praezenstreffen</done>
+		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Website</done>
 		<done who="MF" A="2" S="1" Zeit="2">Protokoll</done>
-		<done who="MF" A="1" S="1" Zeit="0.5">Wartung von Git-Dateien</done>
-		<done who="MF" A="2" S="2" Zeit="1">Diagramm</done>
+		<done who="MF,TG" A="2" S="2" Zeit="1">Diagramm</done>
 		<done who="MF" A="3" S="2" Zeit="1.5">GUI Design</done>
 	</Analyse>	
 </Bericht>
