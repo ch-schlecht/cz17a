@@ -3,10 +3,10 @@ image: node:6
 before_script:
   - ping -c 1 aksw.org
 
-build_the_project:
-  script:
+#build_the_project:
+#  script:
 #    - sh program.sh
-    - test -f result.md
+#    - test -f result.md
 
 release-job:
   before_script:
