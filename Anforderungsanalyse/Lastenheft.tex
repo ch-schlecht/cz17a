@@ -8,20 +8,45 @@
 \usepackage[ngerman]{babel}
 %Grafikpaket
 \usepackage{graphicx}
-\title{Lastenheft}
+%\Chapter sorgt dafür, dass kein Seitenvorschub auftritt.
+\makeatletter
+\newcommand\Chapter{%
+                    \par\vspace{2cm}% anpassen
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+
+\title{Lastenheft Gruppe cz17a}
 \author{Lisa Vogelsberg}
 \date{29.11.2017}
 
 \begin{document}
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Universität Leipzig \par}
+	\vspace{1cm}
+	{\scshape\Large Softwaretechnik-Praktikum \par}
+	\vspace{2cm}
+	{\huge\bfseries Lastenheft Gruppe cz17a - Gamification \par}
+	\vspace{2cm}
+	{\Large\itshape Lisa Vogelsberg, Felix Fink, Michael Fritz, Thomas Gerbert, Steven Lehmann, Fabian Ziegner, Willy Steinbach, Christian Schlecht \par}
+	\vfill
+	supervised by \par
+	Dr.~Christian \textsc{Zinke}, Julia \textsc{Friedrich}, Christian \textsc{Frommert}
+	\vfill
+	{\large \today \par}
+\end{titlepage}
 \tableofcontents
 
 %Bei reports beginnt die Zählung von sections mit 0. Daher wurde hier chapter gewählt. Danach kann section gewählt werden, danach subsection und subsubsection
-\chapter{Ausgangssituation}
+\Chapter{Ausgangssituation}
 %LV: Übernommen aus der Themenbeschreibung im OLAT
 Schon seit langer Zeit gilt die Devise: Wissen ist Macht. Daran hat sich auch im 21. Jahrhundert nichts geändert. Aus diesem Grund ist die Adaption von neuem Wissen unumgänglich, jedoch ist der Weg dahin meist nicht der Erfreulichste: Das Aneignen von Wissen wird meist mit Lesen, auswendig Lernen und ständigem Wiederholen in Verbindung gebracht und ist dementsprechend bei einem Großteil der Bevölkerung negativ konnotiert. Wissen lässt sich aber durchaus auch 'spielerisch' aneignen, etwa wie dies kleine Kinder völlig unbewusst tun.\\
 An diesem Punkt kommen die Wissenspiele zur Sprache. Für den privaten Gebrauch gibt es bereits viele, gut funktionierende, Ansätze, z.B Spiele wie Quizduell oder Fernsehshows wie "Wer wird Millionär". Für die betriebliche Weiterbildung, also Erschließung neuen Wissens innerhalb von Unternehmen, gibt es jedoch bisher nur wenig Anwendung solcher Ansätze. Das Institut für Angewandte Informatik der Universität Leipzig erprobt und erforscht zur Zeit im Rahmen des Projekts SB:Digital (http://sbdigital.infai.org/) gamifizierte Prozesse des Lernens.
 Das erhebliche Potenzial von Wissensspielen hat sich diesbezüglich bereits erwiesen. Angeknüpft an diese Forschungsergebnisse soll im Rahmen dieses Projektes ein gamifiziertes Wissenquiz zur Verwendung innerhalb von Unternehmen entstehen.
-\chapter{Zielsetzung und Produkteinsatz}
+\Chapter{Zielsetzung und Produkteinsatz}
 \section{Vision}
 %LV: Ich krieg das nicht schön bzw. prägnant ausformuliert, deswegen erstmal so. Vielleicht kann das jemand besser ausdrücken.
 Mitarbeiter von Unternehmen sollen mit Hilfe des entstehenden Quiz weitergebildet werden. Sinn und Zweck der Anwendung bildet also die Vermittlung von Wissen. Nun könnte dies natürlich per Dekret an die Mitarbeiter getragen werden, sich in Form von Seminaren oder Fortbildungen Wissen anzueignen, jedoch erfreuen sich diese Formen meist nicht der größten Beliebtheit. Aus diesem Grunde soll durch Gamification mit Spaß und Unterhaltung dazu motivieren, selbst aktiv zu werden. Durch das Quiz soll die Wissensvermittlung nicht als Last, sondern als Freude bzw. Spaß empfunden werden. Im besten Fall geht dies so weit, dass sich die Mitarbeiter noch über das notwendige Maß (z.B. in ihrer Freizeit) hinaus an der Weiterbildung beteiligen. 
@@ -32,7 +57,7 @@ Gewinnen soll dabei aber nicht immer nur derjenige, der am meisten weiß, sonder
 \section{Produkteinsatz}
 Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen, die sich während ihrer Arbeitszeit mit dem Quiz beschäftigen. Die Teilnahme erfolgt dahingehend anonym, dass nicht festgestellt werden kann, welche reale Person gerade an dem Quiz teilnimmt, sofern diese das wünscht.
 
-\chapter{Funktionale Anforderungen}
+\Chapter{Funktionale Anforderungen}
 %LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
 \section{Muss-Ziele}
 %Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
@@ -276,7 +301,7 @@ Der Nutzer soll einstellen können, welche Inhalte des Dashboards nach dem Aufru
 
 \end{description}
 
-\chapter{Nicht-funktionale Anforderungen}
+\Chapter{Nicht-funktionale Anforderungen}
 \section{Muss-Ziele}
 \subsection{Datenschutz und Anonymität}
 \begin{description}
@@ -321,7 +346,7 @@ Das Programm soll möglichst effizient laufen, d.h. möglichst kleine Komplexit�
 \item[/LL03XX/]
 \end{description}
 
-\chapter{Qualitätsmatrix nach ISO 25010}
+\Chapter{Qualitätsmatrix nach ISO 25010}
 % Erzeugt eine Tabelle. Die zweiten Parameter geben allgemeine Einstellungen für die Spalten an. l:linksbündig, c:center und r:rechtsbündig. Mit & wird eine Spalte erstellt, \\ erstellt eine neue Zeile. \hline erzeugt eine horizontale Linie.
 \begin{tabular}{|l|c|c|c|c|}
 \hline
@@ -339,32 +364,34 @@ Portierbarkeit  &              &x              & 		&\\
 \end{tabular} \\ \\
 Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
 
-\chapter{Lieferumfang und Abnahmekriterium}
+\Chapter{Lieferumfang und Abnahmekriterium}
 \section{Lieferumfang}
 Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dekoumentation wird ebenfalls zur Verfügung gestellt.
 \section{Abnahmekriterien}
 Als Hauptabnahmekriterium wird ein funktionsfähiger Prototyp der Quiz-App vereinbart. Es sollen alle Muss-Ziele und optional ebenfalls so viele wie möglich Kann-Ziele umgesetzt werden. Der Lieferumfang soll eingehalten werden. Zusätzlich müssen zur Dokumentation ebenfalls ein eventueller Installationsguide. Die Qualität soll mit der Qualitätsmatrix übereinstimmen.
 
 
-\chapter{Vorprojekt}
+\Chapter{Vorprojekt}
 
 Im Rahmen des Vorprojekts soll das wesentliche Grundgerüst, bestehend aus Datenbank, Server - und Client-Grundkonzept und Fragenmechanismus, erstellt werden. Dazu sollte es bereits möglich sein, Fragen in eine Datenbank mitsamt einer flexiblen Anzahl von Antwortmöglichkeiten einzulesen, zu speichern, sie abzufragen und anzeigen zu lassen. Es sollte weiterhin schon ein grundlegender Quizmechanismus implementiert werden, bei dem eine Frage mit mindestens vier Antwortmöglichkeiten gegeben ist und eine richtige Antwort enthält, welche der Spieler beantworten kann. Der Spieler muss weiterhin ein Feedback, in Form einer Nachricht o.ä., erhalten, um zu sehen, ob er die Frage richtig oder falsch beantwortet hat.
 
 
-\chapter{Glossar}
+\Chapter{Glossar}
 \begin{description}
 \item[E-Learning (Electronical Learning)]\ \\
 Prozess des Lernens unter Beihilfe von elektronischen beziehungsweise von digitalen Medien.
 \item[Gamification]\ \\
-Ist der Einsatz von Spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
-%\item Feedback \\
-
+ist der Einsatz von Spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
+\item[Serious Game]\ \\
+beschreibt ein Spiel, welches nicht primär der Unterhaltung, sondern der Erschließung neuen Wissens dient. spielerische Elemente werden damit mit wissenschaftlichem Content in Verbindung gebracht, um ein spezifisches Lernziel zu erreichen. Die eingesetzten Spielmechaniken werden dabei so eingesetzt, dass ein unterhaltendes Lernerlebnis entsteht.
+\item[Feedback]\ \\
+Jegliche Form der Resonanz zum Spieler wird als Feedback verstanden. Es fördert das Reflektieren der eigenen Handlung. Einerseits kann Feedback durch Anzeigen der richtigen Antwort, durch Badges und Achievements oder anderer visueller Effekte verbreitet werden. Jedoch auch der sprachliche oder textuelle Austausch zwischen Spielen kann als eine Form des Feedbacks verstanden werden.
 \item[Quests]\ \\
-Ist eine für den Benutzer formulierte Aufgabe, die in einer bestimmten Zeit zu absolvieren ist. Häufig werden sie in Verbindung mit anderen Aufgaben eingesetzt.
-%\item[Achivements]\ \\
-
+ist eine für den Benutzer formulierte Aufgabe, die in einer bestimmten Zeit zu absolvieren ist. Häufig werden sie in Verbindung mit anderen Aufgaben eingesetzt.
+\item[Achivements]\ \\
+Achievements stehen für 'Errungenschaften' und bedeuten das Erreichen eines bestimmten Ziels. Häufig werden Badges als Belohnung und Ausstellungsmerkmal eines Achievements benutzt.
 \item[Badges] \ \\
-Bedeutet soviel wie "Abzeichen". Sie repräsentieren das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten oder Kenntnisse in bestimmten Bereichen oder als Beleg für die Teilnahme an bestimmten Veranstaltungen. Badges sind eine Form von Feedback.
+bedeutet soviel wie "Abzeichen". Sie repräsentieren das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten oder Kenntnisse in bestimmten Bereichen oder als Beleg für die Teilnahme an bestimmten Veranstaltungen. Badges sind eine Form von Feedback.
 \item[ACL (Access Control List)]\ \\
 Technik zur Vergabe von Zugriffsrechten, z.B. für Nutzer und Anwendungen. Es ist eine feine Unterteilung in verschiedene Zugriffsgruppen möglich.
 \end{description}
