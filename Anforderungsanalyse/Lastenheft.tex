@@ -21,10 +21,6 @@
 \makeatother
 
 
-\title{Lastenheft Gruppe cz17a}
-\author{Lisa Vogelsberg}
-\date{29.11.2017}
-
 \begin{document}
 \begin{titlepage}
 	\centering
@@ -46,12 +42,13 @@
 \ihead{11.12.2017}
 \chead{Gruppe cz17a}
 \ohead{Christian Schlecht}
+\cfoot{\pagemark}
 
 %Bei reports beginnt die Zählung von sections mit 0. Daher wurde hier chapter gewählt. Danach kann section gewählt werden, danach subsection und subsubsection
 \Chapter{Ausgangssituation}
 %LV: Übernommen aus der Themenbeschreibung im OLAT
 Schon seit langer Zeit gilt die Devise: Wissen ist Macht. Daran hat sich auch im 21. Jahrhundert nichts geändert. Aus diesem Grund ist die Adaption von neuem Wissen unumgänglich, jedoch ist der Weg dahin meist nicht der Erfreulichste: Das Aneignen von Wissen wird meist mit Lesen, auswendig Lernen und ständigem Wiederholen in Verbindung gebracht und ist dementsprechend bei einem Großteil der Bevölkerung negativ konnotiert. Wissen lässt sich aber durchaus auch 'spielerisch' aneignen, etwa wie dies kleine Kinder völlig unbewusst tun.\\
-An diesem Punkt kommen die Wissenspiele zur Sprache. Für den privaten Gebrauch gibt es bereits viele, gut funktionierende, Ansätze, z.B Spiele wie Quizduell oder Fernsehshows wie "Wer wird Millionär". Für die betriebliche Weiterbildung, also Erschließung neuen Wissens innerhalb von Unternehmen, gibt es jedoch bisher nur wenig Anwendung solcher Ansätze. Das Institut für Angewandte Informatik der Universität Leipzig erprobt und erforscht zur Zeit im Rahmen des Projekts SB:Digital (http://sbdigital.infai.org/) gamifizierte Prozesse des Lernens.
+An diesem Punkt kommen die Wissensspiele zur Sprache. Für den privaten Gebrauch gibt es bereits viele, gut funktionierende, Ansätze, z.B Spiele wie Quizduell oder Fernsehshows wie "Wer wird Millionär". Für die betriebliche Weiterbildung, also Erschließung neuen Wissens innerhalb von Unternehmen, gibt es jedoch bisher nur wenig Anwendung solcher Ansätze. Das Institut für Angewandte Informatik der Universität Leipzig erprobt und erforscht zur Zeit im Rahmen des Projekts SB:Digital (http://sbdigital.infai.org/) gamifizierte Prozesse des Lernens.
 Das erhebliche Potenzial von Wissensspielen hat sich diesbezüglich bereits erwiesen. Angeknüpft an diese Forschungsergebnisse soll im Rahmen dieses Projektes ein gamifiziertes Wissenquiz zur Verwendung innerhalb von Unternehmen entstehen.
 \Chapter{Zielsetzung und Produkteinsatz}
 \section{Vision}
@@ -90,7 +87,7 @@ Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
 \subsection{Spieleraccount}
 \begin{description}
 \item[/LF0110/] Account Details \\
-Über den Account sollen folgende Informationen eingesehen werden können
+Über den Account sollen folgende Informationen eingesehen werden können:
 	\begin{itemize}
 	\item Angemeldeter Benutzername
 	\item Angemeldete E-Mail
@@ -123,7 +120,7 @@ Die Dauer einer Quizrunde ist intern vom Administrator einstellbar. Sie gilt dan
 
 \subsubsection{Spielablauf einer Runde}
 Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
-Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto. Wird sie falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Fragen zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen Antwort bestimmt (Der Schnellste bekommt den größten Anteil). Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzen Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine stattdesseb eine Schnellraterunde möglich.
+Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto. Wird sie falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Fragen zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen Antwort bestimmt (Der Schnellste bekommt den größten Anteil). Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzten Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine stattdessen eine Schnellraterunde möglich.
 
 %Die Grafik muss auch inhaltlich nochmal angepasst werden. Z.b. ist "Tritt bei" als Verzweigungsanweisung angegeben, obwohl da keine Verzweigung ist. Vielleicht können wir für den Schritt, um den Spielablauf zu zeigen, auch den Start zum Quiz komplett weglassen.
 \begin{figure}
@@ -143,28 +140,28 @@ Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, 
 Wenn eine Frage vom Nutzer richtig beantwortet wird, soll er die zur Frage zugehörige Punktzahl auf sein Konto bekommen, ansonsten gehen die Punkte in einen Jackpot (/LF2210/ - /LF2250/).
 
 \item[/LF1240/] Letzte Frage einer Spielrunde \\
-Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
+Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden.
 
 \item[/LF1250/] Ergebnisse ausgeben \\
-Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl),  individuelle Platzierung als anonymisiertes Leaderboard (/LF0530/), d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
+Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl) und  individuelle Platzierung als anonymisiertes Leaderboard (/LF0530/), d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
 \end{description}
 
 \subsubsection{Jackpot}
 \begin{description}
 \item[/LF2210/] Ausschüttung des Jackpots \\
-Die Punkte des Jackpots können von den Spielern durch Beantwortung einer speziellen Frage (Jackpot-Frage) erhalten werden
+Die Punkte des Jackpots können von den Spielern durch Beantwortung einer speziellen Frage (Jackpot-Frage) erhalten werden.
 
 \item[/LF2220/]Auslösen der Jackpot-Frage \\
 Eine Jackpot-Frage soll zufällig ausgelöst werden und sich äußerlich nicht von anderen Fragen unterscheiden.
 
 \item[/LF2230/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \\
-Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt, steigen. Die letzte Frage einer Runde soll sicher eine Jackpot-Frage sein.
+Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt, steigen. Die letzte Frage einer Runde soll sicher eine Jackpot-Frage sein.
 
 \item[/LF2240/] Punkteausschüttung einer Jackpot-Frage \\
 Jeder, der die Jackpot-Frage richtig beantwortet, soll garantiert einen Anteil der Punkte in Abhängigkeit von der Schnelligkeit der gegebenen Antwort (der Schnellste bekommt am meisten) erhalten.
 
 \item[/LF2250/] Füllen des Jackpots \\
-Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass vor dem Auftauchen einer Jackpotfrage der Jackpot nicht leer ist)
+Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass vor dem Auftauchen einer Jackpotfrage der Jackpot nicht leer ist).
 
 \end{description}
 
@@ -212,7 +209,7 @@ Das Dashboard soll nach dem Aufruf eine Übersicht über folgende Daten anzeigen
 \begin{itemize}
 	\item Gesamte und durchschnittliche Spielzeit
 	\item Anzahl der gespielten Quizrunden
-	\item Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden von allen Quizzen
+	\item Verhältnis der Gewonnenen/Verlorenen zu den gesamten Quizrunden von allen Quizzen
 	\item Thema des Quiz', bei dem der Nutzer am besten ist
 	\item Durchschnittliche Antwortzeit einer Frage
 	\item Prozentsatz der richtigen Antworten
@@ -222,7 +219,7 @@ Das Dashboard soll nach dem Aufruf eine Übersicht über folgende Daten anzeigen
 \end{itemize}
 
 \item[/LF0430/]\ \\
-Der Nutzer soll die Anzahl der gespielten Quizrunden, sowie das Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden für jedes einzelne Quiz aufrufen können.
+Der Nutzer soll die Anzahl der gespielten Quizrunden, sowie das Verhältnis der Gewonnenen/Verlorenen zu den gesamten Quizrunden für jedes einzelne Quiz aufrufen können.
 \end{description}
 
 \subsection{Sonstiges}
@@ -258,7 +255,7 @@ Eine interne Datenbank verfügt über folgende Daten:
 
 \begin{description}
 \item[/LF0520/] Badges \\
-Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
+Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken, etc.) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
 
 \item[/LF0530/] Leaderboard \\
 (siehe Rahmen) Am Ende einer Runde soll eine Übersicht über Punktestände, anonymisierte Platzierungen und (evtl.) Fragenübersicht angezeigt werden.
@@ -268,7 +265,7 @@ Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell
 \section{Kann-Ziele}
 \begin{description}
 \item[/LF0610/] Optionale Profildetails \\ 
-Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
+Für jeden Benutzer soll ein eigenes Profil anwählbar sein, bestehend aus:
 	\begin{itemize}
 	\item Nutzername
 	\item Profilbild (optional)
@@ -292,12 +289,12 @@ Zusätzlich sollen die Ergebnisse von den letzten * Runden gespeichert werden k�
 
 \item[/LF0650/] Schnellfragerunde \\
 Diese Runde ist die Letzte einer Spielrunde und damit eine Jackpot-Frage. Der Jackpot wird in dieser Runde verdoppelt.
-Über eine festgelegte Zeitspanne beantwortet jeder Spieler so viele Fragen wie er schafft. Nach Ablauf wird die Anzahl der richtig beantworteten Fragen durch das System ermittelt.
+Über eine festgelegte Zeitspanne beantwortet jeder Spieler so viele Fragen wie er schafft. Nach Ablauf der Zeit wird die Anzahl der richtig beantworteten Fragen durch das System ermittelt.
 Wie bei jeder Jackpot-Frage gilt: Jeder, der (hier mindestens) eine Frage richtig beantwortet, erhält garantiert einen Anteil am Jackpot. Wer die meisten Fragen richtig beantwortet erhält den größten Anteil, danach absteigend.
 
 \item[/LF0660/] Strategische Modifikatoren \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
-Diese sind entweder alle bereits verfügbar und können vor dem Spielstart ausgewählt werden, oder werden durch erreichte Punkte freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
+Diese sind entweder alle bereits verfügbar, oder werden durch erreichte Punkte freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
 
 \item[/LF0670/] Items \\
 Im Gegensatz zu strategischen Modifikatoren können Items während der Quizrunde ausgewählt werden. Z.B. sind Items, die dem ersten Spieler Punkte 'klauen', denkbar (vgl. blauer Panzer bei Mario Kart). Erhalten kann der Spieler solch ein Item durch Zufall während des Spiels, jedoch nur, wenn er gerade kein anderes Item besitzt. Der Spieler muss das Item nicht sofort ausspielen, sondern kann es strategisch zu einem von ihm gewählten Zeitpunkt einsetzen. Mit Ende des Quiz verfallen alle Items, d.h. die 'Mitnahme' in ein folgendes Quiz ist nicht möglich. Die Verwaltung wird durch den Administrator durchgeführt.
@@ -382,9 +379,9 @@ Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Qu
 
 \Chapter{Lieferumfang und Abnahmekriterium}
 \section{Lieferumfang}
-Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dekoumentation wird ebenfalls zur Verfügung gestellt.
+Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dokumentation wird ebenfalls zur Verfügung gestellt.
 \section{Abnahmekriterien}
-Als Hauptabnahmekriterium wird ein funktionsfähiger Prototyp der Quiz-App vereinbart. Es sollen alle Muss-Ziele und optional ebenfalls so viele wie möglich Kann-Ziele umgesetzt werden. Der Lieferumfang soll eingehalten werden. Zusätzlich müssen zur Dokumentation ebenfalls ein eventueller Installationsguide. Die Qualität soll mit der Qualitätsmatrix übereinstimmen.
+Als Hauptabnahmekriterium wird ein funktionsfähiger Prototyp der Quiz-App vereinbart. Es sollen alle Muss-Ziele und optional ebenfalls so viele wie möglich Kann-Ziele umgesetzt werden. Der Lieferumfang soll eingehalten werden. Zusätzlich müssen zur Dokumentation ebenfalls ein eventueller Installationsguide beigefügt werden. Die Qualität soll mit der Qualitätsmatrix übereinstimmen.
 
 
 \Chapter{Vorprojekt}
@@ -399,7 +396,7 @@ Prozess des Lernens unter Beihilfe von elektronischen beziehungsweise von digita
 \item[Gamification]\ \\
 ist der Einsatz von Spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
 \item[Serious Game]\ \\
-beschreibt ein Spiel, welches nicht primär der Unterhaltung, sondern der Erschließung neuen Wissens dient. spielerische Elemente werden damit mit wissenschaftlichem Content in Verbindung gebracht, um ein spezifisches Lernziel zu erreichen. Die eingesetzten Spielmechaniken werden dabei so eingesetzt, dass ein unterhaltendes Lernerlebnis entsteht.
+beschreibt ein Spiel, welches nicht primär der Unterhaltung, sondern der Erschließung neuen Wissens dient. Spielerische Elemente werden damit mit wissenschaftlichem Content in Verbindung gebracht, um ein spezifisches Lernziel zu erreichen. Die eingesetzten Spielmechaniken werden dabei so eingesetzt, dass ein unterhaltendes Lernerlebnis entsteht.
 \item[Feedback]\ \\
 Jegliche Form der Resonanz zum Spieler wird als Feedback verstanden. Es fördert das Reflektieren der eigenen Handlung. Einerseits kann Feedback durch Anzeigen der richtigen Antwort, durch Badges und Achievements oder anderer visueller Effekte verbreitet werden. Jedoch auch der sprachliche oder textuelle Austausch zwischen Spielen kann als eine Form des Feedbacks verstanden werden.
 \item[Quests]\ \\
@@ -407,7 +404,7 @@ ist eine für den Benutzer formulierte Aufgabe, die in einer bestimmten Zeit zu 
 \item[Achivements]\ \\
 Achievements stehen für 'Errungenschaften' und bedeuten das Erreichen eines bestimmten Ziels. Häufig werden Badges als Belohnung und Ausstellungsmerkmal eines Achievements benutzt.
 \item[Badges] \ \\
-bedeutet soviel wie "Abzeichen". Sie repräsentieren das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten oder Kenntnisse in bestimmten Bereichen oder als Beleg für die Teilnahme an bestimmten Veranstaltungen. Badges sind eine Form von Feedback.
+bedeutet soviel wie 'Abzeichen'. Sie repräsentieren das Vorhandensein bestimmter Fertigkeiten, Fähigkeiten oder Kenntnisse in bestimmten Bereichen oder als Beleg für die Teilnahme an bestimmten Veranstaltungen. Badges sind eine Form von Feedback.
 \item[ACL (Access Control List)]\ \\
 Technik zur Vergabe von Zugriffsrechten, z.B. für Nutzer und Anwendungen. Es ist eine feine Unterteilung in verschiedene Zugriffsgruppen möglich.
 \end{description}
