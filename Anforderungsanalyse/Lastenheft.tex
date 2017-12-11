@@ -58,9 +58,9 @@ Gewinnen soll dabei aber nicht immer nur derjenige, der am meisten weiß, sonder
 Zielgruppe des Produkts sind Arbeitnehmer in Unternehmen verschiedener Branchen, die sich während ihrer Arbeitszeit mit dem Quiz beschäftigen. Die Teilnahme erfolgt dahingehend anonym, dass nicht festgestellt werden kann, welche reale Person gerade an dem Quiz teilnimmt, sofern diese das wünscht.
 
 \Chapter{Funktionale Anforderungen}
-%LV: Muss- und Kann-Ziele finde ich für die Anforderungen noch nicht ganz passend, da man sie zu schnell mit den Zielen verwechseln die kann, die man vorher festlegt hat und durch die sich dann die Anforderungen ergeben. Einteilung in Hauptanforderungen und optionale Anforderungen trifft es vielleicht schon eher, ist trotzdem noch nicht gut von mir gewählt (Hauptanforderungen meint nämlich eigentlich etwas anderes). Würde ich Dienstag gern besprechen, wenn wir bis dahin nicht noch eine bessere Bezeichnung gefunden haben.
+
 \section{Muss-Ziele}
-%Erzeugt eine Liste ohne Nummerierung, bei dem das Wort in eckigen Klammern als Beschreibung dient und fett gedruckt wird. Neue Zeilen innerhalb eines items werden eingerückt.
+
 \subsection{An- und Abmelden}
 \begin{description}
 \item[/LF0010/] Registrierung \\
@@ -69,18 +69,14 @@ Ein Nutzer soll sich unter Angabe eines Nutzernamens, Passworts und E-Mail regis
 \item[/LF0020/] Anmelden \\
 Ein Nutzer soll sich mit seinem Nickname und Passwort einloggen können.
 
-\item[/LF0040/] Anzeige der Accountübersicht \\
-Nach dem Anmelden kann der Benutzer die Startseite seines Spieler-Accounts einsehen. %Entsprechenden Verweis noch einfügen
+\item[/LF0030/] Anzeige der Accountübersicht \\
+Nach dem Anmelden kann der Benutzer die Startseite seines Spieler-Accounts (/LF0110/) einsehen.
 
-\item[/LF0030/] Abmelden \\
+\item[/LF0040/] Abmelden \\
 Der Nutzer soll sich vom System abmelden können.
 
-\item[/LF0040/] Passwort anfordern \\
+\item[/LF0050/] Passwort anfordern \\
 Der Nutzer soll sein Passwort anfordern können, wenn er dieses vergessen hat.
-
-%Falscher Ort für das Profil
-\item[/LF0050/] Spielerprofil \\
-Für jeden Nutzer soll ein persönliches Profil existieren, dass mindestens den Name enthält
 \end{description}
 
 % Hier können noch weitere Anforderungen folgen, die mit Einstellungen des Users zutun haben (Privatssphäre, Profil, ...)
@@ -104,26 +100,18 @@ Der Benutzer soll selbstständig seinen Account wieder löschen können.
 
 \subsubsection{Rahmen}
 \begin{description}
-\item[/LF0060/] Fragenpool \\
-Es muss ein Pool an Fragen zu einem Thema vorhanden ein, aus dem für das Quiz Fragen entnommen werden können.
 
-\item[/LF0070/] Quizrunde \\
-Jede Quizrunde soll dynamisch aus * Fragen zusammengestellt werden.
+\item[/LF0210/] Quizrunde \\
+Jede Quizrunde soll dynamisch aus n Fragen zusammengestellt werden.
 
-\item[/LF0080/] Antwort auswählen \\
+\item[/LF0220/] Antwort auswählen \\
 Der Spieler soll aus n Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
-%LV: Die nächste Anforderung muss weitergehend spezifiziert werden bzw. um weitere Anforderungen erweitert werden, was einem zusätzlich noch angezeigt wird oder wann und wie sich ein Score verändert.
-\item[/LF0090/]Auswertung einer Frage \\ 
-Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden
 
-\item[/LF0090/]Anzeige des Punktestands einer Quizrunde \\ 
+\item[/LF0230/]Anzeige des Punktestands einer Quizrunde \\ 
 Der User muss während der Quizrunde jederzeit seinen aktuellen Punktestand sehen können.
 
-\item[/LF0100/] Ergebnisse ausgeben \\
-Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl),  individuelle Platzierung als anonymisiertes Leaderboard, d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
-
-\item[/LF0110/] Dauer einer Quizrunde \\
- Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
+\item[/LF0240/] Dauer einer Quizrunde \\
+Die Dauer einer Quizrunde ist intern vom Administrator einstellbar. Sie gilt dann für alle Spiele.
 \end{description}
 
 \subsubsection{Spielablauf einer Runde}
@@ -138,59 +126,65 @@ Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält
 	\label{img:Spielablauf}
 \end{figure}
 \begin{description}
-\item[/LFXXXX/]Verteilung der Fragen \\
+\item[/LF1210/]Verteilung der Fragen \\
 Jeder Spieler der Gruppe soll gleichzeitig die gleiche Frage beantworten müssen.
- 
-\item[/LFXXXX/]Punkteausschüttung der Frage \\
-Wenn eine Frage richtig beantwortet wird, soll der Spieler die zur Frage zugehörige Punktzahl auf sein Konto bekommen, ansonsten gehen die Punkte in einen Jackpot.
 
-\item[/LFXXXX/] Letzte Frage einer Spielrunde \\
+\item[/LF1220/]Auswertung einer Frage \\ 
+Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden.
+ 
+\item[/LF1230/]Punkteausschüttung der Frage \\
+Wenn eine Frage vom Nutzer richtig beantwortet wird, soll er die zur Frage zugehörige Punktzahl auf sein Konto bekommen, ansonsten gehen die Punkte in einen Jackpot (/LF2210/ - /LF2250/).
+
+\item[/LF1240/] Letzte Frage einer Spielrunde \\
 Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden
+
+\item[/LF1250/] Ergebnisse ausgeben \\
+Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl),  individuelle Platzierung als anonymisiertes Leaderboard (/LF0530/), d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
 \end{description}
 
 \subsubsection{Jackpot}
 \begin{description}
-\item[/LFXXXX/] Ausschüttung des Jackpots \\
+\item[/LF2210/] Ausschüttung des Jackpots \\
 Die Punkte des Jackpots können von den Spielern durch Beantwortung einer speziellen Frage (Jackpot-Frage) erhalten werden
 
-\item[/LFXXXX/]Auslösen der Jackpot-Frage \\
+\item[/LF2220/]Auslösen der Jackpot-Frage \\
 Eine Jackpot-Frage soll zufällig ausgelöst werden und sich äußerlich nicht von anderen Fragen unterscheiden.
 
-\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \\
+\item[/LF2230/] Auftrittswahrscheinlichkeit einer Jackpot-Frage \\
 Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt, steigen. Die letzte Frage einer Runde soll sicher eine Jackpot-Frage sein.
 
-\item[/LFXXXX/] Punkteausschüttung einer Jackpot-Frage \\
+\item[/LF2240/] Punkteausschüttung einer Jackpot-Frage \\
 Jeder, der die Jackpot-Frage richtig beantwortet, soll garantiert einen Anteil der Punkte in Abhängigkeit von der Schnelligkeit der gegebenen Antwort (der Schnellste bekommt am meisten) erhalten.
 
-\item[/LFXXXX/] Füllen des Jackpots \\
+\item[/LF2250/] Füllen des Jackpots \\
 Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass vor dem Auftauchen einer Jackpotfrage der Jackpot nicht leer ist)
 
 \end{description}
 
 \subsubsection{Fragencharakteristiken}
 \begin{description}
-\item[/LFXX10/] Statischer Schwierigkeitsgrad der Fragen \\
+\item[/LF3210/] Statischer Schwierigkeitsgrad der Fragen \\
 Jede Frage muss einen statischen Schwierigkeitsgrad zugeordnet bekommen, welcher vom Fragenersteller festgelegt wird.
 
-\item[/LFXX20/] Dynamischer Schwierigkeitsgrad der Fragen \\
+\item[/LF3220/] Dynamischer Schwierigkeitsgrad der Fragen \\
 Jede Frage soll zusätzlich zu /LFXX10/ einen dynamischen Schwierigkeitsgrad erhalten, der steigt, wenn eine Frage oft falsch beantwortet wurde und sinkt, wenn sie oft richtig beantwortet wurde.
 
-\item[/LFXXXX/] Punktzahl einer Frage \\
-Jede Frage soll einen Grundpunktewert besitzen, der durch einen Multiplikator in Abhängigkeit des Schwierigkeitsgrades (LFXX10, LFXX20) der Frage verändert wird.
+\item[/LF3230/] Punktzahl einer Frage \\
+Jede Frage soll einen Grundpunktewert besitzen, der durch einen Multiplikator in Abhängigkeit des Schwierigkeitsgrades (/LF3210/, /LF3220/) der Frage verändert wird.
 
-\item[/LFXXXX/] Auswahl der Fragen \\
+\item[/LF3240/] Auswahl der Fragen \\
 Die Auswahl der Fragen einer Quizrunde aus der Menge der möglichen Fragen erfolgt zufällig.
 
-\item[/LFXXXX/] Auftrittswahrscheinlichkeit einer Frage \\
+\item[/LF3250/] Auftrittswahrscheinlichkeit einer Frage \\
 Je häufiger eine Frage falsch beantwortet wurde, desto häufiger soll diese Frage ausgewählt werden.
 
-\item[/LF0140/] Import von Fragen \\
+\item[/LF3260/] Import von Fragen \\
 Der Administrator soll Fragen im CSV- oder Excel-Format in die Datenbank importieren können.
 \end{description}
 
 \subsection{Access Control List}
 \begin{description}
-\item[/LF0150/] Access Control List \\
+\item[/LF0310/] Access Control List \\
 Folgende Kontrollzustände sollen eingerichtet werden:
 	\begin{itemize}
 	\item Administrator \\
@@ -201,9 +195,32 @@ Folgende Kontrollzustände sollen eingerichtet werden:
 
 \end{description}
 
-\subsection{Speicherung der Daten}
+\subsection{Dashboard}
 \begin{description}
-\item[/LF0130/] Speicherung von Fragen und Daten \\
+\item[/LF0410/] Aufruf des Dashboards \\
+Der User soll jederzeit sein persönliches Dashboard aufrufen können.
+
+\item[/LF0420/] Anzeige des Dashboards  \\
+Das Dashboard soll nach dem Aufruf eine Übersicht über folgende Daten anzeigen:
+\begin{itemize}
+	\item Gesamte und durchschnittliche Spielzeit
+	\item Anzahl der gespielten Quizrunden
+	\item Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden von allen Quizzen
+	\item Thema des Quiz', bei dem der Nutzer am besten ist
+	\item Durchschnittliche Antwortzeit einer Frage
+	\item Prozentsatz der richtigen Antworten
+	\item Durchschnittliche/höchste/gesamte Punktzahl
+	\item Erhaltene Badges
+	\item Anzahl bzw. Prozentsatz der erreichten freischaltbaren Inhalte
+\end{itemize}
+
+\item[/LF0430/]\ \\
+Der Nutzer soll die Anzahl der gespielten Quizrunden, sowie das Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden für jedes einzelne Quiz aufrufen können.
+\end{description}
+
+\subsection{Sonstiges}
+\begin{description}
+\item[/LF0510/] Speicherung von Fragen und Daten \\
 Eine interne Datenbank verfügt über folgende Daten:
 	\begin{itemize}
 	\item Spielerbezogene Daten:
@@ -233,38 +250,17 @@ Eine interne Datenbank verfügt über folgende Daten:
 \end{description}
 
 \begin{description}
-\item[/LF0160/] Badges \\
+\item[/LF0520/] Badges \\
 Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
-\item[/LF0170/] Leaderboard \\
+
+\item[/LF0530/] Leaderboard \\
 (siehe Rahmen) Am Ende einer Runde soll eine Übersicht über Punktestände, anonymisierte Platzierungen und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
-\subsection{Dashboard}
-\begin{description}
-\item[/LFXX10/] Aufruf des Dashboards \\
-Der User soll jederzeit sein persönliches Dashboard aufrufen können.
 
-\item[/LFXX10/] Anzeige des Dashboards  \\
-Das Dashboard soll nach dem Aufruf eine Übersicht über folgende Daten anzeigen:
-\begin{itemize}
-	\item Gesamte und durchschnittliche Spielzeit
-	\item Anzahl der gespielten Quizrunden
-	\item Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden von allen Quizzen
-	\item Thema des Quiz', bei dem der Nutzer am besten ist
-	\item Durchschnittliche Antwortzeit einer Frage
-	\item Prozentsatz der richtigen Antworten
-	\item Durchschnittliche/höchste/gesamte Punktzahl
-	\item Erhaltene Badges
-	\item Anzahl bzw. Prozentsatz der erreichten freischaltbaren Inhalte
-\end{itemize}
-
-\item[/LFXX10/]\ \\
-Der Nutzer soll die Anzahl der gespielten Quizrunden, sowie das Verhältnis der gewonnenen/verlorenen zu den gesamten Quizrunden für jedes einzelne Quiz aufrufen können.
-\end{description}
 	
 \section{Kann-Ziele}
-\subsection{Spielerprofil}
 \begin{description}
-\item[/LF0190/] optionale Profildetails \\ 
+\item[/LF0610/] Optionale Profildetails \\ 
 Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\begin{itemize}
 	\item Nutzername
@@ -272,78 +268,91 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein bestehend aus
 	\item Kurze Nachricht (optional)
 	\item Achievements
 	\end{itemize}
-\item[/LF0200/] Freischalten von Inhalten \\
+	
+\item[/LF0620/] Freischalten von Inhalten \\
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden. Die Verwaltung erfolgt durch den Administrator.
-\item[/LF0210/] Ratingsystem für Fragen \\
+
+\item[/LF0630/] Ratingsystem für Fragen \\
 Es soll die Möglichkeit bestehen, nach Beantwortung einer Frage diese nach ihrer Qualität zu beurteilen. Diese kann vom Administrator eingesehen werden und leitet ihn an, die Fragen bei schlechter Bewertung zu verändern/löschen.
-\item[/LF0220/] optionale Ergebnisansicht am Ende einer Runde \\
+
+\item[/LF0640/] optionale Ergebnisansicht am Ende einer Runde \\
 Es soll weiterhin am Ende einer Runde möglich sein:
 		\begin{itemize}
 		\item eine Übersicht über alle Fragen mit den jeweils richtigen Antworten einzusehen,
 		\item in dieser Runde erreichte Achievements anzuzeigen,
 		\end{itemize}
 Zusätzlich sollen die Ergebnisse von den letzten * Runden gespeichert werden können und später vom Dashboard aus aufrufbar sein.
-\item[/LF0230/] Schnellfragerunde \\
+
+\item[/LF0650/] Schnellfragerunde \\
 Diese Runde ist die Letzte einer Spielrunde und damit eine Jackpot-Frage. Der Jackpot wird in dieser Runde verdoppelt.
 Über eine festgelegte Zeitspanne beantwortet jeder Spieler so viele Fragen wie er schafft. Nach Ablauf wird die Anzahl der richtig beantworteten Fragen durch das System ermittelt.
 Wie bei jeder Jackpot-Frage gilt: Jeder, der (hier mindestens) eine Frage richtig beantwortet, erhält garantiert einen Anteil am Jackpot. Wer die meisten Fragen richtig beantwortet erhält den größten Anteil, danach absteigend.
-\item[/LF0240/] Strategische Modifikatoren \\
+
+\item[/LF0660/] Strategische Modifikatoren \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
 Diese sind entweder alle bereits verfügbar und können vor dem Spielstart ausgewählt werden, oder werden durch erreichte Punkte freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
-\item[/LFXXXX/] Items \\
+
+\item[/LF0670/] Items \\
 Im Gegensatz zu strategischen Modifikatoren können Items während der Quizrunde ausgewählt werden. Z.B. sind Items, die dem ersten Spieler Punkte 'klauen', denkbar (vgl. blauer Panzer bei Mario Kart). Erhalten kann der Spieler solch ein Item durch Zufall während des Spiels, jedoch nur, wenn er gerade kein anderes Item besitzt. Der Spieler muss das Item nicht sofort ausspielen, sondern kann es strategisch zu einem von ihm gewählten Zeitpunkt einsetzen. Mit Ende des Quiz verfallen alle Items, d.h. die 'Mitnahme' in ein folgendes Quiz ist nicht möglich. Die Verwaltung wird durch den Administrator durchgeführt.
 \end{description}
 
-\subsection{Dashboard}
 \begin{description}
-\item[/LFXX10/] Anpassung der Ansicht des Dashboards \\
+\item[/LF0680/] Anpassung der Ansicht des Dashboards \\
 Der Nutzer soll einstellen können, welche Inhalte des Dashboards nach dem Aufruf standardmäßig angezeigt werden.
 
 \end{description}
 
 \Chapter{Nicht-funktionale Anforderungen}
+
 \section{Muss-Ziele}
 \subsection{Datenschutz und Anonymität}
 \begin{description}
-\item[/LL0250/] Profildetails \\
+\item[/LL0010/] Profildetails \\
 Der Spieler muss so wenig Details über sich bekanntgeben, wie er möchte. Minimal ist ein Benutzername festzulegen.
-\item[/LL0260/] Bearbeitung des Profils \\ 
+
+\item[/LL0020/] Bearbeitung des Profils \\ 
 Der Nutzer kann sein Profil stets editieren, um Kontrolle über seine veröffentlichten Daten zu haben.
-\item[/LL0270/] Löschung des Profils \\ 
+
+\item[/LL0030/] Löschung des Profils \\ 
 Es muss für den User möglich sein, sein Profil zu löschen.
-\item[/LLXXXX/] Sicherheit der Accountdaten \ \\
+
+\item[/LL0040/] Sicherheit der Accountdaten \ \\
 Die Zugangsdaten zum Einloggen müssen geschützt werden. Sie dürfen nicht im Klartext auftreten, sondern sollen verschlüsselt gespeichert werden.
 \end{description}
+
 \subsection{Fehlerunanfälligkeit}
 \begin{description}
-\item[/LLXXXX/] Handling von Falscheingaben \ \\
+\item[/LL0110/] Handling von Falscheingaben \ \\
 Jegliche falschen Eingaben vom Benutzer müssen geeignet abgefangen werden.
-\item[/LLXXXX/] Absturz bei Fehler \ \\
+
+\item[/LL0120/] Absturz bei Fehler \ \\
 Bei Auftreten eines internen Fehlers soll minimaler Schaden auftreten (Datenverlust, etc.). Zu vermeiden ist in jedem Fall der Absturz des Programms.
 \end{description}
 \subsection{Wartung}
 \begin{description}
-\item[/LLXXXX/] Dokumentation \ \\
+\item[/LL0210/] Dokumentation \ \\
 Der Programmcode soll vollständig kommentiert und dokumentiert sein.
-\item[/LLXXXX/] einfache Wartung und Modularität \ \\
+
+\item[/LL0220/] einfache Wartung und Modularität \ \\
 Die Struktur des Programmcodes soll so aufgebaut sein, dass 'leicht' (auch von anderen Personen innerhalb der eventuellen Weiterentwicklung) Änderungen vorgenommen werden können. Damit in Verbindung steht die Modularisierung des Codes.
 \end{description}
 \subsection{Benutzerinteraktion}
 \begin{description}
-\item[/LLXXXX/] einfache grafische Interaktion \ \\
+\item[/LL0310/] einfache grafische Interaktion \ \\
 Das User-Interface soll einfach gehalten werden, um Überforderung zu vermeiden. 
-\item[/LLXXXX/] Korrektheit von Eingaben \ \\
+
+\item[/LL0320/] Korrektheit von Eingaben \ \\
 Benutzereingaben müssen auf Korrektheit (d.h. richtiges Format, unerlaubte Zeichen, ...) geprüft und ggf. abgefangen werden.
 (siehe Fehlerunanfälligkeit).
 \end{description}
 
 \section{Kann-Ziele}
 \begin{description}
-\item[/LL0280/] Distribution an andere Versionen \ \\
+\item[/LL0410/] Distribution an andere Versionen \ \\
 Das Programm soll von so vielen wie möglich Android-Versionen unterstützt werden.
-\item[/LL0290/] effiziente Implementierung \ \\
+
+\item[/LL0420/] Effiziente Implementierung \ \\
 Das Programm soll möglichst effizient laufen, d.h. möglichst kleine Komplexität in Laufzeit und Speicherbedarf.
-\item[/LL03XX/]
 \end{description}
 
 \Chapter{Qualitätsmatrix nach ISO 25010}
