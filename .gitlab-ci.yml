@@ -12,8 +12,6 @@ release-job:
   before_script:
     - npm install -g markdown-pdf
   script:
-    - sh program.sh
-    - markdown-pdf result.md
     - markdown-pdf Webseiten/docu.md
     - mv Webseiten/docu.pdf docu.pdf
   artifacts:

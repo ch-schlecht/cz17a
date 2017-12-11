@@ -1,4 +1,4 @@
-﻿<?php 
+﻿ï»¿<?php 
 /**
  * header.inc.php
  *
@@ -69,6 +69,7 @@ if(isset($_SESSION['old']) && $_SESSION['old'] == true){
                         <a class="nav" href="protokolle.php">Protokolle</a>
                         <a class="nav" href="phasen.php">Phasen</a>
                         <a class="nav" href="abgabe.php">Abgaben</a>
+                        <a class="nav" href="konzept.php">Konzepte</a>
                     </div>
                     </li>
                     
