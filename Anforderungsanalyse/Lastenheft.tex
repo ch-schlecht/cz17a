@@ -89,13 +89,13 @@ Jede Quizrunde soll dynamisch aus * Fragen zusammengestellt werden.
 Der Spieler soll aus n Antwortmöglichkeiten genau eine auswählen können, die richtig ist.
 %LV: Die nächste Anforderung muss weitergehend spezifiziert werden bzw. um weitere Anforderungen erweitert werden, was einem zusätzlich noch angezeigt wird oder wann und wie sich ein Score verändert.
 \item[/LF0090/]Auswertung einer Frage \\ 
-Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden %LV: Vielleicht auch, was die richtige Antwort war, wenn man falsch lag?
+Nach Auswahl einer Antwort soll die Anwendung eine Rückmeldung darüber geben, ob die richtige Antwort gewählt wurde. Falls nicht, so soll die richtige Antwort angezeigt werden
 
 \item[/LF0090/]Anzeige des Punktestands einer Quizrunde \\ 
 Der User muss während der Quizrunde jederzeit seinen aktuellen Punktestand sehen können.
 
 \item[/LF0100/] Ergebnisse ausgeben \\
-Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand aller Teilnehmer (Scoreboard),  individuelle Platzierung.
+Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl),  individuelle Platzierung als anonymisiertes Leaderboard, d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
 
 \item[/LF0110/] Dauer einer Quizrunde \\
  Die Dauer einer Quizrunde ist intern, vom Administrator, einstellbar. Sie gilt dann für alle Spiele.
@@ -169,7 +169,7 @@ Der Administrator soll Fragen im CSV- oder Excel-Format in die Datenbank importi
 Folgende Kontrollzustände sollen eingerichtet werden:
 	\begin{itemize}
 	\item Administrator \\
-	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten. Zusätzlich ist er in der Lage, Badges zu verwalten, also neue zu erstellen, zu 				bearbeiten und zu löschen. Ihm obliegt außerdem die Verwaltung von strategischen Modifikatoren und freischaltbaren 			Inhalten.
+	Dieser besitzt vollständige Zugriffsrechte und kann über eine externen Service Einstellungen verwalten, Fragen 				importieren und Rechte bearbeiten. Zusätzlich ist er in der Lage, Badges zu verwalten, also neue zu erstellen, zu 				bearbeiten und zu löschen. Ihm obliegt außerdem die Verwaltung von strategischen Modifikatoren, freischaltbaren 			Inhalten und Items.
 	\item User \\
 	Dieser ist in der Lage, das Spiel zu spielen und seine persönlichen Daten einzusehen.
 	\end{itemize}
@@ -207,12 +207,11 @@ Eine interne Datenbank verfügt über folgende Daten:
 	\end{itemize}
 \end{description}
 
-%CS: denkt ihr wir sollten alle Gamification Elemente direkt als Muss-Ziel verankern? was wenn sich ergibt, dass es nicht/schlecht umsetzbar ist
 \begin{description}
 \item[/LF0160/] Badges \\
 Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
 \item[/LF0170/] Leaderboard \\
-(siehe Spielmechaniken) Am Ende einer Runde soll eine Übersicht über Punktestände, Gewinner und (evtl.) Fragenübersicht angezeigt werden.
+(siehe Rahmen) Am Ende einer Runde soll eine Übersicht über Punktestände, anonymisierte Platzierungen und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
 \subsection{Dashboard}
 \begin{description}
@@ -266,6 +265,8 @@ Wie bei jeder Jackpot-Frage gilt: Jeder, der (hier mindestens) eine Frage richti
 \item[/LF0240/] Strategische Modifikatoren \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
 Diese sind entweder alle bereits verfügbar und können vor dem Spielstart ausgewählt werden, oder werden durch erreichte Punkte freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
+\item[/LFXXXX/] Items \\
+Im Gegensatz zu strategischen Modifikatoren können Items während der Quizrunde ausgewählt werden. Z.B. sind Items, die dem ersten Spieler Punkte 'klauen', denkbar (vgl. blauer Panzer bei Mario Kart). Erhalten kann der Spieler solch ein Item durch Zufall während des Spiels, jedoch nur, wenn er gerade kein anderes Item besitzt. Der Spieler muss das Item nicht sofort ausspielen, sondern kann es strategisch zu einem von ihm gewählten Zeitpunkt einsetzen. Mit Ende des Quiz verfallen alle Items, d.h. die 'Mitnahme' in ein folgendes Quiz ist nicht möglich. Die Verwaltung wird durch den Administrator durchgeführt.
 \end{description}
 
 \subsection{Dashboard}
@@ -315,7 +316,8 @@ Benutzereingaben müssen auf Korrektheit (d.h. richtiges Format, unerlaubte Zeic
 \begin{description}
 \item[/LL0280/] Distribution an andere Versionen \ \\
 Das Programm soll von so vielen wie möglich Android-Versionen unterstützt werden.
-\item[/LL0290/]
+\item[/LL0290/] effiziente Implementierung \ \\
+Das Programm soll möglichst effizient laufen, d.h. möglichst kleine Komplexität in Laufzeit und Speicherbedarf.
 \item[/LL03XX/]
 \end{description}
 
@@ -334,7 +336,8 @@ Benutzbarkeit  	& x             &              & 		&\\
 Wartbarkeit  	&              &x              & 		&\\
 Portierbarkeit  &              &x              & 		&\\
 \hline
-\end{tabular}
+\end{tabular} \\ \\
+Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
 
 \chapter{Lieferumfang und Abnahmekriterium}
 \section{Lieferumfang}
