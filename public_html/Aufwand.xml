@@ -54,5 +54,6 @@
 		<done who="MF" A="2" S="1" Zeit="2">Protokoll</done>
 		<done who="MF" A="1" S="1" Zeit="0.5">Wartung von Git-Dateien</done>
 		<done who="MF" A="2" S="2" Zeit="1">Diagramm</done>
+		<done who="MF" A="3" S="2" Zeit="1.5">GUI Design</done>
 	</Analyse>	
 </Bericht>
