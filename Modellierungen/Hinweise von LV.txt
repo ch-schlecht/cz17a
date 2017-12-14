@@ -1,0 +1,11 @@
+Sowohl beim ER-Modell als auch dem Datenbankschema bevorzuge ich meine Version 2. Ich habe die vorherige aber drin gelassen, da ich dennoch nicht zu 100% sicher, ob beide Modellierungen auf das gleiche hinauslaufen, aber eigentlich müsste die Relation "enthält" aus Version 1 redundant sein.
+
+Wenn ihr noch Anmerkungen zusammentragt (Dinge, die nicht verständlich sind, eventuell fehlende wichtige Attribute oder Entitäten usw.), dann führt diese hier bitte Stichpunktartig auf und ich setze mich nochmal dran. In dem Modell befindet sich bewusst erstmal nichts, was nur für die Kann-Ziele relevant ist.
+
+Während der Modellierung sind mir weiterhin ein paar Fragen in den Sinn gekommen, über die ihr noch nochmal kurz sprechen könnt:
+
+1. Soll es einen Mechanismus geben, sodass auch nur ein Spieler gewinnen kann? Oder sollen zwei Spieler mit gleicher Punktzahl beide gewinnen? Momentan ist es noch so modelliert, dass es nur einen Gewinner gibt.
+
+2. Was ist eigentlich die vom Administrator einstellbare Dauer der Spielrunde, wie sie im Lastenheft erwähnt wird: Anzahl an Fragen? Dauer einer einzelnen Frage? Oder irgendwas anderes?
+
+3. Von was ist es abhängig, ob eine Frage eine Jackpotfrage sein kann? Wenn es nur am Schwierigkeitsgrad liegt, können wir das Attribut CanJackpot wieder entfernen, da wir den Schwierigkeitsgrad ja gespeichert haben und den Rest der Logik der Anwendung überlassen können.
