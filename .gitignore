@@ -8,3 +8,6 @@
 *.synctex.gz
 *.synctex.gz(busy)
 
+## Dia files
+*.dia~
+
