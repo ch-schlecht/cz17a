@@ -1918,7 +1918,7 @@
         <dia:string>#gewinnt#</dia:string>
       </dia:attribute>
       <dia:attribute name="left_card">
-        <dia:string>#1#</dia:string>
+        <dia:string>#n#</dia:string>
       </dia:attribute>
       <dia:attribute name="right_card">
         <dia:string>#1#</dia:string>
