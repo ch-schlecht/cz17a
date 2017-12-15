@@ -9,3 +9,13 @@ Während der Modellierung sind mir weiterhin ein paar Fragen in den Sinn gekommen
 2. Was ist eigentlich die vom Administrator einstellbare Dauer der Spielrunde, wie sie im Lastenheft erwähnt wird: Anzahl an Fragen? Dauer einer einzelnen Frage? Oder irgendwas anderes?
 
 3. Von was ist es abhängig, ob eine Frage eine Jackpotfrage sein kann? Wenn es nur am Schwierigkeitsgrad liegt, können wir das Attribut CanJackpot wieder entfernen, da wir den Schwierigkeitsgrad ja gespeichert haben und den Rest der Logik der Anwendung überlassen können.
+
+zu 1.: 
+
+zu 2.:
+Dauer einer Spielrunde = Anzahl der Fragen
+zu 3.: korrekter Einfall, wird am Schwierigkeit festgemacht und damit kann das weggelassen werden.
+
+Anmerkungen:
+wir brauchen noch was für die Dashboard Daten. Angeknüpft an die Idee von Christian Zinke jedes abgeschlossene Spiel komplett speichern -> siehe Bild als Vorschlag, so kann man zu einer Quizrunde und einem Spieler seine Ergebnisse speichern. 
+richtig beantwortet bzw. falsch beantwortet ist mehrwertig, es werden alle ID's der Fragen rein geschrieben, damit kann man genau sehen welche Fragen richtig und welche falsch beantwortet wurden

@@ -1,0 +1,14 @@
+release 1: 25% Wichtigkeit, 20% Aufwand
+Vorprojekt
+
+release 2: 30% Wichtigkeit, 25% Aufwand 
+3.1.1 An- und Abmeldung 3.1.2 Spieleraccount, Quizerweiterung LF1210 - LF1250
+
+release 3: 20% Wichtigkeit, 25% Aufwand
+3.1.3 Jackpot, 3.1.3 Fragencharakteristik, ACL, Administratoroberfläche
+
+release 4: 25% Wichtigkeit, 15% Aufwand 
+Dashboard komplett, Schnellfragerunde?
+
+release 5: 10% Wichtigkeit, 35% Aufwand
+Kann-Ziele?
