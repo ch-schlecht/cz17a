@@ -18,12 +18,12 @@ include 'header.inc.php';
 
 <!DOCTYPE HTML>
 <html>
-   <script type="text/javascript">                                                
+   <script type="text/javascript">
      document.getElementById("nav_member").style.backgroundColor = '#D8D8D8';       //team is an under category of project --> color project in navbar
     </script>
 
-    <!--  
-            Imorted Header from header.php 
+    <!--
+            Imorted Header from header.php
             opened a <div id="content">
     -->
 
@@ -45,7 +45,7 @@ include 'header.inc.php';
             </tr>
              <tr>
                 <td><a href="#WS">Willy Steinbach</a></td>
-                <td>Stellvertrentener Projektleiter</td>
+                <td>Stellvertrender Projektleiter</td>
             </tr>
              <tr>
                 <td><a href="#SL">Steven Lehmann</a></td>
@@ -69,17 +69,17 @@ include 'header.inc.php';
             </tr>
             </table>
             </div>
-            
+
             <p>
              <a href="aufwand.php" role="button">Zu den Aufwandsanalysen &raquo;</a></p>
             </p>
-            
+
 
         </article>
-    
+
          <article class="article" id="sus">   <!-- Staerken und Schwaechen of every Team member -->
             <h2>St&auml;rken und Schw&auml;chen</h2>
-             
+
             <h3 id="FF" class="anchor">Felix Fink</h3>  <!-- target of link (class anchor for offset because of fixed navbar)-->
                 <p>
                     <b>Programmieren:</b><br/>
@@ -118,10 +118,10 @@ include 'header.inc.php';
                         <br/>
                     <b>Sonstiges:</b>     <br/>
                         - ungeduldig (vor allem wenn etwas nicht funktioniert)  <br/>
-                        - "from scratch" Implementieren, Konzepte entwickeln 
+                        - "from scratch" Implementieren, Konzepte entwickeln
                 </p>
-             
-            <h3 id="WS" class="anchor">Willy Steinbach</h3>     
+
+            <h3 id="WS" class="anchor">Willy Steinbach</h3>
                 <p>
                     <b>Programmieren:</b>  <br/>
                         + Java (auch au&szlig;erhalb des OOP)      <br/>
@@ -131,7 +131,7 @@ include 'header.inc.php';
                         + &uuml;bernimmt gerne Verantwortung  <br/>
                         + kommt mit Stresssituationen gut um   <br/>
                         - versucht p&uuml;nktlich zu sein    <br/>
-                        <br/>  
+                        <br/>
                     <b>Kreativ:</b>     <br/>
                         + Design- und Oberfl&auml;chenentwicklung   <br/>
                         <br/>
@@ -141,7 +141,7 @@ include 'header.inc.php';
                         + schnell lernf&auml;hig  <br/>
                         - keine Erfahrung in der Erstellung gro&szlig;er Projekte
                 </p>
-             
+
             <h3 id="SL" class="anchor">Steven Lehmann</h3>
                 <p>
                     <b>Programmieren:</b> <br/>
@@ -167,7 +167,7 @@ include 'header.inc.php';
                         - Gamification-Erfahrung fehlt aber
 
                 </p>
-	       
+
            <h3 id="LV" class="anchor">Lisa Vogelsberg</h3>
 	           <p>
 	               <b>Programmieren:</b> <br/>
@@ -221,9 +221,9 @@ include 'header.inc.php';
                 <b>Gamification:</b> <br/>
                     + Interesse an psychologischen Themen  <br/>
                     + Selber "Spieler/Gamer"  <br/>
-                    - Eher neu in dem Thema 
+                    - Eher neu in dem Thema
               </p>
-        
+
         <h3 id="MF" class="anchor">Michael Fritz</h3>
               <p>
                 <b>Programmieren:</b>  <br/>
@@ -234,7 +234,7 @@ include 'header.inc.php';
                     - in manchen Sachen sehr festgefahren --> Bennenung von Variablen etc. (richtung Ungarische-Notation)     <br/>
                     <br/>
                 <b>Strukturell:</b> <br/>
-                    + Strukturierte UML etc. in Quelltext umwandeln <br/> 
+                    + Strukturierte UML etc. in Quelltext umwandeln <br/>
                     - Entwickeln von Konzepten <br/>
                     - Eher drauf los programmieren, experimentell <br/>
                     <br/>
@@ -243,7 +243,7 @@ include 'header.inc.php';
                     + Strukturierte Darstellungen f&uuml;r Informationen <br/>
                     + Sehr Motiviert, wenn mich ein Thema Interessiert / Spa&szlig; macht (beim Programmieren fast immer)<br/>
                     - Vermeidet zusatzarbeit bei uninteressanten Themen  <br/>
-                    - Ideen durchsetzten <br/>     
+                    - Ideen durchsetzten <br/>
                     - &Uuml;bernimmt ungerne gro&szlig;e Verantwortung <br/>
                     - Wenn etwas nicht klappt schnell ungeduldig und festgebissen <br/>
                     <br/>
@@ -260,7 +260,7 @@ include 'header.inc.php';
                 <b>Sonstiges:</b>   <br/>
                     + Lernt schnell neue Sachen
               </p>
-              
+
         <h3 id="FZ" class="anchor">Fabian Ziegner</h3>
 	          <p>
 	               <b>Programmieren:</b> <br/>
@@ -282,11 +282,11 @@ include 'header.inc.php';
 		              <br/>
 	               <b>Gamification:</b>   <br/>
 		              + Erfahrung mit Spielen <br/>
-		              - noch keine Erfahrung mit der Gamification an sich 
+		              - noch keine Erfahrung mit der Gamification an sich
               </p>
 
          </article>
-    
+
         </div>
     </body>
 
