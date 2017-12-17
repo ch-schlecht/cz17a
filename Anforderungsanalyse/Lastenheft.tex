@@ -254,7 +254,7 @@ Es bietet sich an, abgeschlossene Spiele in einer geeigneten Datenstruktur in ih
 \begin{description}
 
 
-\item[/LF0530/] Leaderboard \\
+\item[/LF0520/] Leaderboard \\
 (siehe Kapitel \ref{sssec:Rahmen} auf Seite \pageref{sssec:Rahmen}) Am Ende einer Runde soll eine Übersicht über Punktestände, anonymisierte Platzierungen und (evtl.) Fragenübersicht angezeigt werden.
 \end{description}
 
@@ -271,16 +271,16 @@ Für jeden Benutzer soll ein eigenes Profil anwählbar sein, bestehend aus:
 	\item Achievements
 	\end{itemize}
 
-\item[/LF0520/] Badges \\
+\item[/LF0620/] Badges \\
 Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell geantwortet, besonders gute Statistiken, etc.) werden Abzeichen vergeben. Diese sind im System festgeschrieben und können nur durch den Administrator zentral bearbeiten/ verwaltet werden. Diese werden auf dem Dashboard ausgestellt und sofern der Benutzer es freigibt, auch auf dem Profil angezeigt.
 	
-\item[/LF0620/] Freischalten von Inhalten \\
+\item[/LF0630/] Freischalten von Inhalten \\
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden. Die Verwaltung erfolgt durch den Administrator.
 
-\item[/LF0630/] Ratingsystem für Fragen \\
+\item[/LF0640/] Ratingsystem für Fragen \\
 Es soll die Möglichkeit bestehen,am Ende einer Spielrunde alle Fragen nach ihrer jeweiligen Qualität zu beurteilen. Dies setzt die Umsetzung von (/LF0640/) voraus. Diese Bewertungen können vom Administrator eingesehen werden und leiten ihn an, die Fragen bei schlechter Bewertung zu verändern/löschen.
 
-\item[/LF0640/] optionale Ergebnisansicht am Ende einer Runde \\
+\item[/LF0650/] optionale Ergebnisansicht am Ende einer Runde \\
 Es soll weiterhin am Ende einer Runde möglich sein:
 		\begin{itemize}
 		\item eine Übersicht über alle Fragen mit den jeweils richtigen Antworten einzusehen,
@@ -288,24 +288,24 @@ Es soll weiterhin am Ende einer Runde möglich sein:
 		\end{itemize}
 Zusätzlich sollen die Ergebnisse von den letzten * Runden gespeichert werden können und später vom Dashboard aus aufrufbar sein.
 
-\item[/LF0430/]\ \\
+\item[/LF0660/]\ \\
 Der Nutzer soll die Anzahl der gespielten Quizrunden, sowie das Verhältnis der Gewonnenen/Verlorenen zu den gesamten Quizrunden für jedes einzelne Quiz aufrufen können.
 
-\item[/LF0650/] Schnellfragerunde \\
+\item[/LF0670/] Schnellfragerunde \\
 Diese Runde ist die Letzte einer Spielrunde und damit eine Jackpot-Frage. Der Jackpot wird in dieser Runde verdoppelt.
 Über eine festgelegte Zeitspanne beantwortet jeder Spieler so viele Fragen wie er schafft. Nach Ablauf der Zeit wird die Anzahl der richtig beantworteten Fragen durch das System ermittelt.
 Wie bei jeder Jackpot-Frage gilt: Jeder, der (hier mindestens) eine Frage richtig beantwortet, erhält garantiert einen Anteil am Jackpot. Wer die meisten Fragen richtig beantwortet erhält den größten Anteil, danach absteigend.
 
-\item[/LF0660/] Strategische Modifikatoren \\
+\item[/LF0680/] Strategische Modifikatoren \\
 Es können vor einer Spielrunde Modifikatoren ausgewählt werden, welche Vorteile und Nachteile besitzen. z.B.: doppelte Punktzahl gewinnbar, aber man verliert auch Punkte, etc.
 Diese sind entweder alle bereits verfügbar, oder werden durch erreichte Punkte freigespielt. Die Verwaltung, d.h. Erstellung, Veränderung, Löschung obliegt dem Administrator.
 
-\item[/LF0670/] Items \\
+\item[/LF0690/] Items \\
 Im Gegensatz zu strategischen Modifikatoren können Items während der Quizrunde ausgewählt werden. Z.B. sind Items, die dem ersten Spieler Punkte 'klauen', denkbar (vgl. blauer Panzer bei Mario Kart). Erhalten kann der Spieler solch ein Item durch Zufall während des Spiels, jedoch nur, wenn er gerade kein anderes Item besitzt. Der Spieler muss das Item nicht sofort ausspielen, sondern kann es strategisch zu einem von ihm gewählten Zeitpunkt einsetzen. Mit Ende des Quiz verfallen alle Items, d.h. die 'Mitnahme' in ein folgendes Quiz ist nicht möglich. Die Verwaltung wird durch den Administrator durchgeführt.
 \end{description}
 
 \begin{description}
-\item[/LF0680/] Anpassung der Ansicht des Dashboards \\
+\item[/LF0700/] Anpassung der Ansicht des Dashboards \\
 Der Nutzer soll einstellen können, welche Inhalte des Dashboards nach dem Aufruf standardmäßig angezeigt werden.
 
 \end{description}
@@ -381,7 +381,7 @@ Portierbarkeit  &              &x              & 		&\\
 \end{tabular} \\ \\
 Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
 
-\Chapter{Lieferumfang und Abnahmekriterium}
+\Chapter{Lieferumfang und Abnahmekriterien}
 \section{Lieferumfang}
 Im Vordergrund der Auslieferung steht eine Android-App als Client, welche die wesentlichen Funktionalitäten bereitstellt. Es soll das Quiz an sich, als auch auch eine Dashboard-Funktion implementiert werden. Desweiteren wird als Backend ein Server mit Datenbankanbindung ausgeliefert, um alle nötigen Informationen zu Speichern und zu Synchronisieren. Zu Administrationszwecken wird für den Administrator ebenfalls eine Weboberfläche bereitgestellt, in welcher alle nötigen Einstellung wie z.B Badges, Spieleigenschaften, Frageneigenschaften verwaltet werden können. Eine vollständige Dokumentation wird ebenfalls zur Verfügung gestellt.
 \section{Abnahmekriterien}
