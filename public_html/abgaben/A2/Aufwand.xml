@@ -32,38 +32,12 @@
 		<done who="CS" A="3" S="3" Zeit="4.5">Recherche + Erweiterung Recherchebericht + QM Recherchebericht</done>
 		<done who="LV" A="3" S="3" Zeit="1.5"> Erweiterung Recherchebericht</done>
 		<done who="TG" A="3" S="2" Zeit="1">Recherche</done>
-		<done who="TG" A="3" S="2" Zeit="2">brainstorm game-general conditions </done>
+		<done who="CS" A="3" S="2" Zeit="1">brainstorm game-general conditions </done>
 		<done who="FZ" A="3" S="3" Zeit="3.5">Recherche</done>
 		<done who="WS" A="3" S="3" Zeit="4">Recherchebericht formuliert</done>
 		<done who="FF" A="3" S="3" Zeit="2">Recherche Gamification</done>
 		<done who="FF" A="3" S="3" Zeit="1">Latex Recherche</done>
 	</Analyse>
-	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-11-27">
-		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 4. Praezenstreffen</done>
-		<done who="MF" A="1" S="1" Zeit="2">Wartung und Erweiterung der Website</done>
-		<done who="WS,MF,TG" A="2" S="3" Zeit="1">Game-General Conditions Meeting</done>
-		<done who="CS" A="1" S="1" Zeit="0.5">Issues + Milestone</done>
-		<done who="CS" A="1" S="2" Zeit="1">mit Latex auseinandersetzen</done>
-		<done who="CS" A="4" S="4" Zeit="4.5">Lastenheft Formulierungen + Erweiterungen</done>
-		<done who="SL" A="1" S="2" Zeit="1">Mit Latex auseinandersetzen</done>
-		<done who="SL" A="1" S="2" Zeit="2">Lastenheft Glossar + Überlegungen Vorprojekt</done>
-		<done who="FF" A="3" S="3" Zeit="1.5">Latex</done>
-		<done who="LV" A="3" S="3" Zeit="6.5">Lastenheft</done> 
-	</Analyse>
-	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
-		<done who="FF,CS,SL,TG,MF,FZ,WS" A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
-		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">5. Praezenstreffen</done>
-		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Website</done>
-		<done who="MF" A="2" S="1" Zeit="2">Protokoll</done>
-		<done who="MF,TG" A="2" S="2" Zeit="1">Diagramm</done>
-		<done who="MF" A="3" S="2" Zeit="1.5">GUI Design</done>
-		<done who="FF" A="3" S="3" Zeit="4">Designideen/Visualisierung erstellt</done>
-		<done who="FF" A="3" S="3" Zeit="1">Brainstorming-Lastenheft</done>
-		<done who="CS" A="4" S="3" Zeit="4.5">Erweiterung + QM Lastenheft</done>
-		<done who="SL" A="3" S="2" Zeit="6">Review-Foliensatz</done>
-		<done who="LV" A="3" S="3" Zeit="5">Lastenheft</done> 
-	</Analyse>
-	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-12-04">
-		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
+	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-27">
 	</Analyse>	
 </Bericht>

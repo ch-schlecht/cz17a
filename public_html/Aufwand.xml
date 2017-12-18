@@ -47,6 +47,8 @@
 		<done who="CS" A="4" S="4" Zeit="4.5">Lastenheft Formulierungen + Erweiterungen</done>
 		<done who="SL" A="1" S="2" Zeit="1">Mit Latex auseinandersetzen</done>
 		<done who="SL" A="1" S="2" Zeit="2">Lastenheft Glossar + Überlegungen Vorprojekt</done>
+		<done who="FF" A="3" S="3" Zeit="1.5">Latex</done>
+		<done who="LV" A="3" S="3" Zeit="6.5">Lastenheft</done> 
 	</Analyse>
 	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
 		<done who="FF,CS,SL,TG,MF,FZ,WS" A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
@@ -55,5 +57,13 @@
 		<done who="MF" A="2" S="1" Zeit="2">Protokoll</done>
 		<done who="MF,TG" A="2" S="2" Zeit="1">Diagramm</done>
 		<done who="MF" A="3" S="2" Zeit="1.5">GUI Design</done>
+		<done who="FF" A="3" S="3" Zeit="4">Designideen/Visualisierung erstellt</done>
+		<done who="FF" A="3" S="3" Zeit="1">Brainstorming-Lastenheft</done>
+		<done who="CS" A="4" S="3" Zeit="4.5">Erweiterung + QM Lastenheft</done>
+		<done who="SL" A="3" S="2" Zeit="6">Review-Foliensatz</done>
+		<done who="LV" A="3" S="3" Zeit="5">Lastenheft</done> 
+	</Analyse>
+	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-12-04">
+		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
 	</Analyse>	
 </Bericht>

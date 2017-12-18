@@ -36,8 +36,8 @@ include 'header.inc.php';
         <div class="bar">
             <div class="bar-el done" id="A1">A1</div>
             <div class="bar-el done" id="A2">A2</div>
-            <div class="bar-el ak" id="A3">A3</div>
-            <div class="bar-el" id="M1">M1</div>
+            <div class="bar-el done" id="A3">A3</div>
+            <div class="bar-el ak" id="M1">M1</div>
             <div class="bar-el" id="A4">A4</div>
             <div class="bar-el" id="R1">R1</div>
             <div class="bar-el" id="M2">M2</div>
@@ -69,6 +69,13 @@ include 'header.inc.php';
         <li>Aspekte</li>
         </p>
         <hr/>
+        
+        
+        <p>Die dritte Phase und Abgabe <b>A2</b> wurde <font color="green">abgeschlossen</font><br/>
+        Hauptaufgabe dieser Phase waren das Erstellen eines Lastenheftes, welches auf unserem Rechercheberichtberuht
+        </p>
+        <hr/>
+        
         
 
     </article>

@@ -16,6 +16,9 @@
 
 include 'header.inc.php';
 
+
+$termin = array("07-11-2017","14-11-2017","21-11-2017","28-11-2017","05-12-2017","12-12-2017");
+
 ?>
 
 <!DOCTYPE HTML>
@@ -34,36 +37,37 @@ include 'header.inc.php';
 
     <article class="article" id="uebersicht">  <!--  Links to all Protokolls-->
        <h2>&Uuml;bersicht</h2>
-       <p><a href="#1" role="button">Sitzung 1 &raquo;</a> vom 07-11-2017</p>
-       <p><a href="#2" role="button">Sitzung 2 &raquo;</a> vom 14-11-2017</p>
-       <p><a href="#3" role="button">Sitzung 3 &raquo;</a> vom 21-11-2017</p>
+       <?php
+       $i =1;
+       while($i <= sizeof($termin)){
+        echo '<p><a href="#'.$i.'" role="button">Sitzung '.$i.' &raquo;</a> vom '.$termin[$i-1].'</p>';
+        $i++;   
+       } 
+       ?> 
+     
     </article>
 
 
-
-    <article class="article anchor" id="1">    <!-- First meeting -->
-          
-          <?php include 'protokolle/protokoll_1.html'?>
-
+    <?php
+    $i = 1; 
+    while($i <= sizeof($termin)){
+        
+    
+    
+      echo '
+      <article class="article anchor" id="'.$i.'">   
+      ';
+    
+    include 'protokolle/protokoll_'.$i.'.html';
+    
+    echo'
     </article>
-    
-    <article class="article anchor" id="2">    <!-- Second meeting -->
-
-       
-          
-        <?php include 'protokolle/protokoll_2.html'?>
-
-    </article>
-    
-    <article class="article anchor" id="3">    <!-- Third meeting -->
+    ';
+    $i++;
+    }
+     ?>
 
 
-        <?php include 'protokolle/protokoll_3.html'?>
-
-    </article>
-
-    
-    
 
          </div>
     </body>
