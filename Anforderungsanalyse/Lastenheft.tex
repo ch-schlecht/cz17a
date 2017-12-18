@@ -119,7 +119,7 @@ Die Dauer einer Quizrunde ist intern vom Administrator einstellbar. Sie gilt dan
 
 \subsubsection{Spielablauf einer Runde}
 Der Spielablauf ist in der Grafik \ref{img:Spielablauf} auf Seite \pageref{img:Spielablauf} verdeutlicht.
-Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zu Frage zugehörige Punktzahl auf sein Konto. Wird sie falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Fragen zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen Antwort bestimmt (Der Schnellste bekommt den größten Anteil). Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzten Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage eine stattdessen eine Schnellraterunde möglich.
+Ein Spiel beginnt mit mindestens 5 Teilnehmern. Jeder Spieler der Gruppe erhält die gleiche Frage. Beantwortet er diese Frage korrekt, so erhält er die zur Frage zugehörige Punktzahl auf sein Konto. Wird sie falsch beantwortet, so wandern die Punkte in einen Jackpot. Der Punktwert der Frage wird von ihrer Schwierigkeit beeinflusst (schwere Fragen bringen viele Punkte, leichtere Fragen dementsprechend weniger). Es kann durch Zufall eine Jackpot-Frage ausgelöst werden, in welcher um alle Punkte aus dem Jackpot gespielt wird. Die Jackpot-Frage ist von außen \textit{nicht} von den anderen Fragen zu unterscheiden. Jeder, der die Jackpot-Frage richtig beantwortet, hat Garantie auf einen Anteil des Jackpots. Dieser Anteil wird anhand der Schnelligkeit der gegebenen Antwort bestimmt (Der Schnellste bekommt den größten Anteil). Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) erhöht sich die Wahrscheinlichkeit, dass eine Jackpot-Frage auftritt. Die letzte Frage einer Runde ist stets eine Jackpot-Frage. In dieser letzten Runde wird der Jackpot-Punktestand verdoppelt und um diesen gespielt. Als Option ist für die letzte Frage stattdessen eine Schnellfragerunde möglich.
 
 %Die Grafik muss auch inhaltlich nochmal angepasst werden. Z.b. ist "Tritt bei" als Verzweigungsanweisung angegeben, obwohl da keine Verzweigung ist. Vielleicht können wir für den Schritt, um den Spielablauf zu zeigen, auch den Start zum Quiz komplett weglassen.
 \begin{figure}
@@ -142,7 +142,7 @@ Wenn eine Frage vom Nutzer richtig beantwortet wird, soll er die zur Frage zugeh
 Die Anzahl der Punkte des Jackpots in der letzten Frage sollen verdoppelt werden.
 
 \item[/LF1250/] Ergebnisse ausgeben \\
-Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl) und  individuelle Platzierung als anonymisiertes Leaderboard (/LF0530/), d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
+Am Ende einer Quizrunde soll eine zusammenfassende Ausgabe der Ergebnisse erfolgen. Ergebnisse sind: Punktestand eines jeden Teilnehmers (nur die eigene Punktzahl) und  individuelle Platzierung als anonymisiertes Leaderboard (/LF0520/), d.h. es werden nur die Punktestände angezeigt, sodass jeder nur seine eigene Platzierung aus dem Leaderboard ablesen kann, nicht aber die Platzierungen seiner Mitspieler.
 \end{description}
 
 \subsubsection{Jackpot}
@@ -160,7 +160,7 @@ Mit steigender Fragenanzahl (oder steigender Anzahl an falschen Antworten) soll 
 Jeder, der die Jackpot-Frage richtig beantwortet, soll garantiert einen Anteil der Punkte in Abhängigkeit von der Schnelligkeit der gegebenen Antwort (der Schnellste bekommt am meisten) erhalten.
 
 \item[/LF2250/] Füllen des Jackpots \\
-Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass vor dem Auftauchen einer Jackpotfrage der Jackpot nicht leer ist).
+Initial und nach Ausschüttung einer Jackpot-Frage soll der Jackpot eine festgelegte Anzahl von Punkten erhalten. (Garantie, dass beim Auftauchen einer Jackpotfrage der Jackpot nicht leer ist).
 
 \end{description}
 
@@ -278,7 +278,7 @@ Für bestimmte Errungenschaften (bestimmte Punktzahl erreicht, besonders schnell
 Bestimmte Inhalte, wie z.B. andersfarbige Hintergründe, strategische Modifikatoren oder andere kosmetische Veränderungen (Verzierungen des Profils) sollen anhand der erspielten Punkte freigeschaltet werden. Die Verwaltung erfolgt durch den Administrator.
 
 \item[/LF0640/] Ratingsystem für Fragen \\
-Es soll die Möglichkeit bestehen,am Ende einer Spielrunde alle Fragen nach ihrer jeweiligen Qualität zu beurteilen. Dies setzt die Umsetzung von (/LF0640/) voraus. Diese Bewertungen können vom Administrator eingesehen werden und leiten ihn an, die Fragen bei schlechter Bewertung zu verändern/löschen.
+Es soll die Möglichkeit bestehen, am Ende einer Spielrunde alle Fragen nach ihrer jeweiligen Qualität zu beurteilen. Dies setzt die Umsetzung von (/LF0650/) voraus. Diese Bewertungen können vom Administrator eingesehen werden und leiten ihn an, die Fragen bei schlechter Bewertung zu verändern/löschen.
 
 \item[/LF0650/] optionale Ergebnisansicht am Ende einer Runde \\
 Es soll weiterhin am Ende einer Runde möglich sein:
@@ -379,7 +379,7 @@ Wartbarkeit  	&              &x              & 		&\\
 Portierbarkeit  &              &x              & 		&\\
 \hline
 \end{tabular} \\ \\
-Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
+Der Hauptanteil der Qualität wird von der Funktionalität bestimmt, denn das Quiz muss spielbar sein, um das Programm als funktionsfähig einzustufen. Alle wesentlichen Mechaniken müssen zuverlässig arbeiten. Sicherheit muss größtenteils nur beim Accountmanaging bedacht werden (Verschlüsselung). Da die App der Bildung dienen soll, wurde die Benutzbarkeit auf hoch eingestuft, denn wäre die Benutzung zu kompliziert oder enthält Fehler, geht der Spielfluss und damit Spielfreude und Lerneffekt verloren. Eher unwichtig für die Qualität innerhalb des Programms ist die Effizienz, da weder besonders große Datenmengen in besonders schneller Zeit verarbeitet werden müssen, noch sind komplizierte Berechnungen auszuführen, die das Programm ausbremsen würden.
 
 \Chapter{Lieferumfang und Abnahmekriterien}
 \section{Lieferumfang}
@@ -398,11 +398,11 @@ Im Rahmen des Vorprojekts soll das wesentliche Grundgerüst, bestehend aus Daten
 \item[E-Learning (Electronical Learning)]\ \\
 Prozess des Lernens unter Beihilfe von elektronischen beziehungsweise von digitalen Medien.
 \item[Gamification]\ \\
-ist der Einsatz von Spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
+ist der Einsatz von spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
 \item[Serious Game]\ \\
 beschreibt ein Spiel, welches nicht primär der Unterhaltung, sondern der Erschließung neuen Wissens dient. Spielerische Elemente werden damit mit wissenschaftlichem Content in Verbindung gebracht, um ein spezifisches Lernziel zu erreichen. Die eingesetzten Spielmechaniken werden dabei so eingesetzt, dass ein unterhaltendes Lernerlebnis entsteht.
 \item[Feedback]\ \\
-Jegliche Form der Resonanz zum Spieler wird als Feedback verstanden. Es fördert das Reflektieren der eigenen Handlung. Einerseits kann Feedback durch Anzeigen der richtigen Antwort, durch Badges und Achievements oder anderer visueller Effekte verbreitet werden. Jedoch auch der sprachliche oder textuelle Austausch zwischen Spielen kann als eine Form des Feedbacks verstanden werden.
+Jegliche Form der Resonanz zum Spieler wird als Feedback verstanden. Es fördert das Reflektieren der eigenen Handlung. Einerseits kann Feedback durch Anzeigen der richtigen Antwort, durch Badges und Achievements oder anderer visueller Effekte verbreitet werden. Jedoch auch der sprachliche oder textuelle Austausch zwischen Spielern kann als eine Form des Feedbacks verstanden werden.
 \item[Achivements]\ \\
 Achievements stehen für 'Errungenschaften' und bedeuten das Erreichen eines bestimmten Ziels. Häufig werden Badges als Belohnung und Ausstellungsmerkmal eines Achievements benutzt.
 \item[Badges] \ \\
