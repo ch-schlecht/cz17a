@@ -11,3 +11,5 @@
 ## Dia files
 *.dia~
 
+/Code/cz17a/nbproject/private/
+/Code/cz17a/build/
