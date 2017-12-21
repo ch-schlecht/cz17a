@@ -14,11 +14,11 @@ import java.util.TreeMap;
  * @author Christian Schlecht
  */
 public class Frage {
-    
+
     private String frage;
     private TreeMap<Integer,String> antworten;
     private int richtigeAntwort;
-    
+
     /**
      * Konstruktor der Frage
      * @param frage Frage
@@ -28,7 +28,7 @@ public class Frage {
     public Frage(String frage, int richtigeAntwort, String... antworten){
         this.frage = frage;
         this.richtigeAntwort = richtigeAntwort;
-    
+
         this.antworten = new TreeMap<Integer,String>();
         for(int i = 0; i < antworten.length; i++){
             this.antworten.put(i, antworten[i]);
@@ -42,7 +42,7 @@ public class Frage {
     public TreeMap<Integer,String> getAntworten(){
         return this.antworten;
     }
-    
+
     /**
      *Getter fuer korrekte Antwort
      * @return korrekte Antwort
@@ -50,7 +50,7 @@ public class Frage {
     public String getKorrekteAntwort(){
         return this.antworten.get(this.richtigeAntwort);
     }
-    
+
     /**
      * ueberpruefe ID auf richtige Antwort
      * @param answer ID der gegebenen Antwort
@@ -66,7 +66,7 @@ public class Frage {
             return false;
         }
     }
-    
+
     /**
      * Antwort-Methode mit UserInput
      * @return true falls Antwort richtig, false anderweitig, inkl. println
@@ -87,6 +87,9 @@ public class Frage {
             imEx.printStackTrace(System.err);
             return false;
         }
+        finally{
+          s.close();
+        }
         return checkAnswer(userAntwort);
     }
     /**
@@ -102,5 +105,5 @@ public class Frage {
         }
         return s.toString();
     }
-    
+
 }
