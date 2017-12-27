@@ -239,7 +239,7 @@ Begriff für Quizrunde nötig#</dia:string>
         <dia:point val="18.05,3.1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="18.05,3.1;27.435,10.6"/>
+        <dia:rectangle val="18.05,3.1;27.435,11.4"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -251,7 +251,7 @@ Begriff für Quizrunde nötig#</dia:string>
         <dia:real val="9.3849999999999998"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="7.5"/>
+        <dia:real val="8.2999999999999989"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#000000"/>
@@ -448,6 +448,26 @@ Begriff für Quizrunde nötig#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#BOOL#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#salt#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>#VARCHAR#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -1303,7 +1323,7 @@ Begriff für Quizrunde nötig#</dia:string>
         <dia:point val="3.63,12"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3.63,10.6;18.05,12"/>
+        <dia:rectangle val="3.63,11.4;18.05,12"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1311,8 +1331,8 @@ Begriff für Quizrunde nötig#</dia:string>
       <dia:attribute name="orth_points">
         <dia:point val="3.63,12"/>
         <dia:point val="10.1,12"/>
-        <dia:point val="10.1,10.6"/>
-        <dia:point val="18.05,10.6"/>
+        <dia:point val="10.1,11.4"/>
+        <dia:point val="18.05,11.4"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
