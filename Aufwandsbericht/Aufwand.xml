@@ -67,7 +67,7 @@
 		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
 	</Analyse>
 	<Analyse von="2017-12-11" bis="2017-12-17" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
-		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
+		
 	</Analyse>	
 	<Analyse von="2017-12-18" bis="2017-12-24" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
 		<done who="MF" A="4" S="3" Zeit="8">Einlesen & Erstellen der RestAPI</done>
