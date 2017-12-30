@@ -1,5 +1,5 @@
 ﻿<Bericht>
-	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a" phase="A1" createdBy="MF" createdAt="2017-11-13">
+	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a"createdBy="MF" createdAt="2017-11-13">
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1"> 1. Praezenstreffen</done>
 		<done who="CS" A="1" S="1" Zeit="0.5">Protokoll</done>
 		<done who="MF" A="3" S="3" Zeit="7">Website erstellen (+versuche mit jekyll)</done>
@@ -9,7 +9,7 @@
 		<done who="LV" A="3" S="3" Zeit="2">Stärken und Schwächen</done>
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1">Klaerung der Richtung des Projekts</done>
 	</Analyse>
-	<Analyse von="2017-11-13" bis="2017-11-19" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-19">
+	<Analyse von="2017-11-13" bis="2017-11-19" gruppe="cz17a"  createdBy="MF" createdAt="2017-11-19">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="0.5"> 2. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="1">Protokoll</done>
 		<done who="MF" A="2" S="1" Zeit="4.5">Website Wartung und Erweiterung</done>
@@ -23,7 +23,7 @@
 		<done who="TG" A="1" S="2" Zeit="0.5">Assistent Webdesign</done>
 		<done who="TG,MF,FF" A="1" S="2" Zeit="0.5">SSH Einrichten</done>
 	</Analyse>
-	<Analyse von="2017-11-20" bis="2017-11-26" gruppe="cz17a" phase="A2" createdBy="MF" createdAt="2017-11-26">
+	<Analyse von="2017-11-20" bis="2017-11-26" gruppe="cz17a" createdBy="MF" createdAt="2017-11-26">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 3. Praezenstreffen</done>
 		<done who="MF,CS,FF" A="1" S="1" Zeit="1">Protokoll</done>
 		<done who="MF" A="1" S="1" Zeit="0.5">Protokoll nach Vorlage</done>
@@ -38,7 +38,7 @@
 		<done who="FF" A="3" S="3" Zeit="2">Recherche Gamification</done>
 		<done who="FF" A="3" S="3" Zeit="1">Latex Recherche</done>
 	</Analyse>
-	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-11-27">
+	<Analyse von="2017-11-27" bis="2017-12-03" gruppe="cz17a" createdBy="MF" createdAt="2017-11-27">
 		<done who="FF,CS,SL,LV,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 4. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="2">Wartung und Erweiterung der Website</done>
 		<done who="WS,MF,TG" A="2" S="3" Zeit="1">Game-General Conditions Meeting</done>
@@ -50,7 +50,7 @@
 		<done who="FF" A="3" S="3" Zeit="1.5">Latex</done>
 		<done who="LV" A="3" S="3" Zeit="6.5">Lastenheft</done> 
 	</Analyse>
-	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="CS" createdAt="2017-12-04">
+	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" createdBy="CS" createdAt="2017-12-04">
 		<done who="FF,CS,SL,TG,MF,FZ,WS" A="4" S="4" Zeit="2.5">Erweiterung Lastenheft</done>
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">5. Praezenstreffen</done>
 		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Website</done>
@@ -63,7 +63,18 @@
 		<done who="SL" A="3" S="2" Zeit="6">Review-Foliensatz</done>
 		<done who="LV" A="3" S="3" Zeit="5">Lastenheft</done> 
 	</Analyse>
-	<Analyse von="2017-12-04" bis="2017-12-11" gruppe="cz17a" phase="A3" createdBy="MF" createdAt="2017-12-04">
+	<Analyse von="2017-12-04" bis="2017-12-10" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
+		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
+	</Analyse>
+	<Analyse von="2017-12-11" bis="2017-12-17" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
 		<done who="MF" A="1" S="1" Zeit="1">Wartung und Erweiterung der Werbsite</done>
 	</Analyse>	
+	<Analyse von="2017-12-18" bis="2017-12-24" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
+		<done who="MF" A="4" S="3" Zeit="8">Einlesen & Erstellen der RestAPI</done>
+		<done who="MF" A="4" S="3" Zeit="4">Erstellen des AdminPanels</done>
+	</Analyse>
+	<Analyse von="2017-12-25" bis="2017-12-31" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
+		<done who="MF" A="3" S="3" Zeit="2">Erweiterung der Server-Programme (einbinden der config)</done>
+		<done who="MF" A="2" S="2" Zeit="1">Erstellen des Password-Hashings</done>
+	</Analyse>		
 </Bericht>
