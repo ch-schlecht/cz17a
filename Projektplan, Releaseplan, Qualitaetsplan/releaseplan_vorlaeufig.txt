@@ -10,5 +10,8 @@ release 3: 20% Wichtigkeit, 25% Aufwand
 release 4: 25% Wichtigkeit, 15% Aufwand 
 Dashboard komplett, Schnellfragerunde?
 
+
+
+%raus, Kann-Ziele sind wirklich optional
 release 5: 10% Wichtigkeit, 35% Aufwand
 Kann-Ziele?
