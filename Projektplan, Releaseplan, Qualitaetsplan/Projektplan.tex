@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{scrreprt}
+%Umlaute ohne Codierung
+\usepackage[utf8]{inputenc}
+%europäische Zeichen
+\usepackage[T1]{fontenc}
+%neue Rechtschreibung
+\usepackage[ngerman]{babel}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+%kein Seitenvorschub
+\makeatletter
+\newcommand\Chapter{%
+                    \par\vspace{0.01cm}% anpassen
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Universität Leipzig \par}
+	\vspace{1cm}
+	{\scshape\Large Softwaretechnik-Praktikum \par}
+	\vspace{2cm}
+	{\huge\bfseries Projektplan Gruppe cz17a - Gamification \par}
+	\vspace{2cm}
+	{\Large\itshape Lisa Vogelsberg, Felix Fink, Michael Fritz, Thomas Gerbert, Steven Lehmann, Fabian Ziegner, Willy Steinbach, 			Christian Schlecht \par}
+	\vfill
+	supervised by \par
+	Dr.~Christian \textsc{Zinke}, Julia \textsc{Friedrich}, Christian \textsc{Frommert}
+	\vfill
+	{\large \today \par}
+\end{titlepage}
+\tableofcontents
+
+
+
+\end{document}
