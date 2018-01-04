@@ -27,7 +27,7 @@
 	\vspace{2cm}
 	{\huge\bfseries Projektplan Gruppe cz17a - Gamification \par}
 	\vspace{2cm}
-	{\Large\itshape Lisa Vogelsberg, Felix Fink, Michael Fritz, Thomas Gerbert, Steven Lehmann, Fabian Ziegner, Willy Steinbach, 			Christian Schlecht \par}
+	{\Large\itshape Lisa Vogelsberg, Felix Fink, Michael Fritz, Thomas Gerbert, Steven Lehmann, Fabian Ziegner, Willy Steinbach, 	Christian Schlecht \par}
 	\vfill
 	supervised by \par
 	Dr.~Christian \textsc{Zinke}, Julia \textsc{Friedrich}, Christian \textsc{Frommert}
@@ -36,38 +36,56 @@
 \end{titlepage}
 \tableofcontents
 
-\Chapter{Gliederung}
-Das Projekt soll sich in insgesamt vier Arbeitpakete einteilen, wobei ein zusätzliches fünftes Arbeitspaket mit Kann-Zielen optional ist.
-Die Arbeitspakete bauen logisch aufeinander auf, weshalb sich gewissermaßen 'automatisch' eine Reihenfolge festlegt. Folgende Arbeitspakete sollen umgesetzt werden:
-\begin{description}
-\item[Arbeitspaket 1 - Vorprojekt] \ \\
-Die Umsetzung des Vorprojekts leitet das Projekt als Grundgerüst ein.
-\item[Arbeitspaket 2 -  Spieler und Quiz] \ \\
-Im Arbeitspaket 2 werden Spieleraccounts eingeführt und das Quiz erweitert.
-\item[Arbeitspaket 3 -  Quiz und Administration] \ \\
-Das dritte Arbeitspaket finalisiert das eigentliche Quiz und erweitert die Administrationsmöglichkeiten.
-\item[Arbeitspaket 4 - Dashboard] \ \\
-Im Fokus steht die Umsetzung des kompletten Dashboards und damit Finalisierung der Muss-Ziele
-\item[optionales Arbeitspaket 5 - Kann-Ziele] \ \\
-Im optionalen Arbeitspaket steht die Umsetzung einiger Kann-Ziele
-\end{description}
-
-
 \Chapter{Arbeitspakete}
-\section{Arbeitspaket 1 - Vorprojekt} \textit{Wichtigkeit: 25\%, Zeit: 20\%} \\
-Das Vorprojekt besteht im Wesentlichen aus einem Grundgerüst der Anwendung. Es werden die Datenbank, die Basis für eine Server und einen Client, eine REST-Schnittstelle auf dem Server und das AdminPanel begonnen. Über das AdminPanel sollen bereits Fragen inkl. flexibler Anzahl von Antworten in die Datenbank eingelesen werden können. Ein prototypischer Quizmechanismus stellt die Fragen per Datenbankabfrage zur Verfügung, sodass der Spieler bereits eine davon auswählen kann und eine Rückmeldung darüber erhält, ob seine gegebene Antwort richtig war.
+\section{Arbeitspaket 1 - Vorprojekt}
+Die Umsetzung des Vorprojekts leitet das Projekt als Grundgerüst ein. \\ \\
+\textit{Wichtigkeit: 25\%, Zeit: 20\%} \\
+Das Vorprojekt besteht im Wesentlichen aus einem Grundgerüst der Anwendung. Es werden die Datenbank, die Basis für eine Server und einen Client, eine REST-Schnittstelle auf dem Server und das AdminPanel begonnen. Über das AdminPanel sollen bereits Fragen inkl. flexibler Anzahl von Antworten in die Datenbank eingelesen werden können. Ein prototypischer Quizmechanismus stellt die Fragen per Datenbankabfrage zur Verfügung, sodass der Spieler bereits eine davon auswählen kann und eine Rückmeldung darüber erhält, ob seine gegebene Antwort richtig war.\\
+Zugeordnete Punkte des Lastenhefts:
+\begin{itemize}
+\item LF0510
+\end{itemize}
 
-\section{Arbeitspaket 2 - Spieler und Quiz} \textit{Wichtigkeit: 30\%, Zeit: 25\%} \\
-Im zweiten Arbeitspaket werden die Spieleraccounts eingeführt und das Quiz erweitert. Demzufolge wird die Registierung, An - und Abmeldung von Spielern, so wie die Anzeige der Spieleraccounts implementiert (Lastenheft 3.1.1, 3.1.2). Das Quiz soll um die wesentlichen Funktionalitäten erweitert werden: mehrere Fragen pro Quizrunde, Punkteausschüttung, Ergebnisansicht am Ende der Runde (LF1210 - LF1250).
+\section{Arbeitspaket 2 - Spieler und Quiz}
+Im Arbeitspaket 2 werden Spieleraccounts eingeführt und das Quiz erweitert. \\ \\
+\textit{Wichtigkeit: 30\%, Zeit: 25\%} \\
+Im zweiten Arbeitspaket werden die Spieleraccounts eingeführt und das Quiz erweitert. Demzufolge wird die Registierung, An - und Abmeldung von Spielern, so wie die Anzeige der Spieleraccounts implementiert. Das Quiz soll um die wesentlichen Funktionalitäten erweitert werden: mehrere Fragen pro Quizrunde, Punkteausschüttung, Ergebnisansicht am Ende der Runde.\\ 
+Zugeordnete Punkte des Lastenhefts:
+\begin{itemize}
+\item LF0010 - LF0050
+\item LF0110 - LF0130
+\item LF0210 - LF0240
+\item LF1210 - LF1250
+\end{itemize}
 
-\section{Arbeitspaket 3 - Quiz und Administration} \textit{Wichtigkeit: 20\%, Zeit: 25\%} \\
-Das dritte Arbeitspaket stellt die Finalisierung des Quiz dar. Dazu erfolgt die Implementierung des Jackpot (LH 3.1.3) und der Fragencharakteristika (Fragenauswahl, Auftrittswahrscheinlichkeit, dynamischer Schwierigkeitsgrad, Punktzahl, \dots, LH 3.1.3).\\
-Desweiteren soll die Administrationsoberfläche, welche bereits im Vorprojekt begonnen wurde, fertig gestellt werden und die ACL unterstützt werden (LH 3.1.4).
 
-\section{Arbeitspaket 4 - Dashboard} \textit{Wichtigkeit: 25\%, Zeit: 15\%} \\
-Im letzten definitiv umzusetzendem Arbeitspaket wird das gesamte Dashboard erstellt. Dies umfasst das Aufrufen des persönlichen Dashboards für den Spieler, sowie die Errechnung und Anzeige aller relevanten Dashboard-Daten (LH 3.1.5).
+\section{Arbeitspaket 3 - Quizfinalisierung}
+Das dritte Arbeitspaket finalisiert das eigentliche Quiz. \\ \\
+\textit{Wichtigkeit: 15\%, Zeit: 15\%} \\
+Das dritte Arbeitspaket stellt die Finalisierung des Quiz dar. Dazu erfolgt die Implementierung des Jackpots  und der Fragencharakteristika (Fragenauswahl, Auftrittswahrscheinlichkeit, dynamischer Schwierigkeitsgrad, Punktzahl, \dots  .\\
+Zugeordnete Punkte des Lastenhefts:
+\begin{itemize}
+\item LF2210 - LF2250
+\item LF3210 - LF 3260
+\item LF0520
+\end{itemize}
 
-\section{Arbeitspaket 5 - Kann-Ziele} \textit{Wichtigkeit: 10\%, Zeit: 35\%} \\
-Das optionale Arbeitspaket 5 beschäftigt sich mit der Umsetzung der Kann-Ziele. Favorisiert werden dabei die Schnellfragerunde, strategische Modifikatoren, sowie eine erweiterte Ergebnisübersicht mit allen Fragen am Ende einer Quizrunde.
+\section{Arbeitspaket 4 - Administration}
+Arbeitspaket 4 beschäftigt sich mit der Umsetzung der Administrationsoberfläche und Implementierung der ACL. \\ \\
+\textit{Wichtigkeit:15\%, Zeit: 15\%} \\
+Das Arbeitspaket 4 bietet die wichtigen Einstellungsmöglichkeiten für den Administrator der App, indem die Administrationsoberfläche aus dem Vorprojekt aufgegriffen wird. Es werden z.B. Fragenanzahl, Fragenverwaltung und - import einstellbar sein. Durch die ACL wird nur dem Administrator selbst Zugang zu dieser Oberfläche gewährt.\\
+Zugeordnete Punkte des Lastenhefts:
+\begin{itemize}
+\item LF0310
+\end{itemize}
+
+\section{Arbeitspaket 5 - Dashboard}
+Im Fokus steht die Umsetzung des kompletten Dashboards und damit Finalisierung der Muss-Ziele. \\ \\
+\textit{Wichtigkeit: 25\%, Zeit: 15\%} \\
+Im letzten umzusetzendem Arbeitspaket wird das gesamte Dashboard erstellt. Dies umfasst das Aufrufen des persönlichen Dashboards für den Spieler, sowie die Errechnung und Anzeige aller relevanten Dashboard-Daten.\\
+Zugeordnete Punkte des Lastenhefts:
+\begin{itemize}
+\item LF0410 - LF0420
+\end{itemize}
 
 \end{document}
