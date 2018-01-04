@@ -36,6 +36,23 @@
 \end{titlepage}
 \tableofcontents
 
+\Chapter{Dokumentationskonzept}
+\section{Entwurfsbeschreibung}
+In der Entwurfsbeschreibung, welche bei Release mit ausgeliefert wird, ist der aktuelle Entwurfsfortschritt dokumentiert und begründet. Dies bezieht sich vor allem auf Datenmodell sowie verwendete Softwarearchitekturen. Die Entwurfsbeschreibung bietet einen Gesamtüberblick über das ausgelieferte Release und dessen Umsetzung. Sie ist damit das zentrale Dokument, mit der sich Dritte als Erstes auseinandersetzen. Dementsprechend muss von Details abstrahiert werden, da sonst wichtigere (,,größere``) Grundkonzepte verloren gehen könnten.
+
+\section{strukturelle Dokumentation}
+Die strukturelle Dokumentation des Programms erfolgt mittels JavaDoc. Somit wird eine detailierte Beschreibung automatisch als Web-Dienst zur Verfügung gestellt. Es wird vereinbart, dass jede existierende Funktion mittels JavaDoc kommentiert sein muss. Dabei muss so dokumentiert werden, dass auch Dritte verstehen, was die Funktion ausführt. Es darf nicht auf projektinterne Konventionen zurückgegriffen werden (falls doch nötig, müssen diese mit ausgeführt werden). Es ist speziell auf Parameter und Return-Werte zu achten.  
+
+\section{Code-Kommentierung}
+Neben der Dokumentation mittels JavaDoc müssen zusätzliche Inline-Kommentare existieren, um spezielle Vorgänge/Funktionen zu erläutern. Solche Kommentare sollen ebenfalls möglichst nicht auf projektinterne Konventionen zurückgreifen und möglichst einfach sein bzw. möglichst wenig Vorkenntnisse voraussetzen. Verweise auf andere Kommentare sind zu vermeiden.
+
+\section{Sprachgebrauch}
+TO DISCUSS: Deutsch oder Englisch oder Denglisch.
+
+\Chapter{Testkonzept}
+
+
+\Chapter{Organisatorische Festlegungen}
 
 
 \end{document}
