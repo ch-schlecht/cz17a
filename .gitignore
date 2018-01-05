@@ -11,5 +11,8 @@
 ## Dia files
 *.dia~
 
+## Workspace
+.metadata
+
 /Code/cz17a/nbproject/private/
 /Code/cz17a/build/
