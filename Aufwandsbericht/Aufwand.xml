@@ -82,5 +82,6 @@
 	<Analyse von"2017-01-01" bis="2018-01-07" gruppe="cz17a" createdBy="CS" createdAt="2018-01-01">
 		<done who="LV,CS" A="1" S="1" Zeit="1"> 8. Praesenztreffen</done>
 		<done who="FZ" A="4" S="3" Zeit="3">Einlesen in PostgreSQL & Aktualisieren der DB</done>
+		<done who="LV" A="3" S="4" Zeit="5.5">Serverseitige Modellierung</done>
 	</Analyse>		
 </Bericht>
