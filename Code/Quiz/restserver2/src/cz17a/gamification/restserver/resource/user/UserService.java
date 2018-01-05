@@ -23,6 +23,30 @@ public class UserService {
 		return null;
 	}
 	
+	public boolean auth(int ID, String key) {
+		Statement stmt;
+		ResultSet set;
+	
+		try {
+			stmt = ServerManager.query("SELECT nickname FROM "+TABLE_NAME+" WHERE ID = "+ID+" AND key= '"+key+"'");
+			set = stmt.getResultSet();
+			while(set.next()) {
+				 if(set.getString("nickname") != null) {
+					 return true;
+				 }
+			}
+			stmt.close();
+			
+			//Check for admin
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	
 	public List<User> getAllUser(){
 		ArrayList<User> res = new ArrayList<>();
