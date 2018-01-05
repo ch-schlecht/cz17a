@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Michael\Desktop\git\Code\Quiz\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+528123801.index
+147452870.index
+835170525.index
+29803014.index
+3324786231.index
+3777875473.index
+1401763228.index
