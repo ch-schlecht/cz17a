@@ -47,7 +47,7 @@ Die strukturelle Dokumentation des Programms erfolgt mittels JavaDoc. Somit wird
 Neben der Dokumentation mittels JavaDoc müssen zusätzliche Inline-Kommentare existieren, um spezielle Vorgänge/Funktionen zu erläutern. Solche Kommentare sollen ebenfalls möglichst nicht auf projektinterne Konventionen zurückgreifen und möglichst einfach sein bzw. möglichst wenig Vorkenntnisse voraussetzen. Verweise auf andere Kommentare sind zu vermeiden.
 
 \section{Sprachgebrauch}
-TO DISCUSS: Deutsch oder Englisch oder Denglisch.
+Code, Dokumentation und Kommentare werden in englischer Sprache verfasst. Alle anderen Dokumente, wie z.b. Entwurfsbeschreibung werden in Deutsch verfasst.
 
 \Chapter{Testkonzept}
 \section{Unit-Tests}
@@ -60,6 +60,21 @@ Der Projektleiter führt in regelmäßigen Abständen manuelle Test durch, um Fu
 \Chapter{Organisatorische Festlegungen}
 \section{Fertigstellung vor Releasetermin}
 Die eigentliche Programmierung soll mindestens vier Tage vor Abgabezeitpunkt des Releasebündels abgeschlossen sein, um anschließend umfangreiche Test durchführen zu können, sowie die Dokumentation fertigzustellen.
+
+\section{Kommunikationskanal}
+Um angemessenen Kommunikationsfluss zu gewährleisten ist der Hauptkanal eine Whatsapp-Gruppe. Der Kontakt zu den Betreuern wird per E-Mail gehalten.
+
+\section{Coding Standards}
+Um einheitlichen und guten Code zu produzieren werden folgende Konventionen festgelegt:
+\begin{itemize}
+\item Variablen und Funktionen müssen \textit{eindeutig} durch ihren Name beschrieben werden. Eines Ausnahme bildet Function-Overloading. Für die Namensgebung wird CamelCase verwendet.
+\item ,,Magic Numbers`` dürfen nicht auftreten, es sei denn ihre Bedeutung ist unmittelbar durch einen Kommentar geregelt. Ansonsten ist die Variablendeklaration und anschließende Verwendung dieser Variable vorzuziehen.
+\item guter Code ist kurz und prägnant, jedoch sollten nicht mehr als 2-3 Statements auf einer Zeile auftreten.
+\item Als Einrückungszeichen wird ein Tabulator pro Layer vereinbart.
+\end{itemize}
+
+\section{Issueverwaltung}
+Das Issues-Board im Gitlab wurde in folgende Boards aufgeteilt: Backlog, To Do, Doing, To be Tested, Waiting, Problems und Done. Zu Beginn einer Iteration wird das aktuelle Release in Issues aufgeteilt und ins Backlog gestellt (ggf. spätere Nachverfeinerung). Sobald sich ein Assignee gefunden hat, wird die Issue in To Do verschoben und bei Beginn der Arbeit dementsprechend in Doing. Nach Beendigung verschiebt das Teammitglied seine Issue in die To be Tested Spalte. Erst nach allen Tests sowie der Sichtung des Codes durch ein anderes Teammitglied kann die Verschiebung in Done erfolgen. Zum Ende eines Release werden alle erfüllten Issues in Closed archiviert, nicht erfüllte werden ins Backlog übernommen, um beim nächsten Release umgesetzt zu werden. Die Spalte Waiting dient zur Markierung, dass die Fertigstellung der Issue von einer anderen abhängig ist. In Problems werden sowohl aufgetretene Bugs, als auch Probleme bei der Umsetzung gelistet und gesondert bearbeitet.
 
 
 \end{document}
