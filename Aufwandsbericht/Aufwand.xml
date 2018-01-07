@@ -83,5 +83,7 @@
 		<done who="LV,CS" A="1" S="1" Zeit="1"> 8. Praesenztreffen</done>
 		<done who="FZ" A="4" S="3" Zeit="3">Einlesen in PostgreSQL & Aktualisieren der DB</done>
 		<done who="LV" A="3" S="4" Zeit="5.5">Serverseitige Modellierung</done>
+		<done who="CS" A="4" S="3" Zeit="5">Erarbeitung von Projekt-, Release- und Qualitaetssicherungsplan</done>
+		<done who="CS,MF" A="3" S="4" Zeit="1"> Fix des Code-Ordners im Git, Konfigurieren der .gitignore</done>
 	</Analyse>		
 </Bericht>
