@@ -68,10 +68,51 @@ Das Vorprojekt bildet das Grundgerüst der Anwendung. Es wird eine Server-Client
 
 
 \Chapter{Arbeitspaket 2 - Spieler und Quiz}
-\textit{Release: 19.02.2018}
+\textit{Release: 19.02.2018} \\
+Im zweiten Release werden Spieleraccounts eingeführt und das Quiz erweitert.
+
+\section{Spieleraccounts}
+\begin{itemize}
+\item Ein Spieler kann sich unter Angabe von Nutzername, E-Mail und Passwort registrieren.
+\item Er kann sich einloggen, wieder abmelden, das Passwort bei Vergessen anfordern ändern und seine Accountübersicht einsehen. 
+\item Der Account kann dauerhaft (d.h. endgültig) gelöscht werden.
+\end{itemize}
+
+\section{Quizerweiterung}
+\begin{itemize}
+\item Das Quiz wird auf mehrere Spieler (mind. 5 pro Runde) erweitert.
+\end{itemize}
+\subsection{Quizablauf}
+\begin{itemize}
+\item Eine Quizrunde wird auf mehrere Fragen aufeinanderfolgend erweitert
+\item Nach Beendigung der Runde erfolgt eine zusammenfassende Ergebnisübersicht
+\end{itemize}
+\subsection{weitere Quizeigenschaften}
+\begin{itemize}
+\item Das Quiz wird um die Punkteausschüttung erweitert. Punkte werden für richtige Antworten vergeben.
+\end{itemize}
 
 \Chapter{Arbeitspaket 3 - Quizfinalisierung}
-\textit{Release: 12.03.18 / 19.03.18}
+\textit{Release: 12.03.18 / 19.03.18} \\
+Das dritte Arbeitspaket finalisiert das eigentliche Quiz.
+\begin{itemize}
+\item die zusammenfassende Ergebnisübersicht wird um ein anonymes Leaderboard der Runde erweitert.
+\end{itemize}
+\section{Jackpot}
+\begin{itemize}
+\item der Jackpot füllt sich durch die Punkte der Spieler, falls diese eine Frage falsch beantworten.
+\item eine Jackpot-Frage kann zufällig ausgelöst werden. Dann wird um die gesamte Punktzahl im Jackpot gespielt. Bei richtiger Antwort ist ein Anteil des Jackpots garantiert.
+\item die Wahrscheinlichkeit des Auftretens einer Jackpot-Frage steigt mit zunehmend falsch beantworteten Fragen.
+\item Initial und nach Ausschüttung des Jackpots wird dieser mit einer gewissen Anzahl an Punkten gefüllt.
+\end{itemize}
+
+\section{weitere Frageneigenschaften}
+\begin{itemize}
+\item Fragen werden generell zufällig aus dem Fragenpool ausgewählt. Je häufiger eine Frage jedoch falsch beantwortet wird, desto größer wird die Wahrscheinlichkeit des Auftretens.
+\item der Fragen wird bei Einfügung ins System ein statischer Schwierigkeitsgrad mit übergeben. Anhand der Beantwortungsstatistiken (Richtig/Falsche beantwortet) wird dieser dynamisch angepasst.
+\item In Abhängigkeit des Schwierigkeitsgrades erhält der Punktwert einer Frage einen Multiplikator.
+\item Ein Import von Excel-Dateien für Fragen wird an das Admin-Panel angebunden.
+\end{itemize}
 
 \Chapter{Arbeitspaket 4 - Administration}
 \textit{Release: 02.04.2018}
