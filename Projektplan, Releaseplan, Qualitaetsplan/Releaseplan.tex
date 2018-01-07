@@ -37,7 +37,34 @@
 \tableofcontents
 
 \Chapter{Arbeitpaket 1 - Vorprojekt}
-\textit{Release: 15.01.18 / 22.01.18}
+\textit{Release: 15.01.18 / 22.01.18} \\
+Das Vorprojekt bildet das Grundgerüst der Anwendung. Es wird eine Server-Client Architektur entwickelt. Zusätzlich werden eine PostgreSQL Datenbank und eine REST-Schnittstelle erstellt und über den Praktikumsserver angebunden.
+
+\section{Datenbank}
+\begin{itemize}
+\item Die Datenbank wird modelliert, erstellt und auf den Praktikumsserver geladen.
+\item Aus der Datenbank werden die Fragen ausgelesen.
+\end{itemize}
+
+\section{Server}
+\begin{itemize}
+\item der Server übernimmt die zentrale Verarbeitung des Quiz
+\item der Server händelt alle Verbindungen zu den Clients, im Rahmen des Vorprojekts beschränkt sich dies auf einen Client
+\item über eine REST-Schnittstelle werden alle Anfragen an die Datenbank gestellt
+\end{itemize}
+
+\section{Client}
+\begin{itemize}
+\item der Client erhält vom Server eine Frage inkl. der Antworten
+\item das User-Interface ermöglicht die Darstellung der Fragen und Antworten
+\item der User kann eine Frage auswählen und erhält eine visuelle Rückmeldung, ob die Frage richtig beantwortet wurde.
+\end{itemize}
+
+\section{Admin-Panel}
+\begin{itemize}
+\item das Admin-Panel wird mittels einer Weboberfläche realisiert.
+\item es können Fragen inkl. Antworten im CSV-Format in die Datenbank eingelesen werden.
+\end{itemize}
 
 
 \Chapter{Arbeitspaket 2 - Spieler und Quiz}
