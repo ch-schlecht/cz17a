@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -27,6 +28,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import application.CSVIO;
 import application.ServerManager;
+import server.LogManager;
 
 /**
  * Servlet implementation class ExecServlet
@@ -71,20 +73,34 @@ public class ExecServlet extends HttpServlet {
 						        if (!item.isFormField()) {
 						           
 						            br = new BufferedReader(new InputStreamReader(item.openStream()));
-						            CSVIO io = new CSVIO(br);
-						    		ServerManager manager = new ServerManager(); //create ServerManager
+						            if(item.getName().endsWith(".csv")) {
+						    
+						                
+							            CSVIO io = new CSVIO(br);
+							    		ServerManager manager = new ServerManager(); //create ServerManager
+										
+										for(String[] data :io.read()){ //for every row
+											manager.insert(data); //insert data in database
+										}
 									
-									for(String[] data :io.read()){ //for every row
-										manager.insert(data); //insert data in database
-									}
+										manager.disconnect(); //disconnect from server
 								
-									manager.disconnect(); //disconnect from server
-							
+						            	
+						            }
+						            else {
+						            	LogManager.getLogger().info("Tried to import not .csv file");
+						            	request.getRequestDispatcher("/fail.jsp").forward(request, response);
+						            	return;
+						            }
+						            
+						    
 						        }
 						    }
 					} catch (FileUploadException e) {
-						response.sendRedirect("fail.jsp");
+						LogManager.getLogger().log(Level.WARNING, "Unable to upload user File", e);
+						request.getRequestDispatcher("/fail.jsp").forward(request, response);
 						e.printStackTrace();
+						return;
 					}
 
 				
@@ -95,6 +111,7 @@ public class ExecServlet extends HttpServlet {
 
 				request.setAttribute("msg","Your not logged in as admin!");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
+				return;
 			}
 			  
 

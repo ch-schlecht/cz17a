@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+
+import server.LogManager;
 
 /**
  * Class to read Questions/Answers from CSV Files
@@ -42,8 +45,8 @@ public class CSVIO {
 			}
 			
 		} catch (IOException e) {
-			System.out.println("Unable to read File");
-			
+			LogManager.getLogger().log(Level.WARNING, "Unable to Convert user CSV", e);
+		
 		}
 		return list;
 	}

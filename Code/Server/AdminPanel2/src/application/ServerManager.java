@@ -1,4 +1,4 @@
-package application;
+ package application;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Base64;
+import java.util.logging.Level;
+
+import server.LogManager;
 
 /**
  * Class for Connecting and Communicate with Database
@@ -48,15 +51,22 @@ public class ServerManager {
 		 try {
 	         Class.forName("org.postgresql.Driver");	//use psql-driver
 	         con = DriverManager.getConnection(db,user,pw); //set Connector for db
-	         System.out.println("Opened connection to "+user+"@"+db+" successfully"); 
+	         LogManager.getLogger().info("Opened connection to "+user+"@"+db+" successfully");
+	         //System.out.println("Opened connection to "+user+"@"+db+" successfully"); 
 	         return true;
 	      } catch (Exception e) {
-	         System.err.println(e.getClass().getName()+": "+e.getMessage());
+	    	 LogManager.getLogger().log(Level.SEVERE, "Unable to connect to Server",e);
+	         //System.err.println(e.getClass().getName()+": "+e.getMessage());
 	         return false;
 	      }
 	}
 	/**
 	 * Inserts Questions+Answers into Database
+	 * 
+	 * FORMAT OF STRING
+	 * responsse_time;question;dynamic_diff;static_diff;topic;question1(true);question2;question3;question4;...
+	 * 
+	 * 
 	 * @param data An Coloumn of Data
 	 * @return success
 	 * @since 1.0
@@ -76,21 +86,27 @@ public class ServerManager {
 					+"VALUES ("+highest_IDq+","+response_time+",'"+data[1]+"',"+dynamic_diff+","+static_diff+",'"+data[4]+"');";
 			stmt.executeUpdate(sql);
 			
+			boolean typ = true;
+			
 			for(int i = 5; i < data.length; i++){  //Every Entry after 5 (id=4) is an Answer
 
 				highest_IDa++; //next Free ID for answers
 				//SQL Statement to insert Answers
 				sql = "INSERT INTO ANSWER(question_id,ID,Typ,Inhalt)"
-					+ "VALUES ("+highest_IDq+","+highest_IDa+",'','"+data[i]+"')"; //TODO question_id
+					+ "VALUES ("+highest_IDq+","+highest_IDa+","+typ+",'"+data[i]+"')"; //TODO question_id
 				stmt.executeUpdate(sql);
+				typ = false; //only first is true
 			}
 			
 			stmt.close(); //close statement
+			LogManager.getLogger().info("Sucess: Added Data to Database");
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
+			LogManager.getLogger().log(Level.WARNING, "Cannot Insert Data into Database", e);
+		} catch(NumberFormatException e) {
+			LogManager.getLogger().log(Level.WARNING, "Wrong Input Data: String cannot convert to Integer", e);
 		}
+		return false;
 	}
 	
 	/**
@@ -115,6 +131,7 @@ public class ServerManager {
 			
 			stmt.close(); //close Statement
 		} catch (SQLException e) {
+			LogManager.getLogger().log(Level.SEVERE, "Unable to Count Table size",e);
 			e.printStackTrace();
 		}
 		
@@ -150,6 +167,7 @@ public class ServerManager {
 			stmt.close(); //close statement
 			return admin;
 		} catch (SQLException e) {
+			LogManager.getLogger().log(Level.SEVERE, "Unable to identify User-rank", e);
 			e.printStackTrace();
 			return admin;
 		}
