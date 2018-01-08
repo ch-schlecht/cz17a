@@ -65,7 +65,9 @@
 	</Analyse>
 	<Analyse von="2017-12-11" bis="2017-12-17" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1"> 6. Praesenztreffen</done>
-		<done who="CS" A="3" S="3" Zeit="2.5">Nacharbeitung Lastenheft</done>		
+		<done who="CS" A="3" S="3" Zeit="2.5">Nacharbeitung Lastenheft</done>
+		<done who="LV" A="3" S="2" Zeit="5">Datenbankmodellierung</done>
+		<done who="LV" A="3" S="2" Zeit="1.5">Nacharbeitung Lastenheft</done>		
 	</Analyse>	
 	<Analyse von="2017-12-18" bis="2017-12-24" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">7. Praesenztreffen</done>
