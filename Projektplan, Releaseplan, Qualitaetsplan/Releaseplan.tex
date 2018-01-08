@@ -37,7 +37,7 @@
 \tableofcontents
 
 \Chapter{Arbeitpaket 1 - Vorprojekt}
-\textit{Release: 15.01.18 / 22.01.18} \\
+\textit{Release: 22.01.18} \\
 Das Vorprojekt bildet das Grundgerüst der Anwendung. Es wird eine Server-Client Architektur entwickelt. Zusätzlich werden eine PostgreSQL Datenbank und eine REST-Schnittstelle erstellt und über den Praktikumsserver angebunden.
 
 \section{Datenbank}
@@ -93,7 +93,7 @@ Im zweiten Release werden Spieleraccounts eingeführt und das Quiz erweitert.
 \end{itemize}
 
 \Chapter{Arbeitspaket 3 - Quizfinalisierung}
-\textit{Release: 12.03.18 / 19.03.18} \\
+\textit{Release: 19.03.18} \\
 Das dritte Arbeitspaket finalisiert das eigentliche Quiz.
 \begin{itemize}
 \item die zusammenfassende Ergebnisübersicht wird um ein anonymes Leaderboard der Runde erweitert.
@@ -115,9 +115,33 @@ Das dritte Arbeitspaket finalisiert das eigentliche Quiz.
 \end{itemize}
 
 \Chapter{Arbeitspaket 4 - Administration}
-\textit{Release: 02.04.2018}
+\textit{Release: 02.04.2018} \\
+Arbeitspaket 4 beschäftigt sich mit der Vervollständigung der Administrationsoberfläche und Einbindung der ACL.
+\begin{itemize}
+\item Es werden zwei Kontrollzustände in der ACL eingerichtet: Ein Administrator mit uneingeschränkten Rechten und ein User, welche das Spiel spielen und seine persönlichen Daten einsehen kann.
+\item Dem Administrator werden alle Einstellungsmöglichkeiten über einen externen Webservice zur Verfügung gestellt (Admin-Panel aus dem Vorprojekt).
+\item Er kann Fragen importieren/bearbeiten/löschen, die Rundenanzahl einstellen und Userrechte bearbeiten. Zusätzlich kann er strategische Modifikatoren, Badges, freischaltbare Inhalte und Items erstellen/bearbeiten/löschen, falls diese umgesetzt werden.
+\end{itemize}
 
 \Chapter{Arbeitspaket 5 - Dashboard}
-\textit{Release: 16.04.2018}
+\textit{Release: 16.04.2018} \\
+Das letzte Arbeitspaket setzt als letzten großen Aspekt das Dashboard um.
+\section{Dashboard}
+\begin{itemize}
+\item alle Dashboard-Daten müssen anhand der gespeicherten Daten der Datenbank errechnet werden.
+\item das Dashboard soll für den Benutzer jederzeit aufrufbar sein.
+\item die Darstellung muss möglichst übersichtlich sein, sodass die Daten schnell überblickt werden können.
+\item angezeigt werden sollen z.B.:
+\begin{itemize}
+\item gesamte/durchschnittliche Spielzeit
+\item Anzahl gespielter Runden
+\item Prozentsatz richtiger Antworten
+\item durchschnittliche, höchste, gesamte Punktzahl
+\item \dots
+\end{itemize}
+\end{itemize}
+
+\section{Abschlusstests}
+Vor Abgabe des finalen Release werden noch einmal umfangreiche Abschlusstests durchgeführt. Dabei werden sowohl Unit-Tests als auch manuelle Tests so breit abdeckend wie möglich ausgeführt. Optional könnten Beta-Tester (unbeteiligte Dritte) einige Runden spielen, um eventuelle Bugs aufzudecken, welche in der letzten Iteration zu beheben sind.
 
 \end{document}
