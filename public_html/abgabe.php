@@ -31,18 +31,19 @@ include 'header.inc.php';
 
 
         <article class="article"> <!-- Infomation about the Project and meeting -->
-            <h2>Abgabe A2</h2>
+            <h2>Abgabe R1</h2>
             <p>
-            <b>Abgabe zum 27.11.2017</b><br/>
-            Die Abgabe A2 besteht aus:
-            <li>Dem Recherchebericht</li>
-            <li>Der Aufwandsanylse bis zum 27.11.17</li>
+            <b>Abgabe zum 22.01.2018</b><br/>
+            Die Abgabe R1 besteht aus:
+            <li>dem ersten Release, in welchem das Vorprojekt realisiert wird</li>
+            <li>der aktuellen Entwurfsbeschreibung</li>
+			<li>dem aktuellen Aufwandsbericht</li>
             </p>
             <hr/>
-            <p>
+            <!--<p>
             <a href="abgabe/A2/Recherchebericht.pdf">Recherchebericht</a>   
             <a href="abgabe/A2/Aufwand.xml">Aufwandsanalyse</a>
-            </p>
+            </p> -->
         </article>
 
 

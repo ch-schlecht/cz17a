@@ -37,9 +37,9 @@ include 'header.inc.php';
             <div class="bar-el done" id="A1">A1</div>
             <div class="bar-el done" id="A2">A2</div>
             <div class="bar-el done" id="A3">A3</div>
-            <div class="bar-el ak" id="M1">M1</div>
-            <div class="bar-el" id="A4">A4</div>
-            <div class="bar-el" id="R1">R1</div>
+            <div class="bar-el done" id="M1">M1</div>
+            <div class="bar-el done" id="A4">A4</div>
+            <div class="bar-el ak" id="R1">R1</div>
             <div class="bar-el" id="M2">M2</div>
             <div class="bar-el" id="R2">R2</div>
             <div class="bar-el" id="R3">R3</div>
@@ -47,7 +47,7 @@ include 'header.inc.php';
             <div class="bar-el" id="R5">R5</div>
         </div>
         
-        <!-- Aktuelle Phase: <b>A3</b> -->
+        <!-- Aktuelle Phase: <b>R1</b> -->
         
         <br/>
         <br/>
@@ -71,10 +71,20 @@ include 'header.inc.php';
         <hr/>
         
         
-        <p>Die dritte Phase und Abgabe <b>A2</b> wurde <font color="green">abgeschlossen</font><br/>
+        <p>Die dritte Phase und Abgabe <b>A3</b> wurde <font color="green">abgeschlossen</font><br/>
         Hauptaufgabe dieser Phase waren das Erstellen eines Lastenheftes, welches auf unserem Rechercheberichtberuht
         </p>
         <hr/>
+		
+		<p>Der Meilenstein <b>M1</b> wurde <font color="green">abgeschlossen</font><br/>
+		Aufgabe dieser Phase war die Verteidigung und Vorstellung des Lastenhefts in Form eines Vortrags mit den Betreuern
+		</p>
+		<hr/>
+		
+		<p>Die vierte Phase und Abgabe <b>A4</b> wurde <font color="green">abgeschlossen</font><br/>
+		Hauptaufgabe dieser Phase waren das Erstellen von Projektplan, Releaseplan und Qualitaetssicherungsplan. Darin wurden die Elemente des Lastenhefts zu Arbeitspaketen zusammengefasst und deren Release festlegt.
+		</p>
+		<hr/>
         
         
 
