@@ -14,15 +14,16 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 public class TopicSelection extends AppCompatActivity {
-
+    final TopicHandler topicHandler = new TopicHandler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_selection);
-        ArrayList<Button> topicbuttons = new ArrayList<>();
-        final TopicHandler topicHandler = new TopicHandler(topicbuttons);
-        topicHandler.setUpActivity(topicbuttons);
-        addButton(3, topicbuttons);
+        ArrayList<Button> topicButtons = new ArrayList<>();
+
+        addButton(topicHandler.getMaxID(), topicButtons);
+
+
     }
     public void goToGame(){
         Intent intent = new Intent(this,  GameActivity.class);
@@ -43,6 +44,7 @@ public class TopicSelection extends AppCompatActivity {
                 }
             });
         }
+        topicHandler.setUpActivity(topicButtons);
 
     }
 

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TopicHandler {
     String[] titles;
     int[] IDs;
-    public TopicHandler(ArrayList<Button> buttons){
+    public TopicHandler(){
         ServerCommunication servCom = new ServerCommunication();
         IDs = servCom.getTopicIDs();
         titles = servCom.getTopicTitles();
@@ -22,9 +22,11 @@ public class TopicHandler {
     }
     public void setUpActivity(ArrayList<Button> topicButtons){
         for(int i = 0;i<topicButtons.size();i++){
-
+            topicButtons.get(i).setText(titles[i]);
         }
-
+    }
+    public int getMaxID(){
+        return IDs.length;
     }
 
 }
