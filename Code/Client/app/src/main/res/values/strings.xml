@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">QuizClient</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_topic_selection">TopicSelection</string>
 </resources>
