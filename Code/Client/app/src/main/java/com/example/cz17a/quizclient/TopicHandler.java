@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 /**
  * Created by stein on 17.01.2018.
  */
@@ -12,16 +14,16 @@ import android.widget.LinearLayout;
 public class TopicHandler {
     String[] titles;
     int[] IDs;
-    Button topicButtonView;
-    public TopicHandler(View view){
+    public TopicHandler(ArrayList<Button> buttons){
         ServerCommunication servCom = new ServerCommunication();
         IDs = servCom.getTopicIDs();
         titles = servCom.getTopicTitles();
-        topicButtonView = (Button)view;
+
     }
-    public void setUpActivity(){
-        Button[] topicButtons = new Button[IDs.length];
-        topicButtonView.setText(titles[0]);
+    public void setUpActivity(ArrayList<Button> topicButtons){
+        for(int i = 0;i<topicButtons.size();i++){
+
+        }
 
     }
 

@@ -11,33 +11,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 public class TopicSelection extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_selection);
-        final Button topic1 = findViewById(R.id.butTopic1);
-        final TopicHandler topicHandler = new TopicHandler(topic1);
-        topicHandler.setUpActivity();
-        addButton();
-        topic1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToGame();
-            }
-        });
+        ArrayList<Button> topicbuttons = new ArrayList<>();
+        final TopicHandler topicHandler = new TopicHandler(topicbuttons);
+        topicHandler.setUpActivity(topicbuttons);
+        addButton(3, topicbuttons);
     }
     public void goToGame(){
         Intent intent = new Intent(this,  GameActivity.class);
         startActivity(intent);
     }
 
-    public void addButton(){
+    public void addButton(int anzahl, ArrayList<Button> topicButtons){
         System.out.println("Neuer Button");
-        Button b = new Button(this);
-        LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
-        linLayout.addView(b);
+        for(int i = 0; i<anzahl; i++){
+            Button b = new Button(this);
+            LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
+            linLayout.addView(b);
+            topicButtons.add(b);
+            topicButtons.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goToGame();
+                }
+            });
+        }
+
     }
 
 
