@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         playgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToGame(view);
+                goToTopicSelection(view);
             }
         });
 
 
 }
-    public void goToGame(View view){
+    public void goToTopicSelection(View view){
         TopicHandler topicHandler = new TopicHandler(findViewById(R.id.butTopic1));
         Intent intent = new Intent(this,  TopicSelection.class);
         startActivity(intent);

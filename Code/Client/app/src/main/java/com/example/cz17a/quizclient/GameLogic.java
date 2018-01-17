@@ -70,20 +70,6 @@ public class GameLogic {
                 indicator.setText("FALSCH!");
             }
         }
-
-
-
-
-
-
-/*
-            if(buttons[i].getText() == frage.getAntwort(0)&&i>=0){
-                indicator.setText("RICHTIG!");
-            }else if(i==-1){
-                indicator.setText("Zeit vorbei!");
-            }else{
-                indicator.setText("FALSCH");
-            }*/
         indicator.setVisibility(View.VISIBLE);
         frage.isValuated = true;
 

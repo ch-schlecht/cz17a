@@ -1,5 +1,6 @@
 package com.example.cz17a.quizclient;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,9 +21,15 @@ public class TopicSelection extends AppCompatActivity {
         topic1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                goToGame();
             }
         });
+
     }
+    public void goToGame(){
+        Intent intent = new Intent(this,  GameActivity.class);
+        startActivity(intent);
+    }
+
 
 }
