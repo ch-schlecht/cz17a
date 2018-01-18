@@ -30,6 +30,49 @@ public class Round {
 	public void addPlayedQuestion(PlayedQuestion played_question) {
 		played_question = new PlayedQuestion();
 	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public Calendar getStart() {
+		return start;
+	}
+
+	public void setStart(Calendar start) {
+		this.start = start;
+	}
+
+	public Calendar getEnd() {
+		return end;
+	}
+
+	public void setEnd(Calendar end) {
+		this.end = end;
+	}
+
+	public int getMax_score() {
+		return max_score;
+	}
+
+	public void setMax_score(int max_score) {
+		this.max_score = max_score;
+	}
+
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(ArrayList<Question> questions) {
+		this.questions = questions;
+	}
+	
+	
+	
 	
 
 }

@@ -5,6 +5,12 @@ import java.util.ArrayList;
 public class Game {
 	private Round round;
 	
+	public Round getRound() {
+		return round;
+	}
+	public void setRound(Round round) {
+		this.round = round;
+	}
 	public Game(Quiz quiz, ArrayList<Player> players) {
 		quiz = new Quiz();
 		for(Player player: players) {
