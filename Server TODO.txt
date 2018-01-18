@@ -1,0 +1,4 @@
+-Klassen laut modellierung erstellen  --done
+-mappen 			      --done?
+-Data Access
+-Logik
