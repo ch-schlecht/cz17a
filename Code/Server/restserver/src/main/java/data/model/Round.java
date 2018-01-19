@@ -3,6 +3,7 @@ package data.model;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,8 @@ public class Round {
 	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
 	@Transient
 	private ArrayList<Question> questions;
+	private ArrayList<Player> players = new ArrayList<>();
+	private Question randomQuestion;
 	
 	public Round() {}
 	
@@ -39,6 +42,7 @@ public class Round {
 	
 	public Round(ArrayList<Question> questions, ArrayList<Player> players) {
 		this.questions = questions;
+		this.players = players;
 	}
 	
 	public void play_question() {
@@ -46,7 +50,8 @@ public class Round {
 	}
 	
 	private void pick_question() {
-		
+		randomQuestion = questions.get(new Random().nextInt(questions.size())); //random question is chosen from the question list
+		questions.remove(randomQuestion); //question gets removed to prevent it from appearing more than once
 	}
 	
 	public void addPlayedQuestion(PlayedQuestion played_question) {
