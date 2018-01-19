@@ -1,9 +1,23 @@
-package cz17a.gamification.gameserver;
+package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Answer {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
 	private String content;
 	private boolean type;
+	@ManyToOne
+	@JoinColumn(name = "question_id", nullable = false)
+	private Question question;
 	
 	public Answer() {}
 	
@@ -34,6 +48,14 @@ public class Answer {
 
 	public void setType(boolean type) {
 		this.type = type;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 }

@@ -10,7 +10,7 @@ import org.hibernate.Query;
 
 import cz17a.gamification.restserver.resource.answer.Answer;
 import cz17a.gamification.restserver.sql.ServerManager;
-import model.HibernateUtil;
+import access.HibernateUtil;
 
 public class UserService {
 
@@ -73,7 +73,7 @@ public class UserService {
 	}
 	
 	public User getUserHibernate(int ID) {
-		return HibernateUtil.getSession().get(User.class,ID);
+		return new User();
 	}
 	
 	

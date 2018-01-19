@@ -1,13 +1,18 @@
-package cz17a.gamification.gameserver;
+package model;
 
-public class Admin extends User{
+import javax.persistence.Entity;
+
+@Entity
+public class Admin extends User {
 	private String first_name;
 	private String last_name;
 	
 	public Admin() {}
 	
 	public Admin(int id, String mail, String nickname, String password, String first_name, String last_name) {
-		super(id, mail, nickname, password);
+		this.mail = mail;
+		this.nickname = nickname;
+		this.password = password;
 		this.first_name = first_name;
 		this.last_name = last_name;
 	}

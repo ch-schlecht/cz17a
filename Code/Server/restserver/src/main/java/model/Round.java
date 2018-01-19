@@ -1,22 +1,44 @@
-package cz17a.gamification.gameserver;
+package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+@Entity
 public class Round {
-	private int ID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private Calendar start;
 	private Calendar end;
 	private int max_score;
+	@ManyToOne
+	@JoinColumn(name = "winner", nullable = false)
+	private Player winner;
+	@OneToMany(mappedBy = "round")
+	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
+	@Transient
 	private ArrayList<Question> questions;
 	
 	public Round() {}
 	
-	public Round(Calendar start, Calendar end, int max_score, Player winner) {
+	public Round(Calendar start, Calendar end, int max_score) {
 		this.start = start;
 		this.end = end;
 		this.max_score = max_score;
-		winner = null; //default
+	}
+	
+	public Round(ArrayList<Question> questions, ArrayList<Player> players) {
+		this.questions = questions;
 	}
 	
 	public void play_question() {
@@ -31,12 +53,12 @@ public class Round {
 		played_question = new PlayedQuestion();
 	}
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Calendar getStart() {
@@ -70,9 +92,5 @@ public class Round {
 	public void setQuestions(ArrayList<Question> questions) {
 		this.questions = questions;
 	}
-	
-	
-	
-	
 
 }

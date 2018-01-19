@@ -2,6 +2,9 @@ package cz17a.gamification.gameserver;
 
 import java.util.ArrayList;
 
+import model.Player;
+import model.Quiz;
+
 public class GameService {
 	
 	public void create_game() {

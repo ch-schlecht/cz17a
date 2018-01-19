@@ -21,8 +21,14 @@
         <property name="connection_pool_size">1</property>
 
         <!-- Annotated entity classes -->
-        <mapping class="cz17a.gamification.restserver.resource.answer.Answer"/>
-        <mapping class="cz17a.gamification.restserver.resource.question.Question"/>
-        <mapping class="cz17a.gamification.restserver.resource.user.User"/>
+        <mapping class="model.User"/>
+        <mapping class="model.Admin"/>
+        <mapping class="model.Player"/>
+        <mapping class="model.Quiz"/>
+        <mapping class="model.Question"/>
+        <mapping class="model.Answer"/>
+        <mapping class="model.Round"/>
+        <mapping class="model.Participation"/>
+        <mapping class="model.PlayedQuestion"/>
     </session-factory>
 </hibernate-configuration>

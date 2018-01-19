@@ -1,19 +1,26 @@
-package cz17a.gamification.gameserver;
+package model;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
-	private int id;
-	private String mail;
-	private String nickname;
-	private String password;
-	private Calendar last_login;
-	private Calendar registration;
+	@Id
+	protected int id;
+	protected String mail;
+	protected String nickname;
+	protected String password;
+	protected Calendar last_login;
+	protected Calendar registration;
 	
 	public User() {} //default constructor
 	
-	public User(int id, String mail, String nickname, String password) {
-		this.id = id;
+	public User(String mail, String nickname, String password) {
 		this.mail = mail;
 		this.nickname = nickname;
 		this.password = password;

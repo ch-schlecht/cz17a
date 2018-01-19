@@ -10,7 +10,7 @@ import org.hibernate.Query;
 
 import cz17a.gamification.restserver.resource.question.Question;
 import cz17a.gamification.restserver.sql.ServerManager;
-import model.HibernateUtil;
+import access.HibernateUtil;
 /**
  * Methods called by AnswerResource requests
  * @author Michael
@@ -105,7 +105,7 @@ public class AnswerService {
 	 * @since 1.3
 	 */
 	public Answer getAnswerHibernate(int ID) {
-		return HibernateUtil.getSession().get(Answer.class,ID);
+		return new Answer();
 	}
 	
 	/**

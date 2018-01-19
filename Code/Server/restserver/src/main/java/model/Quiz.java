@@ -1,13 +1,28 @@
-package cz17a.gamification.gameserver;
+package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Quiz {
-	private int ID;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String title;
 	private int length;
 	private int min_participants;
 	private int max_participants;
+	@OneToMany(mappedBy = "quiz_id")
+	private ArrayList<Question> questions;
+	@OneToMany(mappedBy = "quiz")
+	private List<Participation> participations = new ArrayList<Participation>();
 	
 	public Quiz() {}
 	
@@ -22,12 +37,12 @@ public class Quiz {
 		return null; //default
 	}
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -61,7 +76,18 @@ public class Quiz {
 	public void setMax_participants(int max_participants) {
 		this.max_participants = max_participants;
 	}
+
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(ArrayList<Question> questions) {
+		this.questions = questions;
+	}
 	
-	
+	public void addQuestion(Question question) {
+		question.setQuiz(this);
+		this.questions.add(question);
+	}
 
 }

@@ -1,12 +1,34 @@
-package cz17a.gamification.gameserver;
+package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Question {
-	private int ID;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private int response_time;
 	private String questioning;
 	private int dynamic_difficulty;
 	private int static_difficulty;
 	private String topic;
+	@OneToMany(mappedBy = "question_id")
+	private ArrayList<Answer> answers;
+	@ManyToOne
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;
+	@OneToMany(mappedBy = "question")
+	private List<PlayedQuestion> played_question = new ArrayList<PlayedQuestion>();
 	
 	
 	public Question() {}
@@ -19,12 +41,12 @@ public class Question {
 		this.topic = topic;
 	}
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getResponse_time() {
@@ -66,6 +88,25 @@ public class Question {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
+
+	public ArrayList<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(ArrayList<Answer> answers) {
+		this.answers = answers;
+	}
 	
-	
+	public void addAnswer(Answer answer) {
+		answer.setQuestion(this);
+		this.answers.add(answer);
+	}
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 }
