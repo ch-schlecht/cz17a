@@ -19,9 +19,9 @@ public class QuestionDAO {
 		
 	}
 	
-	public List<Question> getQuestions(){
+	public List<Question> getQuestions(){ //should this getQuestions be parameterised to a topic, such that u only get the questions on a specific topic (since rounds are binded to a topic) instead of all questions?
 		Session session = HibernateUtil.getSession();
-		Query query = session.createQuery("from Question");
+		Query query = session.createQuery("from Question"); //if yes, this has to be changed
 		List<Question> questions = query.list();
 		session.close();
 		return questions;
