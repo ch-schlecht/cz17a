@@ -16,10 +16,7 @@ public class Game {
 		this.round = round;
 	}
 	public Game(Quiz quiz, ArrayList<Player> players) {
-		quiz = new Quiz();
-		for(Player player: players) {
-			player = new Player();
-		}
+		
 	}
 	/**
 	 * Initiate a new Game
