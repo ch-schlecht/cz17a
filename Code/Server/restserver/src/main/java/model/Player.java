@@ -32,5 +32,19 @@ public class Player extends User {
 	public void setPlaytime_in_minutes(double playtime_in_minutes) {
 		this.playtime_in_minutes = playtime_in_minutes;
 	}
+	/**
+	 * adds a played question to List of played questions of the player
+	 * @param question Playedquestion that is to be added
+	 */
+	public void addPlayedQuestion(PlayedQuestion question) {
+		this.played_questions.add(question);
+	}
+	/**
+	 * adds a game round to the list of participation of the player
+	 * @param round participation
+	 */
+	public void addRound(Participation round) {
+		this.playedRounds.add(round);
+	}
 
 }
