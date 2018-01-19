@@ -2,9 +2,9 @@ package cz17a.gamification.gameserver;
 
 import java.util.ArrayList;
 
-import model.Player;
-import model.Quiz;
-import model.Round;
+import data.model.Player;
+import data.model.Quiz;
+import data.model.Round;
 
 public class Game {
 	private Round round;

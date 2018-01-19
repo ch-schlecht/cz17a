@@ -8,8 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import model.Player;
-import model.Quiz;
+import data.model.Player;
+import data.model.Quiz;
 
 public class GameService {
 	private static final String urlHead = "pcai042.informatik.uni-leipzig.de:1810/restTest/webapi/";

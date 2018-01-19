@@ -10,7 +10,7 @@ import org.hibernate.Query;
 
 import cz17a.gamification.restserver.resource.answer.Answer;
 import cz17a.gamification.restserver.sql.ServerManager;
-import access.HibernateUtil;
+import data.access.HibernateUtil;
 
 public class UserService {
 

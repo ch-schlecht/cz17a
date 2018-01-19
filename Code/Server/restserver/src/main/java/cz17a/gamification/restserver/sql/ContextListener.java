@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import access.HibernateUtil;
+import data.access.HibernateUtil;
 
 public class ContextListener implements ServletContextListener{
 

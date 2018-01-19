@@ -10,7 +10,7 @@ import org.hibernate.Query;
 
 import cz17a.gamification.restserver.resource.question.Question;
 import cz17a.gamification.restserver.sql.ServerManager;
-import access.HibernateUtil;
+import data.access.HibernateUtil;
 /**
  * Methods called by AnswerResource requests
  * @author Michael
