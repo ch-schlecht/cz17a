@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Round {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private Calendar start;
+	@Column(name = "end_time")
 	private Calendar end;
 	private int max_score;
 	@ManyToOne
@@ -27,9 +29,14 @@ public class Round {
 	private Player winner;
 	@OneToMany(mappedBy = "round")
 	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
+	@OneToMany(mappedBy = "round")
+	private List<Participation> participations = new ArrayList<Participation>();
+	
 	@Transient
 	private List<Question> questions;
-	private List<Player> players = new ArrayList<>();
+	@Transient
+	private ArrayList<Player> players = new ArrayList<Player>();
+	@Transient
 	private Question randomQuestion;
 	
 	public Round() {}
@@ -40,7 +47,7 @@ public class Round {
 		this.max_score = max_score;
 	}
 	
-	public Round(List<Question> questions, List<Player> players) {
+	public Round(List<Question> questions, ArrayList<Player> players) {
 		this.questions = questions;
 		this.players = players;
 	}

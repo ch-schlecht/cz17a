@@ -10,11 +10,11 @@ import javax.persistence.OneToMany;
 public class Player extends User {
 	private double playtime_in_minutes;
 	@OneToMany(mappedBy = "player")
-	private List<Participation> playedRounds = new ArrayList<>();
+	private List<Participation> played_rounds = new ArrayList<Participation>();
 	@OneToMany(mappedBy = "player")
-	private List<PlayedQuestion> played_questions = new ArrayList<>();
+	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "winner")
-	private List<Round> winned_rounds;
+	private ArrayList<Round> winned_rounds;
 	
 	public Player() {}
 	
@@ -44,7 +44,7 @@ public class Player extends User {
 	 * @param round participation
 	 */
 	public void addRound(Participation round) {
-		this.playedRounds.add(round);
+		this.played_rounds.add(round);
 	}
 
 }

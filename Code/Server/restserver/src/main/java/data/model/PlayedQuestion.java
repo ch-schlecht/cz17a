@@ -1,11 +1,13 @@
 package data.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity
-public class PlayedQuestion {
+@Entity(name = "Played_Question")
+public class PlayedQuestion implements Serializable {
 	@Id
 	@ManyToOne
 	private Question question;

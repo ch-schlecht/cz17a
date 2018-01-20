@@ -19,10 +19,8 @@ public class Quiz {
 	private int length;
 	private int min_participants;
 	private int max_participants;
-	@OneToMany(mappedBy = "quiz_id")
-	private List<Question> questions;
 	@OneToMany(mappedBy = "quiz")
-	private List<Participation> participations = new ArrayList<Participation>();
+	private ArrayList<Question> questions;
 	
 	public Quiz() {}
 	
@@ -81,7 +79,7 @@ public class Quiz {
 		return questions;
 	}
 
-	public void setQuestions(List<Question> questions) {
+	public void setQuestions(ArrayList<Question> questions) {
 		this.questions = questions;
 	}
 	

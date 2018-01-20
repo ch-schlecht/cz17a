@@ -1,25 +1,27 @@
 package data.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "Quiz_Participation")
-public class Participation {
+public class Participation implements Serializable {
 	@Id
 	@ManyToOne
 	private Player player;
 	@Id
 	@ManyToOne
-	private Quiz quiz;
+	private Round round;
 	private int rank;
 	private int score;
 	
 	public Participation() {}
 
-	public Participation(Player player, Quiz quiz) {
+	public Participation(Player player, Round round) {
 		this.player = player;
-		this.quiz = quiz;
+		this.round = round;
 	}
 	
 	public Player getPlayer() {
@@ -30,12 +32,12 @@ public class Participation {
 		this.player = player;
 	}
 
-	public Quiz getQuiz() {
-		return quiz;
+	public Round getRound() {
+		return round;
 	}
 
-	public void setQuiz(Quiz quiz) {
-		this.quiz = quiz;
+	public void setRound(Round round) {
+		this.round = round;
 	}
 	
 	public int getRank() {
