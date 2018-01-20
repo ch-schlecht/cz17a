@@ -35,7 +35,7 @@ public class Round {
 	@Transient
 	private List<Question> questions;
 	@Transient
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private List<Player> players = new ArrayList<Player>();
 	@Transient
 	private Question randomQuestion;
 	
@@ -53,7 +53,17 @@ public class Round {
 	}
 	
 	public void play_question() {
-		
+		pick_question();
+		for(Player player : players) {
+			participations.add(new Participation(player, this));
+			player.addPlayedQuestion(new PlayedQuestion(randomQuestion, this, player));
+		    if(player.getPlayedQuestion().get(player.getPlayedQuestion().size() - 1).isIs_correct()) {
+		    	//points are awarded to the player
+		    	participations.get(participations.size() - 1).addPoints(200);
+		    } else {
+		    	//points are added to the jackpot
+		    }
+		}
 	}
 	
 	private void pick_question() {

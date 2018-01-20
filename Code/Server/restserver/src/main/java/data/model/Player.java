@@ -46,5 +46,9 @@ public class Player extends User {
 	public void addRound(Participation round) {
 		this.played_rounds.add(round);
 	}
+	
+	public List<PlayedQuestion> getPlayedQuestion() {
+		return played_questions;
+	}
 
 }

@@ -52,5 +52,8 @@ public class Participation implements Serializable {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	public void addPoints(int points) {
+		this.score += points;
+	}
 
 }
