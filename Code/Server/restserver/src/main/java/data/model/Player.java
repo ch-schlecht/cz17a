@@ -14,7 +14,7 @@ public class Player extends User {
 	@OneToMany(mappedBy = "player")
 	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "winner")
-	private ArrayList<Round> winned_rounds;
+	private List<Round> winned_rounds;
 	
 	public Player() {}
 	

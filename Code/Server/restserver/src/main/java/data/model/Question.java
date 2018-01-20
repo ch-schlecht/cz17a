@@ -24,7 +24,7 @@ public class Question {
 	private int static_difficulty;
 	private String topic;
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-	private ArrayList<Answer> answers;
+	private List<Answer> answers;
 	@ManyToOne
 	@JoinColumn(name = "quiz_id")
 	private Quiz quiz;

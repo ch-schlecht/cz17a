@@ -20,7 +20,7 @@ public class Quiz {
 	private int min_participants;
 	private int max_participants;
 	@OneToMany(mappedBy = "quiz")
-	private ArrayList<Question> questions;
+	private List<Question> questions;
 	
 	public Quiz() {}
 	
@@ -31,7 +31,7 @@ public class Quiz {
 		this.max_participants = max_participants;
 	}
 	
-	public ArrayList<Question> generate_random_questions(){
+	public List<Question> generate_random_questions(){
 		return null; //default
 	}
 
