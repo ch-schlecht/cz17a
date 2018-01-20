@@ -21,14 +21,14 @@
         <property name="connection_pool_size">1</property>
 
         <!-- Annotated entity classes -->
-        <mapping class="model.User"/>
-        <mapping class="model.Admin"/>
-        <mapping class="model.Player"/>
-        <mapping class="model.Quiz"/>
-        <mapping class="model.Question"/>
-        <mapping class="model.Answer"/>
-        <mapping class="model.Round"/>
-        <mapping class="model.Participation"/>
-        <mapping class="model.PlayedQuestion"/>
+        <mapping class="data.model.User"/>
+        <mapping class="data.model.Admin"/>
+        <mapping class="data.model.Player"/>
+        <mapping class="data.model.Quiz"/>
+        <mapping class="data.model.Question"/>
+        <mapping class="data.model.Answer"/>
+        <mapping class="data.model.Round"/>
+        <mapping class="data.model.Participation"/>
+        <mapping class="data.model.PlayedQuestion"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,7 @@
 package cz17a.gamification.gameserver;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import data.model.Player;
 import data.model.Question;
@@ -17,7 +18,7 @@ public class Game {
 	public void setRound(Round round) {
 		this.round = round;
 	}
-	public Game(Quiz quiz, ArrayList<Player> players) {
+	public Game(Quiz quiz, List<Player> players) {
 		round = new Round(quiz.getQuestions(), players);
 		
 	}

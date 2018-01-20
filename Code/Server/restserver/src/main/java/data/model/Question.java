@@ -23,7 +23,7 @@ public class Question {
 	private int static_difficulty;
 	private String topic;
 	@OneToMany(mappedBy = "question_id")
-	private ArrayList<Answer> answers;
+	private List<Answer> answers;
 	@ManyToOne
 	@JoinColumn(name = "quiz_id")
 	private Quiz quiz;
@@ -89,11 +89,11 @@ public class Question {
 		this.topic = topic;
 	}
 
-	public ArrayList<Answer> getAnswers() {
+	public List<Answer> getAnswers() {
 		return answers;
 	}
 
-	public void setAnswers(ArrayList<Answer> answers) {
+	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
 	

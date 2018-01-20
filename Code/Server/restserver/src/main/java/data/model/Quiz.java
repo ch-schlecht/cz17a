@@ -20,7 +20,7 @@ public class Quiz {
 	private int min_participants;
 	private int max_participants;
 	@OneToMany(mappedBy = "quiz_id")
-	private ArrayList<Question> questions;
+	private List<Question> questions;
 	@OneToMany(mappedBy = "quiz")
 	private List<Participation> participations = new ArrayList<Participation>();
 	
@@ -77,11 +77,11 @@ public class Quiz {
 		this.max_participants = max_participants;
 	}
 
-	public ArrayList<Question> getQuestions() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 
-	public void setQuestions(ArrayList<Question> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 	

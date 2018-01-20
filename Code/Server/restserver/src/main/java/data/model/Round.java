@@ -28,8 +28,8 @@ public class Round {
 	@OneToMany(mappedBy = "round")
 	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
 	@Transient
-	private ArrayList<Question> questions;
-	private ArrayList<Player> players = new ArrayList<>();
+	private List<Question> questions;
+	private List<Player> players = new ArrayList<>();
 	private Question randomQuestion;
 	
 	public Round() {}
@@ -40,7 +40,7 @@ public class Round {
 		this.max_score = max_score;
 	}
 	
-	public Round(ArrayList<Question> questions, ArrayList<Player> players) {
+	public Round(List<Question> questions, List<Player> players) {
 		this.questions = questions;
 		this.players = players;
 	}
@@ -90,7 +90,7 @@ public class Round {
 		this.max_score = max_score;
 	}
 
-	public ArrayList<Question> getQuestions() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 
