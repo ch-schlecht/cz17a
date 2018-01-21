@@ -26,6 +26,7 @@ public class ServerCommunication {
 
 
     public JSONObject getQuizType() {
+
         String quizType = null;
         try {
             if(url_quiz != null && url_root != null) {
@@ -61,7 +62,7 @@ public class ServerCommunication {
         return jType;
     }
 
-    public JSONObject getQuestions() {
+    public JSONObject getQuestionsJSON() {
         String quest = null;
         try {
             if(url_quest != null && url_root != null) {
@@ -97,7 +98,7 @@ public class ServerCommunication {
         return jType;
     }
 
-    public JSONObject getAnswers() {
+    public JSONObject getAnswersJSON() {
         String answer = null;
         try {
             if(url_quest != null && url_root != null) {
@@ -147,6 +148,39 @@ public class ServerCommunication {
                 return;
             }
         }catch(IOException e){
+
+        }
+    }
+    //Fügt Fragen zum Fragenkatalog hinzu, wandelt JSON in Frage
+    public Frage[] getQuestions(){
+        //dummy für Fragenanzahl, Anzahl soll aus JsonObj erzeugt werden
+        int fragenanzahl = 3;
+        //Array für die Frage
+        Frage[] questionArray = new Frage[fragenanzahl];
+
+        //Dummy um die Fragen zu erzeugen -> Replace with JSON import
+        //setFrageText und SetQuestionID
+        for (int i = 0; i<fragenanzahl; i++){
+            questionArray[i] = new Frage();
+            questionArray[i].setFrageText("Test Frage " + i);
+            questionArray[i].setQuestionID(i);
+        }
+        getAnswers(questionArray);
+        return questionArray;
+    }
+    public void getAnswers(Frage[] questionArray){
+        for(int i= 0;i<questionArray.length; i++){
+            //ID Der Frage mit questionArray[i].getID();
+            //Damit dann JSONObj anfordern und die Antworten der Frage damit füllen
+
+            //dummy -> Replace with JSON import
+            String[] antworten = new String[4];
+            for(int f = 0; f<4; f++){
+                antworten[f] = "AntwortTest " + f;
+            }
+
+            //Setzen der Antworten für die Frage
+            questionArray[i].setAnswers(antworten);
 
         }
     }

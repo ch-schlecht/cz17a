@@ -35,14 +35,15 @@ public class GameActivity extends AppCompatActivity {
         final TextView fragenText = findViewById(R.id.fragenText);
         fragenText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        //playNewFrage(game.fragenkatalog[0],buttons, fragenText, indicator, timer);
         int delay = 15000;
+        System.out.println("FRAGENANZAHL: " + game.fragenanzahl);
         for (int i = 0; i < game.fragenanzahl; i++) {
             final int finalI = i;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     for (int i = 0; i < game.fragenanzahl; i++) {
+                        System.out.println("PLAY QUESTION: "+ game.fragenkatalog[0].getFragenText());
                         game.playNewFrage(game.fragenkatalog[finalI], buttons, fragenText, indicator, timer);
                     }
                 }
