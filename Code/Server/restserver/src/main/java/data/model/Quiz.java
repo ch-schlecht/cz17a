@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import data.access.QuestionDAO;
+
 @Entity
 public class Quiz {
 	
@@ -21,7 +23,7 @@ public class Quiz {
 	private int max_participants;
 	@OneToMany(mappedBy = "quiz")
 	private List<Question> questions;
-	
+		
 	public Quiz() {}
 	
 	public Quiz(String title, int length, int min_participants, int max_participants) {
@@ -31,8 +33,20 @@ public class Quiz {
 		this.max_participants = max_participants;
 	}
 	
-	public List<Question> generate_random_questions(){
-		return null; //default
+	public List<Question> generate_random_questions(String topic){
+		QuestionDAO questionDao = new QuestionDAO();
+		Question question;
+		while(questions.size() < length) {
+			int i = questions.size() + 1;
+			question = questionDao.getQuestion(i);
+			if(questions.contains(question) == false) {
+				if(question.getTopic().equals(topic)) {
+					questions.add(question);
+
+				}
+			}
+		}
+		return questions;
 	}
 
 	public int getId() {
