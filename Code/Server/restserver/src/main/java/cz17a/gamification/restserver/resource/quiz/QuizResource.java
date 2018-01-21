@@ -3,10 +3,11 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import data.access.QuizDAO;
 import data.model.Quiz;
@@ -15,12 +16,25 @@ import data.model.Quiz;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class QuizResource {
-
+	private QuizDAO dao = new QuizDAO();
+	
 	@GET
 	public List<Quiz> getQuizzes(){
-		QuizDAO dao = new QuizDAO();
 		List<Quiz> quizzes = dao.getQuizzes();
 		return quizzes;
+	}
+	
+	@POST
+    @Path("/create")
+	public Response addQuiz(Quiz quiz) {
+		Quiz q = new Quiz();
+		q.setLength(quiz.getLength());
+		q.setMax_participants(quiz.getMax_participants());
+		q.setMin_participants(quiz.getMin_participants());
+		q.setQuestions(quiz.getQuestions());
+		q.setTitle(quiz.getTitle());
+		dao.addQuiz(q);
+		return Response.ok().build();
 	}
 	
 }
