@@ -9,6 +9,7 @@
 %Grafikpaket
 \usepackage{graphicx}
 \usepackage{scrpage2}
+\usepackage{hyperref}
 \pagestyle{scrheadings}
 \clearscrheadfoot
 %\Chapter sorgt dafür, dass kein Seitenvorschub auftritt.
@@ -51,6 +52,7 @@ Dieses Projekt setzt sich mit der Entwicklung eines gamifizierten Wissenquiz aus
 \Chapter{Produktübersicht}
 Die Quiz-App wird für mobile Android - Endgeräte entwickelt. Ein Spieler loggt sich unter Angabe von Nutzernamen und Passwort ein und kann dann entweder sein Dashboard oder sein Spielerprofil ansehen oder ein Spiel starten. Wenn er ein Spiel startet, wird ihm eine Übersicht über verfügbare Themen gegeben, von denen er eine auswählt, um in die Spiel-Lobby zu gelangen. Sobald mindestens fünf Spieler in der Lobby sind, startet das Spiel. Dabei erfolgt das Spielen anonym, das heißt die Spieler wissen untereinander nicht, gegen wen sie antreten. Es werden darauffolgend die Fragen und Auswahlmöglichkeiten dargestellt, von denen der Spieler eine Antwort auswählt und eine Rückmeldung darüber erhält, ob seine Antwort richtig oder Falsch war. Ggf. wird die richtige Antwort angezeigt. In den Abbildungen \ref{img:Dashboard}, \ref{img:Profil} und \ref{img:Frage} sind beispielhafte Ansichten dargestellt. \\
 Zusätzlich wird eine Administrationsoberfläche in Form einer Webanwendung geben, in welcher der Administrator Fragen bearbeiten und alle relevanten Einstellungen durchführen kann.
+Die Grafiken werden bei Implementierung durch Screenshots der echten User Interfaces ersetzt.
 
 \begin{figure}
 	\centering
@@ -86,6 +88,20 @@ Die gewählte Architektur ist eine Server-Client-Architektur. Sie ist unter Abbi
 
 
 \Chapter{Struktur - und Entwurfsprinzipien einzelner Pakete}
+
+\chapter{Arbeitspaket 1 - Vorprojekt}
+\section{Server}
+Das UML Klassendiagramm ist zu groß, um es innerhalb dieses Dokuments leserlich einzubinden und ist daher separat verfügbar. \\
+Der Server übernimmt die zentrale Verarbeitung aller Vorgänge im Quiz.
+
+\subsection{REST-Schnittstelle}
+Der Server verfügt über eine REST-Schnittstelle zur Kommunikation mit dem Client. Es steht diverse GET- und POST-Requests zur Verfügung. Es können User, Fragen und Antworten, Runden, verfügbare Quiz' und eine Anfrage des Clients, ein Spiel zu starten, angefragt werden. Die REST-Schnittstelle ist unter der Webseite des Praktikums \footnote{\url{http://pcai042.informatik.uni-leipzig.de:1810/restserver}} mit einer Übersicht über verfügbare Anfragen einsehbar. Die Clients kommunizieren ausschließlich über diesen Webserver.
+
+\section{Client - Quizapp}
+
+\section{Client - AdminPanel}
+
+
 
 
 \Chapter{Datenmodell}
