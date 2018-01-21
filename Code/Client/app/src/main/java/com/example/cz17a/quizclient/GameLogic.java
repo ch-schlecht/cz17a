@@ -13,13 +13,14 @@ public class GameLogic {
     int id;
     int fragenanzahl;
     Frage fragenkatalog[];
+    ServerCommunication servCom;
     public GameLogic(){
-        fragenanzahl = 5;
-        fragenkatalog = new Frage[fragenanzahl];
-        for (int i = 0; i<fragenanzahl; i++){
-            fragenkatalog[i] = new Frage();
-            fragenkatalog[i].frage = "Test Frage " + i;
-        }
+        System.out.println("Kommunikation anfragen");
+        servCom = new ServerCommunication();
+        fragenkatalog = servCom.getQuestions();
+        System.out.println("TESTFRAGE: " + fragenkatalog[1].getFragenText());
+        fragenanzahl = fragenkatalog.length;
+
     }
     /**
      * Erzeugung einer einzelnen Fragerunde
