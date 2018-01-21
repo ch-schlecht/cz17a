@@ -16,7 +16,7 @@ public class Game {
 		this.round = round;
 	}
 	public Game(Quiz quiz, ArrayList<Player> players) {
-		round = new Round(quiz.generate_random_questions(), players);
+		round = new Round(quiz.generate_random_questions(quiz.getTitle()), players);
 		
 	}
 	/**
