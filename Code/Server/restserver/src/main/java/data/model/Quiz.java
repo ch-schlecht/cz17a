@@ -34,19 +34,8 @@ public class Quiz {
 		questions = new ArrayList<Question>();
 	}
 	
-	public List<Question> generate_random_questions(String topic){
-		QuestionDAO questionDao = new QuestionDAO();
-		Question question;
-		while(questions.size() < length) {
-			int i = questions.size() + 1;
-			question = questionDao.getQuestion(i); //CS: might go wrong, since id_s might not be in order from start, should get the complete list of question and then sort out which fit the topic 
-			if(questions.contains(question) == false) {
-				if(question.getTopic().equals(topic)) {
-					questions.add(question);
-
-				}
-			}
-		}
+	public List<Question> getRandomQuestions() {
+		//For AP1 return just the question(s), we have
 		return questions;
 	}
 

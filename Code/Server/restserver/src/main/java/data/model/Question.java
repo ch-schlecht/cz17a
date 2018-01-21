@@ -110,4 +110,16 @@ public class Question {
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
+	
+	public List<PlayedQuestion> getPlayed_question() {
+		return played_question;
+	}
+
+	public void setPlayed_question(List<PlayedQuestion> played_question) {
+		this.played_question = played_question;
+	}
+	
+	public void addPlayed_Question(PlayedQuestion played_question) {
+		this.played_question.add(played_question);
+	}
 }

@@ -20,7 +20,7 @@ public class QuizDAO {
 	public List<Quiz> getQuizzes() {
 		Session session = HibernateUtil.getSession();
 		Query query = session.createQuery("from Quiz");
-		List<Quiz> quizzes =  query.list();
+		List<Quiz> quizzes = query.list();
         session.close();
 		return quizzes;
 	}
