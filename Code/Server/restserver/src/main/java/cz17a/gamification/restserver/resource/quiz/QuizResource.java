@@ -20,18 +20,9 @@ public class QuizResource {
 	private QuizDAO dao = new QuizDAO();
 	
 	@GET
-    @Path("/list")
 	public List<Quiz> getQuizzes(){
 		List<Quiz> quizzes = dao.getQuizzes();
 		return quizzes;
-	}
-	
-	@GET
-    @Path("/cp")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getCp(){
-		HibernateUtil.getSession().close();
-		return "test";
 	}
 	
 	@POST
