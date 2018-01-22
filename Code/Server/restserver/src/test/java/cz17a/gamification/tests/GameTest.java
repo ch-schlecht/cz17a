@@ -17,11 +17,11 @@ import data.model.Question;
 import data.model.Quiz;
 import data.model.Round;
 
-class GameTest { //tests most getter methods with dummy elements to guarantee data flow is correct
+public class GameTest { //tests most getter methods with dummy elements to guarantee data flow is correct
 	
 
 	@org.junit.Test
-	void notNullTest() {
+	public void notNullTest() {
 		Quiz quiz = new Quiz("Test-Topic", 10, 1, 5);
 		Player player1 = new Player("mail@example.com", "max mustermann", "password");
 		Player player2 = new Player("mail2@example.com", "moritz mustermann", "otherPassword");
