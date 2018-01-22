@@ -176,13 +176,13 @@ public class ServerCommunication {
             //Damit dann JSONObj anfordern und die Antworten der Frage damit füllen
 
             //dummy -> Replace with JSON import
-            String[] antworten = new String[4];
+            String[] answers = new String[4];
             for(int f = 0; f<4; f++){
-                antworten[f] = "AntwortTest " + f;
+                answers[f] = "AntwortTest " + f;
             }
 
             //Setzen der Antworten für die Frage
-            questionArray[i].setAnswers(antworten);
+            questionArray[i].setAnswers(answers);
 
         }
     }
