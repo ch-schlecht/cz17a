@@ -1,13 +1,14 @@
 package cz17a.gamification.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-
-import cz17a.gamification.gameserver.Game;
 import data.model.Answer;
 import data.model.Participation;
 import data.model.PlayedQuestion;
@@ -16,11 +17,11 @@ import data.model.Question;
 import data.model.Quiz;
 import data.model.Round;
 
-class GameTest { //tests most getter methods with dummy elements to guarantee data flow is correct
+public class GameTest { //tests most getter methods with dummy elements to guarantee data flow is correct
 	
 
-	@Test
-	void notNullTest() {
+	@org.junit.Test
+	public void notNullTest() {
 		Quiz quiz = new Quiz("Test-Topic", 10, 1, 5);
 		Player player1 = new Player("mail@example.com", "max mustermann", "password");
 		Player player2 = new Player("mail2@example.com", "moritz mustermann", "otherPassword");
@@ -28,7 +29,7 @@ class GameTest { //tests most getter methods with dummy elements to guarantee da
 		players.add(player1);
 		players.add(player2);
 		//Game game = new Game(quiz,players);
-		Question question = new Question(10, "Welche Zahl ist die groeßte", 5, 5, "Test-Topic");
+		Question question = new Question(10, "Welche Zahl ist die groeï¿½te", 5, 5, "Test-Topic");
 		question.setQuiz(quiz);
 		Answer answer = new Answer("0", true);
 		Answer answer2 = new Answer("1", false);

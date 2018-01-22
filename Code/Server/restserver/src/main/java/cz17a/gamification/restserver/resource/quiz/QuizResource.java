@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import data.access.HibernateUtil;
 import data.access.QuizDAO;
 import data.model.Quiz;
 
