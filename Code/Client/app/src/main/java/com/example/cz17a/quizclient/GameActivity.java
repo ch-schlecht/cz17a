@@ -32,19 +32,18 @@ public class GameActivity extends AppCompatActivity {
         buttons[3] = findViewById(R.id.antwort4but);
         final TextView indicator = findViewById(R.id.indicatior);
         final TextView timer = findViewById(R.id.timer);
-        final TextView fragenText = findViewById(R.id.fragenText);
-        fragenText.setGravity(Gravity.CENTER);
+        final TextView questionText = findViewById(R.id.fragenText);
+        questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
         int delay = 15000;
-        System.out.println("FRAGENANZAHL: " + game.fragenanzahl);
-        for (int i = 0; i < game.fragenanzahl; i++) {
+        for (int i = 0; i < game.questioncount; i++) {
             final int finalI = i;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = 0; i < game.fragenanzahl; i++) {
-                        System.out.println("PLAY QUESTION: "+ game.fragenkatalog[0].getFragenText());
-                        game.playNewFrage(game.fragenkatalog[finalI], buttons, fragenText, indicator, timer);
+                    for (int i = 0; i < game.questioncount; i++) {
+                        System.out.println("PLAY QUESTION: "+ game.questionlist[0].getQuestionText());
+                        game.playNewQuestion(game.questionlist[finalI], buttons, questionText, indicator, timer);
                     }
                 }
             }, delay * i);
@@ -54,7 +53,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 onBackPressed();
             }
-        }, delay * (game.fragenanzahl + 1));
+        }, delay * (game.questioncount + 1));
     }
 }
 

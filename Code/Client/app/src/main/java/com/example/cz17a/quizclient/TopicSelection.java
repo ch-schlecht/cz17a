@@ -30,9 +30,9 @@ public class TopicSelection extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void addButton(int anzahl, ArrayList<Button> topicButtons){
+    public void addButton(int count, ArrayList<Button> topicButtons){
         System.out.println("Neuer Button");
-        for(int i = 0; i<anzahl; i++){
+        for(int i = 0; i<count; i++){
             Button b = new Button(this);
             LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
             linLayout.addView(b);
