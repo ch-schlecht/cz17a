@@ -98,6 +98,8 @@
 		<done who="LV" A="3" S="3" Zeit="4">Hibernate Mapping</done>
 		<done who="LV" A="3" S="3" Zeit="1.5">Data Access</done>
 		<done who="LV" A="3" S="4" Zeit="3.5">REST</done>
+		<done who="SL" A="3" S="4" Zeit="1.5">Server</done>
+		<done who="SL" A="3" S="3" Zeit="5">Einlesen in Android Studio, PostgreSQL, Tomcat</done>
 	</Analyse>
 	</Analyse>
 		<Analyse von"2017-01-22" bis="2018-01-28" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
@@ -105,5 +107,6 @@
 		<done who="LV" A="3" S="5" Zeit="1">REST</done>
 		<done who="LV" A="3" S="1" Zeit="0.5">Datenbankzugriff</done>
 		<done who="LV" A="3" S="1" Zeit="0.25">Server-Modellierung</done>
+		<done who="SL" A="3" S="3" Zeit="1.5">Client-Modellierung</done>
 	</Analyse>		
 </Bericht>
