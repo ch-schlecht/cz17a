@@ -2,9 +2,10 @@ package data.access;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+
 
 
 public class HibernateUtil {
@@ -18,7 +19,7 @@ public class HibernateUtil {
 			// Create the SessionFactory from hibernate.cfg.xml
 			Configuration configuration = new Configuration();
 		    configuration.configure();
-		    serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()). buildServiceRegistry();
+		    serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 			session = sessionFactory.openSession();
 		} catch (Throwable ex) {
