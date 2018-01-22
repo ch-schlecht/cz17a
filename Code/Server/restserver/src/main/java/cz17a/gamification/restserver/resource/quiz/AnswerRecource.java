@@ -16,7 +16,7 @@ public class AnswerRecource {
 
 	
 	@GET
-	@Produces(MediaType.APPLICATION_ATOM_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Answer> getAnswers(){
 		AnswerDAO dao = new AnswerDAO();
 		List<Answer> answers = dao.getAnswers();
