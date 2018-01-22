@@ -6,8 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Answer {
 	
 	@Id
@@ -42,13 +44,14 @@ public class Answer {
 		this.content = content;
 	}
 
-	public boolean isType() {
+	public boolean getType() {
 		return type;
 	}
 
 	public void setType(boolean type) {
 		this.type = type;
 	}
+	
 
 	public Question getQuestion() {
 		return question;
