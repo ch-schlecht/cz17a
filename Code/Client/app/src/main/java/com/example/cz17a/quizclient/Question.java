@@ -11,7 +11,6 @@ public class Question {
     Boolean isValuated = false;
 
     public Question (){
-        //frage = "Test Frage?";
 
     }
     public void setAnswers(String[] answerlist){
