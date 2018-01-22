@@ -87,5 +87,23 @@
 		<done who="LV" A="3" S="4" Zeit="5.5">Serverseitige Modellierung</done>
 		<done who="CS" A="4" S="3" Zeit="5">Erarbeitung von Projekt-, Release- und Qualitaetssicherungsplan</done>
 		<done who="CS,MF" A="3" S="4" Zeit="1"> Fix des Code-Ordners im Git, Konfigurieren der .gitignore</done>
+	</Analyse>
+		<Analyse von"2017-01-08" bis="2018-01-14" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV" A="4" S="5" Zeit="3.75">Server-Projekt lokal lauffähig bekommen</done>
+		<done who="LV" A="3" S="3" Zeit="1.5">Modellierung CLient-Server-Austausch</done>
+		<done who="LV" A="3" S="5" Zeit="2.5">Hibernate integrieren</done>
+	</Analyse>
+	</Analyse>
+		<Analyse von"2017-01-15" bis="2018-01-21" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV" A="3" S="3" Zeit="4">Hibernate Mapping</done>
+		<done who="LV" A="3" S="3" Zeit="1.5">Data Access</done>
+		<done who="LV" A="3" S="4" Zeit="3.5">REST</done>
+	</Analyse>
+	</Analyse>
+		<Analyse von"2017-01-22" bis="2018-01-28" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV" A="4" S="3" Zeit="3">Projektstruktur fixen</done>
+		<done who="LV" A="3" S="5" Zeit="1">REST</done>
+		<done who="LV" A="3" S="1" Zeit="0.5">Datenbankzugriff</done>
+		<done who="LV" A="3" S="1" Zeit="0.25">Server-Modellierung</done>
 	</Analyse>		
 </Bericht>
