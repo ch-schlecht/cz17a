@@ -79,8 +79,8 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		assertNotNull(answer.getContent());
 		assertNotNull(answer.getID());
 		assertNotNull(answer.getQuestion());
-		assertTrue(answer.isType());
-		assertFalse(answer2.isType());
+		assertTrue(answer.getType());
+		assertFalse(answer2.getType());
 		
 		
 		assertNotNull(round.getId());
