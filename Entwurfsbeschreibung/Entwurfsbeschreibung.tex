@@ -97,7 +97,7 @@ Der Server übernimmt die zentrale Verarbeitung aller Vorgänge im Quiz.
 \subsubsection{REST-Schnittstelle}
 Der Server verfügt über eine REST-Schnittstelle zur Kommunikation mit dem Client. Es steht diverse GET- und POST-Requests zur Verfügung. Es können User, Fragen und Antworten, Runden, verfügbare Quiz' und eine Anfrage des Clients, ein Spiel zu starten, angefragt werden. Die REST-Schnittstelle ist unter der Webseite des Praktikums \footnote{\url{http://pcai042.informatik.uni-leipzig.de:1810/restserver}} mit einer Übersicht über verfügbare Anfragen einsehbar. Die Clients kommunizieren ausschließlich über diesen Webserver.
 
-\subsubsection{Game - Server}
+\subsubsection{Game-Server}
 Den zweiten Teil des Servers bildet die Einheit zum Handling der Spiellogik. Da im Vorprojekt noch keine solche Logik existiert, werden bereits implementierte Funktionen noch nicht verwendet, jedoch für die nächsten Arbeitspakete benötigt. Da der Game-Server ohne REST auf die Daten zugreifen kann, wurden um Übersicht zu wahren, Data-Access-Object-Klassen eingerichtet. Diese agieren mittles Hibernate auf den Daten. Andere Klassen sollen nicht selbst auf die Datenbank zugreifen können, da sonst schwer behebbare Fehler und unübersichtliche Zugriffsstrukturen entstehen.
 
 \subsection{Client - Quizapp}
@@ -110,8 +110,32 @@ Das AdminPanel ist eine separate Web Applikation. In diese kann sich der Adminis
 
 
 \Chapter{Datenmodell}
+Die gewählte Datenbank ist eine PostgreSQL-Datenbank, da diese eine objektrelationales Mapping unterstützt. Sie ist ebenfalls auf dem Praktikumsserver installiert. Die Abbildung \ref{img:Datenbank} zeigt das verwendete Schema.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.6\textheight]{Datenbank_Datenbankschema.png}
+	\caption{verwendetes Datenbankschema}
+	\label{img:Datenbank}
+\end{figure}
 
 
 \Chapter{Glossar}
+\begin{description}
+\item[Gamification] \ \\
+ist der Einsatz von spieltypischen Elementen und Vorgängen, die in einen spielfremden Zusammenhang gebracht werden. Ziel ist dabei die Motivationssteigerung des Anwenders für die Kernleistung. Häufig verwendete Spielmechaniken sind z.B. Punkte, Ziele und Errungenschaften.
+
+\item[Server-Client-Prinzip] \ \\
+beschreibt eine grundlegendes Architekturprinzip, in welchem ein zentrales Objekt (Server) verschiedene Dienste bereit stellt. Ein Client kann eine Anfrage an diesen Server schicken und erhält eine gewünschte Rückmeldung (z.B Client fragt nach Wetter in Berlin, Server antwortet mit 20 Grad, Sonne).
+
+\item[REST-Schnittstelle]  \ \\
+Die REST-Schnittstelle ist ein Teil des Servers, welche für die Kommunikation mit den Clients zuständig ist. Sie ist zumeist Web-basiert. Ein Client kann verschiedene Anfragen (z.B. GET um Daten abzufragen, POST um Daten zu senden) über eine URL stellen und erhält ggf. eine Antwort in einem standardisierten Format (zumeist XML oder JSON). REST basiert auf dem World Wide Web und arbeitet mit HTTP-Standards.
+
+\item[Hibernate] \ \\
+ist ein Framework zur Einbindung eines objektrelationalen Datenbankmappings. Es können über spezielle Klassen die Objekte anstatt SQL-Queries für den Datenbankzugriff verwendet werden. 
+
+\end{description}
+
+
 
 \end{document}
