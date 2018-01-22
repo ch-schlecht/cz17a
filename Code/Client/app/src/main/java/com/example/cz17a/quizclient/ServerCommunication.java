@@ -178,7 +178,7 @@ public class ServerCommunication {
             //dummy -> Replace with JSON import
             String[] answers = new String[4];
             for(int f = 0; f<4; f++){
-                answers[f] = "AntwortTest " + f;
+                answers[f] = "TestAntwort " + f;
             }
 
             //Setzen der Antworten für die Frage

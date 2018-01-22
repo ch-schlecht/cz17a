@@ -40,7 +40,6 @@ public class GameLogic {
             }
             public void onFinish(){
                 if(!question.isValuated){
-                    System.out.println("Auswertung nach Timeout!");
                     evaluation(buttons, -1 , question, indicator);
                 }
 
@@ -48,22 +47,20 @@ public class GameLogic {
         }.start();
     }
 
-    public void evaluation(Button[] buttons, int i, Question frage, TextView indicator){
+    public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
         //Antwort noch nicht validiert
-        System.out.println("Auswertung. Validierung: Button: " + i);
         if(i < 0){
             indicator.setText("Zeit vorbei!");
         }else{
-            System.out.println("Richtige Antwort: " + frage.getAnswers(0));
-            if (buttons[i].getText().equals(frage.getAnswers(0))) {
+            if (buttons[i].getText().equals(question.getAnswers(0))) {
                 indicator.setText("RICHTIG!");
             }else {
                 indicator.setText("FALSCH!");
             }
         }
         indicator.setVisibility(View.VISIBLE);
-        frage.isValuated = true;
+        question.isValuated = true;
 
 
 
