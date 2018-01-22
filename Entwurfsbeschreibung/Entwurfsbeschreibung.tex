@@ -98,12 +98,13 @@ Der Server übernimmt die zentrale Verarbeitung aller Vorgänge im Quiz.
 Der Server verfügt über eine REST-Schnittstelle zur Kommunikation mit dem Client. Es steht diverse GET- und POST-Requests zur Verfügung. Es können User, Fragen und Antworten, Runden, verfügbare Quiz' und eine Anfrage des Clients, ein Spiel zu starten, angefragt werden. Die REST-Schnittstelle ist unter der Webseite des Praktikums \footnote{\url{http://pcai042.informatik.uni-leipzig.de:1810/restserver}} mit einer Übersicht über verfügbare Anfragen einsehbar. Die Clients kommunizieren ausschließlich über diesen Webserver.
 
 \subsubsection{Game - Server}
-Den zweiten Teil des Servers bildet die Einheit zum Handling der Spiellogik. Da im Vorprojekt noch keine solche Logik existiert, werden bereits implementierte Funktionen noch nicht verwendet, jedoch für die nächsten Arbeitspakete benötigt.
+Den zweiten Teil des Servers bildet die Einheit zum Handling der Spiellogik. Da im Vorprojekt noch keine solche Logik existiert, werden bereits implementierte Funktionen noch nicht verwendet, jedoch für die nächsten Arbeitspakete benötigt. Da der Game-Server ohne REST auf die Daten zugreifen kann, wurden um Übersicht zu wahren, Data-Access-Object-Klassen eingerichtet. Diese agieren mittles Hibernate auf den Daten. Andere Klassen sollen nicht selbst auf die Datenbank zugreifen können, da sonst schwer behebbare Fehler und unübersichtliche Zugriffsstrukturen entstehen.
 
 \subsection{Client - Quizapp}
 Der Client stellt per REST eine Anfrage an den Server, um eine Quizfrage zu bekommen. Diese enthält auch Informationen über die Antwortmöglichkeiten und welche richtig ist. Um Datenredundanz zu vermeiden, ist in der Liste der Antworten stets die erste Antwort die Richtige. Bei Anzeige der Möglichkeiten werden die Antworten durchgemischt, um nicht auch hier stets die erste Antwortmöglichkeit als die Richtige identifizieren zu könnnen. Nach Auswahl durch den User erscheint eine Rückmeldung, ob die gegebene Antwort richtig oder falsch ist und ggf. wird die korrekte Antwort angezeigt. Es werden noch keine Speichervorgänge für die Statistiken durchgeführt. 
 
 \subsection{Client - AdminPanel}
+Das AdminPanel ist eine separate Web Applikation. In diese kann sich der Administrator über Nutzername und Passwort einloggen. Dort sind alle verfügbaren Einstellungen vorzunehmen (spätere Arbeitspakete) und es können die Fragen in die Datenbank importiert werden. Das AdminPanel wurde logisch als Einheit getrennt, um bereits eine Art Access Control zu haben. Die Spiele-Clients haben somit generell keine Möglichkeit des Zugriffs auf Daten und Funktionen, welche nicht für sie vorgesehen sind.
 
 
 
