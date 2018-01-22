@@ -100,6 +100,8 @@
 		<done who="LV" A="3" S="4" Zeit="3.5">REST</done>
 		<done who="SL" A="3" S="4" Zeit="1.5">Server</done>
 		<done who="SL" A="3" S="3" Zeit="5">Einlesen in Android Studio, PostgreSQL, Tomcat</done>
+		<done who="FZ" A="4" S="4" Zeit="3">Projekt in Eclipse zum Laufen bringen</done>
+		<done who="FZ" A="3" S="4" Zeit="4">Server</done>
 	</Analyse>
 	</Analyse>
 		<Analyse von"2018-01-22" bis="2018-01-28" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
