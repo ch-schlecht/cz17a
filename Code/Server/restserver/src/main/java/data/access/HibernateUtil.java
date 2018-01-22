@@ -1,6 +1,5 @@
 package data.access;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -8,7 +7,6 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
-	private static final Session session;
 	private static final SessionFactory sessionFactory;
 
 	static {
@@ -17,7 +15,6 @@ public class HibernateUtil {
 			Configuration configuration = new Configuration();
 		    configuration.configure("hibernate.cfg.xml");
 			sessionFactory = configuration.buildSessionFactory();
-			session = sessionFactory.openSession();
 		} catch (Throwable ex) {
 			System.err.println("SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
@@ -28,8 +25,5 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 	
-	public static Session getSession() {
-		return session;
-	}
 
 }

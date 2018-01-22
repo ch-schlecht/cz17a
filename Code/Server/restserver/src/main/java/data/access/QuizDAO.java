@@ -10,7 +10,7 @@ import data.model.Quiz;
 
 public class QuizDAO {
 	public Quiz getQuiz(int id) {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select q from Quiz q where q.id = :id");
 		query.setParameter("id", id);
 		Quiz quiz = (Quiz)query.uniqueResult();
@@ -18,7 +18,7 @@ public class QuizDAO {
 	}
 	
 	public List<Quiz> getQuizzes() {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createSQLQuery("Select * from Quiz");
 		List<Quiz> quizzes = query.list();
         session.close();
@@ -26,7 +26,7 @@ public class QuizDAO {
 	}
 	
 	public void addQuiz(Quiz quiz) {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
 		session.save(quiz);
 		ts.commit();

@@ -9,7 +9,7 @@ import data.model.Player;
 
 public class PlayerDAO {
 	public Player getPlayer(int id) {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select p from Player p where p.id = :id");
 		query.setParameter("id", id);
 		Player player = (Player)query.uniqueResult();
@@ -17,7 +17,7 @@ public class PlayerDAO {
 	}
 	
 	public List<Player> getPlayers() {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("from Player");
 		List<Player> players =  query.list();
         session.close();
@@ -25,7 +25,7 @@ public class PlayerDAO {
 	}
 	
 	public void addPlayer(Player player) {
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
 		session.save(player);
 		ts.commit();
