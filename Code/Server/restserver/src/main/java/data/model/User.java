@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-@Entity
+@Entity(name = "Person")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 	@Id
