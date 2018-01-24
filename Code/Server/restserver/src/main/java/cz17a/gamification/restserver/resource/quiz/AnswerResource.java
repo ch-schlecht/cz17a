@@ -27,11 +27,11 @@ public class AnswerResource {
 		List<Answer> answers = new ArrayList<Answer>();
 		for(Answer a : dao.getAnswers()) {
 			Question question = new Question();
-			question.setDynamic_difficulty(a.getQuestion().getDynamic_difficulty());
+			question.setDynamicDifficulty(a.getQuestion().getDynamicDifficulty());
 			question.setId(a.getQuestion().getId());
 			question.setQuestioning(a.getQuestion().getQuestioning());
-			question.setResponse_time(a.getQuestion().getResponse_time());
-			question.setStatic_difficulty(a.getQuestion().getStatic_difficulty());
+			question.setResponseTime(a.getQuestion().getResponseTime());
+			question.setStaticDifficulty(a.getQuestion().getStaticDifficulty());
 			question.setTopic(a.getQuestion().getTopic());
 			a.setQuestion(question);
 			answers.add(a);
@@ -47,11 +47,11 @@ public class AnswerResource {
 		List<Answer> answers = new ArrayList<Answer>();
 		for(Answer a : dao.getQuestion(question_id).getAnswers()) {
 			Question question = new Question();
-			question.setDynamic_difficulty(a.getQuestion().getDynamic_difficulty());
+			question.setDynamicDifficulty(a.getQuestion().getDynamicDifficulty());
 			question.setId(a.getQuestion().getId());
 			question.setQuestioning(a.getQuestion().getQuestioning());
-			question.setResponse_time(a.getQuestion().getResponse_time());
-			question.setStatic_difficulty(a.getQuestion().getStatic_difficulty());
+			question.setResponseTime(a.getQuestion().getResponseTime());
+			question.setStaticDifficulty(a.getQuestion().getStaticDifficulty());
 			question.setTopic(a.getQuestion().getTopic());
 			a.setQuestion(question);
 			answers.add(a);

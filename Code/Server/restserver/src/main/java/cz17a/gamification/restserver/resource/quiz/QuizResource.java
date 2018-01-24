@@ -35,11 +35,11 @@ public class QuizResource {
 		List<Question> questions = new ArrayList<Question>();
 		for(Question q : quiz.getQuestions()) {
 			Question question = new Question();
-			question.setDynamic_difficulty(q.getDynamic_difficulty());
+			question.setDynamicDifficulty(q.getDynamicDifficulty());
 			question.setId(q.getId());
 			question.setQuestioning(q.getQuestioning());
-			question.setResponse_time(q.getResponse_time());
-			question.setStatic_difficulty(q.getStatic_difficulty());
+			question.setResponseTime(q.getResponseTime());
+			question.setStaticDifficulty(q.getStaticDifficulty());
 			question.setTopic(q.getTopic());
 			questions.add(question);
 		}
@@ -52,8 +52,8 @@ public class QuizResource {
 	public Response addQuiz(Quiz quiz) {
 		Quiz q = new Quiz();
 		q.setLength(quiz.getLength());
-		q.setMax_participants(quiz.getMax_participants());
-		q.setMin_participants(quiz.getMin_participants());
+		q.setMaxParticipants(quiz.getMaxParticipants());
+		q.setMinParticipants(quiz.getMinParticipants());
 		q.setQuestions(quiz.getQuestions());
 		q.setTitle(quiz.getTitle());
 		dao.addQuiz(q);

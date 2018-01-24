@@ -21,18 +21,18 @@ public class Quiz {
 	private int id;
 	private String title;
 	private int length;
-	private int min_participants;
-	private int max_participants;
+	private int minParticipants;
+	private int maxParticipants;
 	@OneToMany(mappedBy = "quiz")
 	private List<Question> questions;
 		
 	public Quiz() {}
 	
-	public Quiz(String title, int length, int min_participants, int max_participants) {
+	public Quiz(String title, int length, int minParticipants, int maxParticipants) {
 		this.title = title;
 		this.length = length;
-		this.min_participants = min_participants;
-		this.max_participants = max_participants;
+		this.minParticipants = minParticipants;
+		this.maxParticipants = maxParticipants;
 		questions = new ArrayList<Question>();
 	}
 	
@@ -65,20 +65,20 @@ public class Quiz {
 		this.length = length;
 	}
 
-	public int getMin_participants() {
-		return min_participants;
+	public int getMinParticipants() {
+		return minParticipants;
 	}
 
-	public void setMin_participants(int min_participants) {
-		this.min_participants = min_participants;
+	public void setMinParticipants(int minParticipants) {
+		this.minParticipants = minParticipants;
 	}
 
-	public int getMax_participants() {
-		return max_participants;
+	public int getMaxParticipants() {
+		return maxParticipants;
 	}
 
-	public void setMax_participants(int max_participants) {
-		this.max_participants = max_participants;
+	public void setMaxParticipants(int maxParticipants) {
+		this.maxParticipants = maxParticipants;
 	}
 
 	public List<Question> getQuestions() {
@@ -88,7 +88,10 @@ public class Quiz {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-	
+	/**
+	 * Adds a question to the quiz
+	 * @param question Question Object
+	 */
 	public void addQuestion(Question question) {
 		question.setQuiz(this);
 		this.questions.add(question);

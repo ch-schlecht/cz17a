@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Player extends User {
-	private double playtime_in_minutes;
+	private double playtimeInMinutes;
 	@OneToMany(mappedBy = "player")
 	private List<Participation> played_rounds = new ArrayList<Participation>();
 	@OneToMany(mappedBy = "player")
@@ -25,12 +25,12 @@ public class Player extends User {
 	}
 
 	//Getters and Setters
-	public double getPlaytime_in_minutes() {
-		return playtime_in_minutes;
+	public double getPlaytimeInMinutes() {
+		return playtimeInMinutes;
 	}
 
-	public void setPlaytime_in_minutes(double playtime_in_minutes) {
-		this.playtime_in_minutes = playtime_in_minutes;
+	public void setPlaytimeInMinutes(double playtimeInMinutes) {
+		this.playtimeInMinutes = playtimeInMinutes;
 	}
 	/**
 	 * adds a played question to List of played questions of the player
@@ -46,7 +46,10 @@ public class Player extends User {
 	public void addRound(Participation round) {
 		this.played_rounds.add(round);
 	}
-	
+	/**
+	 * Returns all played questions
+	 * @return List of played questions in that PlayedQuestion
+	 */
 	public List<PlayedQuestion> getPlayedQuestion() {
 		return played_questions;
 	}

@@ -15,7 +15,7 @@ public class User {
 	protected String mail;
 	protected String nickname;
 	protected String password;
-	protected Calendar last_login;
+	protected Calendar lastLogin;
 	protected Calendar registration;
 	
 	public User() {} //default constructor
@@ -59,12 +59,12 @@ public class User {
 		this.password = password;
 	}
 
-	public Calendar getLast_login() {
-		return last_login;
+	public Calendar getLastLogin() {
+		return lastLogin;
 	}
 
-	public void setLast_login(Calendar last_login) {
-		this.last_login = last_login;
+	public void setLastLogin(Calendar lastLogin) {
+		this.lastLogin = lastLogin;
 	}
 
 	public Calendar getRegistration() {

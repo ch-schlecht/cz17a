@@ -48,30 +48,30 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		part.setScore(100);
 		
 		PlayedQuestion pQuestion = new PlayedQuestion(question, round, player1);
-		pQuestion.setIs_correct(true);
+		pQuestion.setIsCorrect(true);
 		pQuestion.setScore(part.getScore());
 		
 		assertNotNull(quiz.getId());
 		assertNotNull(quiz.getLength());
-		assertNotNull(quiz.getMax_participants());
-		assertNotNull(quiz.getMin_participants());
+		assertNotNull(quiz.getMaxParticipants());
+		assertNotNull(quiz.getMinParticipants());
 		assertNotNull(quiz.getQuestions());
 		assertNotNull(quiz.getTitle());
 		
 		assertNotNull(player1.getId());
-		assertNull(player1.getLast_login()); //not yet set
+		assertNull(player1.getLastLogin()); //not yet set
 		assertNotNull(player1.getMail());
 		assertNotNull(player1.getNickname());
 		assertNotNull(player1.getPassword());
 		assertNotNull(player1.getPlayedQuestion());
-		assertNotNull(player1.getPlaytime_in_minutes());
+		assertNotNull(player1.getPlaytimeInMinutes());
 		assertNull(player1.getRegistration());
 		
-		assertNotNull(question.getDynamic_difficulty());
+		assertNotNull(question.getDynamicDifficulty());
 		assertNotNull(question.getId());
 		assertNotNull(question.getQuestioning());
-		assertNotNull(question.getResponse_time());
-		assertNotNull(question.getStatic_difficulty());
+		assertNotNull(question.getResponseTime());
+		assertNotNull(question.getStaticDifficulty());
 		assertNotNull(question.getTopic());
 		assertNotNull(question.getQuiz());
 		assertNotNull(question.getAnswers());
@@ -84,7 +84,7 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		
 		
 		assertNotNull(round.getId());
-		assertNotNull(round.getMax_score());
+		assertNotNull(round.getMaxScore());
 		assertNotNull(round.getQuestions());
 		assertNull(round.getStart()); //not yet set
 		assertNull(round.getEnd()); //not yet set
@@ -98,9 +98,9 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		assertNotNull(pQuestion.getQuestion());
 		assertNotNull(pQuestion.getRound());
 		assertNotNull(pQuestion.getScore());
-		assertNotNull(pQuestion.getSpeed_in_seconds());
-		assertNotNull(pQuestion.isIs_correct());
-		assertTrue(pQuestion.isIs_correct());
+		assertNotNull(pQuestion.getSpeedInSeconds());
+		assertNotNull(pQuestion.isIsCorrect());
+		assertTrue(pQuestion.isIsCorrect());
 		assertEquals(pQuestion.getScore(), 100);
 	}
 

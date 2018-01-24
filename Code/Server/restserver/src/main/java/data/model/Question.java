@@ -20,10 +20,10 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int response_time;
+	private int responseTime;
 	private String questioning;
-	private int dynamic_difficulty;
-	private int static_difficulty;
+	private int dynamicDifficulty;
+	private int staticDifficulty;
 	private String topic;
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
 	private List<Answer> answers;
@@ -36,11 +36,11 @@ public class Question {
 	
 	public Question() {}
 	
-	public Question(int response_time, String questioning, int dynamic_difficulty, int static_difficulty, String topic) {
-		this.response_time = response_time;
+	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic) {
+		this.responseTime = response_time;
 		this.questioning = questioning;
-		this.dynamic_difficulty = dynamic_difficulty;
-		this.static_difficulty = static_difficulty;
+		this.dynamicDifficulty = dynamicDifficulty;
+		this.staticDifficulty = staticDifficulty;
 		this.topic = topic;
 	}
 
@@ -52,12 +52,12 @@ public class Question {
 		this.id = id;
 	}
 
-	public int getResponse_time() {
-		return response_time;
+	public int getResponseTime() {
+		return responseTime;
 	}
 
-	public void setResponse_time(int response_time) {
-		this.response_time = response_time;
+	public void setResponseTime(int responseTime) {
+		this.responseTime = responseTime;
 	}
 
 	public String getQuestioning() {
@@ -68,20 +68,20 @@ public class Question {
 		this.questioning = questioning;
 	}
 
-	public int getDynamic_difficulty() {
-		return dynamic_difficulty;
+	public int getDynamicDifficulty() {
+		return dynamicDifficulty;
 	}
 
-	public void setDynamic_difficulty(int dynamic_difficulty) {
-		this.dynamic_difficulty = dynamic_difficulty;
+	public void setDynamicDifficulty(int dynamicDifficulty) {
+		this.dynamicDifficulty = dynamicDifficulty;
 	}
 
-	public int getStatic_difficulty() {
-		return static_difficulty;
+	public int getStaticDifficulty() {
+		return staticDifficulty;
 	}
 
-	public void setStatic_difficulty(int static_difficulty) {
-		this.static_difficulty = static_difficulty;
+	public void setStaticDifficulty(int staticDifficulty) {
+		this.staticDifficulty = staticDifficulty;
 	}
 
 	public String getTopic() {
@@ -99,7 +99,10 @@ public class Question {
 	public void setAnswers(ArrayList<Answer> answers) {
 		this.answers = answers;
 	}
-	
+	/**
+	 * Adds an Answer to the List of Answers of this question
+	 * @param answer Answer Object
+	 */
 	public void addAnswer(Answer answer) {
 		answer.setQuestion(this);
 		this.answers.add(answer);
@@ -113,15 +116,18 @@ public class Question {
 		this.quiz = quiz;
 	}
 	
-	public List<PlayedQuestion> getPlayed_question() {
+	public List<PlayedQuestion> getPlayedQuestion() {
 		return played_question;
 	}
 
-	public void setPlayed_question(List<PlayedQuestion> played_question) {
-		this.played_question = played_question;
+	public void setPlayedQuestion(List<PlayedQuestion> playedQuestion) {
+		this.played_question = playedQuestion;
 	}
-	
-	public void addPlayed_Question(PlayedQuestion played_question) {
-		this.played_question.add(played_question);
+	/**
+	 * Adds a PlayedQuestion to the List
+	 * @param playedQuestion PlayedQuestion Object
+	 */
+	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
+		this.played_question.add(playedQuestion);
 	}
 }

@@ -18,10 +18,10 @@ public class PlayedQuestion implements Serializable {
 	@ManyToOne
 	private Player player;
 	
-	private boolean is_jackpot;
-	private boolean is_correct;
+	private boolean isJackpot;
+	private boolean isCorrect;
 	private int score;
-	private double speed_in_seconds;
+	private double speedInSeconds;
 	
 	public PlayedQuestion() {}
 	
@@ -49,17 +49,17 @@ public class PlayedQuestion implements Serializable {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	public boolean isIs_jackpot() {
-		return is_jackpot;
+	public boolean isIsJackpot() {
+		return isJackpot;
 	}
-	public void setIs_jackpot(boolean is_jackpot) {
-		this.is_jackpot = is_jackpot;
+	public void setIsJackpot(boolean isJackpot) {
+		this.isJackpot = isJackpot;
 	}
-	public boolean isIs_correct() {
-		return is_correct;
+	public boolean isIsCorrect() {
+		return isCorrect;
 	}
-	public void setIs_correct(boolean is_correct) {
-		this.is_correct = is_correct;
+	public void setIsCorrect(boolean isCorrect) {
+		this.isCorrect = isCorrect;
 	}
 	public int getScore() {
 		return score;
@@ -67,11 +67,11 @@ public class PlayedQuestion implements Serializable {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public double getSpeed_in_seconds() {
-		return speed_in_seconds;
+	public double getSpeedInSeconds() {
+		return speedInSeconds;
 	}
-	public void setSpeed_in_seconds(double speed_in_seconds) {
-		this.speed_in_seconds = speed_in_seconds;
+	public void setSpeedInSeconds(double speedInSeconds) {
+		this.speedInSeconds = speedInSeconds;
 	}
 	
 	

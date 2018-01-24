@@ -23,7 +23,7 @@ public class Round {
 	private Calendar start;
 	@Column(name = "end_time")
 	private Calendar end;
-	private int max_score;
+	private int maxScore;
 	@ManyToOne
 	@JoinColumn(name = "winner", nullable = false)
 	private Player winner;
@@ -39,10 +39,10 @@ public class Round {
 
 	public Round() {}
 	
-	public Round(Calendar start, Calendar end, int max_score) {
+	public Round(Calendar start, Calendar end, int maxScore) {
 		this.start = start;
 		this.end = end;
-		this.max_score = max_score;
+		this.maxScore = maxScore;
 	}
 	
 	public Round(List<Question> questions, ArrayList<Player> players) {
@@ -50,8 +50,8 @@ public class Round {
 		this.players = players;
 	}
 	
-	public void addPlayedQuestion(PlayedQuestion played_question) {
-		played_question = new PlayedQuestion();
+	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
+		playedQuestion = new PlayedQuestion();
 	}
 
 	public int getId() {
@@ -78,12 +78,12 @@ public class Round {
 		this.end = end;
 	}
 
-	public int getMax_score() {
-		return max_score;
+	public int getMaxScore() {
+		return maxScore;
 	}
 
-	public void setMax_score(int max_score) {
-		this.max_score = max_score;
+	public void setMaxScore(int maxScore) {
+		this.maxScore = maxScore;
 	}
 
 	public List<Question> getQuestions() {
