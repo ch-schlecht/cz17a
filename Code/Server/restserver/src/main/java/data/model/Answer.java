@@ -26,6 +26,13 @@ public class Answer {
 	
 	public Answer() {}
 	
+	public Answer(Answer a) {
+		this.ID = a.getID();
+		this.content = a.getContent();
+		this.type = a.getType();
+		this.question = new Question(a.getQuestion());
+	}
+	
 	public Answer(String content, boolean type) {
 		this.content = content;
 		this.type = type;

@@ -48,6 +48,16 @@ public class Question implements Cloneable {
 	
 	public Question() {}
 	
+	public Question(Question q) {
+		this.id = q.getId();
+		this.responseTime = q.getResponseTime();
+		this.questioning = q.getQuestioning();
+		this.dynamicDifficulty = q.getDynamicDifficulty();
+		this.staticDifficulty = q.getStaticDifficulty();
+		this.topic = q.getTopic();
+		this.quiz = new Quiz(q.getQuiz());
+	}
+	
 	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic) {
 		this.responseTime = response_time;
 		this.questioning = questioning;

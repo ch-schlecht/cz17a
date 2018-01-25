@@ -34,6 +34,14 @@ public class Quiz {
 		
 	public Quiz() {}
 	
+	public Quiz(Quiz q) {
+		this.id = q.getId();
+		this.title = q.getTitle();
+		this.length = q.getLength();
+		this.minParticipants = q.getMinParticipants();
+		this.maxParticipants = q.getMaxParticipants();
+	}
+	
 	public Quiz(String title, int length, int minParticipants, int maxParticipants) {
 		this.title = title;
 		this.length = length;
