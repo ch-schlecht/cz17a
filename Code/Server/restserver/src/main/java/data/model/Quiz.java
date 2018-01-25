@@ -3,14 +3,13 @@ package data.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import data.access.QuestionDAO;
 
 @Entity
 @XmlRootElement
@@ -21,7 +20,9 @@ public class Quiz {
 	private int id;
 	private String title;
 	private int length;
+	@Column(name = "min_participants")
 	private int minParticipants;
+	@Column(name = "max_participants")
 	private int maxParticipants;
 	@OneToMany(mappedBy = "quiz")
 	private List<Question> questions;

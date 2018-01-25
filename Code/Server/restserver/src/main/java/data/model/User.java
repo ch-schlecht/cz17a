@@ -2,6 +2,7 @@ package data.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -15,10 +16,11 @@ public class User {
 	protected String mail;
 	protected String nickname;
 	protected String password;
+	@Column(name = "last_login")
 	protected Calendar lastLogin;
 	protected Calendar registration;
 	
-	public User() {} //default constructor
+	public User() {}
 	
 	public User(String mail, String nickname, String password) {
 		this.mail = mail;

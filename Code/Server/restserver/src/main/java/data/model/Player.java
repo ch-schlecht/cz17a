@@ -3,18 +3,21 @@ package data.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Player extends User {
+	@Column(name = "playtime_in_minutes")
 	private double playtimeInMinutes;
-	@OneToMany(mappedBy = "player")
-	private List<Participation> played_rounds = new ArrayList<Participation>();
-	@OneToMany(mappedBy = "player")
-	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
+	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Participation> playedRounds = new ArrayList<Participation>();
+	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "winner")
-	private List<Round> winned_rounds;
+	private List<Round> winnedRounds;
 	
 	public Player() {}
 	
@@ -37,21 +40,21 @@ public class Player extends User {
 	 * @param question Playedquestion that is to be added
 	 */
 	public void addPlayedQuestion(PlayedQuestion question) {
-		this.played_questions.add(question);
+		this.playedQuestions.add(question);
 	}
 	/**
 	 * adds a game round to the list of participation of the player
 	 * @param round participation
 	 */
 	public void addRound(Participation round) {
-		this.played_rounds.add(round);
+		this.playedRounds.add(round);
 	}
 	/**
 	 * Returns all played questions
 	 * @return List of played questions in that PlayedQuestion
 	 */
 	public List<PlayedQuestion> getPlayedQuestion() {
-		return played_questions;
+		return playedQuestions;
 	}
 
 }

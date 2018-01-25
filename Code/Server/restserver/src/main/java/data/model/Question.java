@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,9 +21,12 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Column(name = "response_time")
 	private int responseTime;
 	private String questioning;
+	@Column(name = "dynamic_difficulty")
 	private int dynamicDifficulty;
+	@Column(name = "static_difficulty")
 	private int staticDifficulty;
 	private String topic;
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
@@ -30,9 +34,8 @@ public class Question {
 	@ManyToOne
 	@JoinColumn(name = "quiz_id")
 	private Quiz quiz;
-	@OneToMany(mappedBy = "question")
-	private List<PlayedQuestion> played_question = new ArrayList<PlayedQuestion>();
-	
+	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	
 	public Question() {}
 	
@@ -117,17 +120,17 @@ public class Question {
 	}
 	
 	public List<PlayedQuestion> getPlayedQuestion() {
-		return played_question;
+		return playedQuestions;
 	}
 
 	public void setPlayedQuestion(List<PlayedQuestion> playedQuestion) {
-		this.played_question = playedQuestion;
+		this.playedQuestions = playedQuestion;
 	}
 	/**
 	 * Adds a PlayedQuestion to the List
 	 * @param playedQuestion PlayedQuestion Object
 	 */
 	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
-		this.played_question.add(playedQuestion);
+		this.playedQuestions.add(playedQuestion);
 	}
 }

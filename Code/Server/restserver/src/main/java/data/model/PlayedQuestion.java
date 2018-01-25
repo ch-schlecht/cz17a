@@ -2,6 +2,7 @@ package data.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -17,11 +18,13 @@ public class PlayedQuestion implements Serializable {
 	@Id
 	@ManyToOne
 	private Player player;
-	
+	@Column(name = "is_jackpot")
 	private boolean isJackpot;
+	@Column(name = "is_correct")
 	private boolean isCorrect;
-	private int score;
+	@Column(name = "speed_in_seconds")
 	private double speedInSeconds;
+	private int score;
 	
 	public PlayedQuestion() {}
 	

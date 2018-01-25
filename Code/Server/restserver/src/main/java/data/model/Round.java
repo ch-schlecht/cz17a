@@ -3,8 +3,7 @@ package data.model;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,12 +22,13 @@ public class Round {
 	private Calendar start;
 	@Column(name = "end_time")
 	private Calendar end;
+	@Column(name = "max_score")
 	private int maxScore;
 	@ManyToOne
 	@JoinColumn(name = "winner", nullable = false)
 	private Player winner;
-	@OneToMany(mappedBy = "round")
-	private List<PlayedQuestion> played_questions = new ArrayList<PlayedQuestion>();
+	@OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "round")
 	private List<Participation> participations = new ArrayList<Participation>();
 	
