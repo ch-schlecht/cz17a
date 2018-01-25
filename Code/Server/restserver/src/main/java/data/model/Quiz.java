@@ -9,23 +9,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @XmlRootElement
 public class Quiz {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String title;
-	private int length;
+	
 	@Column(name = "min_participants")
 	private int minParticipants;
+	
 	@Column(name = "max_participants")
 	private int maxParticipants;
+	
 	@OneToMany(mappedBy = "quiz")
-	private List<Question> questions;
+	private List<Question> questions = new ArrayList<Question>();
+	
+	private String title;
+	private int length;
 		
 	public Quiz() {}
 	
@@ -42,6 +47,7 @@ public class Quiz {
 		return questions;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -50,6 +56,7 @@ public class Quiz {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getTitle() {
 		return title;
 	}
@@ -58,6 +65,7 @@ public class Quiz {
 		this.title = title;
 	}
 
+	@XmlElement
 	public int getLength() {
 		return length;
 	}
@@ -66,6 +74,7 @@ public class Quiz {
 		this.length = length;
 	}
 
+	@XmlElement
 	public int getMinParticipants() {
 		return minParticipants;
 	}
@@ -74,6 +83,7 @@ public class Quiz {
 		this.minParticipants = minParticipants;
 	}
 
+	@XmlElement
 	public int getMaxParticipants() {
 		return maxParticipants;
 	}
@@ -82,6 +92,7 @@ public class Quiz {
 		this.maxParticipants = maxParticipants;
 	}
 
+	@XmlTransient
 	public List<Question> getQuestions() {
 		return questions;
 	}
