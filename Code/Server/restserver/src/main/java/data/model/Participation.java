@@ -17,8 +17,16 @@ public class Participation implements Serializable {
 	private int rank;
 	private int score;
 	
+	/**
+	 * Default Constructor
+	 */
 	public Participation() {}
-
+	
+	/**
+	 * Standard Constructor
+	 * @param player a Player Object
+	 * @param round a Round Object
+	 */
 	public Participation(Player player, Round round) {
 		this.player = player;
 		this.round = round;
@@ -52,6 +60,11 @@ public class Participation implements Serializable {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+	/**
+	 * Adds a score value to the current score
+	 * @param points score as Integer
+	 */
 	public void addPoints(int points) {
 		this.score += points;
 	}

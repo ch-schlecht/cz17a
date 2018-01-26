@@ -26,8 +26,17 @@ public class PlayedQuestion implements Serializable {
 	private double speedInSeconds;
 	private int score;
 	
+	/**
+	 * Default Constructor
+	 */
 	public PlayedQuestion() {}
 	
+	/**
+	 * Standard Constructor
+	 * @param question Question Object
+	 * @param round Round Object
+	 * @param player Player Object
+	 */
 	public PlayedQuestion(Question question, Round round, Player player) {
 		this.question = question;
 		this.round = round;

@@ -23,16 +23,25 @@ public class Answer {
 	
 	private String content;
 	private boolean type;
-	
+	/**
+	 * Default Constructor
+	 */
 	public Answer() {}
-	
+	/**
+	 * Copy Constructor
+	 * @param a an Answer Object
+	 */
 	public Answer(Answer a) {
 		this.ID = a.getID();
 		this.content = a.getContent();
 		this.type = a.getType();
 		this.question = new Question(a.getQuestion());
 	}
-	
+	/**
+	 * Standard Constructor
+	 * @param content answer as String
+	 * @param type boolean determining if the answer ist right or wrong
+	 */
 	public Answer(String content, boolean type) {
 		this.content = content;
 		this.type = type;

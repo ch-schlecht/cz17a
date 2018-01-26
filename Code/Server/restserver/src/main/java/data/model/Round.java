@@ -36,22 +36,42 @@ public class Round {
 	private List<Question> questions;
 	@Transient
 	private List<Player> players = new ArrayList<Player>();
-
+	
+	/**
+	 * Default Constructor
+	 */
 	public Round() {}
 	
+	/**
+	 * Constructor with start/end dates and score
+	 * @param start Date of start
+	 * @param end	Date of end
+	 * @param maxScore maximum score
+	 */
 	public Round(Calendar start, Calendar end, int maxScore) {
 		this.start = start;
 		this.end = end;
 		this.maxScore = maxScore;
 	}
 	
+	/**
+	 * Constructor with questions and players
+	 * @param questions List of Questions
+	 * @param players	List of Players
+	 */
 	public Round(List<Question> questions, ArrayList<Player> players) {
 		this.questions = questions;
 		this.players = players;
 	}
 	
+	/**
+	 * adds a playedQuestion Object to the List
+	 * @param playedQuestion playedQuestion Object
+	 */
 	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
-		playedQuestion = new PlayedQuestion();
+		playedQuestion = new PlayedQuestion(); //remove this in future since instanciated object will be given as parameters,
+											   //but for now doesnt matter since function is not in use yet
+		//playedQuestions.add(playedQuestion);
 	}
 
 	public int getId() {

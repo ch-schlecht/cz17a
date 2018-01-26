@@ -31,9 +31,16 @@ public class Quiz {
 	
 	private String title;
 	private int length;
-		
+	
+	/**
+	 * Default Constructor
+	 */
 	public Quiz() {}
 	
+	/**
+	 * Copy Constructor
+	 * @param q Quiz Object to be copied
+	 */
 	public Quiz(Quiz q) {
 		this.id = q.getId();
 		this.title = q.getTitle();
@@ -42,6 +49,13 @@ public class Quiz {
 		this.maxParticipants = q.getMaxParticipants();
 	}
 	
+	/**
+	 * Standard Constructor
+	 * @param title String of title of the quiz
+	 * @param length number of questions in that quiz
+	 * @param minParticipants minimum number of participants
+	 * @param maxParticipants maximum number of participants
+	 */
 	public Quiz(String title, int length, int minParticipants, int maxParticipants) {
 		this.title = title;
 		this.length = length;
@@ -49,7 +63,11 @@ public class Quiz {
 		this.maxParticipants = maxParticipants;
 		questions = new ArrayList<Question>();
 	}
-	
+	/**
+	 * Produces a list of random questions (amount is equal to the length attribute of the quiz) associated with the quiz.
+	 * AP1: just returns all questions of the quiz since the DB only has test questions
+	 * @return List of Question
+	 */
 	public List<Question> getRandomQuestions() {
 		//For AP1 return just the question(s), we have
 		return questions;

@@ -19,12 +19,21 @@ public class Player extends User {
 	@OneToMany(mappedBy = "winner")
 	private List<Round> winnedRounds;
 	
+	/**
+	 * Default Constructor
+	 */
 	public Player() {}
 	
+	/**
+	 * Standard Constructor
+	 * @param mail String of email
+	 * @param nickname String of nickname
+	 * @param password String of password
+	 */
 	public Player(String mail, String nickname, String password) {
 		this.mail = mail;
 		this.nickname = nickname;
-		this.password = password;
+		this.password = password; //TODO hash this password
 	}
 
 	//Getters and Setters

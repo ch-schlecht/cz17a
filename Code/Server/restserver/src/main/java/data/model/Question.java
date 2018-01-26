@@ -46,8 +46,15 @@ public class Question implements Cloneable {
 	private String topic;
 	private String questioning;
 	
+	/**
+	 * Default Constructor
+	 */
 	public Question() {}
 	
+	/**
+	 * Copy Constructor
+	 * @param q Question Object to copy
+	 */
 	public Question(Question q) {
 		this.id = q.getId();
 		this.responseTime = q.getResponseTime();
@@ -58,6 +65,14 @@ public class Question implements Cloneable {
 		this.quiz = new Quiz(q.getQuiz());
 	}
 	
+	/**
+	 * Standard Constructor
+	 * @param response_time response time as Integer
+	 * @param questioning String of the question
+	 * @param dynamicDifficulty dynamic difficulty as Integer
+	 * @param staticDifficulty static difficulty as Integer
+	 * @param topic String of topic of the question
+	 */
 	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic) {
 		this.responseTime = response_time;
 		this.questioning = questioning;

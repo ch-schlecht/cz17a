@@ -20,12 +20,21 @@ public class User {
 	protected Calendar lastLogin;
 	protected Calendar registration;
 	
+	/**
+	 * default constructor
+	 */
 	public User() {}
 	
+	/**
+	 * Standard Constructor
+	 * @param mail String of mail
+	 * @param nickname String of nickname
+	 * @param password String of password
+	 */
 	public User(String mail, String nickname, String password) {
 		this.mail = mail;
 		this.nickname = nickname;
-		this.password = password;
+		this.password = password; //TODO hash it
 	}
 	
 	//Getters and Setters
