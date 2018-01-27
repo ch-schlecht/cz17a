@@ -22,18 +22,26 @@ import java.util.ArrayList;
 
 public class ServerCommunication {
 
-       final private String url_root = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/";
-       final private String url_quiz = null;
-       final private String url_quest = null;
-       final private String url_answer = null;
-       private String nudes = null;
+    final private String url_root = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
+    final private String url_quiz = "/quizzes";
+    private String nudes = null;
 
+    public String create_url_question(String id){
+        String url_quest = "/quizzes/" + id + "/random_questions";
+        return url_quest;
+    }
 
-    public JSONObject getQuizTypeJSON() {
-        JSONObject jType = null;
+    public String create_url_answer(String id){
+        String url_answer = "/questions/"+ id + "/answers";
+
+        return url_answer;
+    }
+
+    public JSONObject get_quizzes_JSON() {
+        JSONObject j_type = null;
       try {
           URL url = new URL(url_root + url_quiz);
-          jType = ask(url);
+          j_type = ask(url);
       }catch(IOException e){
 
       }
@@ -43,11 +51,12 @@ public class ServerCommunication {
 
 
 
-    public JSONObject getQuestionsJSON(int id) {
-        JSONObject jType = null;
+    public JSONObject get_rand_question_JSON(String id) {
+        String url_quest = create_url_question(id);
+        JSONObject j_type = null;
         try {
-            URL url = new URL(url_root + url_quest + "/" + id);
-            jType = ask(url);
+            URL url = new URL(url_root + url_quest);
+            j_type = ask(url);
         }catch(IOException e){
 
         }
@@ -57,10 +66,11 @@ public class ServerCommunication {
 
 
 
-    public JSONObject getAnswersJSON(int id) {
+    public JSONObject get_answers_JSON(String id) {
+        String url_answer = create_url_answer(id);
         JSONObject jType = null;
         try {
-            URL url = new URL(url_root + url_answer + "/" + id);
+            URL url = new URL(url_root + url_answer);
             jType = ask(url);
         }catch(IOException e){
 
