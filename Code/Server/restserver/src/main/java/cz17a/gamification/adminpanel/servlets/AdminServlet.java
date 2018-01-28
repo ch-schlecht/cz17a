@@ -1,4 +1,4 @@
-package servlets;
+package cz17a.gamification.adminpanel.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -11,7 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import application.ServerManager;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import data.access.HibernateUtil;
+import data.model.Answer;
+
 
 /**
  * Servlet for Login Funktion
@@ -33,14 +38,27 @@ public class AdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ServerManager serverManager = new ServerManager(); //for sql-querys
 
 			// Get Params from request
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
 			
 			
-			int id = serverManager.auth(login,password,"AND admin = true"); //try to login (and if admin)
+			int id = -1;
+			
+			//Check if user is an Admin and get id
+			Session sessionH = HibernateUtil.getSessionFactory().openSession();
+			Query query = sessionH.createQuery("select id from Admin a where a.nickname = :nickname AND a.password = :pw");
+			query.setParameter("nickname", login);
+			query.setParameter("pw", password);
+			
+			if(query.getFirstResult() != null) {
+				id= query.getFirstResult();
+			}
+			sessionH.close();
+			
+			
+			
 			
 			if(id != -1) { //if admin account exist with this password
 			

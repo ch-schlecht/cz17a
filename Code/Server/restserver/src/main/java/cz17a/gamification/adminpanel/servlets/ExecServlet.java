@@ -1,4 +1,4 @@
-package servlets;
+package cz17a.gamification.adminpanel.servlets;
 
 
 import java.io.BufferedReader;
@@ -25,10 +25,15 @@ import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
-import application.CSVIO;
-import application.ServerManager;
-import server.LogManager;
+import cz17a.gamification.adminpanel.application.CSVIO;
+import cz17a.gamification.adminpanel.application.HibernateQuerys;
+import data.access.HibernateUtil;
+import data.model.Answer;
+import data.model.Question;
 
 /**
  * Servlet implementation class ExecServlet
@@ -39,8 +44,6 @@ public class ExecServlet extends HttpServlet {
      
 	final String UPLOAD_DIRECTORY = "files"; //TODO
 
-	ServerManager serverManager = new ServerManager();
-	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -58,7 +61,7 @@ public class ExecServlet extends HttpServlet {
 		if(request.getSession().getAttribute("user_id") != null){
 			int user_id = (int)request.getSession().getAttribute("user_id");
 			//check if ID is admin
-			if(serverManager.isAdmin(user_id)) {
+			if(HibernateQuerys.isAdmin(user_id)) {
 
 
 				BufferedReader br = null;
@@ -77,13 +80,39 @@ public class ExecServlet extends HttpServlet {
 						    
 						                
 							            CSVIO io = new CSVIO(br);
-							    		ServerManager manager = new ServerManager(); //create ServerManager
-										
+							    	
+							            //TODO
+							            int IDanswer = ((Long)HibernateUtil.getSessionFactory().openSession().createQuery("select count(*) from Answer").uniqueResult()).intValue();;        
+							            int IDquestion = ((Long)HibernateUtil.getSessionFactory().openSession().createQuery("select count(*) from Question").uniqueResult()).intValue();;
+							            
 										for(String[] data :io.read()){ //for every row
-											manager.insertHibernate(data); //insert data in database
+											IDquestion++;
+											Question question = new Question(Integer.parseInt(data[0]),data[1],Integer.parseInt(data[2]),Integer.parseInt(data[3]),data[4]);
+											question.setId(IDquestion);
+											
+											Session session = HibernateUtil.getSessionFactory().openSession();
+											Transaction ts = session.beginTransaction();
+											session.save(question);
+											ts.commit();
+											session.close();
+											
+											boolean type = true;
+											for(int i = 5; i < data.length; i++) {
+												Answer answer = new Answer(data[i],type);
+												answer.setID(IDanswer);
+												
+												Session sessionA = HibernateUtil.getSessionFactory().openSession();
+												Transaction tsA = session.beginTransaction();
+												sessionA.save(answer);
+												tsA.commit();
+												sessionA.close();
+												
+												IDanswer++;
+												type = false;
+											}
+											
 										}
 									
-										manager.disconnect(); //disconnect from server
 								
 						            	
 						            }

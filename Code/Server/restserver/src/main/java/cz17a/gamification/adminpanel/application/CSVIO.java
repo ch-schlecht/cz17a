@@ -1,4 +1,4 @@
-package application;
+package cz17a.gamification.adminpanel.application;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
-import server.LogManager;
 
 /**
  * Class to read Questions/Answers from CSV Files
@@ -45,7 +44,6 @@ public class CSVIO {
 			}
 			
 		} catch (IOException e) {
-			//LogManager.getLogger().log(Level.WARNING, "Unable to Convert user CSV", e);
 		
 		}
 		return list;
