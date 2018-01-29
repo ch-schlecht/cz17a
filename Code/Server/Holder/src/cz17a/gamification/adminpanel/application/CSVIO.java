@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import data.model.Answer;
+import data.model.Question;
+
 
 /**
  * Class to read Questions/Answers from CSV Files
@@ -48,6 +51,8 @@ public class CSVIO {
 		}
 		return list;
 	}
+	
+	
 	
 	
 }

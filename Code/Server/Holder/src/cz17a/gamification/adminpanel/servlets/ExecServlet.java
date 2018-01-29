@@ -87,7 +87,12 @@ public class ExecServlet extends HttpServlet {
 							            
 										for(String[] data :io.read()){ //for every row
 											IDquestion++;
-											Question question = new Question(Integer.parseInt(data[0]),data[1],Integer.parseInt(data[2]),Integer.parseInt(data[3]),data[4]);
+											Question question = new Question(
+													Integer.parseInt(data[0].trim()),
+													data[1],
+													Integer.parseInt(data[2].trim()),
+													Integer.parseInt(data[3].trim()),
+													data[4]);
 											question.setId(IDquestion);
 											
 											Session session = HibernateUtil.getSessionFactory().openSession();

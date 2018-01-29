@@ -36,25 +36,31 @@ public class AdminServlet extends HttpServlet {
 	 * @since 1.0
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@Override	
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 
 			// Get Params from request
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
-			
+		
 			
 			int id = -1;
 			
 			//Check if user is an Admin and get id
 			Session sessionH = HibernateUtil.getSessionFactory().openSession();
-			Query query = sessionH.createQuery("select id from Admin a where a.nickname = :nickname AND a.password = :pw");
+			Query query = sessionH.createQuery("select a.id from Admin a where a.nickname=:nickname and a.password=:pw");
 			query.setParameter("nickname", login);
 			query.setParameter("pw", password);
 			
-			if(query.getFirstResult() != null) {
-				id= query.getFirstResult();
+			System.out.println("Query: "+query.getQueryString());
+			System.out.println("Result: "+query.getFirstResult());
+			
+			if(query.uniqueResult() != null) {
+				id= (int) query.uniqueResult();
 			}
+			
+			
 			sessionH.close();
 			
 			
@@ -62,6 +68,8 @@ public class AdminServlet extends HttpServlet {
 			
 			if(id != -1) { //if admin account exist with this password
 			
+				System.out.println("[Admin panel]@"+login+" login with "+password+" at ID"+id);
+				
 				
 				HttpSession session = request.getSession(); //create new session
 				session.setAttribute("user_id", id);	//ID as session attribute
@@ -75,10 +83,23 @@ public class AdminServlet extends HttpServlet {
 			}
 			else {	//login is false
 				
+				System.out.println("[Admin panel]@"+login+" login failed with "+password);
+				
+				
 				request.setAttribute("msg","Wrong Username or Password"); //message for login.jsp
 				request.getRequestDispatcher("/login.jsp").forward(request, response); //go forward to login.jsp
 			}
 		
 	}
+
+	
+/**
+ * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+ */
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	request.setAttribute("msg","Please login"); //message for login.jsp
+	request.getRequestDispatcher("/login.jsp").forward(request, response); //go forward to login.jsp
+
+}
 
 }

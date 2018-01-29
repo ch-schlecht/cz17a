@@ -11,33 +11,46 @@ public class HibernateQuerys {
 	public static int getAdminID(String login) {
 		int id = -1;
 		Session sessionH = HibernateUtil.getSessionFactory().openSession();
-		Query query = sessionH.createQuery("select id from Admin a where a.nickname = :nickname");
+		Query query = sessionH.createQuery("select a.id from Admin a where a.nickname = :nickname");
 		query.setParameter("nickname", login);
-		id = query.getFirstResult();
+		
+		if(query.uniqueResult() != null) {
+			id = (int) query.uniqueResult();
+		}
+		
 		sessionH.close();
 		return id;
 	}
 	
 	public static boolean isAdmin(int id) {
-		int ret = -1;
 		Session sessionH = HibernateUtil.getSessionFactory().openSession();
-		Query query = sessionH.createQuery("select id from Admin a where a.id = :id");
-		query.setParameter("id",id);
-		ret = query.getFirstResult();
-		sessionH.close();
-		if(ret == -1) {
-			return false;
+		Query query = sessionH.createQuery("select a.id from Admin a where a.id=:id");
+		query.setParameter("id", id);
+		
+		if(query.uniqueResult() != null) {
+			sessionH.close();
+			return true;
 		}
-		return true;
+		sessionH.close();
+		return false;
+		
+		
+		
 	}
 	
 	public static int authAdmin(String login, String password) {
 		int id = -1;
 		Session sessionH = HibernateUtil.getSessionFactory().openSession();
-		Query query = sessionH.createQuery("select id from Admin a where a.nickname = :nickname AND a.password = :pw");
+		Query query = sessionH.createQuery("select a.id from Admin a where a.nickname=:nickname and a.password=:pw");
 		query.setParameter("nickname", login);
 		query.setParameter("pw", password);
-		id = query.getFirstResult();
+		
+		System.out.println("Query: "+query.getQueryString());
+		System.out.println("Result: "+query.getFirstResult());
+		
+		if(query.uniqueResult() != null) {
+			id= (int) query.uniqueResult();
+		}
 		sessionH.close();
 		return id;
 	}
