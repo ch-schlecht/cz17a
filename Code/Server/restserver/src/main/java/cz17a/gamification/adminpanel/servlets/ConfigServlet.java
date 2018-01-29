@@ -1,4 +1,4 @@
-package servlets;
+package cz17a.gamification.adminpanel.servlets;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import application.ServerManager;
+import cz17a.gamification.adminpanel.application.HibernateQuerys;
+
 
 /**
  * Servlet implementation class ConfigServlet
@@ -17,8 +18,7 @@ import application.ServerManager;
 public class ConfigServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
-	ServerManager serverManager = new ServerManager();
-	
+
 	/**
 	 * POST Methode 
 	 * @since 1.0
@@ -28,7 +28,7 @@ public class ConfigServlet extends HttpServlet {
 	
 		if(request.getSession().getAttribute("user_id") != null){ //check if session is set
 			int user_id = (int)request.getSession().getAttribute("user_id"); //get ID from session 
-			if(serverManager.isAdmin(user_id)) { //check if user is admin
+			if(HibernateQuerys.isAdmin(user_id)) { //check if user is admin
 
 				int ID = 0; //TODO QUIZ-SETTING ID (at the moment only on config exist)
 				//params of quiz
@@ -37,8 +37,11 @@ public class ConfigServlet extends HttpServlet {
 				int max = Integer.parseInt(request.getParameter("max"));
 				
 				//sql statement to update ID = 0
-				serverManager.update("UPDATE Quiz SET length = "+length+", min_participants = "+min+", max_participants = "+max+" WHERE ID = 0 ");
-
+				//serverManager.update("UPDATE Quiz SET length = "+length+", min_participants = "+min+", max_participants = "+max+" WHERE ID = 0 ");
+				//TODO
+				//--UNABLED--
+				
+				
 				//forward to sucess.jsp
 				request.setAttribute("msg","Changed config successfully");
 				request.getRequestDispatcher("/success.jsp").forward(request, response);

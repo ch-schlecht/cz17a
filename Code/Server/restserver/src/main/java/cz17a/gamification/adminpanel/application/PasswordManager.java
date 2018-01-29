@@ -1,4 +1,4 @@
-package application;
+package cz17a.gamification.adminpanel.application;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-import server.LogManager;
 
 /**
  * Class for PasswordHashing
@@ -68,7 +67,6 @@ public class PasswordManager {
 			byte [] hash = f.generateSecret(spec).getEncoded();  //encode hashed 
 			return enc.encodeToString(hash); //return hashed pawssword as String
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-			//LogManager.getLogger().log(Level.SEVERE, "Error: Creating Password-Hash failed!",e);
 			e.printStackTrace();
 		}
 		return null;
