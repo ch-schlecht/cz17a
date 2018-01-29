@@ -149,7 +149,7 @@ public class ServerCommunication {
     }
     //Fügt Fragen zum Fragenkatalog hinzu, wandelt JSON in Frage
     public Question[] getQuestions(){
-        JSONObject jsonObject = getRandQuestionJSON("0");
+        //JSONObject jsonObject = getRandQuestionJSON("0");
         //dummy für Fragenanzahl, Anzahl soll aus JsonObj erzeugt werden
         int questionCount = 3;
         //Array für die Frage
@@ -176,7 +176,9 @@ public class ServerCommunication {
             for (int f = 0; f < 4; f++) {
                 answers[f] = "TestAntwort " + f;
             }
+            questionArray[i].setAnswers(answers);
         }
+
     }
 
 
