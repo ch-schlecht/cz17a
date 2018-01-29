@@ -61,14 +61,14 @@ public class GameLogic {
 
     /**
      * Method that valuates if the given answer was right or wrong
-     * @param buttons Array of the answer buttons of the 
-     * @param i
-     * @param question
-     * @param indicator
+     * @param buttons Array of the answer buttons of the GameActivity
+     * @param i Arrayindex of the button which was pressed
+     * @param question The question which is evaluated
+     * @param indicator The TextView which shows if the question is answered right or wrong
      */
     public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
-        //Antwort noch nicht validiert
+        //i<0, if no answer was given
         if(i < 0){
             indicator.setText("Zeit vorbei!");
         }else{
@@ -85,11 +85,20 @@ public class GameLogic {
 
     }
 
+    /**
+     * Method that deacivates the answer buttons
+     * @param buttons Array of the answer buttons of the GameActivity
+     */
     public void buttonsDeactivate(Button[] buttons){
         for (int i= 0; i<4;i++){
             buttons[i].setClickable(false);
         }
     }
+
+    /**
+     * Method that activates the answer buttons
+     * @param buttons Array of the answer buttons of the GameActivity
+     */
     public void buttonsActivate(Button[] buttons){
         for (int i= 0; i<4;i++){
             buttons[i].setClickable(true);
