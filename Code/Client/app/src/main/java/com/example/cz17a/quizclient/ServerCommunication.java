@@ -83,8 +83,8 @@ public class ServerCommunication {
     // under construction
     public void sendNudes(){
         try{
-            if(url_root != null && nudes != null){
-                URL url = new URL(url_root + nudes);
+            if(URLROOT != null && nudes != null){
+                URL url = new URL(URLROOT + nudes);
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
                 connect.setRequestMethod("POST"); //throws ProtocolException
                 connect.connect();
