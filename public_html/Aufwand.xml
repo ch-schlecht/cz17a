@@ -1,5 +1,5 @@
 ﻿<Bericht>
-	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a"createdBy="MF" createdAt="2017-11-13">
+	<Analyse von="2017-11-06" bis="2017-11-12" gruppe="cz17a" createdBy="MF" createdAt="2017-11-13">
 		<done who="FF,CS,SL,LV,TG,MF,FZ" A="1" S="1" Zeit="1"> 1. Praezenstreffen</done>
 		<done who="CS" A="1" S="1" Zeit="0.5">Protokoll</done>
 		<done who="MF" A="3" S="3" Zeit="7">Website erstellen (+versuche mit jekyll)</done>
@@ -73,7 +73,7 @@
 		<done who="LV,CS,SL,TG,MF,FZ,WS" A="1" S="1" Zeit="1">7. Praesenztreffen</done>
 		<done who="CS" A="3" S="3" Zeit="2.5">Erstellen des Fragenmechanismus</done>
 		<done who="CS" A="3" S="3" Zeit="0.5"> Issueerstellung + Verwaltung </done>
-		<done who="MF" A="4" S="3" Zeit="8">Einlesen & Erstellen der RestAPI</done>
+		<done who="MF" A="4" S="3" Zeit="8">Einlesen und Erstellen der RestAPI</done>
 		<done who="MF" A="4" S="3" Zeit="4">Erstellen des AdminPanels</done>
 	</Analyse>
 	<Analyse von="2017-12-25" bis="2017-12-31" gruppe="cz17a" createdBy="MF" createdAt="2017-12-04">
@@ -81,11 +81,52 @@
 		<done who="MF" A="2" S="2" Zeit="1">Erstellen des Password-Hashings</done>
 		<done who="CS" A="3" S="3" Zeit="2">Erstellung Projektplan</done>
 	</Analyse>
-	<Analyse von"2017-01-01" bis="2018-01-07" gruppe="cz17a" createdBy="CS" createdAt="2018-01-01">
+	<Analyse von="2018-01-01" bis="2018-01-07" gruppe="cz17a" createdBy="CS" createdAt="2018-01-01">
 		<done who="LV,CS" A="1" S="1" Zeit="1"> 8. Praesenztreffen</done>
-		<done who="FZ" A="4" S="3" Zeit="3">Einlesen in PostgreSQL & Aktualisieren der DB</done>
+		<done who="FZ" A="4" S="3" Zeit="3">Einlesen in PostgreSQL und Aktualisieren der DB</done>
 		<done who="LV" A="3" S="4" Zeit="5.5">Serverseitige Modellierung</done>
 		<done who="CS" A="4" S="3" Zeit="5">Erarbeitung von Projekt-, Release- und Qualitaetssicherungsplan</done>
 		<done who="CS,MF" A="3" S="4" Zeit="1"> Fix des Code-Ordners im Git, Konfigurieren der .gitignore</done>
-	</Analyse>		
+	</Analyse>
+	<Analyse von="2018-01-08" bis="2018-01-14" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV, CS" A="4" S="5" Zeit="3.75">Server-Projekt lokal lauffähig bekommen</done>
+		<done who="LV" A="3" S="3" Zeit="1.5">Modellierung CLient-Server-Austausch</done>
+		<done who="LV" A="3" S="5" Zeit="2.5">Hibernate integrieren</done>
+		<done who="CS" A="4" S="5" Zeit="5">Server</done>
+		<done who="MF" A="4" S="5" Zeit="10">Server</done>
+		<done who="WS" A="3" S="3" Zeit="8">Client</done>
+		<done who="TG" A="3" s="3" Zeit="6">Client</done>
+	</Analyse>
+	<Analyse von="2018-01-15" bis="2018-01-21" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV" A="3" S="3" Zeit="4">Hibernate Mapping</done>
+		<done who="LV" A="3" S="3" Zeit="1.5">Data Access</done>
+		<done who="LV" A="3" S="4" Zeit="3.5">REST</done>
+		<done who="SL" A="3" S="4" Zeit="1.5">Server</done>
+		<done who="SL" A="3" S="3" Zeit="5">Einlesen in Android Studio, PostgreSQL, Tomcat</done>
+		<done who="FZ" A="4" S="4" Zeit="3">Projekt in Eclipse zum Laufen bringen</done>
+		<done who="FZ" A="3" S="4" Zeit="4">Server</done>
+		<done who="CS" A="4" S="5" Zeit="9.5">Server</done>
+		<done who="CS" A="2" S="3" Zeit="3">Management und Koordination</done>
+		<done who="CS" A="3" S="3" Zeit="4.5">Entwurfsbeschreibung</done>
+		<done who="MF" A="4" S="5" Zeit="10">Server</done>
+		<done who="WS" A="3" S="3" Zeit="8">Client</done>
+		<done who="TG" A="3" s="3" Zeit="6">Client</done>
+	</Analyse>
+	<Analyse von="2018-01-22" bis="2018-01-28" gruppe="cz17a" createdBy="CS" createdAt="2018-01-22">
+		<done who="LV" A="4" S="3" Zeit="3">Projektstruktur fixen</done>
+		<done who="LV" A="3" S="5" Zeit="1">REST</done>
+		<done who="LV" A="3" S="1" Zeit="0.5">Datenbankzugriff</done>
+		<done who="LV" A="3" S="1" Zeit="0.25">Server-Modellierung</done>
+		<done who="LV" A="3" S="1" Zeit="8">Server</done>
+		<done who="SL" A="3" S="3" Zeit="1.5">Client-Modellierung</done>
+		<done who="CS" A="3" S="3" Zeit="1">Release</done>
+	</Analyse>
+	<Analyse von="2018-01-23" bis="2018-01-29" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
+		<done who="TG,WS" A="3" S="3" Zeit="18">Client</done>
+		<done who="MF" A="3" S="3" Zeit="10">Client und Server</done>
+		<done who="CS" A="3" S="3" Zeit="5">Server und Datenbank</done>
+		<done who="CS" A="3" S="3" Zeit="1.5">Release und QM</done>
+		<done who="SV" A="3" S="3" Zeit="2">Praesentation M2</done>
+		<done who="FF" A="3" S="3" Zeit="9">Client und Android Studio</done>
+	</Analyse>
 </Bericht>
