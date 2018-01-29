@@ -51,7 +51,7 @@ public class ServerCommunication {
 
 
 
-    public JSONObject get_rand_question_JSON(String id) {
+    public JSONObject getRandQuestionJSON(String id) {
         String url_quest = create_url_question(id);
         JSONObject j_type = null;
         try {
@@ -149,6 +149,7 @@ public class ServerCommunication {
     }
     //Fügt Fragen zum Fragenkatalog hinzu, wandelt JSON in Frage
     public Question[] getQuestions(){
+        JSONObject jsonObject = getRandQuestionJSON("0");
         //dummy für Fragenanzahl, Anzahl soll aus JsonObj erzeugt werden
         int questionCount = 3;
         //Array für die Frage
@@ -156,6 +157,7 @@ public class ServerCommunication {
 
         //Dummy um die Fragen zu erzeugen -> Replace with JSON import
         //setFrageText und SetQuestionID
+
         for (int i = 0; i<questionCount; i++){
             questionArray[i] = new Question();
             questionArray[i].setQuestionText("Test Frage " + i);
@@ -176,4 +178,6 @@ public class ServerCommunication {
             }
         }
     }
+
+
 }
