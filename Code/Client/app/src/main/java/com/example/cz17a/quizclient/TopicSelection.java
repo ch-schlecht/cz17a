@@ -13,21 +13,28 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Willy Steinbach
+ */
+
 public class TopicSelection extends AppCompatActivity {
-    final TopicHandler topicHandler = new TopicHandler();
+    TopicHandler topicHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        topicHandler = new TopicHandler();
         setContentView(R.layout.activity_topic_selection);
         ArrayList<Button> topicButtons = new ArrayList<>();
+        System.out.println("MAX ID: " + topicHandler.getMaxID());
         addButton(topicHandler.getMaxID(), topicButtons);
     }
 
     /**
      * Method that starts the GameActivity
      */
-    public void goToGame(){
+    public void goToGame(int quizId){
         Intent intent = new Intent(this,  GameActivity.class);
+        intent.putExtra("quizId", quizId);
         startActivity(intent);
     }
 
@@ -38,6 +45,7 @@ public class TopicSelection extends AppCompatActivity {
      */
     public void addButton(int count, ArrayList<Button> topicButtons){
         for(int i = 0; i<count; i++){
+            final int finalI = i;
             Button b = new Button(this);
             LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
             linLayout.addView(b);
@@ -46,7 +54,7 @@ public class TopicSelection extends AppCompatActivity {
             topicButtons.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goToGame();
+                    goToGame(finalI);
                 }
             });
         }

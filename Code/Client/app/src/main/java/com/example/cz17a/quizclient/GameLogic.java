@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by stein on 11.01.2018.
+ * Created by Willy Steinbach on 11.01.2018.
  */
 
 public class GameLogic {

@@ -6,7 +6,7 @@ package com.example.cz17a.quizclient;
 
 public class Question {
     String questionText;
-    int questionID;
+    String questionID;
     String[] answers;
     Boolean isValuated = false;
 
@@ -33,7 +33,7 @@ public class Question {
      * Sets the question id
      * @param id int for the question id
      */
-    public void setQuestionID(int id){
+    public void setQuestionID(String id){
         questionID = id;
     }
 
@@ -58,7 +58,7 @@ public class Question {
      * Gets the ID of this question
      * @return ID as a int
      */
-    public int getID(){
+    public String getID(){
         return questionID;
     }
 }

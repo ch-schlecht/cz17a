@@ -8,18 +8,20 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 /**
- * Created by stein on 17.01.2018.
+ * Created by Willy Steinbach on 17.01.2018.
  */
 
 public class TopicHandler {
     String[] titles;
     int[] IDs;
+    int maxID;
     public TopicHandler(){
         ServerCommunication servCom = new ServerCommunication();
-        IDs = servCom.getTopicIDs();
-        titles = servCom.getTopicTitles();
+        maxID = servCom.setTopics(this);
+        System.out.println("TITLES LENGTH: " + titles.length);
 
     }
+
 
     /**
      * Methos with sets up the topic activity and initializes the buttons with the topic strings
@@ -36,7 +38,7 @@ public class TopicHandler {
      * @return the maximum topic id as an int
      */
     public int getMaxID(){
-        return IDs.length;
+        return maxID;
     }
 
 }
