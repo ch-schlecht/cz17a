@@ -39,8 +39,8 @@ include 'header.inc.php';
             <div class="bar-el done" id="A3">A3</div>
             <div class="bar-el done" id="M1">M1</div>
             <div class="bar-el done" id="A4">A4</div>
-            <div class="bar-el ak" id="R1">R1</div>
-            <div class="bar-el" id="M2">M2</div>
+            <div class="bar-el done" id="R1">R1</div>
+            <div class="bar-el ak" id="M2">M2</div>
             <div class="bar-el" id="R2">R2</div>
             <div class="bar-el" id="R3">R3</div>
             <div class="bar-el" id="R4">R4</div>
@@ -85,6 +85,13 @@ include 'header.inc.php';
 		Hauptaufgabe dieser Phase waren das Erstellen von Projektplan, Releaseplan und Qualitaetssicherungsplan. Darin wurden die Elemente des Lastenhefts zu Arbeitspaketen zusammengefasst und deren Release festlegt.
 		</p>
 		<hr/>
+		
+		<p>Die fünfte Phase und Abgabe <b>R1</b> wurde <font color="green">abgeschlossen</font><br/>
+		In dieser Phase wurde das erste Releasebündel erarbeitet, in welchem das Grundkonstrukt implementiert wurde:
+		<li>Server</li>
+		<li>Client</li>
+		<li>Datenbank</li>
+		<li>Admin-Panel</li>
         
         
 

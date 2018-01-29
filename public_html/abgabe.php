@@ -40,10 +40,10 @@ include 'header.inc.php';
 			<li>dem aktuellen Aufwandsbericht</li>
             </p>
             <hr/>
-            <!--<p>
-            <a href="abgabe/A2/Recherchebericht.pdf">Recherchebericht</a>   
-            <a href="abgabe/A2/Aufwand.xml">Aufwandsanalyse</a>
-            </p> -->
+            <p>
+            <a href="abgabe/R1/Release1.zip">Release 1</a>   
+            
+            </p>
         </article>
 
 
