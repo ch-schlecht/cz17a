@@ -18,10 +18,21 @@ public class GameLogic {
         servCom = new ServerCommunication();
         questionlist = servCom.getQuestions();
         questioncount = questionlist.length;
-
     }
-    public void playNewQuestion(final Question question, final Button[] buttons, TextView questionText, final TextView indicator, final TextView timer){
+
+    /**
+     * Method for playing a specified Question
+     * Modifies Buttons and TextFields of the GameActivity
+     * @param question The question that is going to be played
+     * @param buttons The answer buttons of the GameActivty
+     * @param questionText The TextView, which is showing the question text
+     * @param indicator The TextView, which shows if the questions was answerd right or wrong
+     * @param timer The textView which shows the time left
+     */
+    public void playNewQuestion(final Question question, final Button[] buttons, TextView questionText,
+                                final TextView indicator, final TextView timer){
         indicator.setVisibility(View.INVISIBLE);
+        //initializes the buttons for this question
         for(int i = 0; i<4; i++){
             buttons[i].setText(question.getAnswers(i));
             final int finalI = i;
@@ -34,6 +45,7 @@ public class GameLogic {
         }
         questionText.setText(question.getQuestionText());
         buttonsActivate(buttons);
+        //sets the timer
         new CountDownTimer(10000,1000){
             public void onTick(long millisUntilFinished){
                 timer.setText("Zeit: " + millisUntilFinished/1000+ "s");
@@ -47,6 +59,13 @@ public class GameLogic {
         }.start();
     }
 
+    /**
+     * Method that valuates if the given answer was right or wrong
+     * @param buttons Array of the answer buttons of the 
+     * @param i
+     * @param question
+     * @param indicator
+     */
     public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
         //Antwort noch nicht validiert

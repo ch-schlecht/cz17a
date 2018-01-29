@@ -19,13 +19,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Methode zur Erzeugung eines neuen Spiels
-     * Initialisierung aller Buttons, TextViews
-     * Erzeugung der Spiellogik mit Fragen und Antworten
+     * Method that generates a new Game, initializes all Buttons, Text Views
+     * and the GameLogic with Questions and Answers
      */
     public void newGame() {
         final GameLogic game = new GameLogic();
         final Button[] buttons = new Button[4];
+        //defines the Buttons and TextViews
         buttons[0] = findViewById(R.id.antwort1but);
         buttons[1] = findViewById(R.id.antwort2but);
         buttons[2] = findViewById(R.id.antwort3but);
@@ -35,7 +35,9 @@ public class GameActivity extends AppCompatActivity {
         final TextView questionText = findViewById(R.id.fragenText);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
+        //time for that a question is shown
         int delay = 15000;
+        //starts every Question after a delay
         for (int i = 0; i < game.questioncount; i++) {
             final int finalI = i;
             new Handler().postDelayed(new Runnable() {
@@ -48,6 +50,7 @@ public class GameActivity extends AppCompatActivity {
                 }
             }, delay * i);
         }
+        //after all questions are played return to previous activity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

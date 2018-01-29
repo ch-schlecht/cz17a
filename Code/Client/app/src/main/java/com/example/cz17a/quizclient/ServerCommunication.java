@@ -51,7 +51,7 @@ public class ServerCommunication {
 
 
 
-    public JSONObject get_rand_question_JSON(String id) {
+    public JSONObject getRandQuestionJSON(String id) {
         String url_quest = create_url_question(id);
         JSONObject j_type = null;
         try {
@@ -147,9 +147,37 @@ public class ServerCommunication {
         }
         return IDs;
     }
+    //Fügt Fragen zum Fragenkatalog hinzu, wandelt JSON in Frage
+    public Question[] getQuestions(){
+        JSONObject jsonObject = getRandQuestionJSON("0");
+        //dummy für Fragenanzahl, Anzahl soll aus JsonObj erzeugt werden
+        int questionCount = 3;
+        //Array für die Frage
+        Question[] questionArray = new Question[questionCount];
 
-    //todo getQuiz, getQuest, getAnswer?, giveAnswer
+        //Dummy um die Fragen zu erzeugen -> Replace with JSON import
+        //setFrageText und SetQuestionID
 
+        for (int i = 0; i<questionCount; i++){
+            questionArray[i] = new Question();
+            questionArray[i].setQuestionText("Test Frage " + i);
+            questionArray[i].setQuestionID(i);
+        }
+        getAnswers(questionArray);
+        return questionArray;
+    }
+    public void getAnswers(Question[] questionArray){
+        for(int i= 0;i<questionArray.length; i++) {
+            //ID Der Frage mit questionArray[i].getID();
+            //Damit dann JSONObj anfordern und die Antworten der Frage damit füllen
+
+            //dummy -> Replace with JSON import
+            String[] answers = new String[4];
+            for (int f = 0; f < 4; f++) {
+                answers[f] = "TestAntwort " + f;
+            }
+        }
+    }
 
 
 }
