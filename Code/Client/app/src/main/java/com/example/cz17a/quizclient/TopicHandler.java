@@ -20,11 +20,21 @@ public class TopicHandler {
         titles = servCom.getTopicTitles();
 
     }
+
+    /**
+     * Methos with sets up the topic activity and initializes the buttons with the topic strings
+     * @param topicButtons ArrayList of the topic buttons
+     */
     public void setUpActivity(ArrayList<Button> topicButtons){
         for(int i = 0;i<topicButtons.size();i++){
             topicButtons.get(i).setText(titles[i]);
         }
     }
+
+    /**
+     * Gets the ammount of topics
+     * @return the maximum topic id as an int
+     */
     public int getMaxID(){
         return IDs.length;
     }

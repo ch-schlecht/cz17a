@@ -22,25 +22,27 @@ import java.util.ArrayList;
 
 public class ServerCommunication {
 
-    final private String url_root = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
-    final private String url_quiz = "/quizzes";
+    final static private String URLROOT = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
+    final static private String URLQUIZ = "/quizzes";
     private String nudes = null;
 
-    public String create_url_question(String id){
-        String url_quest = "/quizzes/" + id + "/random_questions";
-        return url_quest;
+    public String createUrlQuestion(String id){
+        String urlQuest = "/quizzes/" + id + "/random_questions";
+        return urlQuest;
     }
 
-    public String create_url_answer(String id){
-        String url_answer = "/questions/"+ id + "/answers";
+    public String createUrlAnswer(String id){
+        String urlAnswer = "/questions/"+ id + "/answers";
 
-        return url_answer;
+        return urlAnswer;
     }
 
-    public JSONObject get_quizzes_JSON() {
+    //needs nothing
+    //returns list of all Quizzes
+    public JSONObject getQuizzesJSON() {
         JSONObject j_type = null;
       try {
-          URL url = new URL(url_root + url_quiz);
+          URL url = new URL(URLROOT + URLQUIZ);
           j_type = ask(url);
       }catch(IOException e){
 
@@ -49,14 +51,13 @@ public class ServerCommunication {
       return null;
     }
 
-
-
-    public JSONObject get_rand_question_JSON(String id) {
-        String url_quest = create_url_question(id);
-        JSONObject j_type = null;
+    //needs Quizzid
+    //returns a single question from a quizz
+    public JSONObject getRandQuestionJSON(String id) {
+        JSONObject jType = null;
         try {
-            URL url = new URL(url_root + url_quest);
-            j_type = ask(url);
+            URL url = new URL(URLROOT + createUrlQuestion(id));
+            jType = ask(url);
         }catch(IOException e){
 
         }
@@ -64,13 +65,12 @@ public class ServerCommunication {
         return null;
     }
 
-
-
+    //needs questid
+    //returns list of answers
     public JSONObject get_answers_JSON(String id) {
-        String url_answer = create_url_answer(id);
         JSONObject jType = null;
         try {
-            URL url = new URL(url_root + url_answer);
+            URL url = new URL(URLROOT + createUrlAnswer(id));
             jType = ask(url);
         }catch(IOException e){
 
@@ -83,8 +83,8 @@ public class ServerCommunication {
     // under construction
     public void sendNudes(){
         try{
-            if(url_root != null && nudes != null){
-                URL url = new URL(url_root + nudes);
+            if(URLROOT != null && nudes != null){
+                URL url = new URL(URLROOT + nudes);
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
                 connect.setRequestMethod("POST"); //throws ProtocolException
                 connect.connect();
@@ -100,7 +100,7 @@ public class ServerCommunication {
     }
 
 
-
+    //handling of url connection
     public JSONObject ask(URL url){
         String quizType = null;
         try {
@@ -140,6 +140,7 @@ public class ServerCommunication {
         return titles;
 
     }
+
     public int[] getTopicIDs(){
         int[] IDs = new int[3];
         for (int i = 0; i<3;i++){
@@ -147,9 +148,40 @@ public class ServerCommunication {
         }
         return IDs;
     }
+    //Fügt Fragen zum Fragenkatalog hinzu, wandelt JSON in Frage
+    public Question[] getQuestions(){
+        //JSONObject jsonObject = getRandQuestionJSON("0");
+        //dummy für Fragenanzahl, Anzahl soll aus JsonObj erzeugt werden
+        int questionCount = 3;
+        //Array für die Frage
+        Question[] questionArray = new Question[questionCount];
 
-    //todo getQuiz, getQuest, getAnswer?, giveAnswer
+        //Dummy um die Fragen zu erzeugen -> Replace with JSON import
+        //setFrageText und SetQuestionID
 
+        for (int i = 0; i<questionCount; i++){
+            questionArray[i] = new Question();
+            questionArray[i].setQuestionText("Test Frage " + i);
+            questionArray[i].setQuestionID(i);
+        }
+        getAnswers(questionArray);
+        return questionArray;
+    }
+
+    public void getAnswers(Question[] questionArray){
+        for(int i= 0;i<questionArray.length; i++) {
+            //ID Der Frage mit questionArray[i].getID();
+            //Damit dann JSONObj anfordern und die Antworten der Frage damit füllen
+
+            //dummy -> Replace with JSON import
+            String[] answers = new String[4];
+            for (int f = 0; f < 4; f++) {
+                answers[f] = "TestAntwort " + f;
+            }
+            questionArray[i].setAnswers(answers);
+        }
+
+    }
 
 
 }

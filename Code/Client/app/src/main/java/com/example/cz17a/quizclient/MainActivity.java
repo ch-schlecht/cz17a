@@ -22,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
                 goToTopicSelection(view);
             }
         });
-
-
-}
+    }
+    /**
+     * Starts the activity which shows the topic selection
+     * @param view
+     */
     public void goToTopicSelection(View view){
         Intent intent = new Intent(this,  TopicSelection.class);
         startActivity(intent);
