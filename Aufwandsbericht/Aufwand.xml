@@ -121,7 +121,7 @@
 		<done who="SL" A="3" S="3" Zeit="1.5">Client-Modellierung</done>
 		<done who="CS" A="3" S="3" Zeit="1">Release</done>
 	</Analyse>
-	<Analyse von="2018-01-23" bis="2018-01-29" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
+	<Analyse von="2018-01-29" bis="2018-02-04" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
 		<done who="TG,WS" A="3" S="3" Zeit="18">Client</done>
 		<done who="MF" A="3" S="3" Zeit="10">Client und Server</done>
 		<done who="CS" A="3" S="3" Zeit="5">Server und Datenbank</done>
