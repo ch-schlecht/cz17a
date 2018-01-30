@@ -32,30 +32,35 @@ include 'header.inc.php';
             opened a <div id="content">
     -->
 
-
-
-    <article class="article" id="news">  <!-- News for the Projct-->
+	<article class="article" id="news">
+		<h2>Screenshots der Anwendung</h2>
+		<img src="konzept/screen1.png" width="340" heigth="407"/>
+		<img src="konzept/screen2.png" width="340" heigth="407"/>
+		<img src="konzept/screen3.png" width="340" heigth="407"/>
+	</article>
+	<!--
+    <article class="article" id="news">  
             <h2>Konzept by Felix Fink</h2>
             <img src="konzept/Quiz.png" width="340" height="407"/>
 
     </article>
     
     
-    <article class="article" id="news">  <!-- News for the Projct-->
+    <article class="article" id="news">  
             <h2>Konzept 1 by Michael Fritz</h2>
             <img src="konzept/version_1.png" width="360" height="407"/>
 
     </article>
     
     
-    <article class="article" id="news">  <!-- News for the Projct-->
+    <article class="article" id="news">  
             <h2>Konzept 2 by Michael Fritz</h2>
             <img src="konzept/version_2.png" width="360" height="407"/>
 
     </article>
     
-    
-    
+   
+    -->
 
          </div>
     </body>
