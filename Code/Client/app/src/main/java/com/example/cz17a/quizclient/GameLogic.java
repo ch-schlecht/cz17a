@@ -10,13 +10,14 @@ import android.widget.TextView;
  */
 
 public class GameLogic {
-    int id;
+    int quizId;
     int questioncount;
     Question questionlist[];
     ServerCommunication servCom;
-    public GameLogic(){
+    public GameLogic(int quizID){
+        this.quizId = quizID;
         servCom = new ServerCommunication();
-        questionlist = servCom.getQuestions();
+        questionlist = servCom.getQuestions(quizId);
         questioncount = questionlist.length;
     }
 

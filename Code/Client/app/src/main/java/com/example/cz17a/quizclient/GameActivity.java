@@ -14,11 +14,12 @@ import android.widget.TextView;
  */
 
 public class GameActivity extends AppCompatActivity {
-
+    int quizId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        quizId = getIntent().getExtras().getInt("quizId",1);
         newGame();
     }
 
@@ -27,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
      * and the GameLogic with Questions and Answers
      */
     public void newGame() {
-        final GameLogic game = new GameLogic();
+        final GameLogic game = new GameLogic(quizId);
         final Button[] buttons = new Button[4];
         //defines the Buttons and TextViews
         buttons[0] = findViewById(R.id.antwort1but);

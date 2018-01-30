@@ -18,19 +18,18 @@ import java.util.ArrayList;
  */
 
 public class TopicSelection extends AppCompatActivity {
-    TopicHandler topicHandler;
+    Quizzes quizzes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        quizzes = new Quizzes();
+        quizzes.setUpQuizzes();
         super.onCreate(savedInstanceState);
-        topicHandler = new TopicHandler();
         setContentView(R.layout.activity_topic_selection);
-        ArrayList<Button> topicButtons = new ArrayList<>();
-        System.out.println("MAX ID: " + topicHandler.getMaxID());
-        addButton(topicHandler.getMaxID(), topicButtons);
+        addButton();
     }
 
     /**
-     * Method that starts the GameActivity
+     * Method that starts the GameActivity and gives it the quizId
      */
     public void goToGame(int quizId){
         Intent intent = new Intent(this,  GameActivity.class);
@@ -40,27 +39,23 @@ public class TopicSelection extends AppCompatActivity {
 
     /**
      * Method that creates the topic buttons
-     * @param count the ammount of buttons to be added
-     * @param topicButtons the ArrayList of the topic buttons
      */
-    public void addButton(int count, ArrayList<Button> topicButtons){
-        for(int i = 0; i<count; i++){
+    public void addButton(){
+        for(int i = 0; i<quizzes.topics.size(); i++){
             final int finalI = i;
             Button b = new Button(this);
+            b.setText(quizzes.topics.get(i).getTitle());
             LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
             linLayout.addView(b);
-            topicButtons.add(b);
+            quizzes.topics.get(i).setTopicButton(b);
             //Creates the ClickListener for each button
-            topicButtons.get(i).setOnClickListener(new View.OnClickListener() {
+            b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goToGame(finalI);
+                    goToGame(quizzes.topics.get(finalI).getId());
                 }
             });
         }
-        topicHandler.setUpActivity(topicButtons);
-
     }
-
 
 }

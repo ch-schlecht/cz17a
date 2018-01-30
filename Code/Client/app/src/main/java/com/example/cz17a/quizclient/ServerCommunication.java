@@ -106,35 +106,35 @@ public class ServerCommunication {
         }
     }
 
-
     /**
-     * Set topics of the quizzes
-     * @param topicHandler The TopicHander to which the topics and ids are added
-     * @return Returns the length of the Id array
+     * Method that sets up the Quizzes/Topics from the JSONArray, which it gets from the Server
+     * @param quizzes The object the quizzes should be added to
      */
-   public int setTopics(TopicHandler topicHandler){
+    public void setUpQuizzes(Quizzes quizzes){
         JSONArray jsonArray = getQuizzesJSON();
-        topicHandler.titles = new String[jsonArray.length()];
-        System.out.println("LENGTH: " + jsonArray.length());
-        topicHandler.IDs = new int[jsonArray.length()];
         for(int i = 0; i<jsonArray.length();i++){
+            quizzes.topics.add(new Topic());
             try {
-                topicHandler.titles[i] = jsonArray.getJSONObject(i).getString("title");
-                topicHandler.IDs[i] = jsonArray.getJSONObject(i).getInt("id");
+                quizzes.topics.get(i).setTitle(jsonArray.getJSONObject(i).getString("title"));
+                quizzes.topics.get(i).setId(jsonArray.getJSONObject(i).getInt("id"));
+                quizzes.topics.get(i).setMaxParticipants(jsonArray.getJSONObject(i).getInt("maxParticipants"));
+                quizzes.topics.get(i).setMinParticipants(jsonArray.getJSONObject(i).getInt("minParticipants"));
+                quizzes.topics.get(i).setLength(jsonArray.getJSONObject(i).getInt("length"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-       }
-       return topicHandler.IDs.length;
-
+        }
     }
 
 
-
-    public Question[] getQuestions(){
-        JSONArray jsonArray = getRandQuestionsJSON("1");
-        int questionCount = 2;
+    /**
+     * Method that gets the Questions as a JSON from the Server
+     * @param quizId Is the ID of the Quiz/Topic that is going to be played
+     * @return an Array of Questions
+     */
+    public Question[] getQuestions(int quizId){
+        JSONArray jsonArray = getRandQuestionsJSON(String.valueOf(quizId));
+        int questionCount = jsonArray.length();
         Question[] questionArray = new Question[questionCount];
         for (int i = 0; i<questionCount; i++){
             questionArray[i] = new Question();
