@@ -4035,7 +4035,7 @@
         <dia:point val="47.7508,-7.21249"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="47.7008,-7.26249;62.1608,-3.76249"/>
+        <dia:rectangle val="47.7158,-7.24749;62.1458,-3.77749"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="47.7508,-7.21249"/>
@@ -4200,7 +4200,7 @@
         <dia:point val="45.9423,-15.3827"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="45.8923,-15.4327;63.8173,-12.5327"/>
+        <dia:rectangle val="45.9073,-15.4177;63.8023,-12.5477"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="45.9423,-15.3827"/>
@@ -4359,7 +4359,7 @@
         <dia:point val="26.9674,11.875"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="26.9174,11.825;37.5274,16.325"/>
+        <dia:rectangle val="26.9324,11.84;37.5124,16.31"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="26.9674,11.875"/>
@@ -4596,7 +4596,7 @@
         <dia:point val="25.5124,18.38"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="25.4624,18.33;39.1524,22.83"/>
+        <dia:rectangle val="25.4774,18.345;39.1374,22.815"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="25.5124,18.38"/>
@@ -4833,7 +4833,7 @@
         <dia:point val="26.4124,24.8925"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="26.3624,24.8425;38.5124,29.3425"/>
+        <dia:rectangle val="26.3774,24.8575;38.4974,29.3275"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="26.4124,24.8925"/>
@@ -4845,7 +4845,7 @@
         <dia:real val="4.4000000000000004"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#QuestionDao#</dia:string>
+        <dia:string>#PlayerDAO#</dia:string>
       </dia:attribute>
       <dia:attribute name="stereotype">
         <dia:string>##</dia:string>
@@ -5070,7 +5070,7 @@
         <dia:point val="43.6624,11.98"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="43.6124,11.93;53.8374,16.23"/>
+        <dia:rectangle val="43.6274,11.945;53.8224,16.215"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="43.6624,11.98"/>
@@ -5316,19 +5316,19 @@
         <dia:boolean val="false"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="37.5277,14.075"/>
+        <dia:point val="37.5127,14.075"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="37.4777,14.025;43.6621,15.68"/>
+        <dia:rectangle val="37.4627,13.325;43.6771,14.93"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="37.5277,14.075"/>
+        <dia:point val="37.5127,14.075"/>
         <dia:point val="40.5699,14.075"/>
         <dia:point val="40.5699,14.08"/>
-        <dia:point val="43.6121,14.08"/>
+        <dia:point val="43.6271,14.08"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
