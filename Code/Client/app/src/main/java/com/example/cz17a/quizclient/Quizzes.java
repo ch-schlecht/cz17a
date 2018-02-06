@@ -11,15 +11,16 @@ import java.util.ArrayList;
  */
 public class Quizzes {
     ArrayList<Topic> topics = new ArrayList<>();
-    public void Quizzes(){
+    ServerCommunication servCom;
+    public Quizzes(ServerCommunication serverCommunication){
+        servCom = serverCommunication;
     }
 
     /**
      * Defines the Quizzes by getting informations from the Server
      */
     public void setUpQuizzes(){
-        ServerCommunication serverCom = new ServerCommunication();
-        serverCom.setUpQuizzes(this);
+        servCom.setUpQuizzes(this);
     }
 
     /**

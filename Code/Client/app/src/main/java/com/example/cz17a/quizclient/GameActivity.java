@@ -14,6 +14,7 @@ import android.widget.TextView;
  */
 
 public class GameActivity extends AppCompatActivity {
+    public static Quizzes quizzes;
     int quizId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,11 +18,10 @@ import java.util.ArrayList;
  */
 
 public class TopicSelection extends AppCompatActivity {
-    Quizzes quizzes;
+    public static Quizzes quizzes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        quizzes = new Quizzes();
-        quizzes.setUpQuizzes();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_selection);
         addButton();
@@ -32,7 +31,8 @@ public class TopicSelection extends AppCompatActivity {
      * Method that starts the GameActivity and gives it the quizId
      */
     public void goToGame(int quizId){
-        Intent intent = new Intent(this,  GameActivity.class);
+        Intent intent = new Intent(this,  LobbyActivity.class);
+        LobbyActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
         startActivity(intent);
     }
