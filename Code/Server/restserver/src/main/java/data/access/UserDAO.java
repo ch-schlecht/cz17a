@@ -24,6 +24,19 @@ public class UserDAO {
 		return user;
 	}
 	/**
+	 * Overloaded function, gets a User by nickname (since nicknames have to be unique) from DataBase
+	 * @param nickname String of nickname
+	 * @return User Object
+	 */
+	public User getUser(String nickname) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select u from User u where u.nickname = :nickname");
+		query.setParameter("nickname", nickname);
+		User user = (User) query.uniqueResult();
+		session.close();
+		return user;
+	}
+	/**
 	 * Gets a List of all Users
 	 * @return List of User Objects
 	 */
@@ -59,6 +72,7 @@ public class UserDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select count(u) from User u");
 		int numberOfUsers = (int) query.uniqueResult();
+		session.close();
 		return numberOfUsers;
 	}
 

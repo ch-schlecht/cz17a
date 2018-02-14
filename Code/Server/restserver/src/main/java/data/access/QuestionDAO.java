@@ -15,6 +15,7 @@ public class QuestionDAO {
 		Query query = session.createQuery("select q from Question q where q.id = :id");
 		query.setParameter("id", id);
 		Question question = (Question) query.uniqueResult();
+		session.close();
 		return question;
 		
 	}

@@ -35,5 +35,39 @@ public class UserResource {
 		return Response.status(400).build(); //fail return, user has not been stored to DB
 		
 	}
+	
+	/**
+	 * Function to perform login of a user by giving nickname and password
+	 * @param name String
+	 * @param password String
+	 * @return status code 200 if logged in successfully, 404 else (password is wrong)
+	 */
+	@POST
+	@Path("/login/{name}/{password}")
+	public Response loginUser(@PathParam("name") String name, @PathParam("password") String password){
+		User user = userdao.getUser(name);
+		if(user.getPassword().equals(password)) { //if the sent password is equal to the password stored in the DB
+			//TODO once game lobby is implemented, pass this user over to the lobby/give the game a sign that this user is logged in and potentially ready to play
+			return Response.status(200).build(); //return ok --> successfully logged in
+		}
+		else {
+			return Response.status(404).build(); //--> password is incorrect, reject login
+		}
+	}
+	
+	/**
+	 * Function to perform logout of a user by giving the name
+	 * @param name String
+	 * @return status code 200 if logged out successfully, 400 else
+	 */
+	@POST
+	@Path("/logout/{name}")
+	public Response logoutUser(@PathParam("name") String name){
+		User user = userdao.getUser(name);
+		if(user != null) { //user does exist (and was logged in before, see todo in loginUser)
+			return Response.status(200).build(); //for now just give the ok
+		}
+		return Response.status(400).build(); //user doesnt exist (or was not logged in before, see todo in loginUser), fail response
+	}
 
 }

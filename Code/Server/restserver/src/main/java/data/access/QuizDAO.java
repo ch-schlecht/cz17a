@@ -14,6 +14,7 @@ public class QuizDAO {
 		Query query = session.createQuery("select q from Quiz q where q.id = :id");
 		query.setParameter("id", id);
 		Quiz quiz = (Quiz)query.uniqueResult();
+		session.close();
 		return quiz;
 	}
 	
