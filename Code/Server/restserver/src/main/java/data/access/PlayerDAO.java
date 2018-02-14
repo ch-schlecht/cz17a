@@ -13,6 +13,7 @@ public class PlayerDAO {
 		Query query = session.createQuery("select p from Player p where p.id = :id");
 		query.setParameter("id", id);
 		Player player = (Player)query.uniqueResult();
+		session.close();
 		return player;
 	}
 	
