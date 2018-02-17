@@ -1,5 +1,6 @@
 package data.model;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Player extends User {
@@ -18,25 +20,19 @@ public class Player extends User {
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "winner")
 	private List<Round> winnedRounds;
+	@Transient
+	private InetAddress IPAddress;
+	@Transient
+	private Integer port;
 	
-	/**
-	 * Default Constructor
-	 */
 	public Player() {}
 	
-	/**
-	 * Standard Constructor
-	 * @param mail String of email
-	 * @param nickname String of nickname
-	 * @param password String of password
-	 */
 	public Player(String mail, String nickname, String password) {
 		this.mail = mail;
 		this.nickname = nickname;
 		this.password = password; //TODO hash this password
 	}
 
-	//Getters and Setters
 	public double getPlaytimeInMinutes() {
 		return playtimeInMinutes;
 	}
