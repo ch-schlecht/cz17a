@@ -107,6 +107,15 @@ Das Admin-Panel ist ebenfalls eine Web Applikation. In diese kann sich der Admin
 \subsection{Client - Quizapp}
 Der Client stellt per REST eine Anfrage an den Server, um eine Quizfrage zu bekommen. Diese enthält auch Informationen über die Antwortmöglichkeiten und welche richtig ist. Um Datenredundanz zu vermeiden, ist in der Liste der Antworten stets die erste Antwort die Richtige. Bei Anzeige der Möglichkeiten werden die Antworten durchgemischt, um nicht auch hier stets die erste Antwortmöglichkeit als die Richtige identifizieren zu könnnen. Nach Auswahl durch den User erscheint eine Rückmeldung, ob die gegebene Antwort richtig oder falsch ist und ggf. wird die korrekte Antwort angezeigt. Es werden noch keine Speichervorgänge für die Statistiken durchgeführt. 
 
+\section{Arbeitspaket 2 - Spieler und Quiz}
+
+\subsection{REST-Schnittstelle}
+Das Registrieren, Anmelden, Abmelden und Löschen eines Spieleraccounts erfolgt über die REST-Schnittstelle. Bei Registrierung erstellt sie anhand der angegeben Daten einen neuen User in der Datenbank. Für den Login wird anhand des angebenen Usernamen die Übereinstimmung des eingegebenen Passworts mit dem in der Datenbank verglichen. Als Antwort erhält der Client stets einen Statuscode: 200 für Erfolg, 400 bzw. 404 für Misserfolg.
+
+
+\subsection{Client}
+Der Client wird um Screens für Registierung, Login und Logout erweitert. Die eingegebenen Daten werden als POST-Request an die REST-Schnittstelle zur Verarbeitung gesendet.
+
 
 
 

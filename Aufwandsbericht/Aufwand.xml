@@ -129,4 +129,11 @@
 		<done who="SV" A="3" S="3" Zeit="2">Praesentation M2</done>
 		<done who="FF" A="3" S="3" Zeit="9">Client und Android Studio</done>
 	</Analyse>
+	<Analyse von="2018-02-05" bis="2018-02-11" gruppe="cz17a" createdBy="CS" createdAt="2018-02-05">
+		<done who="TG,WS,MF,LV,FF,CS,SL,FZ" A="3" S="3" Zeit="2">internes Treffen</done>
+		<done who="CS,LV" A="2" S="3" Zeit="1">Issueverwaltung und Erstellung</done>
+	</Analyse>
+	<Analyse von="2018-02-12" bis="2018-02-18" gruppe="cz17a" createdBy="CS" createdAt="2018-02-12">
+		<done who="CS" A="3" S="3" Zeit="7">User serverseitig</done>
+	</Analyse>
 </Bericht>
