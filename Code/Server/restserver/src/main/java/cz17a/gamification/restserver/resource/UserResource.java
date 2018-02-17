@@ -2,6 +2,7 @@ package cz17a.gamification.restserver.resource;
 
 import java.util.Calendar;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -101,4 +102,19 @@ public class UserResource {
 		}
 	}
 
+	/**
+	 * Function that removes a user from the DB 
+	 * @param id of the user 
+	 * @return status code 200 if sent successfully, 400 else 
+	 */ 
+	@DELETE 
+	@Path("/{id}") 
+	public Response removeUser(@PathParam("id") int id) { 
+		User user = userdao.getUser(id);
+		userdao.removeUser(id);
+		if(userdao.getUser(user.getId()) == null) { //if the user was successfully deleted from DB, then return 200 
+			return Response.status(200).build(); 
+		} 
+		return Response.status(400).build(); //fail return, user has not been deleted from DB
+	}
 }

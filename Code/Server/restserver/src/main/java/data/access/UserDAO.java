@@ -75,5 +75,14 @@ public class UserDAO {
 		session.close();
 		return numberOfUsers;
 	}
-
+	/** 
+	 * removes a user from the DB 
+	 * @param id ID of the User
+	 */ 
+	public void removeUser(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Delete from Users where id = :id");
+		query.setParameter("id", id).executeUpdate();
+		session.close();
+	}
 }
