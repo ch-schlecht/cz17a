@@ -8,7 +8,8 @@ import data.model.Round;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.List;
@@ -90,22 +91,33 @@ public class Game {
 	}
 	
 	private void startRound() throws IOException {
-		//TODO: Socketkram, Fragen an alle versenden
-		//Der Server sendet momentan nur an einen Client die Fragen
-		ServerSocket server = new ServerSocket(12345);
-		while(true) {
-			Socket client;
-			try {
-				client = server.accept();
-				PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-				ObjectMapper objectMapper = new ObjectMapper();
-				List<Question> questions = getRound().getQuestions();
-		    	objectMapper.writeValue(out, questions);
-			} catch(IOException ex) {
-                ex.printStackTrace();
-            }
-		}
-	}
+                Socket socket;
+                int port = 12345; //Port und Host müssen noch angepasst werden, so dass Liste an alle Spieler geschickt werden kann
+                String host = "Client";
+                
+                while(true) {
+                        try {
+                                            socket = new Socket(host, port);
+
+                                            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                                            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+                                            String message = in.readLine();
+
+                                            ObjectMapper objectMapper = new ObjectMapper();
+                                            List<Question> questions = getRound().getQuestions();
+
+                                            if(in != null) { //Platzhalter zum auswerten der Nachricht, schickt jetzt Antwort wenn Nachricht nicht null
+                                                    objectMapper.writeValue(out, questions);
+                                            }
+
+                                            socket.close();
+
+                        } catch(IOException ex) {
+                                ex.printStackTrace();
+                        }
+                }
+        }
 	
 	private void end() {
 		sendEndResults();
