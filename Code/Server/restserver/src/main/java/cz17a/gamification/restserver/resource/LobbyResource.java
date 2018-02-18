@@ -1,10 +1,15 @@
 package cz17a.gamification.restserver.resource;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -30,11 +35,21 @@ public class LobbyResource {
 	@PUT
 	@Path("/{quiz_id}/join/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response joinLobby(@PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id){
+	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id){
 		Player player = new PlayerDAO().getPlayer(player_id);
-		LobbyPool.joinLobby(quiz_id, player);
-		return Response.status(200).build();
-		//TODO return other status on Fail
+		player.setPort(request.getRemotePort());
+		InetAddress ip;
+		try {
+			ip = InetAddress.getByName(request.getRemoteAddr());
+			player.setIPAddress(ip);
+			LobbyPool.joinLobby(quiz_id, player);
+			return Response.status(200).build();
+		}
+		catch(UnknownHostException e) {
+			e.printStackTrace();
+			//Verbesserungswürdig
+			return Response.status(400).build();
+		}
 	}
 	
 	/**

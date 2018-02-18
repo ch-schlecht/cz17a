@@ -62,4 +62,20 @@ public class Player extends User {
 		return playedQuestions;
 	}
 
+	public InetAddress getIPAddress() {
+		return IPAddress;
+	}
+
+	public void setIPAddress(InetAddress iPAddress) {
+		IPAddress = iPAddress;
+	}
+
+	public Integer getPort() {
+		return port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
 }
