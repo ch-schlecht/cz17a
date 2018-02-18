@@ -2,12 +2,19 @@ package game;
 
 import data.access.RoundDAO;
 import data.model.Player;
+import data.model.Question;
 import data.model.Quiz;
 import data.model.Round;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Game {
 	private int id;
@@ -78,12 +85,26 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
-	public void start() {
+	public void start() throws IOException {
 		startRound();
 	}
-	private void startRound() {
+	
+	private void startRound() throws IOException {
 		//TODO: Socketkram, Fragen an alle versenden
-		playedQuestions++;
+		//Der Server sendet momentan nur an einen Client die Fragen
+		ServerSocket server = new ServerSocket(12345);
+		while(true) {
+			Socket client;
+			try {
+				client = server.accept();
+				PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+				ObjectMapper objectMapper = new ObjectMapper();
+				List<Question> questions = getRound().getQuestions();
+		    	objectMapper.writeValue(out, questions);
+			} catch(IOException ex) {
+                ex.printStackTrace();
+            }
+		}
 	}
 	
 	private void end() {
