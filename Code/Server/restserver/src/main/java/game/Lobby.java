@@ -66,7 +66,7 @@ public class Lobby {
 		List<Player> playersForGame = new ArrayList<Player>();
 		while(playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
-			//Hier wird über GamePool der Konstruktor von Game aufrufen und playersForGame sowie quiz übergeben
+			GamePool.startGame(quiz, playersForGame);
 		}
 	}
 }

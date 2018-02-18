@@ -34,44 +34,22 @@ public class Round {
 	
 	@Transient
 	private List<Question> questions;
-	@Transient
-	private List<Player> players = new ArrayList<Player>();
 	
-	/**
-	 * Default Constructor
-	 */
 	public Round() {}
-	
-	/**
-	 * Constructor with start/end dates and score
-	 * @param start Date of start
-	 * @param end	Date of end
-	 * @param maxScore maximum score
-	 */
+
 	public Round(Calendar start, Calendar end, int maxScore) {
 		this.start = start;
 		this.end = end;
 		this.maxScore = maxScore;
 	}
 	
-	/**
-	 * Constructor with questions and players
-	 * @param questions List of Questions
-	 * @param players	List of Players
-	 */
-	public Round(List<Question> questions, ArrayList<Player> players) {
+	public Round(List<Question> questions, List<Player> players) {
 		this.questions = questions;
-		this.players = players;
-	}
-	
-	/**
-	 * adds a playedQuestion Object to the List
-	 * @param playedQuestion playedQuestion Object
-	 */
-	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
-		playedQuestion = new PlayedQuestion(); //remove this in future since instanciated object will be given as parameters,
-											   //but for now doesnt matter since function is not in use yet
-		//playedQuestions.add(playedQuestion);
+		for(Player p : players) {
+			Participation participation = new Participation(p, this);
+			participation.setRank(0);
+			participation.setScore(0);
+		}
 	}
 
 	public int getId() {
@@ -111,6 +89,38 @@ public class Round {
 	}
 
 	public void setQuestions(ArrayList<Question> questions) {
+		this.questions = questions;
+	}
+
+	public Player getWinner() {
+		return winner;
+	}
+
+	public void setWinner(Player winner) {
+		this.winner = winner;
+	}
+
+	public List<PlayedQuestion> getPlayedQuestions() {
+		return playedQuestions;
+	}
+
+	public void setPlayedQuestions(List<PlayedQuestion> playedQuestions) {
+		this.playedQuestions = playedQuestions;
+	}
+
+	public List<Participation> getParticipations() {
+		return participations;
+	}
+	
+	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
+		playedQuestions.add(playedQuestion);
+	}
+
+	public void setParticipations(List<Participation> participations) {
+		this.participations = participations;
+	}
+
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
