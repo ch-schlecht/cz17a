@@ -2,7 +2,11 @@ package cz17a.gamification.restserver.resource;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
-
+/**
+ * 
+ * @author cz17a
+ *
+ */
 public class MailAuthentificator extends Authenticator{
 
     private final String user;

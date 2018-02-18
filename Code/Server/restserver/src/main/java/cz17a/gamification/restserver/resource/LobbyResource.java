@@ -11,10 +11,22 @@ import javax.ws.rs.core.Response;
 import data.access.PlayerDAO;
 import data.model.Player;
 import game.LobbyPool;
-
+/**
+ * REST-Resource for Lobbies
+ * @author cz17a
+ * @version 1.0
+ * @category Resource
+ */
 @Path("/Lobbies")
 @Consumes(MediaType.APPLICATION_JSON)
 public class LobbyResource {
+	/**
+	 * Adds an User to an Lobby
+	 * @param quiz_id ID of Quiz -> Lobby
+	 * @param player_id ID of Player to Add
+	 * @return Response Status-Code
+	 * @since 1.0
+	 */
 	@PUT
 	@Path("/{quiz_id}/join/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -22,8 +34,16 @@ public class LobbyResource {
 		Player player = new PlayerDAO().getPlayer(player_id);
 		LobbyPool.joinLobby(quiz_id, player);
 		return Response.status(200).build();
+		//TODO return other status on Fail
 	}
 	
+	/**
+	 * Remove Player from his lobby
+	 * @param quiz_id ID of quiz, the player wanted to play
+	 * @param player_id id of player to remove
+	 * @return Response Status-Code
+	 * @since 1.0
+	 */
 	@PUT
 	@Path("/{quiz_id}/leave/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -31,5 +51,6 @@ public class LobbyResource {
 		Player player = new PlayerDAO().getPlayer(player_id);
 		LobbyPool.leaveLobby(quiz_id, player);
 		return Response.status(200).build();
+		//TODO return other status on Fial
 	}
 }

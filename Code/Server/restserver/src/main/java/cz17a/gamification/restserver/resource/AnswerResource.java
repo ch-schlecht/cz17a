@@ -12,11 +12,23 @@ import javax.ws.rs.core.MediaType;
 import data.access.AnswerDAO;
 import data.model.Answer;
 
+
+/**
+ * Resource-Class for Answers
+ * @author cz17a
+ * @version 1.0
+ * @category Resource
+ */
 @Path("/answers")
 @Consumes(MediaType.APPLICATION_JSON)
 public class AnswerResource {
-	private AnswerDAO dao = new AnswerDAO();
+	private AnswerDAO dao = new AnswerDAO(); 
 	
+	/**
+	 * Getting a List of all Answers from Database
+	 * @return List of Answers
+	 * @since 1.0
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Answer> getAnswers(){
@@ -24,6 +36,12 @@ public class AnswerResource {
 		return answers;
 	}
 	
+	/**
+	 * Getting one specific Answer by ID
+	 * @param answer_id ID of Answer given in REST-API-path
+	 * @return answer with {ID}
+	 * @since 1.0
+	 */
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)

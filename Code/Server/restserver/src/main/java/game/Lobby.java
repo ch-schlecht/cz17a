@@ -10,10 +10,12 @@ import data.model.Quiz;
 public class Lobby {
 	private Quiz quiz;
 	private Deque<Player> players = new ArrayDeque<Player>();
+
 	
 	public Lobby(Quiz quiz, Player firstPlayer) {
 		this.quiz = quiz;
 		players.add(firstPlayer);
+		
 	}
 	
 	public Quiz getQuiz() {
@@ -40,10 +42,15 @@ public class Lobby {
 		}
 	}
 	
-	public void removePlayer(Player p) {
-		//Hier muss noch abgesichert werden, dass niemand entfernt wird, der schon aus der Liste raus ist.
-		players.remove(p);
-		sendLobbyStateToPlayers();
+	public void removePlayer(Player p) {	
+		if(players.contains(p)) {
+			players.remove(p);
+			sendLobbyStateToPlayers();
+		}
+		else {
+			//ERROR
+		}
+		
 	}
 
 	public boolean hasRequiredPlayers() {

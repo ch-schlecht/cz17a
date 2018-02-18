@@ -10,7 +10,14 @@ import javax.ws.rs.core.Response;
 
 import data.access.UserDAO;
 import data.model.User;
-
+/**
+ * REST: Resource-Class for Users <br/>
+ * Linked to Path /users
+ * @author cz17a
+ * @category Resource
+ * @version 1.0
+ *
+ */
 @Path("/users")
 public class UserResource {
 	UserDAO userdao = new UserDAO();

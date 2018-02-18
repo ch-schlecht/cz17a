@@ -9,11 +9,21 @@ import javax.ws.rs.core.MediaType;
 import data.access.QuizDAO;
 import data.model.Question;
 import data.model.Quiz;
-
+/**
+ * Resource-Class for Quiz
+ * @author cz17a
+ * @category Resource
+ * @version 1.0
+ *
+ */
 @Path("/quizzes")
 public class QuizResource {
 	private QuizDAO dao = new QuizDAO();
-	
+	/**
+	 * Get all Quizzes
+	 * @return List of All Quizzes
+	 * @since 1.0
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Quiz> getQuizzes(){
@@ -21,6 +31,12 @@ public class QuizResource {
 		return quizzes;
 	}
 	
+	/**
+	 * Get all Questions of an Quiz
+	 * @param quiz_id ID of Quiz
+	 * @return List of all Question containing to Quiz {ID}
+	 * @since 1.0 
+	 */
 	@GET
 	@Path("/{id}/random_questions")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -29,6 +45,12 @@ public class QuizResource {
 		return quiz.getRandomQuestions();
 	}
 	
+	/**
+	 * Get one Quiz by ID
+	 * @param quiz_id ID of Quiz
+	 * @return Quiz with ID
+	 * @since 1.0
+	 */
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)

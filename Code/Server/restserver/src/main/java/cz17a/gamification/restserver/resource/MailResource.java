@@ -10,6 +10,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Class for Email-Communication(Authentification)
+ * @author cz17a
+ * @version 1.0
+ * @category Authentification
+ *
+ */
 public class MailResource {
 	/**
 	 * sends an Email from sender to recipient, only works for web.de 
