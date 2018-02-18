@@ -45,12 +45,8 @@ public class Lobby {
 	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
 			players.remove(p);
-			sendLobbyStateToPlayers();
 		}
-		else {
-			//ERROR
-		}
-		
+		sendLobbyStateToPlayers();
 	}
 
 	public boolean hasRequiredPlayers() {
