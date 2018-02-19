@@ -33,11 +33,11 @@ public class LobbyResource {
 	 * @since 1.0
 	 */
 	@PUT
-	@Path("/{quiz_id}/join/{user_id}")
+	@Path("/{quiz_id}/join/{user_id}/{port}")
 	//@Produces(MediaType.APPLICATION_JSON)
-	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id){
+	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id, @PathParam("port") int port){
 		Player player = new PlayerDAO().getPlayer(player_id);
-		player.setPort(request.getRemotePort());
+		player.setPort(port);
 		InetAddress ip;
 		try {
 			ip = InetAddress.getByName(request.getRemoteAddr());

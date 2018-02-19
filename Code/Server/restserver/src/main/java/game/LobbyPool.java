@@ -30,12 +30,7 @@ public class LobbyPool {
 	
 	public static void leaveLobby(int quiz_id, Player player) {
 		Lobby lobby = activeLobbies.get(quiz_id);
-		try {
-			lobby.removePlayer(player);
-		} catch (IOException e) {
-			System.out.println("Error removing player from Lobby "+quiz_id);
-			e.printStackTrace();
-		}
+		lobby.removePlayer(player);
 		if(lobby.getPlayers().size() == 0) {
 			activeLobbies.remove(quiz_id);
 		}

@@ -3,6 +3,7 @@ package cz17a.gamification.restserver.resource;
 import java.util.Calendar;
 
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -21,6 +22,13 @@ import data.model.User;
 @Path("/users")
 public class UserResource {
 	UserDAO userdao = new UserDAO();
+	
+	
+	@GET
+	@Path("/{name}")
+	public User getUser(@PathParam("name") String name) {
+		return userdao.getUser(name);
+	}
 	
 	/**
 	 * registers a user to DB by giving name, email and password
@@ -136,4 +144,7 @@ public class UserResource {
 		} 
 		return Response.status(400).build(); //fail return, user has not been deleted from DB
 	}
+	
+	
+	
 }
