@@ -6,6 +6,11 @@ import java.util.Deque;
 import java.util.List;
 import data.model.Player;
 import data.model.Quiz;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
 
 public class Lobby {
 	int port = 50000;
@@ -38,7 +43,7 @@ public class Lobby {
 		this.players = players;
 	}
 	
-	public void addPlayer(Player p) {
+	public void addPlayer(Player p) throws IOException {
 		players.add(p);
 		sendLobbyStateToPlayers();
 		if(hasRequiredPlayers() == true) {
@@ -46,7 +51,7 @@ public class Lobby {
 		}
 	}
 	
-	public void removePlayer(Player p) {	
+	public void removePlayer(Player p) throws IOException {	
 		if(players.contains(p)) {
 			players.remove(p);
 			if(players.isEmpty()) {
@@ -72,9 +77,18 @@ public class Lobby {
 		return requiredPlayers;
 	}
 	
-	private void sendLobbyStateToPlayers() {
-		//Socketkram, Liste der Player an beteiligte Clients schicken.
-		
+	private void sendLobbyStateToPlayers() throws IOException {
+		for(Player p : players) {
+                        int port = p.getPort();
+                        InetAddress ip = p.getIPAddress();
+                    
+                        try(Socket socket = new Socket(ip, port)) {
+                                OutputStream out = socket.getOutputStream();
+                                out.write(players.size());
+                        } catch (IOException ex) {
+                                ex.printStackTrace();
+                        }
+                }
 	}
 	
 	private void openGame() {
