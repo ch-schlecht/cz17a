@@ -17,7 +17,7 @@ public class UserDAO {
 	 */
 	public User getUser(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select u from User u where u.id = :id");
+		Query query = session.createQuery("Select u from Person u where u.id = :id");
 		query.setParameter("id", id);
 		User user = (User) query.uniqueResult();
 		session.close();
@@ -30,7 +30,7 @@ public class UserDAO {
 	 */
 	public User getUser(String nickname) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select u from User u where u.nickname = :nickname");
+		Query query = session.createQuery("Select u from Person u where u.nickname = :nickname");
 		query.setParameter("nickname", nickname);
 		User user = (User) query.uniqueResult();
 		session.close();
@@ -42,7 +42,7 @@ public class UserDAO {
 	 */
 	public List<User> getUsers(){
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("from User");
+		Query query = session.createQuery("from Person");
 		List<User> users = query.list();
 		session.close();
 		return users;
@@ -53,9 +53,9 @@ public class UserDAO {
 	 */
 	public void addUser(User user) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select u.id from User u");
+		Query query = session.createQuery("Select u.id from Person u");
 		List<Integer> userIDs = query.list();
-		Query query2 = session.createQuery("Select u.nickname from User u");
+		Query query2 = session.createQuery("Select u.nickname from Person u");
 		List<String> userNames = query.list();
 		if(!(userIDs.contains(user.getId())) && !(userNames.contains(user.getNickname()))) { //only add the user if the ID and name is not in the DB
 			Transaction ts = session.beginTransaction();
@@ -70,8 +70,8 @@ public class UserDAO {
 	 */
 	public int countUsers() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select count(u) from User u");
-		int numberOfUsers = (int) query.uniqueResult();
+		Query query = session.createQuery("Select count(u) from Person u");
+		int numberOfUsers = (int) (long) query.uniqueResult();
 		session.close();
 		return numberOfUsers;
 	}
@@ -81,7 +81,7 @@ public class UserDAO {
 	 */ 
 	public void removeUser(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Delete from Users where id = :id");
+		Query query = session.createQuery("Delete from Person where id = :id");
 		query.setParameter("id", id).executeUpdate();
 		session.close();
 	}
