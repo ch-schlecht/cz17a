@@ -18,7 +18,7 @@ public class PlayerResource {
 
 	@POST
 	@Path("/register/{name}/{password}/{email}")
-	public Response registerPlayer(@PathParam("name") String name, @PathParam("password") String password,
+	public Response register(@PathParam("name") String name, @PathParam("password") String password,
 			@PathParam("email") String email) {
 		if (!dao.usernameExist(name) && !dao.emailExist(email)) {
 			Player player = new Player(email, name, password);
@@ -34,7 +34,7 @@ public class PlayerResource {
 
 	@POST
 	@Path("/login/{name}/{password}")
-	public Response loginPlayer(@PathParam("name") String name, @PathParam("password") String password) {
+	public Response login(@PathParam("name") String name, @PathParam("password") String password) {
 		Player player = dao.getPlayer(name);
 		if (player == null) {
 			player = dao.getPlayerByMail(name);
@@ -47,10 +47,22 @@ public class PlayerResource {
 			return Response.status(418).build(); // --> password is incorrect, reject login "IM A TEAPOT"
 		}
 	}
+	
+	@POST
+	@Path("/logout/{name}")
+	public Response logout(@PathParam("name") String name){
+		Player player = dao.getPlayer(name);
+		if(player != null) { //user does exist (and was logged in before, see todo in loginUser)
+			return Response.status(200).build(); //for now just give the ok
+		}
+		else {
+			return Response.status(400).build(); //user doesnt exist (or was not logged in before, see todo in loginUser), fail response
+		}
+	}
 
 	@DELETE
 	@Path("/{id}")
-	public Response deletePlayer(@PathParam("id") int id) {
+	public Response delete(@PathParam("id") int id) {
 		Player player = dao.getPlayer(id);
 		dao.deletePlayer(player);
 		if (dao.getPlayer(player.getId()) == null) { // if the user was successfully deleted from DB, then return 200
