@@ -129,13 +129,7 @@ public class ServerCommunication {
         for (int i = 0; i<questionCount; i++){
             questionArray[i] = new Question();
             try {
-                questionArray[i].setQuestionText(jsonArray.getJSONObject(i).getString("questioning"));
-                questionArray[i].setQuestionID(jsonArray.getJSONObject(i).getString("id"));
-                String[] answers = new String[4];
-                for(int f = 0; f<4;f++){
-                    answers[f] = jsonArray.getJSONObject(i).getJSONArray("answers").getJSONObject(f).getString("content");
-                }
-                questionArray[i].setAnswers(answers);
+                questionArray[i].jsonToQuestion(jsonArray.getJSONObject(i));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
