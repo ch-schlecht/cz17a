@@ -4,10 +4,11 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
+import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
-import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGET;
 import com.example.cz17a.quizclient.Src.Topic;
 import com.example.cz17a.quizclient.Login.User;
 
@@ -56,11 +57,11 @@ public class ServerCommunication {
      * used to pull topic/quiz-list
      * @return list of all quizzes as a JSON
      */
-    public JSONObject getQuizzesJSON() {
-        JSONObject jType = null;
+    public JSONArray getQuizzesJSON() {
+        JSONArray jType = null;
         try {
             URL url = new URL(URLHandler.getURLROOT()  + URLHandler.getURLQUIZ());
-            jType = new ClientThreadGET().execute(url).get();
+            jType = new ClientThreadGETArray().execute(url).get();
             return jType;
         }catch(IOException e){
 
@@ -77,11 +78,11 @@ public class ServerCommunication {
      * @param id = quizId
      * @return list of questions from quiz as a JSON
      */
-    public JSONObject getRandQuestionsJSON(String id) {
-        JSONObject jType = null;
+    public JSONArray getRandQuestionsJSON(String id) {
+        JSONArray jType = null;
         try {
             URL url = new URL(URLHandler.getURLROOT()  + createUrlQuestion(id));
-            jType = new ClientThreadGET().execute(url).get();
+            jType = new ClientThreadGETArray().execute(url).get();
             return jType;
         }catch(IOException e){
 
@@ -99,14 +100,9 @@ public class ServerCommunication {
      * got from the Server
      * @param quizzes The object the quizzes should be added to
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void setUpQuizzes(Quizzes quizzes){
         JSONArray jsonArray = null;
-        try {
-            jsonArray = new JSONArray(getQuizzesJSON());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonArray =getQuizzesJSON();
         for(int i = 0; i<jsonArray.length();i++){
             quizzes.getTopics().add(new Topic());
             try {
@@ -128,14 +124,10 @@ public class ServerCommunication {
      * @return an Array of Questions
      * @deprecated
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
     public Question[] getQuestions(int quizId){
         JSONArray jsonArray = null;
-        try {
-            jsonArray = new JSONArray(getRandQuestionsJSON(String.valueOf(quizId)));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonArray = getRandQuestionsJSON(String.valueOf(quizId));
         int questionCount = jsonArray.length();
         Question[] questionArray = new Question[questionCount];
         for (int i = 0; i<questionCount; i++){
@@ -160,7 +152,7 @@ public class ServerCommunication {
         JSONObject jUsr = null;
         try {
             URL url = urlHandler.genUsrRequestURL(usr.getNickname());
-            jUsr = new ClientThreadGET().execute(url).get();
+            jUsr = new ClientThreadGETObject().execute(url).get();
             return usr;
         } catch (InterruptedException e) {
             e.printStackTrace();
