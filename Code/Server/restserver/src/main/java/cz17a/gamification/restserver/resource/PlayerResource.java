@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import data.access.PlayerDAO;
 import data.model.Player;
 
-@Path("/users")
+@Path("/players")
 public class PlayerResource {
 	private PlayerDAO dao = new PlayerDAO();
 	@POST
