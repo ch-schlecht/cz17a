@@ -109,18 +109,20 @@ Der Client stellt per REST eine Anfrage an den Server, um eine Quizfrage zu beko
 
 \section{Arbeitspaket 2 - Spieler und Quiz}
 
-\subsection{REST-Schnittstelle}
-Das Registrieren, Anmelden, Abmelden und Löschen eines Spieleraccounts erfolgt über die REST-Schnittstelle. Bei Registrierung erstellt sie anhand der angegeben Daten einen neuen User in der Datenbank. Für den Login wird anhand des angebenen Usernamen die Übereinstimmung des eingegebenen Passworts mit dem in der Datenbank verglichen. Als Antwort erhält der Client stets einen Statuscode: 200 für Erfolg, 400 bzw. 404 für Misserfolg.
+\subsection{Server}
+\subsubsection{REST-Schnittstelle}
+Das Registrieren, Anmelden, Abmelden und Löschen eines Spieleraccounts erfolgt über die REST-Schnittstelle. Bei Registrierung erstellt sie anhand der angegeben Daten einen neuen User in der Datenbank. Für den Login wird anhand des angegebenen Usernamen die Übereinstimmung des eingegebenen Passworts mit dem in der Datenbank verglichen. Als Antwort erhält der Client stets einen Statuscode: 200 für Erfolg, 400 bzw. 404 für Misserfolg.
 
+\subsubsection{Game-Server}
+Der Server verfügt über Methoden, um die grundlegende Spiellogik zu verarbeiten. Dazu zählen das erstellen und verwalten einer Lobby sowie die grundlegende Spiellogik. Sobald fünf Spieler in einer Lobby sind, startet das Quiz. Am Ende einer Quizrunde erfolgt das Senden der Ergebnisse an die teilnehmenden Clients.
 
 \subsection{Client}
-Der Client wird um Screens für Registierung, Login und Logout erweitert. Die eingegebenen Daten werden als POST-Request an die REST-Schnittstelle zur Verarbeitung gesendet.
-
+Der Client wird um Screens für Registrierung, Login und Logout erweitert. Die eingegebenen Daten werden als POST-Request an die REST-Schnittstelle zur Verarbeitung gesendet. 
 
 
 
 \Chapter{Datenmodell}
-Die gewählte Datenbank ist eine PostgreSQL-Datenbank, da diese eine objektrelationales Mapping unterstützt. Sie ist ebenfalls auf dem Praktikumsserver installiert. Die Abbildung \ref{img:Datenbank} zeigt das verwendete Schema.
+Die gewählte Datenbank ist eine PostgreSQL-Datenbank, da diese objektrelationales Mapping unterstützt. Sie ist ebenfalls auf dem Praktikumsserver installiert. Die Abbildung \ref{img:Datenbank} zeigt das verwendete Schema.
 
 \begin{figure}
 	\centering
