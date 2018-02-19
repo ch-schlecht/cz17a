@@ -98,13 +98,13 @@ public class ServerCommunication {
     public void setUpQuizzes(Quizzes quizzes){
         JSONArray jsonArray = getQuizzesJSON();
         for(int i = 0; i<jsonArray.length();i++){
-            quizzes.topics.add(new Topic());
+            quizzes.getTopics().add(new Topic());
             try {
-                quizzes.topics.get(i).setTitle(jsonArray.getJSONObject(i).getString("title"));
-                quizzes.topics.get(i).setId(jsonArray.getJSONObject(i).getInt("id"));
-                quizzes.topics.get(i).setMaxParticipants(jsonArray.getJSONObject(i).getInt("maxParticipants"));
-                quizzes.topics.get(i).setMinParticipants(jsonArray.getJSONObject(i).getInt("minParticipants"));
-                quizzes.topics.get(i).setLength(jsonArray.getJSONObject(i).getInt("length"));
+                quizzes.getTopics().get(i).setTitle(jsonArray.getJSONObject(i).getString("title"));
+                quizzes.getTopics().get(i).setId(jsonArray.getJSONObject(i).getInt("id"));
+                quizzes.getTopics().get(i).setMaxParticipants(jsonArray.getJSONObject(i).getInt("maxParticipants"));
+                quizzes.getTopics().get(i).setMinParticipants(jsonArray.getJSONObject(i).getInt("minParticipants"));
+                quizzes.getTopics().get(i).setLength(jsonArray.getJSONObject(i).getInt("length"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
