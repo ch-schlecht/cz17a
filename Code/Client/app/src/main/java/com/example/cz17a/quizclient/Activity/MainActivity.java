@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                goToProfile();
             }
         });
     }

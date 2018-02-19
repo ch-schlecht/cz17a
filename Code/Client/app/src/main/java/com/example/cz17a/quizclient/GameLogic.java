@@ -65,6 +65,7 @@ public class GameLogic {
             public void onFinish(){
                 if(!question.getValuated()){
                     evaluation(buttons, -1 , question, indicator);
+                    socketCommunication.sendAnswer(null);
                 }
 
             }
@@ -80,6 +81,7 @@ public class GameLogic {
      */
     public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
+        socketCommunication.sendAnswer(buttons[i].getText().toString());
         //i<0, if no answer was given
         if(i < 0){
             indicator.setText("Zeit vorbei!");

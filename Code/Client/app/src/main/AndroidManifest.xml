@@ -27,6 +27,9 @@
             android:label="@string/title_activity_topic_selection"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Activity.ActivityProfile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Login.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
