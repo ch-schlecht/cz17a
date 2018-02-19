@@ -1,0 +1,12 @@
+<Bericht>
+	<Analyse von="2018-01-29" bis="2018-02-04" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
+		<done who="TG,WS" A="3" S="3" Zeit="18">Client</done>
+		<done who="MF" A="3" S="3" Zeit="10">Client und Server</done>
+		<done who="CS" A="3" S="3" Zeit="5">Server und Datenbank</done>
+		<done who="CS" A="3" S="3" Zeit="1.5">Release und QM</done>
+		<done who="SL" A="3" S="3" Zeit="2">Praesentation M2</done>
+		<done who="FF" A="3" S="3" Zeit="9">Client und Android Studio</done>
+		<done who="LV" A="2" S="1" Zeit="0.5">Issueverwaltung und Erstellung</done>
+		<done who="LV" A="3" S="4" Zeit="4">Lobby-Modellierung</done>
+	</Analyse>
+</Bericht>
