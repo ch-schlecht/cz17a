@@ -59,7 +59,7 @@ public class UserResource {
 			return Response.status(200).build(); //return ok --> successfully logged in
 		}
 		else {
-			return Response.status(404).build(); //--> password is incorrect, reject login
+			return Response.status(418).build(); //--> password is incorrect, reject login "IM A TEAPOT"
 		}
 	}
 	

@@ -106,12 +106,7 @@ public class Game {
 		List<Question> questions = getRound().getQuestions();
 		for(Socket s : player_sockets) {
 			try(OutputStream out = s.getOutputStream()) {
-				if(questions.isEmpty()) {
-                                        end();
-                                } else {
-                                        objectMapper.writeValue(out, questions.get(0));
-                                        questions.remove(0);
-                                }
+				objectMapper.writeValue(out, questions);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -136,7 +131,7 @@ public class Game {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else {
-			
+			// TODO: Socketkram, go für nächste Frage an alle Teilnehmer senden
 			playedQuestions++;
 		}
 	}
