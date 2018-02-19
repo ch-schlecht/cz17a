@@ -1,10 +1,13 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.cz17a.quizclient.Src.Quizzes;
+import com.example.cz17a.quizclient.R;
 
 public class LobbyActivity extends AppCompatActivity {
     public static Quizzes quizzes;

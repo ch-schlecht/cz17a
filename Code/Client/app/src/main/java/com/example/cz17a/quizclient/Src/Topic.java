@@ -1,4 +1,4 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Src;
 
 import android.widget.Button;
 
@@ -10,12 +10,12 @@ import android.widget.Button;
  * Representation for a single quiztype/topic
  */
 public class Topic {
-    int id;
-    String title;
-    int maxParticipants;
-    int minParticipants;
-    int length;
-    Button topicButton;
+   private int id;
+   private String title;
+   private int maxParticipants;
+   private int minParticipants;
+   private int length;
+   private Button topicButton;
 
     public void setId(int id) {
         this.id = id;

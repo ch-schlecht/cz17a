@@ -1,22 +1,17 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.ServerClient;
 
-import android.widget.ArrayAdapter;
-
-import com.example.cz17a.quizclient.ClientThread.ClientThreadGET;
+import com.example.cz17a.quizclient.Src.Question;
+import com.example.cz17a.quizclient.Src.Quizzes;
+import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGET;
+import com.example.cz17a.quizclient.Src.Topic;
+import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.lang.reflect.Array;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 /**

@@ -5,20 +5,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
+import com.example.cz17a.quizclient.Src.Question;
+
 /**
  * Created by Willy Steinbach on 11.01.2018.
  */
 
 public class GameLogic {
-    int quizId;
-    int questioncount;
-    Question questionlist[];
-    ServerCommunication servCom;
-    Button[] buttons;
-    TextView questionText;
-    TextView indicator;
-    TextView timer;
-    SocketCommunication socketCommunication;
+    private int quizId;
+    private int questioncount;
+    private Question questionlist[];
+    private ServerCommunication servCom;
+    private Button[] buttons;
+    private TextView questionText;
+    private TextView indicator;
+    private TextView timer;
+    private SocketCommunication socketCommunication;
+
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
                      final TextView indicator, final TextView timer){
         this.quizId = quizID;
@@ -58,7 +63,7 @@ public class GameLogic {
                 timer.setText("Zeit: " + millisUntilFinished/1000+ "s");
             }
             public void onFinish(){
-                if(!question.isValuated){
+                if(!question.getValuated()){
                     evaluation(buttons, -1 , question, indicator);
                 }
 
@@ -86,7 +91,7 @@ public class GameLogic {
             }
         }
         indicator.setVisibility(View.VISIBLE);
-        question.isValuated = true;
+        question.setValuated(true);
 
 
 

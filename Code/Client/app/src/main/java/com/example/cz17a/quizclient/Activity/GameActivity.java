@@ -1,13 +1,16 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Activity;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.cz17a.quizclient.GameLogic;
+import com.example.cz17a.quizclient.Src.Question;
+import com.example.cz17a.quizclient.Src.Quizzes;
+import com.example.cz17a.quizclient.R;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 
 /**
  * Created by Willy Steinbach

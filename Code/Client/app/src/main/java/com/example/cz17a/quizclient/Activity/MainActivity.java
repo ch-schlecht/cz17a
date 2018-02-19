@@ -1,17 +1,15 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import com.example.cz17a.quizclient.Login.User;
+import com.example.cz17a.quizclient.Src.Quizzes;
+import com.example.cz17a.quizclient.R;
+import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 
 /**
  * Created by Willy Steinbach

@@ -1,4 +1,4 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Src;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,11 +9,19 @@ import org.json.JSONObject;
  */
 
 public class Question {
-    String questionText;
-    String questionID;
-    String[] answers;
-    Boolean isValuated = false;
-    int answertime;
+   private String questionText;
+   private String questionID;
+   private String[] answers;
+   private Boolean isValuated = false;
+   private int answertime;
+
+    public Boolean getValuated() {
+        return isValuated;
+    }
+
+    public void setValuated(Boolean valuated) {
+        isValuated = valuated;
+    }
 
     public int getAnswertime() {
         if(answertime >0 ){

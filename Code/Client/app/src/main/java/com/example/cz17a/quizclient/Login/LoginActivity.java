@@ -1,4 +1,4 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,6 +31,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.cz17a.quizclient.Activity.MainActivity;
+import com.example.cz17a.quizclient.R;
 
 import java.util.ArrayList;
 import java.util.List;

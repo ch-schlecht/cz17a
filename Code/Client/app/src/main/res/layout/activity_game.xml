@@ -5,7 +5,7 @@
     android:id="@+id/gameactivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cz17a.quizclient.GameActivity">
+    tools:context="com.example.cz17a.quizclient.Activity.GameActivity">
 
     <Button
         android:id="@+id/antwort4but"

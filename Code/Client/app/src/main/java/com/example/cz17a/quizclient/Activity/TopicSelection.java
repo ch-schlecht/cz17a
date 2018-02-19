@@ -1,17 +1,14 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
+import com.example.cz17a.quizclient.Src.Quizzes;
+import com.example.cz17a.quizclient.R;
 
 /**
  * Created by Willy Steinbach
@@ -41,18 +38,18 @@ public class TopicSelection extends AppCompatActivity {
      * Method that creates the topic buttons
      */
     public void addButton(){
-        for(int i = 0; i<quizzes.topics.size(); i++){
+        for(int i = 0; i<quizzes.getTopics().size(); i++){
             final int finalI = i;
             Button b = new Button(this);
-            b.setText(quizzes.topics.get(i).getTitle());
+            b.setText(quizzes.getTopics().get(i).getTitle());
             LinearLayout linLayout = (LinearLayout) findViewById(R.id.linLayout);
             linLayout.addView(b);
-            quizzes.topics.get(i).setTopicButton(b);
+            quizzes.getTopics().get(i).setTopicButton(b);
             //Creates the ClickListener for each button
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goToGame(quizzes.topics.get(finalI).getId());
+                    goToGame(quizzes.getTopics().get(finalI).getId());
                 }
             });
         }

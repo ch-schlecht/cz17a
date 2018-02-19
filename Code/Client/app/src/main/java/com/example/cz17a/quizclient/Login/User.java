@@ -1,4 +1,4 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Login;
 
 import org.json.JSONException;
 import org.json.JSONObject;

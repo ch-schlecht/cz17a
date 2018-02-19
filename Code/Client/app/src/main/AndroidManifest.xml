@@ -18,16 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".GameActivity" />
+        <activity android:name=".Activity.GameActivity" />
         <activity
-            android:name=".TopicSelection"
+            android:name=".Activity.TopicSelection"
             android:label="@string/title_activity_topic_selection"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LobbyActivity"></activity>
+        <activity android:name=".Activity.LobbyActivity"></activity>
     </application>
 
 </manifest>

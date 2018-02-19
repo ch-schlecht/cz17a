@@ -1,11 +1,6 @@
-package com.example.cz17a.quizclient.ClientThread;
+package com.example.cz17a.quizclient.ServerClient.ClientThread;
 
 import android.os.AsyncTask;
-
-import com.example.cz17a.quizclient.GameActivity;
-import com.example.cz17a.quizclient.LoginActivity;
-import com.example.cz17a.quizclient.ServerCommunication;
-import com.example.cz17a.quizclient.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;

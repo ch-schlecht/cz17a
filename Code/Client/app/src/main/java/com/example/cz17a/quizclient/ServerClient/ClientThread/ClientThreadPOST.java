@@ -1,17 +1,14 @@
-package com.example.cz17a.quizclient.ClientThread;
+package com.example.cz17a.quizclient.ServerClient.ClientThread;
 
 import android.os.AsyncTask;
 
-import com.example.cz17a.quizclient.User;
+import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;

@@ -1,6 +1,6 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.ServerClient;
 
-import org.json.JSONObject;
+import com.example.cz17a.quizclient.Src.Question;
 
 import java.io.BufferedReader;
 import java.io.IOException;

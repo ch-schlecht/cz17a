@@ -1,4 +1,6 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Src;
+
+import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 
 import java.util.ArrayList;
 
@@ -10,8 +12,13 @@ import java.util.ArrayList;
  * Representation of all quiztypes and topics
  */
 public class Quizzes {
-    ArrayList<Topic> topics = new ArrayList<>();
-    ServerCommunication servCom;
+    private ArrayList<Topic> topics = new ArrayList<>();
+    private ServerCommunication servCom;
+
+    public ArrayList<Topic> getTopics() {
+        return topics;
+    }
+
     public Quizzes(ServerCommunication serverCommunication){
         servCom = serverCommunication;
     }
