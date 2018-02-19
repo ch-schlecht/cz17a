@@ -29,12 +29,41 @@ public class URLHandler {
         }
         return url;
     }
-    public URL genUsrLogUrl(String usrname, String pw){
+
+    /**
+     *
+     * @param usrname
+     * @param pw
+     * @return null if failed
+     */
+    public URL genUsrLogInURL(String usrname, String pw){
         try {
             url = new URL(URLROOT + "/users/login/" + usrname + "/" + pw);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return url;
     }
+
+    public URL genUsrLogOutURL(String usrname){
+        try {
+            url = new URL(URLROOT + "/users/logout/" + usrname);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public URL genUsrForgotURL(String usrname){
+        try {
+            url = new URL(URLROOT + "/users/forgotPasword/" + usrname);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
 }

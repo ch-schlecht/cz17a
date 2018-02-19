@@ -152,7 +152,7 @@ public class ServerCommunication {
         URL url = null;
         boolean success = false;
         try {
-            url = urlHandler.genUsrLogUrl(usrname, pw);
+            url = urlHandler.genUsrLogInURL(usrname, pw);
             success = new ClientThreadPOST().execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -162,6 +162,33 @@ public class ServerCommunication {
         return success;
     }
 
+    public boolean userLogout(String usrname){
+        URL url = null;
+        boolean success = false;
+        try {
+            url = urlHandler.genUsrLogOutURL(usrname);
+            success = new ClientThreadPOST().execute(url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 
+    public boolean userForgotPW(String usrname) {
+        URL url = null;
+        boolean success = false;
+        try {
+            url = urlHandler.genUsrForgotURL(usrname);
+            success = new ClientThreadPOST().execute(url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+
+    }
 }
 
