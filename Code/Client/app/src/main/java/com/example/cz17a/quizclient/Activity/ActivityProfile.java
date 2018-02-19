@@ -1,10 +1,13 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class activity_profile extends AppCompatActivity {
+import com.example.cz17a.quizclient.Login.User;
+import com.example.cz17a.quizclient.R;
 
+public class ActivityProfile extends AppCompatActivity {
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
