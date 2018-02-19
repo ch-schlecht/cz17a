@@ -5,7 +5,12 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import data.model.Answer;
-
+/**
+ * DAO Class for Answers
+ * @author cz17a
+ * @version 1.0
+ * @category DAO
+ */
 public class AnswerDAO {
 
 	public List<Answer> getAnswers(){

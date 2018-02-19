@@ -8,6 +8,13 @@ import org.hibernate.Transaction;
 
 import data.model.User;
 
+/**
+ * DAO Class for User
+ * @author cz17a
+ * @version 1.1
+ * @category DAO
+ */
+
 public class UserDAO {
 	
 	/**
@@ -24,7 +31,7 @@ public class UserDAO {
 		return user;
 	}
 	/**
-	 * Overloaded function, gets a User by nickname (since nicknames have to be unique) from DataBase
+	 * Overloaded function, gets an User by nickname (since nicknames have to be unique) from DataBase
 	 * @param nickname String of nickname
 	 * @return User Object
 	 */
@@ -36,6 +43,45 @@ public class UserDAO {
 		session.close();
 		return user;
 	}
+	
+	/**
+	 * Gets an User by email from DataBase
+	 * @param email String of email
+	 * @return User Object
+	 * @since 1.1
+	 */
+	public User getUserByMail(String email) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select u from Person u where u.mail = :mail");
+		query.setParameter("mail", email);
+		User user = (User) query.uniqueResult();
+		session.close();
+		return user;
+	}
+	
+	
+	public boolean usernameExist(String name) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select u from Person u where u.nickname = :nickname");
+		query.setParameter("nickname", name);
+		User user = (User) query.uniqueResult();
+		session.close();
+		if(user != null) return true;
+		return false;	
+	}
+	
+	public boolean emailExist(String email) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select u from Person u where u.mail = :mail");
+		query.setParameter("mail", email);
+		User user = (User) query.uniqueResult();
+		session.close();
+		if(user != null) return true;
+			return false;
+		
+	
+	}
+	
 	/**
 	 * Gets a List of all Users
 	 * @return List of User Objects

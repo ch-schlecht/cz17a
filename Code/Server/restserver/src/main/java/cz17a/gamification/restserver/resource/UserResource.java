@@ -32,31 +32,39 @@ public class UserResource {
 	@POST
 	@Path("/register/{name}/{password}/{email}")
 	public Response registerUser(@PathParam("name") String name, @PathParam("password") String password, @PathParam("email") String email) {
-		User user = new User(email, name, password);
-		user.setRegistration(Calendar.getInstance());
-		user.setId(userdao.countUsers() + 1); //may cause trouble if users are removed from DB and later new ones are created
-		userdao.addUser(user); //add the user to DB
+
+		if(!userdao.usernameExist(name) && !userdao.emailExist(email)) {
+			
+			User user = new User(email, name, password);
+			user.setRegistration(Calendar.getInstance());
+			user.setId(userdao.countUsers() + 1); //may cause trouble if users are removed from DB and later new ones are created
+			userdao.addUser(user); //add the user to DB
 		
-		if(userdao.getUser(user.getId()) != null) { //if the user was successfully stored to DB, the return 200
-			return Response.status(200).build();
+		
+			if(userdao.getUser(user.getId()) != null) { //if the user was successfully stored to DB, the return 200
+				return Response.status(200).build();
+			}
+			return Response.status(400).build(); //fail return, user has not been stored to DB
+
 		}
-		return Response.status(400).build(); //fail return, user has not been stored to DB
-		
+		return Response.status(418).build(); //registert user exists
 	}
 	
 	/**
-	 * Function to perform login of a user by giving nickname and password
-	 * @param name String
+	 * Function to perform login of a user by giving nickname (or email) and password
+	 * @param name String (or email)
 	 * @param password String
-	 * @return status code 200 if logged in successfully, 404 else (password is wrong)
+	 * @return status code 200 if logged in successfully, 418 else (password is wrong/user dont exist)
 	 */
 	@POST
 	@Path("/login/{name}/{password}")
 	public Response loginUser(@PathParam("name") String name, @PathParam("password") String password){
 		User user = userdao.getUser(name);
 		if(user == null) {
-			return Response.status(418).build();
+			user = userdao.getUserByMail(name);
+			if(user == null) 	return Response.status(418).build();
 		}
+		
 		if(user.getPassword().equals(password)) { //if the sent password is equal to the password stored in the DB
 			//TODO once game lobby is implemented, pass this user over to the lobby/give the game a sign that this user is logged in and potentially ready to play
 			return Response.status(200).build(); //return ok --> successfully logged in
