@@ -84,6 +84,7 @@ public class Lobby {
 			try (Socket socket = e.getValue();) {
 				OutputStream out = socket.getOutputStream();
 				objectMapper.writeValue(out, player_names);
+				out.flush();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}

@@ -94,6 +94,7 @@ public class Game {
 		for (Socket s : player_sockets) {
 			try (OutputStream out = s.getOutputStream();) {
 				out.write(id);
+				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -110,6 +111,7 @@ public class Game {
 					end();
 				} else {
 					objectMapper.writeValue(out, questions.get(0));
+					out.flush();
 					questions.remove(0);
 				}
 
@@ -140,6 +142,7 @@ public class Game {
 			for (Socket s : player_sockets) {
 				try (OutputStream out = s.getOutputStream()) {
 					out.write(1); // For now just 1 as signal, that next question can begin
+					out.flush();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -162,6 +165,7 @@ public class Game {
 		for (Socket s : player_sockets) {
 			try (OutputStream out = s.getOutputStream()) {
 				objectMapper.writeValue(out, pointsMap);
+				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
