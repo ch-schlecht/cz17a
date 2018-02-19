@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import data.model.Player;
-import data.model.User;
 
 public class PlayerDAO {
 	public Player getPlayer(int id) {
