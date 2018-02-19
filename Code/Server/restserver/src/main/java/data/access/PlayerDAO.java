@@ -33,6 +33,14 @@ public class PlayerDAO {
 		ts.commit();
 		session.close();
 	}
+	
+	public void deletePlayer(Player player) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction ts = session.beginTransaction();
+		session.delete(player);
+		ts.commit();
+		session.close();
+	}
 
 	public Player getPlayerByMail(String email) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
