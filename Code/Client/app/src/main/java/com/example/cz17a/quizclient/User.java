@@ -1,18 +1,28 @@
 package com.example.cz17a.quizclient;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.sql.Timestamp;
+
+import jdk.nashorn.internal.parser.JSONParser;
 
 /**
  * Created by Willy Steinbach on 06.02.2018.
  */
 
 public class User {
-    int id;
-    String mail;
-    String nickname;
-    Timestamp lastLogin;
-    Timestamp regristration;
-    float playtime;
+    private int id;
+    private String mail;
+    private String nickname;
+    private Timestamp lastLogin;
+    private Timestamp regristration;
+    private float playtime;
+
+    public User(String mail, String nickname){
+        this.mail = mail;
+        this.nickname = nickname;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -36,5 +46,20 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public JSONObject toJSON(){
+        JSONObject usrJSON = new JSONObject();
+        try {
+            usrJSON.put("id", this.id);
+            usrJSON.put("mail", this.mail);
+            usrJSON.put("nickname", this.mail);
+            usrJSON.put("lastLogin", this.lastLogin);
+            usrJSON.put("registry", this.regristration);
+            usrJSON.put("playtime", this.playtime);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return usrJSON;
     }
 }

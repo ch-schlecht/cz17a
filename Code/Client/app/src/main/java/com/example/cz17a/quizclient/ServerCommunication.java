@@ -2,6 +2,8 @@ package com.example.cz17a.quizclient;
 
 import android.widget.ArrayAdapter;
 
+import com.example.cz17a.quizclient.ClientThread.ClientThreadGET;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,24 +20,32 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Created by Willy Steinbach on 17.01.2018.
- * Edited by Thomas Gerbert on 18.01.2018
- * Edited by Thomas Gerbert/ Willy Steinbach on 29.01.2018
+ * @version 0.2.1
+ * @author Willy Steinbach, Thomas Gerbert
  */
 
 public class ServerCommunication {
 
     final static private String URLROOT = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
     final static private String URLQUIZ = "/quizzes";
-    private String nudes = null;
+    private User usr = null;
 
-    JSONObject jType = null;
 
+    /**
+     *  generates quest-url
+     * @param id = QuizId
+     * @return URL
+     */
     public String createUrlQuestion(String id){
         String urlQuest = "/quizzes/" + id + "/random_questions";
         return urlQuest;
     }
 
+    /**
+     *  generates answer-url
+     * @param id = AnswerId
+     * @return URL
+     */
     public String createUrlAnswer(String id){
         String urlAnswer = "/questions/"+ id + "/answers";
 
@@ -51,7 +61,7 @@ public class ServerCommunication {
         JSONArray jType = null;
         try {
             URL url = new URL(URLROOT  + URLQUIZ);
-            jType = new ClientThread().execute(url).get();
+            jType = new ClientThreadGET().execute(url).get();
             return jType;
         }catch(IOException e){
 
@@ -65,14 +75,14 @@ public class ServerCommunication {
     }
     /**
      * requests list of questions from topic
-     * @param id of quiz
+     * @param id = quizId
      * @return list of questions from quiz as a JSON
      */
     public JSONArray getRandQuestionsJSON(String id) {
         JSONArray jType = null;
         try {
             URL url = new URL(URLROOT  + createUrlQuestion(id));
-            jType = new ClientThread().execute(url).get();
+            jType = new ClientThreadGET().execute(url).get();
             return jType;
         }catch(IOException e){
 
@@ -85,29 +95,9 @@ public class ServerCommunication {
         return null;
     }
 
-
-
-    // under construction
-    public void sendResponse(){
-        try{
-            if(URLROOT != null && nudes != null){
-                URL url = new URL(URLROOT + nudes);
-                HttpURLConnection connect = (HttpURLConnection) url.openConnection();
-                connect.setRequestMethod("POST"); //throws ProtocolException
-                connect.connect();
-    //            BufferedOutputStream usr_answer = new OutputStream(usr.getanswer()); //antwort des Users
-                connect.disconnect();
-            }else{
-                System.out.println("URL nicht gesetzt");
-                return;
-            }
-        }catch(IOException e){
-
-        }
-    }
-
     /**
-     * Method that sets up the Quizzes/Topics from the JSONArray, which it gets from the Server
+     * Method that sets up the Quizzes/Topics from the JSONArray
+     * got from the Server
      * @param quizzes The object the quizzes should be added to
      */
     public void setUpQuizzes(Quizzes quizzes){
@@ -153,4 +143,9 @@ public class ServerCommunication {
         }
         return questionArray;
     }
+
+    public void createUsr(JSONObject usr){
+
+    }
 }
+
