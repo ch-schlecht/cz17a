@@ -120,7 +120,7 @@ public class Game {
 		}
 	}
 
-	private void end() throws IOException {
+	private void end() {
 		sendEndResults();
 		saveEndResults();
 		for(Socket s : player_sockets) {
@@ -133,7 +133,7 @@ public class Game {
 		GamePool.removeGame(id);
 	}
 
-	private void startNextQuestion() throws IOException {
+	private void startNextQuestion() {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else {
@@ -147,15 +147,21 @@ public class Game {
 		return allPlayeresAndwered;
 	}
 
-	private void sendEndResults() throws IOException {
+	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Map<String, Integer> pointsMap = new HashMap<>();
 		for(int i = 0; i < players.size(); i++) {
 			pointsMap.put(players.get(i).getNickname(), round.getParticipations().get(i).getScore());
 		}
 		for(Socket s : player_sockets) {
-			OutputStream out = s.getOutputStream();
-			objectMapper.writeValue(out, pointsMap);
+			OutputStream out;
+			try {
+				out = s.getOutputStream();
+				objectMapper.writeValue(out, pointsMap);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
