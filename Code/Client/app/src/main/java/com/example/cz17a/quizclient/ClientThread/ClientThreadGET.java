@@ -1,6 +1,11 @@
-package com.example.cz17a.quizclient;
+package com.example.cz17a.quizclient.ClientThread;
 
 import android.os.AsyncTask;
+
+import com.example.cz17a.quizclient.GameActivity;
+import com.example.cz17a.quizclient.LoginActivity;
+import com.example.cz17a.quizclient.ServerCommunication;
+import com.example.cz17a.quizclient.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,10 +23,10 @@ import java.net.URL;
  */
 
 public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray> {
-
     /**
      * @params url
      * @return JSONArray
+     * @version 0.3
      */
     @Override
     protected JSONArray doInBackground(URL... urls) {
@@ -36,8 +41,8 @@ public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray> {
                 //set connectiontype to get
                 try {
                     HttpURLConnection connect = (HttpURLConnection) url.openConnection();
-                    connect.setRequestMethod("GET"); //throws ProtocolException
-                  connect.connect();
+                    connect.setRequestMethod("GET");//throws ProtocolException
+                    connect.connect();
                     if (connect.getResponseCode() != 200) {
                         throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
                  }
