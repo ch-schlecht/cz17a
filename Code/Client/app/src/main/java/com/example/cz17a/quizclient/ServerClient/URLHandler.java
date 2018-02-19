@@ -29,4 +29,12 @@ public class URLHandler {
         }
         return url;
     }
+    public URL genUsrLogUrl(String usrname, String pw){
+        try {
+            url = new URL(URLROOT + "/users/register/" + usrname + "/" + pw);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
 }
