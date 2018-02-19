@@ -78,8 +78,6 @@ public class UserDAO {
 		session.close();
 		if(user != null) return true;
 			return false;
-		
-	
 	}
 	
 	/**
