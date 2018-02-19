@@ -134,7 +134,7 @@ public class ServerCommunication {
         return questionArray;
     }
 
-    public boolean createUsr(String usrname, String pw, String email){
+    public boolean usrRegistry(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
         try {
@@ -147,5 +147,21 @@ public class ServerCommunication {
         }
     return success;
     }
+
+    public boolean usrLogin(String usrname, String pw){
+        URL url = null;
+        boolean success = false;
+        try {
+            url = urlHandler.genUsrLogUrl(usrname, pw);
+            success = new ClientThreadPOST().execute(url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
+
+
 }
 
