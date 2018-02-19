@@ -31,7 +31,7 @@ public class URLHandler {
     }
     public URL genUsrLogUrl(String usrname, String pw){
         try {
-            url = new URL(URLROOT + "/users/register/" + usrname + "/" + pw);
+            url = new URL(URLROOT + "/users/login/" + usrname + "/" + pw);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

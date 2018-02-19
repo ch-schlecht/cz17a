@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    EditText nickname;
     private boolean registrationShowed;
     private LinearLayout linearLayout;
     ServerCommunication servCom;
@@ -79,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        nickname= (EditText) findViewById(R.id.nicknameInput);
         Button skipbutton = findViewById(R.id.skipbutton);
         skipbutton.setOnClickListener(new OnClickListener() {
             @Override
@@ -109,7 +111,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
-                attemptLogin();
+                //attemptLogin();
+                servCom = new ServerCommunication();
+                if(servCom.usrLogin(nickname.getText().toString(),mPasswordView.getText().toString())){
+                    goToMain();
+                }
             }
         });
 
@@ -118,11 +124,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
     public void register(){
         servCom = new ServerCommunication();
-        EditText nickname= (EditText) findViewById(R.id.nicknameInput);
         System.out.println(nickname.getText().toString());
-        servCom.createUsr(nickname.getText().toString(),
+        if(servCom.usrRegistry(nickname.getText().toString(),
                 mPasswordView.getText().toString(),
-                mEmailView.getText().toString());
+                mEmailView.getText().toString())){
+            goToMain();
+        }
+
 
     }
 
