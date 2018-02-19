@@ -30,10 +30,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.cz17a.quizclient.Activity.MainActivity;
 import com.example.cz17a.quizclient.R;
+import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +70,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
     private boolean registrationShowed;
-    private LinearLayout linLayout;
+    private LinearLayout linearLayout;
+    ServerCommunication servCom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +80,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         Button skipbutton = findViewById(R.id.skipbutton);
-
         skipbutton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,12 +90,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         registration.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!registrationShowed){
-                    System.out.println("REGISTER");
-                    addTextInput();
-
-                }
-                registrationShowed = true;
+                register();
             }
         });
         populateAutoComplete();
@@ -119,13 +116,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+    public void register(){
+        servCom = new ServerCommunication();
+        EditText nickname= (EditText) findViewById(R.id.nicknameInput);
+        System.out.println(nickname.getText().toString());
+        servCom.createUsr(nickname.getText().toString(),
+                mPasswordView.getText().toString(),
+                mEmailView.getText().toString());
 
-    public void addTextInput(){
-        linLayout = (LinearLayout) findViewById(R.id.linearLayout);
-        TextInputLayout nickname = new TextInputLayout(this);
-        Button b = new Button(this);
-        System.out.println("CREATE");
-        linLayout.addView(b);
     }
 
     public void goToMain(){
