@@ -90,16 +90,27 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
-	public void start() throws IOException {
+	public void start() {
+		for(Socket s : player_sockets) {
+			try(OutputStream out = s.getOutputStream();) {
+				out.write(id);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		startRound();
 	}
 
-	private void startRound() throws IOException {
+	private void startRound() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<Question> questions = getRound().getQuestions();
 		for(Socket s : player_sockets) {
-			OutputStream out = s.getOutputStream();
-			objectMapper.writeValue(out, questions);
+			try(OutputStream out = s.getOutputStream()) {
+				objectMapper.writeValue(out, questions);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 

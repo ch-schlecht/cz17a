@@ -1,5 +1,6 @@
 package data.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @XmlRootElement
-public class Question implements Cloneable {
+public class Question implements Cloneable, Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
