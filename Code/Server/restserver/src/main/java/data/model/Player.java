@@ -1,5 +1,6 @@
 package data.model;
 
+import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-public class Player extends User {
+public class Player extends User implements Serializable {
 	@Column(name = "playtime_in_minutes")
 	private double playtimeInMinutes;
 	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)

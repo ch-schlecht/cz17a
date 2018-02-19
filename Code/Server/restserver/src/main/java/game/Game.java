@@ -9,8 +9,10 @@ import data.model.Round;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +30,7 @@ public class Game {
 	 */
 	private int playedQuestions;
 	private List<Socket> player_sockets;
+	private List<Player> players;
 
 	public Game(int id, Quiz quiz, List<Player> players, List<Socket> sockets) {
 		this.id = id;
@@ -36,6 +39,7 @@ public class Game {
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
 		this.player_sockets = sockets;
+		this.players = players;
 	}
 
 	public int getId() {
@@ -86,20 +90,31 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
-	public void start() throws IOException {
+	public void start() {
+		for(Socket s : player_sockets) {
+			try(OutputStream out = s.getOutputStream();) {
+				out.write(id);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		startRound();
 	}
 
-	private void startRound() throws IOException {
+	private void startRound() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<Question> questions = getRound().getQuestions();
 		for(Socket s : player_sockets) {
-			OutputStream out = s.getOutputStream();
-			objectMapper.writeValue(out, questions);
+			try(OutputStream out = s.getOutputStream()) {
+				objectMapper.writeValue(out, questions);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
-	private void end() {
+	private void end() throws IOException {
 		sendEndResults();
 		saveEndResults();
 		for(Socket s : player_sockets) {
@@ -112,7 +127,7 @@ public class Game {
 		GamePool.removeGame(id);
 	}
 
-	private void startNextQuestion() {
+	private void startNextQuestion() throws IOException {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else {
@@ -126,8 +141,16 @@ public class Game {
 		return allPlayeresAndwered;
 	}
 
-	private void sendEndResults() {
-		// TODO: Socketkram, schicke Ergebnis an alle Clients
+	private void sendEndResults() throws IOException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		Map<String, Integer> pointsMap = new HashMap<>();
+		for(int i = 0; i < players.size(); i++) {
+			pointsMap.put(players.get(i).getNickname(), round.getParticipations().get(i).getScore());
+		}
+		for(Socket s : player_sockets) {
+			OutputStream out = s.getOutputStream();
+			objectMapper.writeValue(out, pointsMap);
+		}
 	}
 
 	private void saveEndResults() {

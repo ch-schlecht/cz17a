@@ -111,6 +111,7 @@ public class UserResource {
 
 	/**
 	 * Function that removes a user from the DB 
+	 * TODO!!! Only when authentificated
 	 * @param id of the user 
 	 * @return status code 200 if sent successfully, 400 else 
 	 */ 

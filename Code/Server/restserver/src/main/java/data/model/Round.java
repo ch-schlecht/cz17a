@@ -1,5 +1,6 @@
 package data.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-public class Round {
+public class Round implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -123,5 +124,4 @@ public class Round {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-
 }
