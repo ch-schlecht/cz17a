@@ -18,9 +18,13 @@ import java.net.URL;
  * @version 0.2
  */
 
-public class ClientThreadPOST extends AsyncTask<URL, Integer, JSONArray> {
+public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
 
     private JSONObject usr;
+
+    public ClientThreadPOST(){
+        this.usr = null;
+    }
 
     public ClientThreadPOST(User usr){
         this.usr = usr.toJSON();
@@ -30,10 +34,9 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, JSONArray> {
      * @return JSONArray
      */
     @Override
-    protected JSONArray doInBackground(URL... urls) {
-
+    protected Boolean doInBackground(URL... urls) {
         if (urls.length == 0) {
-            return null;
+            return false;
         }
         for (URL url : urls) {
             try {
@@ -44,14 +47,15 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, JSONArray> {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
                 }
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
-                out.write(usr.toString());
+                //future implement
+                //out.write(usr.toString());
                 connect.disconnect();
             } catch (IOException e) {
                 System.out.println("cant connect to given URL");
-                return null;
+                return false;
             }
 
         }
-            return null;
+        return true;
     }
 }

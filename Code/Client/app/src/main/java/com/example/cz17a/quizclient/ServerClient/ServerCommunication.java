@@ -1,5 +1,8 @@
 package com.example.cz17a.quizclient.ServerClient;
 
+import android.os.AsyncTask;
+
+import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGET;
@@ -11,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
@@ -21,10 +25,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ServerCommunication {
 
-    final static private String URLROOT = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
-    final static private String URLQUIZ = "/quizzes";
-    private User usr = null;
-
+    URLHandler urlHandler = new URLHandler();
 
     /**
      *  generates quest-url
@@ -55,7 +56,7 @@ public class ServerCommunication {
     public JSONArray getQuizzesJSON() {
         JSONArray jType = null;
         try {
-            URL url = new URL(URLROOT  + URLQUIZ);
+            URL url = new URL(URLHandler.getURLROOT()  + URLHandler.getURLQUIZ());
             jType = new ClientThreadGET().execute(url).get();
             return jType;
         }catch(IOException e){
@@ -76,7 +77,7 @@ public class ServerCommunication {
     public JSONArray getRandQuestionsJSON(String id) {
         JSONArray jType = null;
         try {
-            URL url = new URL(URLROOT  + createUrlQuestion(id));
+            URL url = new URL(URLHandler.getURLROOT()  + createUrlQuestion(id));
             jType = new ClientThreadGET().execute(url).get();
             return jType;
         }catch(IOException e){
@@ -133,8 +134,18 @@ public class ServerCommunication {
         return questionArray;
     }
 
-    public void createUsr(JSONObject usr){
-
+    public boolean createUsr(String usrname, String pw, String email){
+        URL url = null;
+        boolean success = false;
+        try {
+            url = urlHandler.genUsrUrl(usrname, pw, email);
+           success = new ClientThreadPOST().execute(url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    return success;
     }
 }
 
