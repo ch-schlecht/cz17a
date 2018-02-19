@@ -1,7 +1,6 @@
 package game;
 
 import data.access.RoundDAO;
-import data.model.Participation;
 import data.model.Player;
 import data.model.Question;
 import data.model.Quiz;
@@ -9,7 +8,6 @@ import data.model.Round;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.List;
@@ -29,13 +27,15 @@ public class Game {
 	 * Counts how many questions were played
 	 */
 	private int playedQuestions;
+	private List<Socket> player_sockets;
 
-	public Game(int id, Quiz quiz, List<Player> players) {
+	public Game(int id, Quiz quiz, List<Player> players, List<Socket> sockets) {
 		this.id = id;
 		this.waitingPlayers = new HashSet<Integer>();
 		this.jackpot = new Jackpot();
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
+		this.player_sockets = sockets;
 	}
 
 	public int getId() {
@@ -93,25 +93,22 @@ public class Game {
 	private void startRound() throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<Question> questions = getRound().getQuestions();
-		for(Participation p : round.getParticipations()) {
-			int port;
-			InetAddress ip;
-			Player player = p.getPlayer();
-			port = player.getPort();
-			ip = player.getIPAddress();
-			try(Socket socket = new Socket(ip, port)) {
-				OutputStream out = socket.getOutputStream();
-				objectMapper.writeValue(out, questions);
-				socket.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
+		for(Socket s : player_sockets) {
+			OutputStream out = s.getOutputStream();
+			objectMapper.writeValue(out, questions);
 		}
 	}
 
 	private void end() {
 		sendEndResults();
 		saveEndResults();
+		for(Socket s : player_sockets) {
+			try {
+				s.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		GamePool.removeGame(id);
 	}
 
