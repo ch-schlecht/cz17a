@@ -260,7 +260,6 @@ public class ServerCommunication {
 
     /**
      *
-     * @param usrname
      * @return true by success
      */
     public boolean usrJoinLobby(String quizId, String usrId, String port) {

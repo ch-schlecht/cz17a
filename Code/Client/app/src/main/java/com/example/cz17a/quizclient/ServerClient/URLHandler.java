@@ -75,8 +75,16 @@ public class URLHandler {
         }
         return url;
     }
+    public URL genUsrRequestURL(String usrname){
+        try {
+            url = new URL(URLROOT + "/users/" + usrname);
 
-    done.
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
 
 
 

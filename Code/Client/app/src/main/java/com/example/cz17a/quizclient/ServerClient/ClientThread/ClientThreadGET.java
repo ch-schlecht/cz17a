@@ -17,7 +17,7 @@ import java.net.URL;
  * @version 0.2
  */
 
-public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray>{
+public class ClientThreadGET extends AsyncTask<URL, Integer, JSONObject>{
 
     private JSONObject usr;
 
@@ -28,7 +28,7 @@ public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray>{
      * @version 0.3
      */
     @Override
-    protected JSONArray doInBackground(URL... urls) {
+    protected JSONObject doInBackground(URL... urls) {
 
            if (urls.length == 0) {
                 return null;
@@ -56,12 +56,12 @@ public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray>{
                     System.out.println("cant connect to given URL");
                  return null;
                 }
-                JSONArray jType = null;
+                JSONObject jType = null;
 
              //try to parse input into JSONArray
                 try {
                     System.out.println("QUIZTYPE: "+quizType);
-                    jType = new JSONArray(quizType);
+                    jType = new JSONObject(quizType);
                     System.out.println("JSON: "+jType.toString());
              } catch (JSONException j) {
                     System.out.println("invalid Data");
