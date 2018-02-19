@@ -34,8 +34,8 @@ public class LobbyResource {
 	 */
 	@PUT
 	@Path("/{quiz_id}/join/{user_id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id){
+	//@Produces(MediaType.APPLICATION_JSON)
+	public Integer joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id){
 		Player player = new PlayerDAO().getPlayer(player_id);
 		player.setPort(request.getRemotePort());
 		InetAddress ip;
@@ -43,12 +43,14 @@ public class LobbyResource {
 			ip = InetAddress.getByName(request.getRemoteAddr());
 			player.setIPAddress(ip);
 			LobbyPool.joinLobby(quiz_id, player);
-			return Response.status(200).build();
+			return LobbyPool.activeLobbies.get(quiz_id).getPort();
+			//return Response.status(200).build();
 		}
 		catch(UnknownHostException e) {
 			e.printStackTrace();
 			//Verbesserungswürdig
-			return Response.status(400).build();
+			return 0;
+			//return Response.status(400).build();
 		}
 	}
 	
