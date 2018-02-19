@@ -134,6 +134,13 @@ public class ServerCommunication {
         return questionArray;
     }
 
+    /**
+     *
+     * @param usrname
+     * @param pw
+     * @param email
+     * @return true by success
+     */
     public boolean usrRegistry(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
@@ -148,6 +155,12 @@ public class ServerCommunication {
     return success;
     }
 
+    /**
+     *
+     * @param usrname
+     * @param pw
+     * @return true by success
+     */
     public boolean usrLogin(String usrname, String pw){
         URL url = null;
         boolean success = false;
@@ -162,6 +175,11 @@ public class ServerCommunication {
         return success;
     }
 
+    /**
+     *
+     * @param usrname
+     * @return true by success
+     */
     public boolean userLogout(String usrname){
         URL url = null;
         boolean success = false;
@@ -176,6 +194,11 @@ public class ServerCommunication {
         return success;
     }
 
+    /**
+     *
+     * @param usrname
+     * @return true by success
+     */
     public boolean userForgotPW(String usrname) {
         URL url = null;
         boolean success = false;

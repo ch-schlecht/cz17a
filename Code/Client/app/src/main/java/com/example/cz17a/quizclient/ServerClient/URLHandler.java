@@ -58,7 +58,7 @@ public class URLHandler {
 
     public URL genUsrForgotURL(String usrname){
         try {
-            url = new URL(URLROOT + "/users/forgotPasword/" + usrname);
+            url = new URL(URLROOT + "/users/forgotpassword/" + usrname);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
