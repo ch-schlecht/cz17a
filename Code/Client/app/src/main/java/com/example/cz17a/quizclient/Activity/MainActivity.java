@@ -27,10 +27,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Button playgame = findViewById(R.id.playbutton);
+        Button profile = findViewById(R.id.profileButton);
         playgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToTopicSelection(view);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToProfile();
             }
         });
     }
@@ -43,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         quizzes = new Quizzes(servCom);
         quizzes.setUpQuizzes();
         TopicSelection.quizzes = quizzes;
+        startActivity(intent);
+    }
+    public void goToProfile(){
+        Intent intent = new Intent(this, ActivityProfile.class);
+        ActivityProfile.user = user;
         startActivity(intent);
     }
 

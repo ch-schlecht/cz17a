@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import data.model.Player;
-import data.model.User;
 
 public class PlayerDAO {
 	public Player getPlayer(int id) {
@@ -31,6 +30,14 @@ public class PlayerDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
 		session.save(player);
+		ts.commit();
+		session.close();
+	}
+	
+	public void deletePlayer(Player player) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction ts = session.beginTransaction();
+		session.delete(player);
 		ts.commit();
 		session.close();
 	}
