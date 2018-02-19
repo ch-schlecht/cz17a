@@ -1,5 +1,7 @@
 package com.example.cz17a.quizclient;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,5 +44,13 @@ public class SocketCommunication {
 
 
    }
+   public Question getNextQuestion(){
+
+        Question question = new Question();
+        question.dummyQuestion();
+        System.out.println("DummyFrage: "+ question.toString());
+       return question;
+   }
+
 }
 

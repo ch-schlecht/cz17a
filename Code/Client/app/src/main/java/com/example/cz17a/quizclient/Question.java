@@ -1,5 +1,9 @@
 package com.example.cz17a.quizclient;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by stein on 11.01.2018.
  */
@@ -9,6 +13,20 @@ public class Question {
     String questionID;
     String[] answers;
     Boolean isValuated = false;
+    int answertime;
+
+    public int getAnswertime() {
+        if(answertime >0 ){
+            return answertime;
+        }else{
+            return 15000;
+        }
+
+    }
+
+    public void setAnswertime(int answertime) {
+        this.answertime = answertime;
+    }
 
     public Question (){
     }
@@ -60,5 +78,27 @@ public class Question {
      */
     public String getID(){
         return questionID;
+    }
+    public void jsonToQuestion(JSONObject json){
+        try {
+            this.questionText = json.getString("questioning");
+            this.questionID = json.getString("questioning");
+            answers = new String[4];
+            for(int i = 0; i<4;i++){
+
+                answers[i] = json.getJSONArray("answers").getJSONObject(i).getString("content");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void dummyQuestion(){
+        questionText = "DUMMY TESTFRAGE ";
+        questionID = "1";
+        answers = new String[4];
+        for (int i =0; i<4;i++){
+            answers[i]= "Test Antwort";
+        }
     }
 }

@@ -14,40 +14,46 @@ public class GameLogic {
     int questioncount;
     Question questionlist[];
     ServerCommunication servCom;
-    public GameLogic(int quizID){
+    Button[] buttons;
+    TextView questionText;
+    TextView indicator;
+    TextView timer;
+    SocketCommunication socketCommunication;
+    public GameLogic(int quizID, final Button[] buttons, TextView questionText,
+                     final TextView indicator, final TextView timer){
         this.quizId = quizID;
+        this.buttons = buttons;
+        this.questionText = questionText;
+        this.indicator = indicator;
+        this.timer = timer;
         servCom = new ServerCommunication();
-        questionlist = servCom.getQuestions(quizId);
-        questioncount = questionlist.length;
+        //questionlist = servCom.getQuestions(quizId);
+        //questioncount = questionlist.length;
     }
 
     /**
      * Method for playing a specified Question
      * Modifies Buttons and TextFields of the GameActivity
      * @param question The question that is going to be played
-     * @param buttons The answer buttons of the GameActivty
-     * @param questionText The TextView, which is showing the question text
-     * @param indicator The TextView, which shows if the questions was answerd right or wrong
-     * @param timer The textView which shows the time left
      */
-    public void playNewQuestion(final Question question, final Button[] buttons, TextView questionText,
-                                final TextView indicator, final TextView timer){
+    public void playNewQuestion(final Question question){
         indicator.setVisibility(View.INVISIBLE);
         //initializes the buttons for this question
         for(int i = 0; i<4; i++){
-            buttons[i].setText(question.getAnswers(i));
             final int finalI = i;
+            buttons[i].setText(question.getAnswers(i));
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     evaluation(buttons, finalI , question, indicator);
+                    socketCommunication.sendAnswer(buttons[finalI].getText().toString());
                 }
             });
         }
         questionText.setText(question.getQuestionText());
         buttonsActivate(buttons);
         //sets the timer
-        new CountDownTimer(10000,1000){
+        new CountDownTimer(question.getAnswertime(),1000){
             public void onTick(long millisUntilFinished){
                 timer.setText("Zeit: " + millisUntilFinished/1000+ "s");
             }

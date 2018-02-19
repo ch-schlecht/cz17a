@@ -14,12 +14,18 @@ import android.widget.TextView;
  */
 
 public class GameActivity extends AppCompatActivity {
+    SocketCommunication socketCommunication;
     public static Quizzes quizzes;
     int quizId;
+    TextView indicator = null;
+    TextView timer = null;
+    TextView questionText = null;
+    GameLogic game= null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        socketCommunication = new SocketCommunication();
         quizId = getIntent().getExtras().getInt("quizId",1);
         newGame();
     }
@@ -29,40 +35,25 @@ public class GameActivity extends AppCompatActivity {
      * and the GameLogic with Questions and Answers
      */
     public void newGame() {
-        final GameLogic game = new GameLogic(quizId);
         final Button[] buttons = new Button[4];
         //defines the Buttons and TextViews
         buttons[0] = findViewById(R.id.antwort1but);
         buttons[1] = findViewById(R.id.antwort2but);
         buttons[2] = findViewById(R.id.antwort3but);
         buttons[3] = findViewById(R.id.antwort4but);
-        final TextView indicator = findViewById(R.id.indicatior);
-        final TextView timer = findViewById(R.id.timer);
-        final TextView questionText = findViewById(R.id.fragenText);
+
+        indicator = findViewById(R.id.indicatior);
+        TextView timer = findViewById(R.id.timer);
+        TextView questionText = findViewById(R.id.fragenText);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        //time for that a question is shown
-        int delay = 15000;
-        //starts every Question after a delay
-        for (int i = 0; i < game.questioncount; i++) {
-            final int finalI = i;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < game.questioncount; i++) {
-                        System.out.println("PLAY QUESTION: "+ game.questionlist[0].getQuestionText());
-                        game.playNewQuestion(game.questionlist[finalI], buttons, questionText, indicator, timer);
-                    }
-                }
-            }, delay * i);
-        }
-        //after all questions are played return to previous activity
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                onBackPressed();
-            }
-        }, delay * (game.questioncount + 1));
+        final GameLogic game = new GameLogic(quizId, buttons, questionText, indicator, timer);
+
+        game.playNewQuestion(socketCommunication.getNextQuestion());
+    }
+    public void triggerNewQuestion(Question question){
+        game.playNewQuestion(question);
+
     }
 }
 
