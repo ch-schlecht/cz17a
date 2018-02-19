@@ -2,8 +2,11 @@ package com.example.cz17a.quizclient.ClientThread;
 
 import android.os.AsyncTask;
 
+import com.example.cz17a.quizclient.User;
+
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,8 +23,12 @@ import java.net.URL;
 
 public class ClientThreadPOST extends AsyncTask<URL, Integer, JSONArray> {
 
+    private JSONObject usr;
+
+    public ClientThreadPOST(User usr){
+        this.usr = usr.toJSON();
+    }
     /**
-     * @deprecated clientThread 0.3
      * @params url
      * @return JSONArray
      */
@@ -39,7 +46,8 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, JSONArray> {
                 if (connect.getResponseCode() != 200) {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
                 }
-                BufferedWriter Out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                out.write(usr.toString());
                 connect.disconnect();
             } catch (IOException e) {
                 System.out.println("cant connect to given URL");

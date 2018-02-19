@@ -22,7 +22,11 @@ import java.net.URL;
  * @version 0.2
  */
 
-public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray> {
+public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray>{
+
+    private JSONObject usr;
+
+
     /**
      * @params url
      * @return JSONArray
@@ -41,7 +45,7 @@ public class ClientThreadGET extends AsyncTask<URL, Integer, JSONArray> {
                 //set connectiontype to get
                 try {
                     HttpURLConnection connect = (HttpURLConnection) url.openConnection();
-                    connect.setRequestMethod("GET");//throws ProtocolException
+                        connect.setRequestMethod("GET");//throws ProtocolException
                     connect.connect();
                     if (connect.getResponseCode() != 200) {
                         throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
