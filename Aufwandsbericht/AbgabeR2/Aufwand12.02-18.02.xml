@@ -1,0 +1,11 @@
+<Bericht>
+	<Analyse von="2018-02-12" bis="2018-02-18" gruppe="cz17a" createdBy="CS" createdAt="2018-02-12">
+		<done who="CS" A="3" S="3" Zeit="7">User serverseitig</done>
+		<done who="LV" A="3" S="4" Zeit="2.5">Game-Modellierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.75">Lobby-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.5">Game-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="0.75">IP und Port vom Client auslesen</done>
+		<done who="FZ,SL" A="4" S="4" Zeit="8">Server</done>
+		<done who="FZ,MF,SL,TG,WS" A="4" S="4" Zeit="12">Client und Server</done>		
+	</Analyse>
+</Bericht>
