@@ -99,10 +99,10 @@
                         android:text="Register" />
 
                     <Button
-                        android:id="@+id/skipbutton"
+                        android:id="@+id/passwordreset"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Skip Login" />
+                        android:text="Reset Password" />
                 </LinearLayout>
 
             </android.support.design.widget.TextInputLayout>

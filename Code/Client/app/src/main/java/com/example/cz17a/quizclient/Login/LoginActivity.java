@@ -81,13 +81,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         nickname= (EditText) findViewById(R.id.nicknameInput);
-        Button skipbutton = findViewById(R.id.skipbutton);
-        skipbutton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToMain();
-            }
-        });
+        Button resetpasswordButton = findViewById(R.id.passwordreset);
         Button registration = findViewById(R.id.registrationButton);
         registration.setOnClickListener(new OnClickListener() {
             @Override
@@ -107,14 +101,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
-
+        resetpasswordButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                servCom = new ServerCommunication();
+                servCom.userForgotPW(nickname.getText().toString());
+            }
+        });
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 //attemptLogin();
                 servCom = new ServerCommunication();
                 if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString())){
-                    goToMain();
+                    User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+                    goToMain(user);
                 }
             }
         });
@@ -129,14 +130,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if(servCom.usrRegistry(nickname.getText().toString(),
                 mPasswordView.getText().toString(),
                 mEmailView.getText().toString())){
-            goToMain();
+            User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+            goToMain(user);
         }
-
-
     }
 
-    public void goToMain(){
+    public void goToMain(User user){
         Intent intent = new Intent(this, MainActivity.class);
+        MainActivity.user = user;
         startActivity(intent);
     }
 

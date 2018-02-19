@@ -16,7 +16,7 @@ import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
  */
 
 public class MainActivity extends AppCompatActivity {
-    User user;
+    public static User user;
     ServerCommunication servCom;
     Quizzes quizzes;
 
