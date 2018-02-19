@@ -1,5 +1,6 @@
 package game;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,11 @@ public class GamePool {
 				games.put(id, game);
 			}
 		}
-		games.get(id).start();
+		try {
+			games.get(id).start();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void removeGame(int id) {

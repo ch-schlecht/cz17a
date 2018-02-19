@@ -8,14 +8,18 @@ import data.model.Player;
 import data.model.Quiz;
 
 public class Lobby {
+	int port = 50000;
 	private Quiz quiz;
 	private Deque<Player> players = new ArrayDeque<Player>();
 
+	private ServerThreadPool threadPool;
+	
 	
 	public Lobby(Quiz quiz, Player firstPlayer) {
 		this.quiz = quiz;
 		players.add(firstPlayer);
-		
+		threadPool = new ServerThreadPool(port);
+		new Thread(threadPool).start();
 	}
 	
 	public Quiz getQuiz() {
@@ -45,10 +49,24 @@ public class Lobby {
 	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
 			players.remove(p);
+			if(players.isEmpty()) {
+				destroyLobby();
+			}
 		}
 		sendLobbyStateToPlayers();
 	}
 
+	public int getPort() {
+		return port;
+	}
+	
+	public boolean destroyLobby(){
+	
+		threadPool.stop();
+		return true;
+	}
+
+		
 	public boolean hasRequiredPlayers() {
 		boolean requiredPlayers = players.size() >= quiz.getMinParticipants();
 		return requiredPlayers;
@@ -56,6 +74,7 @@ public class Lobby {
 	
 	private void sendLobbyStateToPlayers() {
 		//Socketkram, Liste der Player an beteiligte Clients schicken.
+		
 	}
 	
 	private void openGame() {
