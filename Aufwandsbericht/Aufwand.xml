@@ -128,6 +128,8 @@
 		<done who="CS" A="3" S="3" Zeit="1.5">Release und QM</done>
 		<done who="SV" A="3" S="3" Zeit="2">Praesentation M2</done>
 		<done who="FF" A="3" S="3" Zeit="9">Client und Android Studio</done>
+		<done who="LV" A="2" S="1" Zeit="0.5">Issueverwaltung und Erstellung</done>
+		<done who="LV" A="3" S="4" Zeit="4">Lobby-Modellierung</done>
 	</Analyse>
 	<Analyse von="2018-02-05" bis="2018-02-11" gruppe="cz17a" createdBy="CS" createdAt="2018-02-05">
 		<done who="TG,WS,MF,LV,FF,CS,SL,FZ" A="3" S="3" Zeit="2">internes Treffen</done>
@@ -135,5 +137,9 @@
 	</Analyse>
 	<Analyse von="2018-02-12" bis="2018-02-18" gruppe="cz17a" createdBy="CS" createdAt="2018-02-12">
 		<done who="CS" A="3" S="3" Zeit="7">User serverseitig</done>
+		<done who="LV" A="3" S="4" Zeit="2.5">Game-Modellierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.75">Lobby-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.5">Game-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="0.75">IP und Port vom Client auslesen</done>
 	</Analyse>
 </Bericht>

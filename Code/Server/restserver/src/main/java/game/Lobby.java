@@ -8,14 +8,13 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.model.Player;
 import data.model.Quiz;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
 
 public class Lobby {
 	private Quiz quiz;
@@ -44,7 +43,7 @@ public class Lobby {
 		this.players = players;
 	}
 	
-	public void addPlayer(Player p) throws IOException {
+	public void addPlayer(Player p)  {
 		players.add(p);
 		try(Socket socket = new Socket(p.getIPAddress(), p.getPort())) {
 			player_sockets.put(p.getId(), socket);
@@ -57,7 +56,7 @@ public class Lobby {
 		}
 	}
 	
-	public void removePlayer(Player p) throws IOException {	
+	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
 			players.remove(p);
 			try(Socket s = player_sockets.get(p.getId())) {
@@ -74,21 +73,24 @@ public class Lobby {
 		boolean requiredPlayers = players.size() >= quiz.getMinParticipants();
 		return requiredPlayers;
 	}
-	
-	private void sendLobbyStateToPlayers() throws IOException {
-		for(Player p : players) {
-                        int port = p.getPort();
-                        InetAddress ip = p.getIPAddress();
-                    
-                        try(Socket socket = new Socket(ip, port)) {
-                                OutputStream out = socket.getOutputStream();
-                                out.write(players.size());
-                        } catch (IOException ex) {
-                                ex.printStackTrace();
-                        }
-                }
+
+	private void sendLobbyStateToPlayers() {
+		List<String> player_names = new ArrayList<String>();
+		ObjectMapper objectMapper = new ObjectMapper();
+		for (Player p : players) {
+			player_names.add(p.getNickname());
+		}
+		for (Entry<Integer, Socket> e : player_sockets.entrySet()) {
+			try (Socket socket = e.getValue();) {
+				OutputStream out = socket.getOutputStream();
+				objectMapper.writeValue(out, player_names);
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+
+		}
 	}
-	
+
 	private void openGame() {
 		List<Player> playersForGame = new ArrayList<Player>();
 		while(playersForGame.size() < quiz.getMinParticipants()) {
