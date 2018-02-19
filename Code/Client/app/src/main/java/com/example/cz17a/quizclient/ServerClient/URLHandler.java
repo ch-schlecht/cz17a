@@ -66,4 +66,14 @@ public class URLHandler {
         return url;
     }
 
+    public URL lobbyURL(String quizId, String usrId, String port){
+        try {
+            url = new URL(URLROOT + "/users/"+quizId+"/join/"+usrId+"/"+port);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
 }

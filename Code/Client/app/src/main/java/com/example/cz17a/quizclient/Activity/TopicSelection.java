@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
 
@@ -16,6 +17,7 @@ import com.example.cz17a.quizclient.R;
 
 public class TopicSelection extends AppCompatActivity {
     public static Quizzes quizzes;
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,6 +32,7 @@ public class TopicSelection extends AppCompatActivity {
     public void goToGame(int quizId){
         Intent intent = new Intent(this,  LobbyActivity.class);
         LobbyActivity.quizzes = quizzes;
+        LobbyActivity.user = user;
         intent.putExtra("quizId", quizId);
         startActivity(intent);
     }

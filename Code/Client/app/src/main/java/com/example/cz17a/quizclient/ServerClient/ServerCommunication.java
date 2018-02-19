@@ -213,5 +213,27 @@ public class ServerCommunication {
         return success;
 
     }
+
+    /**
+     *
+     * @param usrname
+     * @return true by success
+     */
+    public boolean usrJoinLobby(String quizId, String usrId, String port) {
+        URL url = null;
+        boolean success = false;
+        try {
+            url = urlHandler.lobbyURL(quizId, usrId, port);
+            success = new ClientThreadPOST().execute(url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+
+    }
+
+
 }
 
