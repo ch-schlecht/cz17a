@@ -54,6 +54,9 @@ public class UserResource {
 	@Path("/login/{name}/{password}")
 	public Response loginUser(@PathParam("name") String name, @PathParam("password") String password){
 		User user = userdao.getUser(name);
+		if(user == null) {
+			return Response.status(418).build();
+		}
 		if(user.getPassword().equals(password)) { //if the sent password is equal to the password stored in the DB
 			//TODO once game lobby is implemented, pass this user over to the lobby/give the game a sign that this user is logged in and potentially ready to play
 			return Response.status(200).build(); //return ok --> successfully logged in
