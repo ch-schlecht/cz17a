@@ -11,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 
 /**
@@ -46,10 +47,13 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 if (connect.getResponseCode() != 200) {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
                 }
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                //BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
                 //future implement
                 //out.write(usr.toString());
                 connect.disconnect();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+                return false;
             } catch (IOException e) {
                 System.out.println("cant connect to given URL");
                 return false;

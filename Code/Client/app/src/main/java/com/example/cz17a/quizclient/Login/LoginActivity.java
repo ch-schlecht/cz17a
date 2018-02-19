@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
                 //attemptLogin();
                 servCom = new ServerCommunication();
-                if(servCom.usrLogin(nickname.getText().toString(),mPasswordView.getText().toString())){
+                if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString())){
                     goToMain();
                 }
             }
@@ -122,6 +122,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+
     public void register(){
         servCom = new ServerCommunication();
         System.out.println(nickname.getText().toString());
