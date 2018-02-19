@@ -72,4 +72,28 @@ public class PlayerResource {
 		}
 
 	}
+	
+	@POST
+	@Path("/forgotPassword/{name}")
+	public Response sendPasswordToMail(@PathParam("name") String name){
+		try { //sourround with try catch to check if mail sends correctly
+			Player user = dao.getPlayer(name);
+			String username = "cz17a"; //this is the username of our mail address
+			String password = "swtcz17a"; //corresponding password
+			String senderAddress ="cz17a@web.de";//our email-address
+			String recipientsAddress = user.getMail(); //receivers email
+			String subject = "Your Password for cz17a Quiz App";
+			String text = user.getPassword();
+			String smtpHost = "smtp.web.de"; //smtp host of web.de
+			MailResource mail = new MailResource();
+			mail.sendMail(smtpHost, username, password, senderAddress, recipientsAddress, subject, text);
+		}
+		catch(Exception ex) {
+			ex.printStackTrace(System.err);
+			return Response.status(400).build(); //if an exception occured while sending return fail code
+		}
+		finally {
+			return Response.status(200).build();
+		}
+	}
 }
