@@ -1,6 +1,7 @@
 package game;
 
 import data.access.RoundDAO;
+import data.model.Participation;
 import data.model.Player;
 import data.model.Question;
 import data.model.Quiz;
@@ -29,8 +30,7 @@ public class Game {
 	 * Counts how many questions were played
 	 */
 	private int playedQuestions;
-	private List<Socket> player_sockets;
-	private List<Player> players;
+	private List<Socket> playerSockets;
 
 	public Game(int id, Quiz quiz, List<Player> players, List<Socket> sockets) {
 		this.id = id;
@@ -38,8 +38,7 @@ public class Game {
 		this.jackpot = new Jackpot();
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
-		this.player_sockets = sockets;
-		this.players = players;
+		this.playerSockets = sockets;
 	}
 
 	public int getId() {
@@ -90,8 +89,16 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
+	public List<Socket> getPlayerSockets() {
+		return playerSockets;
+	}
+
+	public void setPlayerSockets(List<Socket> player_sockets) {
+		this.playerSockets = player_sockets;
+	}
+
 	public void start() {
-		for (Socket s : player_sockets) {
+		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream();) {
 				out.write(id);
 				out.flush();
@@ -105,7 +112,7 @@ public class Game {
 	private void startRound() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<Question> questions = getRound().getQuestions();
-		for (Socket s : player_sockets) {
+		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream()) {
 				if (questions.isEmpty()) {
 					end();
@@ -125,7 +132,7 @@ public class Game {
 	private void end() {
 		sendEndResults();
 		saveEndResults();
-		for (Socket s : player_sockets) {
+		for (Socket s : playerSockets) {
 			try {
 				s.close();
 			} catch (IOException e) {
@@ -139,7 +146,7 @@ public class Game {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else {
-			for (Socket s : player_sockets) {
+			for (Socket s : playerSockets) {
 				try (OutputStream out = s.getOutputStream()) {
 					out.write(1); // For now just 1 as signal, that next question can begin
 					out.flush();
@@ -159,10 +166,11 @@ public class Game {
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Map<String, Integer> pointsMap = new HashMap<>();
-		for (int i = 0; i < players.size(); i++) {
-			pointsMap.put(players.get(i).getNickname(), round.getParticipations().get(i).getScore());
+		for (Participation p : round.getParticipations()) {
+			Player player = p.getPlayer();
+			pointsMap.put(player.getNickname(), p.getScore());
 		}
-		for (Socket s : player_sockets) {
+		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream()) {
 				objectMapper.writeValue(out, pointsMap);
 				out.flush();
