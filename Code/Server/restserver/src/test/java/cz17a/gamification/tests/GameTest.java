@@ -99,8 +99,8 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		assertNotNull(pQuestion.getRound());
 		assertNotNull(pQuestion.getScore());
 		assertNotNull(pQuestion.getSpeedInSeconds());
-		assertNotNull(pQuestion.isIsCorrect());
-		assertTrue(pQuestion.isIsCorrect());
+		assertNotNull(pQuestion.getIsCorrect());
+		assertTrue(pQuestion.getIsCorrect());
 		assertEquals(pQuestion.getScore(), 100);
 	}
 

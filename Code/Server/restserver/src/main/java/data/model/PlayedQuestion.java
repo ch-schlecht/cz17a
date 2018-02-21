@@ -6,7 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity(name = "Played_Question")
 public class PlayedQuestion implements Serializable {
 	@Id
@@ -49,6 +52,7 @@ public class PlayedQuestion implements Serializable {
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
+	@XmlTransient
 	public Round getRound() {
 		return round;
 	}
@@ -61,18 +65,6 @@ public class PlayedQuestion implements Serializable {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	public boolean isIsJackpot() {
-		return isJackpot;
-	}
-	public void setIsJackpot(boolean isJackpot) {
-		this.isJackpot = isJackpot;
-	}
-	public boolean isIsCorrect() {
-		return isCorrect;
-	}
-	public void setIsCorrect(boolean isCorrect) {
-		this.isCorrect = isCorrect;
-	}
 	public int getScore() {
 		return score;
 	}
@@ -84,6 +76,22 @@ public class PlayedQuestion implements Serializable {
 	}
 	public void setSpeedInSeconds(double speedInSeconds) {
 		this.speedInSeconds = speedInSeconds;
+	}
+
+	public boolean getIsJackpot() {
+		return isJackpot;
+	}
+
+	public void setIsJackpot(boolean isJackpot) {
+		this.isJackpot = isJackpot;
+	}
+
+	public boolean getIsCorrect() {
+		return isCorrect;
+	}
+
+	public void setIsCorrect(boolean isCorrect) {
+		this.isCorrect = isCorrect;
 	}
 	
 	

@@ -2,17 +2,23 @@ package cz17a.gamification.restserver.resource;
 
 import java.util.List;
 
-import javax.ws.rs.DefaultValue;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import data.access.PlayerDAO;
 import data.access.QuestionDAO;
 import data.model.Answer;
+import data.model.PlayedQuestion;
+import data.model.Player;
 import data.model.Question;
+import game.Game;
+import game.GamePool;
 /**
  * Resource-Class for Questions
  * @author cz17a
@@ -22,36 +28,40 @@ import data.model.Question;
 @Path("/questions")
 public class QuestionResource {
 	private QuestionDAO dao = new QuestionDAO();
-	/**
-	 * Getting List of All Questions <br/>
-	 * Able to Filter by:
-	 * <li>topic</li>
-	 * @param topic to filter by, default = null
-	 * @return List of All Questions (with topic)
-	 * @since 1.0
-	 */
+	
 	@GET
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Question> getAllQuestions(@DefaultValue("null") @QueryParam("topic") String topic){
-		if(topic.equals("null")) { //no filter
-			//System.out.println("No TOPIC set"); //TEST ONLY
-			return dao.getQuestions(); //return all Questions
-		}
-		//System.out.println("Topic: "+topic+" set"); //TEST ONLY
-		return dao.getQuestionsByTopic(topic); //return all Questions with topic
+	public Question getQuestion(@PathParam("id") int questionId){
+		return dao.getQuestion(questionId);
 	}
 	
-	/**
-	 * Getting all Answers of an specific Question
-	 * @param question_id ID of Question
-	 * @return List of Answers to Question {ID}
-	 * @since 1.0
-	 */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Question> getAllQuestions(){
+		return dao.getQuestions();
+	}
+	
 	@GET
 	@Path("/{id}/answers/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Answer> getAnswersByQuestion(@PathParam("id") int question_id){
 		List<Answer> answers = dao.getQuestion(question_id).getAnswers();
 		return answers;
+	}
+	
+	@POST
+	@Path("/played/{game_id}/{question_id}/{player_id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addPlayedQuestion(@PathParam("game_id") int gameId, @PathParam("question_id") int questionId, @PathParam("player_id") int playerId, PlayedQuestion playedQuestion) {
+		Game game = GamePool.games.get(gameId);
+		Player player = new PlayerDAO().getPlayer(playerId);
+		Question question = new QuestionDAO().getQuestion(questionId);
+		playedQuestion.setRound(game.getRound());
+		playedQuestion.setPlayer(player);
+		playedQuestion.setQuestion(question);
+		game.getRound().addPlayedQuestion(playedQuestion);
+		return Response.status(200).build();
 	}
 }
