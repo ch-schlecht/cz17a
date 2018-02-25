@@ -51,15 +51,6 @@ public class PlayerDAO {
 		return player;
 	}
 
-	public boolean emailExist(String email) {
-		Player player = getPlayerByMail(email);
-		if (player != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	public Player getPlayer(String nickname) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select p from Player p where p.nickname = :nickname");
@@ -71,6 +62,29 @@ public class PlayerDAO {
 
 	public boolean usernameExist(String name) {
 		Player player = getPlayer(name);
+		if (player != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean emailExist(String email) {
+		Player player = getPlayerByMail(email);
+		if (player != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean passwordExist(String password) {
+		Player player;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select p from Player p where p.password = :password");
+		query.setParameter("password", password);
+		player = (Player) query.uniqueResult();
+		session.close();
 		if (player != null) {
 			return true;
 		} else {

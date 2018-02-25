@@ -2,34 +2,51 @@ package cz17a.gamification.restserver.resource;
 
 import java.util.Calendar;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import data.access.PlayerDAO;
 import data.model.Player;
-import data.model.User;
 
 @Path("/players")
 public class PlayerResource {
 	private PlayerDAO dao = new PlayerDAO();
-
+	
 	@POST
-	@Path("/register/{name}/{password}/{email}")
-	public Response register(@PathParam("name") String name, @PathParam("password") String password,
-			@PathParam("email") String email) {
-		if (!dao.usernameExist(name) && !dao.emailExist(email)) {
+	@Path("/register")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String register(Player p) {
+		String email = p.getMail();
+		String name = p.getNickname();
+		String password = p.getPassword();
+		if(dao.usernameExist(name)) {
+			return "Dieser Nickname existiert bereits";
+		}
+		else if(dao.emailExist(email)) {
+			return "Diese Email existiert bereits";
+		}
+		else if(dao.passwordExist(password)) {
+			return "Dieses Passwort existiert bereits";
+		}
+		else {
 			Player player = new Player(email, name, password);
 			player.setRegistration(Calendar.getInstance());
+			player.setPlaytimeInMinutes(0);
 			dao.addPlayer(player);
-			if (dao.getPlayer(player.getId()) != null) {
-				return Response.status(200).build();
+			if (dao.getPlayer(name) != null) {
+				return "Sie haben sich erfolgreich registriert";
 			}
-			return Response.status(400).build();
+			else {
+				return "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut!";
+			}
 		}
-		return Response.status(418).build();
 	}
 
 	@POST
