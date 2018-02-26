@@ -182,7 +182,7 @@ public class ServerCommunication {
         boolean success = false;
         String usrreg = ("nickname" + usrname + "password" + pw + "mail" + email);
         try {
-            url = urlHandler.genUsrUrl(usrname, pw, email);
+            url = urlHandler.genUsrUrl();
            success = new ClientThreadPOST(usrreg).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -203,7 +203,7 @@ public class ServerCommunication {
         boolean success = false;
         String usrlog = ("nickname" + usrname + "password" + pw + "mail" + email);
         try {
-            url = urlHandler.genUsrLogInURL(usrname, pw);
+            url = urlHandler.genUsrLogInURL();
             success = new ClientThreadPOST(usrlog).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();

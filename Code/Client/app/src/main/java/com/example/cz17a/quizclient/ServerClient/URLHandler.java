@@ -21,7 +21,7 @@ public class URLHandler {
         return URLQUIZ;
     }
 
-    public URL genUsrUrl(String usrname, String pw, String email){
+    public URL genUsrUrl(){
         try {
             url = new URL(URLROOT + "/players/register");
         } catch (MalformedURLException e) {
@@ -32,13 +32,11 @@ public class URLHandler {
 
     /**
      *
-     * @param usrname
-     * @param pw
      * @return null if failed
      */
-    public URL genUsrLogInURL(String usrname, String pw){
+    public URL genUsrLogInURL(){
         try {
-            url = new URL(URLROOT + "/users/login/" + usrname + "/" + pw);
+            url = new URL(URLROOT + "/players/login");
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
