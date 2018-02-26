@@ -5,10 +5,13 @@ import android.os.AsyncTask;
 import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
@@ -21,15 +24,18 @@ import java.net.URL;
 
 public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
 
-    private JSONObject usr;
+    private JSONObject usr = null;
 
     public ClientThreadPOST(){
         this.usr = null;
     }
 
-    public ClientThreadPOST(User usr){
-        this.usr = usr.toJSON();
+    public ClientThreadPOST(JSONObject usr){
+        this.usr = usr;
     }
+
+
+
     /**
      * @params url
      * @return JSONArray
@@ -44,12 +50,19 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
                 connect.setRequestMethod("POST"); //throws ProtocolException
                 connect.connect();
-                if (connect.getResponseCode() != 200) {
+                /*if (connect.getResponseCode() != 200) {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
+                }*/
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                out.write(usr.toString());
+                BufferedReader cIn = new BufferedReader(new InputStreamReader(connect.getInputStream()));
+                String line = "";
+                String in = "";
+                while ((line = cIn.readLine()) != null) {
+                    System.out.println(line);
+                    in += line;
                 }
-                //BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
-                //future implement
-                //out.write(usr.toString());
+                System.out.println(in);
                 connect.disconnect();
             } catch (ProtocolException e) {
                 e.printStackTrace();

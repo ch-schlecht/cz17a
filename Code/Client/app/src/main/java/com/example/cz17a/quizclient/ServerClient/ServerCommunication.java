@@ -15,6 +15,7 @@ import com.example.cz17a.quizclient.Login.User;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -177,12 +178,21 @@ public class ServerCommunication {
      * @param email
      * @return true by success
      */
-    public boolean usrRegistry(String usrname, String pw, String email){
+    public boolean usrRegistry(String usrname, String pw, String email){   //players
         URL url = null;
         boolean success = false;
+        JSONObject usrreg = null;
         try {
-            url = urlHandler.genUsrUrl(usrname, pw, email);
-           success = new ClientThreadPOST().execute(url).get();
+            usrreg.put("nickname",usrname);
+            usrreg.put("password", pw);
+            usrreg.put("mail", email);
+        } catch (JSONException e) {
+            System.err.println("Data is no JSON");
+            e.printStackTrace();
+        }
+        try {
+            url = urlHandler.genUsrUrl();
+           success = new ClientThreadPOST(usrreg).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -197,12 +207,22 @@ public class ServerCommunication {
      * @param pw
      * @return true by success
      */
-    public boolean usrLogin(String usrname, String pw){
+    public boolean usrLogin(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
+        JSONObject usrlog = new JSONObject();
         try {
-            url = urlHandler.genUsrLogInURL(usrname, pw);
-            success = new ClientThreadPOST().execute(url).get();
+            usrlog.put("nickname",usrname);
+            usrlog.put("password", pw);
+            usrlog.put("mail", email);
+        } catch (JSONException e) {
+            System.err.println("Data is no JSON");
+            e.printStackTrace();
+        }
+        System.out.println("LOGIN:" + usrlog);
+        try {
+            url = urlHandler.genUsrLogInURL();
+            success = new ClientThreadPOST(usrlog).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

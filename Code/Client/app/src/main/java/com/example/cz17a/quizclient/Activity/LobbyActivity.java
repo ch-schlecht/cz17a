@@ -30,12 +30,13 @@ public class LobbyActivity extends AppCompatActivity {
             }
         });
 
+        /**
         Thread socketCom = new Thread(new SocketCommunication(port));
         socketCom.run();
 
         ServerCommunication com = new ServerCommunication();
         com.usrJoinLobby(""+quizId,""+user.getId(),""+port);
-
+**/
 
 
     }
