@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
@@ -30,6 +31,17 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
     public ClientThreadPOST(User usr){
         this.usr = usr.toJSON();
     }
+
+    public ClientThreadPOST(String s){
+        try {
+            this.usr = new JSONObject(s);
+        } catch (JSONException e) {
+            System.err.println("Data is no JSON");
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * @params url
      * @return JSONArray
@@ -47,9 +59,8 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 if (connect.getResponseCode() != 200) {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
                 }
-                //BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
-                //future implement
-                //out.write(usr.toString());
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                out.write(usr.toString());
                 connect.disconnect();
             } catch (ProtocolException e) {
                 e.printStackTrace();

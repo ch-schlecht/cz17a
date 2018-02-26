@@ -23,7 +23,7 @@ public class URLHandler {
 
     public URL genUsrUrl(String usrname, String pw, String email){
         try {
-            url = new URL(URLROOT + "/users/register/" + usrname + "/" + pw + "/" + email);
+            url = new URL(URLROOT + "/players/register");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

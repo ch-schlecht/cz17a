@@ -177,12 +177,13 @@ public class ServerCommunication {
      * @param email
      * @return true by success
      */
-    public boolean usrRegistry(String usrname, String pw, String email){
+    public boolean usrRegistry(String usrname, String pw, String email){   //players
         URL url = null;
         boolean success = false;
+        String usrreg = ("nickname" + usrname + "password" + pw + "mail" + email);
         try {
             url = urlHandler.genUsrUrl(usrname, pw, email);
-           success = new ClientThreadPOST().execute(url).get();
+           success = new ClientThreadPOST(usrreg).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -197,12 +198,13 @@ public class ServerCommunication {
      * @param pw
      * @return true by success
      */
-    public boolean usrLogin(String usrname, String pw){
+    public boolean usrLogin(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
+        String usrlog = ("nickname" + usrname + "password" + pw + "mail" + email);
         try {
             url = urlHandler.genUsrLogInURL(usrname, pw);
-            success = new ClientThreadPOST().execute(url).get();
+            success = new ClientThreadPOST(usrlog).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
