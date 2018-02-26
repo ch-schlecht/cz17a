@@ -15,6 +15,7 @@ import com.example.cz17a.quizclient.Login.User;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -180,7 +181,15 @@ public class ServerCommunication {
     public boolean usrRegistry(String usrname, String pw, String email){   //players
         URL url = null;
         boolean success = false;
-        String usrreg = ("nickname: " + usrname + ", password: " + pw + ", mail: " + email);
+        JSONObject usrreg = null;
+        try {
+            usrreg.put("nickname",usrname);
+            usrreg.put("password", pw);
+            usrreg.put("mail", email);
+        } catch (JSONException e) {
+            System.err.println("Data is no JSON");
+            e.printStackTrace();
+        }
         try {
             url = urlHandler.genUsrUrl();
            success = new ClientThreadPOST(usrreg).execute(url).get();
@@ -201,7 +210,16 @@ public class ServerCommunication {
     public boolean usrLogin(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
-        String usrlog = ("nickname: " + usrname + ", password: " + pw + ", mail: " + email);
+        JSONObject usrlog = new JSONObject();
+        try {
+            usrlog.put("nickname",usrname);
+            usrlog.put("password", pw);
+            usrlog.put("mail", email);
+        } catch (JSONException e) {
+            System.err.println("Data is no JSON");
+            e.printStackTrace();
+        }
+        System.out.println("LOGIN:" + usrlog);
         try {
             url = urlHandler.genUsrLogInURL();
             success = new ClientThreadPOST(usrlog).execute(url).get();
