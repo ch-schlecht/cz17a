@@ -7,7 +7,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import data.access.QuizDAO;
-import data.model.Question;
 import data.model.Quiz;
 /**
  * Resource-Class for Quiz
@@ -29,20 +28,6 @@ public class QuizResource {
 	public List<Quiz> getQuizzes(){
 		List<Quiz> quizzes = dao.getQuizzes();
 		return quizzes;
-	}
-	
-	/**
-	 * Get all Questions of an Quiz
-	 * @param quiz_id ID of Quiz
-	 * @return List of all Question containing to Quiz {ID}
-	 * @since 1.0 
-	 */
-	@GET
-	@Path("/{id}/random_questions")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Question> get(@PathParam("id") int quiz_id) {
-		Quiz quiz = dao.getQuiz(quiz_id);
-		return quiz.getRandomQuestions();
 	}
 	
 	/**

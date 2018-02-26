@@ -45,5 +45,4 @@ public class QuestionDAO {
 		transaction.commit();
 		session.close();
 	}
-
 }

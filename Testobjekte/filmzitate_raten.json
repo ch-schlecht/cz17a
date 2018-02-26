@@ -1,0 +1,452 @@
+[
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Der Mann, der Liberty Valance erschoss",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Spiderman",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Spiel mir das Lied vom Tod",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "300",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Wenn die Legende zur Tatsache geworden ist, druck die Legende.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Matrix",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Blade Runner",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Der dunkle Turm",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Der Wüstenplanet",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Willkommen in der Wüste der Wirklichkeit",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Asterix bei den Briten",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Troja",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Guardians of the Galaxy",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Star Wars - Das Imperium schlägt zurück",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Wir sterben mit der Waffe in der Hand ... wenn es sein muss.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Der König der Löwen",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Der Heer der Ringe",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Harry Potter und der Stein der Weisen",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Zurück in die Zukunft",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Ich will doch nur dass dir nichts passiert. Du bist doch mein kleiner Lieblingsneffe.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Das fünfte Element",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Avatar",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Irgendwann in Mexico",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Mad Max",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Hey Lady, ich spreche nur meine Sprache und damit hab ich schon Probleme!",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Fight Club",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "The Dark Knight",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Die Tribute von Panem",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Der Pate",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Erst nachdem wir alles verloren haben, haben wir die Freiheit alles zu tun!",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Der weiße Hai",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Jurassic Park",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Animal Farm",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Zombieland",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Ich muss einen genauen Treffer in den Kopf von diesem Mastschwein landen!",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Deadpool",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Suicide Squad",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Thor",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Iron Man",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Ich bin nur ein Arschloch, das für Geld noch größere Arschlöcher fertig macht.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Inception",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Shutter Island",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "A.I. - Künstliche Intelligenz",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Vanilla Sky",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Am Anfang war es gar nicht so schlecht sich wie Götter zu fühlen. Das schlimme daran war, zu wissen, dass nichts davon real ist.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Dogma",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "The World's End",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "28 Days Later",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "2012",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Das ist keine Übung. Das ist die Apokalypse. Bitte bleiben Sie ruhig und verlassen Sie sofort das Gebäude.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Indiana Jones",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Tatsächlich... Liebe",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Meine Braut, ihr Vater und ich",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Fluch der Karibik",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Ich hab dich hassen gelernt in den letzten Zehn Jahren!",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Frühstück bei Tiffany",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Sex and the City - Der Film",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Der Teufel trägt Prada",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Natürlich blond",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Die Elektronenblitze der Reporter sind verheerend für den Teint. Man würde mich kaum noch in ein Lokal lassen.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Pulp Fiction",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Kill Bill",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "The Hateful Eight",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Django Unchained",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Auch wenn es dein Ego erschüttert, aber das ist nicht das erste mal, dass ich eine Knarre vor der Nase habe.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Sin City",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Alien",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Prisoners",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Independence Day",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "Das ist der Preis, den ich geschworen habe, zu zahlen und ich zahl ihn. Man rettet kein kleines Mädchen und wirft sie den Wölfen dann zum Frass vor. Nicht mit mir.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  },
+  {
+  "answers": [
+    {
+      "id": null,
+      "content": "Interstellar",
+      "type": true
+    },
+    {
+      "id": null,
+      "content": "Apollo 18",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Solaris",
+      "type": false      
+    },
+    {
+      "id": null,
+      "content": "Prometheus – Dunkle Zeichen",
+      "type": false      
+    }
+  ],
+  "dynamicDifficulty": 1,
+  "staticDifficulty": 1,
+  "id": null,
+  "questioning": "In jeder Stunde, in der wir auf dem Planeten sind, vergehen 7 Jahre auf der Erde.",
+  "responseTime": 60,
+  "topic": "Filmzitate raten"
+  }
+]

@@ -3,8 +3,10 @@ package data.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,27 +21,30 @@ public class Quiz {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column(name = "min_participants")
 	private int minParticipants;
-	
+
 	@Column(name = "max_participants")
 	private int maxParticipants;
-	
-	@OneToMany(mappedBy = "quiz")
+
+	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Question> questions = new ArrayList<Question>();
-	
+
 	private String title;
 	private int length;
-	
+
 	/**
 	 * Default Constructor
 	 */
-	public Quiz() {}
-	
+	public Quiz() {
+	}
+
 	/**
 	 * Copy Constructor
-	 * @param q Quiz Object to be copied
+	 * 
+	 * @param q
+	 *            Quiz Object to be copied
 	 */
 	public Quiz(Quiz q) {
 		this.id = q.getId();
@@ -48,13 +53,18 @@ public class Quiz {
 		this.minParticipants = q.getMinParticipants();
 		this.maxParticipants = q.getMaxParticipants();
 	}
-	
+
 	/**
 	 * Standard Constructor
-	 * @param title String of title of the quiz
-	 * @param length number of questions in that quiz
-	 * @param minParticipants minimum number of participants
-	 * @param maxParticipants maximum number of participants
+	 * 
+	 * @param title
+	 *            String of title of the quiz
+	 * @param length
+	 *            number of questions in that quiz
+	 * @param minParticipants
+	 *            minimum number of participants
+	 * @param maxParticipants
+	 *            maximum number of participants
 	 */
 	public Quiz(String title, int length, int minParticipants, int maxParticipants) {
 		this.title = title;
@@ -63,13 +73,16 @@ public class Quiz {
 		this.maxParticipants = maxParticipants;
 		questions = new ArrayList<Question>();
 	}
+
 	/**
-	 * Produces a list of random questions (amount is equal to the length attribute of the quiz) associated with the quiz.
-	 * AP1: just returns all questions of the quiz since the DB only has test questions
+	 * Produces a list of random questions (amount is equal to the length attribute
+	 * of the quiz) associated with the quiz. AP1: just returns all questions of the
+	 * quiz since the DB only has test questions
+	 * 
 	 * @return List of Question
 	 */
 	public List<Question> getRandomQuestions() {
-		//For AP1 return just the question(s), we have
+		// For AP1 return just the question(s), we have
 		return questions;
 	}
 
@@ -124,15 +137,17 @@ public class Quiz {
 	}
 
 	public void setQuestions(List<Question> questions) {
+		for (Question q : questions) {
+			q.setQuiz(this);
+		}
 		this.questions = questions;
 	}
-	/**
-	 * Adds a question to the quiz
-	 * @param question Question Object
-	 */
+
 	public void addQuestion(Question question) {
-		question.setQuiz(this);
-		this.questions.add(question);
+		if (questions.contains(question) != true) {
+			question.setQuiz(this);
+			this.questions.add(question);
+		}
 	}
 
 }

@@ -3,7 +3,6 @@ package data.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,41 +20,49 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @XmlRootElement
 public class Question implements Cloneable, Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@XmlElement
 	private int id;
-	
+
 	@Column(name = "response_time")
+	@XmlElement
 	private int responseTime;
-	
+
 	@Column(name = "dynamic_difficulty")
+	@XmlElement
 	private int dynamicDifficulty;
-	
+
 	@Column(name = "static_difficulty")
+	@XmlElement
 	private int staticDifficulty;
-	
+
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@XmlElement
 	private List<Answer> answers = new ArrayList<Answer>();
-	
+
 	@ManyToOne
 	@JoinColumn(name = "quiz_id")
 	private Quiz quiz;
-	
+
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
-	
+
 	private String topic;
 	private String questioning;
-	
+
 	/**
 	 * Default Constructor
 	 */
-	public Question() {}
-	
+	public Question() {
+	}
+
 	/**
 	 * Copy Constructor
-	 * @param q Question Object to copy
+	 * 
+	 * @param q
+	 *            Question Object to copy
 	 */
 	public Question(Question q) {
 		this.id = q.getId();
@@ -66,14 +73,20 @@ public class Question implements Cloneable, Serializable {
 		this.topic = q.getTopic();
 		this.quiz = new Quiz(q.getQuiz());
 	}
-	
+
 	/**
 	 * Standard Constructor
-	 * @param response_time response time as Integer
-	 * @param questioning String of the question
-	 * @param dynamicDifficulty dynamic difficulty as Integer
-	 * @param staticDifficulty static difficulty as Integer
-	 * @param topic String of topic of the question
+	 * 
+	 * @param response_time
+	 *            response time as Integer
+	 * @param questioning
+	 *            String of the question
+	 * @param dynamicDifficulty
+	 *            dynamic difficulty as Integer
+	 * @param staticDifficulty
+	 *            static difficulty as Integer
+	 * @param topic
+	 *            String of topic of the question
 	 */
 	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic) {
 		this.responseTime = response_time;
@@ -83,7 +96,6 @@ public class Question implements Cloneable, Serializable {
 		this.topic = topic;
 	}
 
-	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -91,8 +103,7 @@ public class Question implements Cloneable, Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	@XmlElement
+
 	public int getResponseTime() {
 		return responseTime;
 	}
@@ -101,7 +112,6 @@ public class Question implements Cloneable, Serializable {
 		this.responseTime = responseTime;
 	}
 
-	@XmlElement
 	public String getQuestioning() {
 		return questioning;
 	}
@@ -110,7 +120,6 @@ public class Question implements Cloneable, Serializable {
 		this.questioning = questioning;
 	}
 
-	@XmlElement
 	public int getDynamicDifficulty() {
 		return dynamicDifficulty;
 	}
@@ -119,7 +128,6 @@ public class Question implements Cloneable, Serializable {
 		this.dynamicDifficulty = dynamicDifficulty;
 	}
 
-	@XmlElement
 	public int getStaticDifficulty() {
 		return staticDifficulty;
 	}
@@ -128,7 +136,6 @@ public class Question implements Cloneable, Serializable {
 		this.staticDifficulty = staticDifficulty;
 	}
 
-	@XmlElement
 	public String getTopic() {
 		return topic;
 	}
@@ -136,20 +143,26 @@ public class Question implements Cloneable, Serializable {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-	@XmlElement
+
 	public List<Answer> getAnswers() {
 		return answers;
 	}
 
 	public void setAnswers(List<Answer> answers) {
+		for (Answer a : answers) {
+			a.setQuestion(this);
+		}
 		this.answers = answers;
 	}
+
 	/**
 	 * Adds an Answer to the List of Answers of this question
-	 * @param answer Answer Object
+	 * 
+	 * @param answer
+	 *            Answer Object
 	 */
 	public void addAnswer(Answer answer) {
-		if(answers.contains(answer) == false) {
+		if (answers.contains(answer) == false) {
 			this.answers.add(answer);
 		}
 		answer.setQuestion(this);
@@ -163,7 +176,7 @@ public class Question implements Cloneable, Serializable {
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
-	
+
 	@XmlTransient
 	public List<PlayedQuestion> getPlayedQuestion() {
 		return playedQuestions;
@@ -172,9 +185,12 @@ public class Question implements Cloneable, Serializable {
 	public void setPlayedQuestion(List<PlayedQuestion> playedQuestion) {
 		this.playedQuestions = playedQuestion;
 	}
+
 	/**
 	 * Adds a PlayedQuestion to the List
-	 * @param playedQuestion PlayedQuestion Object
+	 * 
+	 * @param playedQuestion
+	 *            PlayedQuestion Object
 	 */
 	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
 		this.playedQuestions.add(playedQuestion);
