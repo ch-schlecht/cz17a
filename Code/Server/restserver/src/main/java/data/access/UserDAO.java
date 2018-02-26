@@ -151,6 +151,22 @@ public class UserDAO {
 	}
 
 	/**
+	 *  Get Salt to User with id
+	 * @param name of user
+	 * @return Salt from user
+	 */
+	public String getSalt(String name) {
+		String salt = "";
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select u.salt from Person u where u.nickname := name");
+		query.setParameter("name", name);
+		salt = (String) query.uniqueResult();
+		session.close();
+		return salt;
+	}
+	
+	
+	/**
 	 * removes a user from the DB
 	 * 
 	 * @param id

@@ -19,7 +19,7 @@ public class User {
 	protected String mail;
 	protected String nickname;
 	protected String password;
-	//protected String salt;
+	protected String salt;
 	@Column(name = "last_login")
 	protected Calendar lastLogin;
 	protected Calendar registration;
@@ -36,11 +36,11 @@ public class User {
 	 * @param nickname String of nickname
 	 * @param password String of password
 	 */
-	public User(String mail, String nickname, String password/*,String salt*/) {
+	public User(String mail, String nickname, String password,String salt) {
 		this.mail = mail;
 		this.nickname = nickname;
 		this.password = password;
-		//this.salt = salt;
+		this.salt = salt;
 	}
 	
 	//Getters and Setters
@@ -92,7 +92,7 @@ public class User {
 		this.registration = registration;
 	}
 
-	/*
+	
 	public String getSalt() {
 		return salt;
 	}
@@ -100,7 +100,6 @@ public class User {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
-	*/
 	
 
 }

@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -70,6 +71,14 @@ public class PlayerResource {
 		}
 	}
 
+	
+	@GET
+	@Path("/salt/{name}")
+	public String getSalt(@PathParam("name") String name) {
+		return dao.getSalt(name);
+	}
+	
+	
 	@POST
 	@Path("/logout/{name}")
 	public Response logout(@PathParam("name") String name) {

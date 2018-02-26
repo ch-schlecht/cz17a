@@ -12,7 +12,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import cz17a.gamification.adminpanel.application.PasswordManager;
+import data.access.HibernateUtil;
+import data.access.PasswordCodeDAO;
 import data.access.UserDAO;
+import data.model.PasswordCode;
+import data.model.Player;
 import data.model.User;
 /**
  * REST: Resource-Class for Users <br/>
@@ -25,12 +33,18 @@ import data.model.User;
 @Path("/users")
 public class UserResource {
 	UserDAO dao = new UserDAO();
-	
+	PasswordCodeDAO pwdao = new PasswordCodeDAO();
 	
 	@GET
 	@Path("/{name}")
 	public User getUser(@PathParam("name") String name) {
 		return dao.getUser(name);
+	}
+	
+	@GET
+	@Path("/salt/{name}")
+	public String getSalt(@PathParam("name") String name) {
+		return dao.getSalt(name);
 	}
 	
 	/**
@@ -48,14 +62,14 @@ public class UserResource {
 		String email = u.getMail();
 		String name = u.getNickname();
 		String password = u.getPassword();
+		String salt = u.getSalt();
 		if (dao.usernameExist(name)) {
 			return "Dieser Nickname existiert bereits";
 		} else if (dao.emailExist(email)) {
 			return "Diese Email existiert bereits";
-		} else if (dao.passwordExist(password)) {
-			return "Dieses Passwort existiert bereits";
-		} else {
-			User user = new User(email, name, password);
+		}
+		else {
+			User user = new User(email, name, password,salt);
 			user.setRegistration(Calendar.getInstance());
 			dao.addUser(user);
 			if (dao.getUser(name) != null) {
@@ -73,20 +87,23 @@ public class UserResource {
 	 * @return status code 200 if logged in successfully, 418 else (password is wrong/user dont exist)
 	 */
 	@POST
-	@Path("/login/{name}/{password}")
-	public Response loginUser(@PathParam("name") String name, @PathParam("password") String password){
-		User user = dao.getUser(name);
-		if(user == null) {
-			user = dao.getUserByMail(name);
-			if(user == null) 	return Response.status(418).build();
-		}
-		
-		if(user.getPassword().equals(password)) { //if the sent password is equal to the password stored in the DB
-			//TODO once game lobby is implemented, pass this user over to the lobby/give the game a sign that this user is logged in and potentially ready to play
-			return Response.status(200).build(); //return ok --> successfully logged in
-		}
-		else {
-			return Response.status(418).build(); //--> password is incorrect, reject login "IM A TEAPOT"
+	@Path("/login")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String login(User u) {
+		User user;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select p from Person p where p.nickname = :nickname OR p.mail = :mail");
+		query.setParameter("nickname", u.getNickname());
+		query.setParameter("mail", u.getMail());
+		user = (User) query.uniqueResult();
+		session.close();
+		if (user == null) {
+			return "Unter diesem Nicknamen oder dieser Mail existiert kein Nutzer";
+		} else if (user.getPassword().equals(u.getPassword()) != true) {
+			return "Das eingegebene Passwort stimmt nicht überein.";
+		} else {
+			return "Sie haben sich erfolgreich angemeldet.";
 		}
 	}
 	
@@ -111,17 +128,26 @@ public class UserResource {
 	 * @return status code 200 if sent successfully, 400 else
 	 */
 	@POST
-	@Path("/forgotPassword/{name}")
-	public Response sendPasswordToMail(@PathParam("name") String name){
-		try { //sourround with try catch to check if mail sends correctly
-			User user = dao.getUser(name);
+	@Path("/forgotPassword")
+	public Response sendPasswordToMail(User user){
 		
+		String email = user.getMail();
+		String code = PasswordManager.generateRandomCode();
+		
+
+		
+		try { //sourround with try catch to check if mail sends correctly
+		
+			PasswordCode pwc = new PasswordCode(email,code);
+			pwdao.addPasswordCode(pwc);
+			
+			
 			String username = "cz17a"; //this is the username of our mail address
 			String password = "swtcz17a"; //corresponding password
 			String senderAddress ="cz17a@web.de";//our email-address
-			String recipientsAddress = user.getMail(); //receivers email
+			String recipientsAddress = email; //receivers email
 			String subject = "Your Password for cz17a Quiz App";
-			String text = user.getPassword();
+			String text = "Ihr Link: pcai042.informatik.uni-leipzig.de:1810/forgot.jsp?email="+email+"&code="+code; //TODO
 			String smtpHost = "smtp.web.de"; //smtp host of web.de
         
 			MailResource mail = new MailResource();
