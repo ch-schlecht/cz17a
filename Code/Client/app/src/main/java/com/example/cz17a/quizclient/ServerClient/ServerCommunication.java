@@ -180,7 +180,7 @@ public class ServerCommunication {
     public boolean usrRegistry(String usrname, String pw, String email){   //players
         URL url = null;
         boolean success = false;
-        String usrreg = ("nickname" + usrname + "password" + pw + "mail" + email);
+        String usrreg = ("nickname" + usrname + ", password" + pw + ", mail" + email);
         try {
             url = urlHandler.genUsrUrl();
            success = new ClientThreadPOST(usrreg).execute(url).get();
@@ -201,7 +201,7 @@ public class ServerCommunication {
     public boolean usrLogin(String usrname, String pw, String email){
         URL url = null;
         boolean success = false;
-        String usrlog = ("nickname" + usrname + "password" + pw + "mail" + email);
+        String usrlog = ("nickname" + usrname + ", password" + pw + ", mail" + email);
         try {
             url = urlHandler.genUsrLogInURL();
             success = new ClientThreadPOST(usrlog).execute(url).get();
