@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
                 //attemptLogin();
                 servCom = new ServerCommunication();
-                if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString())){
+                if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString(),null)){
                     User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
                     goToMain(user);
                 }

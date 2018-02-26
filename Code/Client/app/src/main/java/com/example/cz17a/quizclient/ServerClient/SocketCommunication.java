@@ -28,9 +28,11 @@ public class SocketCommunication implements Runnable{
     boolean running;
 
     public SocketCommunication(int port){
+        /*
         this.port = port;
         running = true;
         connect();
+        */
     }
 
    public void connect() {
@@ -67,8 +69,8 @@ public class SocketCommunication implements Runnable{
 
    public Question getNextQuestion(){
 
-       Question question = null;
-
+       Question question = new Question();
+        /*
        try{
            int anz = in.read(buffer, 0, 200); // blockiert bis Nachricht empfangen
            String data = new String(buffer, 0, anz);
@@ -83,12 +85,13 @@ public class SocketCommunication implements Runnable{
        }catch(JSONException e){
            e.printStackTrace();
        }
+       */
 
 
-        /*
+
         question.dummyQuestion();
         System.out.println("DummyFrage: "+ question.toString());
-        */
+
        return question;
    }
 

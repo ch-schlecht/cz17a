@@ -28,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        socketCommunication = new SocketCommunication();
+        socketCommunication = new SocketCommunication(50000);
         quizId = getIntent().getExtras().getInt("quizId",1);
         newGame();
     }
