@@ -11,13 +11,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import data.access.HibernateUtil;
 import data.access.PlayerDAO;
 import data.model.Player;
 
 @Path("/players")
 public class PlayerResource {
 	private PlayerDAO dao = new PlayerDAO();
-	
+
 	@POST
 	@Path("/register")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -26,54 +30,55 @@ public class PlayerResource {
 		String email = p.getMail();
 		String name = p.getNickname();
 		String password = p.getPassword();
-		if(dao.usernameExist(name)) {
+		if (dao.usernameExist(name)) {
 			return "Dieser Nickname existiert bereits";
-		}
-		else if(dao.emailExist(email)) {
+		} else if (dao.emailExist(email)) {
 			return "Diese Email existiert bereits";
-		}
-		else if(dao.passwordExist(password)) {
+		} else if (dao.passwordExist(password)) {
 			return "Dieses Passwort existiert bereits";
-		}
-		else {
+		} else {
 			Player player = new Player(email, name, password);
 			player.setRegistration(Calendar.getInstance());
 			player.setPlaytimeInMinutes(0);
 			dao.addPlayer(player);
 			if (dao.getPlayer(name) != null) {
 				return "Sie haben sich erfolgreich registriert";
-			}
-			else {
+			} else {
 				return "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut!";
 			}
 		}
 	}
 
 	@POST
-	@Path("/login/{name}/{password}")
-	public Response login(@PathParam("name") String name, @PathParam("password") String password) {
-		Player player = dao.getPlayer(name);
+	@Path("/login")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String login(Player p) {
+		Player player;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("Select p from Player p where p.nickname = :nickname OR p.mail = :mail");
+		query.setParameter("nickname", p.getNickname());
+		query.setParameter("mail", p.getMail());
+		player = (Player) query.uniqueResult();
+		session.close();
 		if (player == null) {
-			player = dao.getPlayerByMail(name);
-			if (player == null)
-				return Response.status(418).build();
-		}
-		if (player.getPassword().equals(password)) {
-			return Response.status(200).build(); // return ok --> successfully logged in
+			return "Unter diesem Nicknamen oder dieser Mail existiert kein Nutzer";
+		} else if (player.getPassword().equals(p.getPassword()) != true) {
+			return "Das eingegebene Passwort stimmt nicht überein.";
 		} else {
-			return Response.status(418).build(); // --> password is incorrect, reject login "IM A TEAPOT"
+			return "Sie haben sich erfolgreich angemeldet.";
 		}
 	}
-	
+
 	@POST
 	@Path("/logout/{name}")
-	public Response logout(@PathParam("name") String name){
+	public Response logout(@PathParam("name") String name) {
 		Player player = dao.getPlayer(name);
-		if(player != null) { //user does exist (and was logged in before, see todo in loginUser)
-			return Response.status(200).build(); //for now just give the ok
-		}
-		else {
-			return Response.status(400).build(); //user doesnt exist (or was not logged in before, see todo in loginUser), fail response
+		if (player != null) { // user does exist (and was logged in before, see todo in loginUser)
+			return Response.status(200).build(); // for now just give the ok
+		} else {
+			return Response.status(400).build(); // user doesnt exist (or was not logged in before, see todo in
+													// loginUser), fail response
 		}
 	}
 
@@ -89,27 +94,25 @@ public class PlayerResource {
 		}
 
 	}
-	
+
 	@POST
 	@Path("/forgotPassword/{name}")
-	public Response sendPasswordToMail(@PathParam("name") String name){
-		try { //sourround with try catch to check if mail sends correctly
+	public Response sendPasswordToMail(@PathParam("name") String name) {
+		try { // sourround with try catch to check if mail sends correctly
 			Player user = dao.getPlayer(name);
-			String username = "cz17a"; //this is the username of our mail address
-			String password = "swtcz17a"; //corresponding password
-			String senderAddress ="cz17a@web.de";//our email-address
-			String recipientsAddress = user.getMail(); //receivers email
+			String username = "cz17a"; // this is the username of our mail address
+			String password = "swtcz17a"; // corresponding password
+			String senderAddress = "cz17a@web.de";// our email-address
+			String recipientsAddress = user.getMail(); // receivers email
 			String subject = "Your Password for cz17a Quiz App";
 			String text = user.getPassword();
-			String smtpHost = "smtp.web.de"; //smtp host of web.de
+			String smtpHost = "smtp.web.de"; // smtp host of web.de
 			MailResource mail = new MailResource();
 			mail.sendMail(smtpHost, username, password, senderAddress, recipientsAddress, subject, text);
-		}
-		catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace(System.err);
-			return Response.status(400).build(); //if an exception occured while sending return fail code
-		}
-		finally {
+			return Response.status(400).build(); // if an exception occured while sending return fail code
+		} finally {
 			return Response.status(200).build();
 		}
 	}
