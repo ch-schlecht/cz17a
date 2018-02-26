@@ -2,11 +2,14 @@ package cz17a.gamification.restserver.resource;
 
 import java.util.Calendar;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import data.access.UserDAO;
@@ -21,13 +24,13 @@ import data.model.User;
  */
 @Path("/users")
 public class UserResource {
-	UserDAO userdao = new UserDAO();
+	UserDAO dao = new UserDAO();
 	
 	
 	@GET
 	@Path("/{name}")
 	public User getUser(@PathParam("name") String name) {
-		return userdao.getUser(name);
+		return dao.getUser(name);
 	}
 	
 	/**
@@ -38,24 +41,29 @@ public class UserResource {
 	 * @return status code 200, if stored successfully, 400 if not
 	 */
 	@POST
-	@Path("/register/{name}/{password}/{email}")
-	public Response registerUser(@PathParam("name") String name, @PathParam("password") String password, @PathParam("email") String email) {
-
-		if(!userdao.usernameExist(name) && !userdao.emailExist(email)) {
-			
+	@Path("/register")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String register(User u) {
+		String email = u.getMail();
+		String name = u.getNickname();
+		String password = u.getPassword();
+		if (dao.usernameExist(name)) {
+			return "Dieser Nickname existiert bereits";
+		} else if (dao.emailExist(email)) {
+			return "Diese Email existiert bereits";
+		} else if (dao.passwordExist(password)) {
+			return "Dieses Passwort existiert bereits";
+		} else {
 			User user = new User(email, name, password);
 			user.setRegistration(Calendar.getInstance());
-			user.setId(userdao.countUsers() + 1); //may cause trouble if users are removed from DB and later new ones are created
-			userdao.addUser(user); //add the user to DB
-		
-		
-			if(userdao.getUser(user.getId()) != null) { //if the user was successfully stored to DB, the return 200
-				return Response.status(200).build();
+			dao.addUser(user);
+			if (dao.getUser(name) != null) {
+				return "Sie haben sich erfolgreich registriert";
+			} else {
+				return "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut!";
 			}
-			return Response.status(400).build(); //fail return, user has not been stored to DB
-
 		}
-		return Response.status(418).build(); //registert user exists
 	}
 	
 	/**
@@ -67,9 +75,9 @@ public class UserResource {
 	@POST
 	@Path("/login/{name}/{password}")
 	public Response loginUser(@PathParam("name") String name, @PathParam("password") String password){
-		User user = userdao.getUser(name);
+		User user = dao.getUser(name);
 		if(user == null) {
-			user = userdao.getUserByMail(name);
+			user = dao.getUserByMail(name);
 			if(user == null) 	return Response.status(418).build();
 		}
 		
@@ -90,7 +98,7 @@ public class UserResource {
 	@POST
 	@Path("/logout/{name}")
 	public Response logoutUser(@PathParam("name") String name){
-		User user = userdao.getUser(name);
+		User user = dao.getUser(name);
 		if(user != null) { //user does exist (and was logged in before, see todo in loginUser)
 			return Response.status(200).build(); //for now just give the ok
 		}
@@ -106,7 +114,7 @@ public class UserResource {
 	@Path("/forgotPassword/{name}")
 	public Response sendPasswordToMail(@PathParam("name") String name){
 		try { //sourround with try catch to check if mail sends correctly
-			User user = userdao.getUser(name);
+			User user = dao.getUser(name);
 		
 			String username = "cz17a"; //this is the username of our mail address
 			String password = "swtcz17a"; //corresponding password
@@ -137,9 +145,9 @@ public class UserResource {
 	@DELETE 
 	@Path("/{id}") 
 	public Response removeUser(@PathParam("id") int id) { 
-		User user = userdao.getUser(id);
-		userdao.removeUser(id);
-		if(userdao.getUser(user.getId()) == null) { //if the user was successfully deleted from DB, then return 200 
+		User user = dao.getUser(id);
+		dao.removeUser(id);
+		if(dao.getUser(user.getId()) == null) { //if the user was successfully deleted from DB, then return 200 
 			return Response.status(200).build(); 
 		} 
 		return Response.status(400).build(); //fail return, user has not been deleted from DB
