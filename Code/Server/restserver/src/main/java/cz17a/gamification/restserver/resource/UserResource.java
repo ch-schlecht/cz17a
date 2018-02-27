@@ -42,13 +42,6 @@ public class UserResource {
 		return dao.getUser(name);
 	}
 
-	@GET
-	@Path("/{name}/salt")
-	public String getSalt(@PathParam("name") String name) {
-		User user = dao.getUser(name);
-		return user.getSalt();
-	}
-
 	/**
 	 * registers a user to DB by giving name, email and password
 	 * 
@@ -67,8 +60,9 @@ public class UserResource {
 	public String register(User u) {
 		String email = u.getMail();
 		String name = u.getNickname();
-		String password = u.getPassword();
-		String salt = u.getSalt();
+		String password;
+		String salt = PasswordManager.generateSaltAsString();
+		password = PasswordManager.hash(u.getPassword(), salt);
 		if (dao.usernameExist(name)) {
 			return "Dieser Nickname existiert bereits";
 		} else if (dao.emailExist(email)) {
@@ -108,10 +102,10 @@ public class UserResource {
 		query.setParameter("mail", u.getMail());
 		user = (User) query.uniqueResult();
 		session.close();
-		if (user == null) {
-			return "Unter diesem Nicknamen oder dieser Mail existiert kein Nutzer";
-		} else if (user.getPassword().equals(u.getPassword()) != true) {
-			return "Das eingegebene Passwort stimmt nicht überein.";
+		String password = PasswordManager.hash(u.getPassword(), user.getSalt());
+		boolean isPasswordValid = PasswordManager.validatePassword(user.getPassword(), password);
+		if (user == null || isPasswordValid == false) {
+			return "Die eingegebenen Daten stimmen nicht überein";
 		} else {
 			return "Sie haben sich erfolgreich angemeldet.";
 		}
@@ -147,7 +141,7 @@ public class UserResource {
 	@Path("/forgotPassword")
 	public String sendPasswordToMail(User user) {
 		String email = user.getMail();
-		if(dao.emailExist(email) == false) {
+		if (dao.emailExist(email) == false) {
 			return "Diese E-Mailadresse existiert nicht.";
 		}
 		String code = PasswordManager.generateRandomCode();
@@ -165,7 +159,11 @@ public class UserResource {
 			mail.sendMail(smtpHost, username, password, senderAddress, recipientsAddress, subject, text);
 		} catch (Exception ex) {
 			ex.printStackTrace(System.err);
-			return "Beim Senden der Mail ist ein Fehler aufgetreten. Versuchen Sie es bitte erneut"; // if an exception occured while sending return fail code
+			return "Beim Senden der Mail ist ein Fehler aufgetreten. Versuchen Sie es bitte erneut"; // if an exception
+																										// occured while
+																										// sending
+																										// return fail
+																										// code
 		}
 		return "Die Mail wurde erfolgreich gesendet. Klicken Sie dort bitte auf den Link zum Zurücksetzen ihres Passwortes!";
 	}

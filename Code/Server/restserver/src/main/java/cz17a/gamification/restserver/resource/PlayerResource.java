@@ -34,8 +34,9 @@ public class PlayerResource {
 	public String register(Player p) {
 		String email = p.getMail();
 		String name = p.getNickname();
-		String password = p.getPassword();
-		String salt = p.getSalt();
+		String password;
+		String salt = PasswordManager.generateSaltAsString();
+		password = PasswordManager.hash(p.getPassword(), salt);
 		if (dao.usernameExist(name)) {
 			return "Dieser Nickname existiert bereits";
 		} else if (dao.emailExist(email)) {
@@ -64,22 +65,15 @@ public class PlayerResource {
 		query.setParameter("mail", p.getMail());
 		player = (Player) query.uniqueResult();
 		session.close();
-		if (player == null) {
-			return "Unter diesem Nicknamen oder dieser Mail existiert kein Nutzer";
-		} else if (player.getPassword().equals(p.getPassword()) != true) {
-			return "Das eingegebene Passwort stimmt nicht überein.";
+		String password = PasswordManager.hash(p.getPassword(), player.getSalt());
+		boolean isPasswordValid = PasswordManager.validatePassword(player.getPassword(), password);
+		if (player == null || isPasswordValid == false) {
+			return "Die eingegebenen Daten stimmen nicht überein";
 		} else {
 			return "Sie haben sich erfolgreich angemeldet.";
 		}
 	}
 
-	@GET
-	@Path("/salt/{name}")
-	public String getSalt(@PathParam("name") String name) {
-		Player player = dao.getPlayer(name);
-		return player.getSalt();
-	}
-	
 	@POST
 	@Path("/logout/{name}")
 	public Response logout(@PathParam("name") String name) {
@@ -88,7 +82,7 @@ public class PlayerResource {
 			return Response.status(200).build(); // for now just give the ok
 		} else {
 			return Response.status(400).build(); // user doesnt exist (or was not logged in before, see todo in
-									// loginUser), fail response
+			// loginUser), fail response
 		}
 	}
 
@@ -108,7 +102,7 @@ public class PlayerResource {
 	@Path("/forgotPassword")
 	public String sendPasswordToMail(User user) {
 		String email = user.getMail();
-		if(dao.emailExist(email) == false) {
+		if (dao.emailExist(email) == false) {
 			return "Diese E-Mailadresse existiert nicht.";
 		}
 		String code = PasswordManager.generateRandomCode();
@@ -126,7 +120,11 @@ public class PlayerResource {
 			mail.sendMail(smtpHost, username, password, senderAddress, recipientsAddress, subject, text);
 		} catch (Exception ex) {
 			ex.printStackTrace(System.err);
-			return "Beim Senden der Mail ist ein Fehler aufgetreten. Versuchen Sie es bitte erneut"; // if an exception occured while sending return fail code
+			return "Beim Senden der Mail ist ein Fehler aufgetreten. Versuchen Sie es bitte erneut"; // if an exception
+																										// occured while
+																										// sending
+																										// return fail
+																										// code
 		}
 		return "Die Mail wurde erfolgreich gesendet. Klicken Sie dort bitte auf den Link zum Zurücksetzen ihres Passwortes!";
 	}
