@@ -23,23 +23,18 @@ public class Question implements Cloneable, Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@XmlElement
 	private int id;
 
 	@Column(name = "response_time")
-	@XmlElement
 	private int responseTime;
 
 	@Column(name = "dynamic_difficulty")
-	@XmlElement
 	private int dynamicDifficulty;
 
 	@Column(name = "static_difficulty")
-	@XmlElement
 	private int staticDifficulty;
 
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@XmlElement
 	private List<Answer> answers = new ArrayList<Answer>();
 
 	@ManyToOne
@@ -96,6 +91,7 @@ public class Question implements Cloneable, Serializable {
 		this.topic = topic;
 	}
 
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -104,6 +100,7 @@ public class Question implements Cloneable, Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public int getResponseTime() {
 		return responseTime;
 	}
@@ -112,6 +109,7 @@ public class Question implements Cloneable, Serializable {
 		this.responseTime = responseTime;
 	}
 
+	@XmlElement
 	public String getQuestioning() {
 		return questioning;
 	}
@@ -120,6 +118,7 @@ public class Question implements Cloneable, Serializable {
 		this.questioning = questioning;
 	}
 
+	@XmlElement
 	public int getDynamicDifficulty() {
 		return dynamicDifficulty;
 	}
@@ -128,6 +127,7 @@ public class Question implements Cloneable, Serializable {
 		this.dynamicDifficulty = dynamicDifficulty;
 	}
 
+	@XmlElement
 	public int getStaticDifficulty() {
 		return staticDifficulty;
 	}
@@ -136,6 +136,7 @@ public class Question implements Cloneable, Serializable {
 		this.staticDifficulty = staticDifficulty;
 	}
 
+	@XmlElement
 	public String getTopic() {
 		return topic;
 	}
@@ -144,6 +145,7 @@ public class Question implements Cloneable, Serializable {
 		this.topic = topic;
 	}
 
+	@XmlElement
 	public List<Answer> getAnswers() {
 		return answers;
 	}

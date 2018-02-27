@@ -16,6 +16,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import org.eclipse.persistence.jaxb.MarshallerProperties;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Game {
@@ -110,22 +116,21 @@ public class Game {
 	}
 
 	private void startRound() {
-		ObjectMapper objectMapper = new ObjectMapper();
 		List<Question> questions = getRound().getQuestions();
-		for (Socket s : playerSockets) {
-			try (OutputStream out = s.getOutputStream()) {
-				if (questions.isEmpty()) {
-					end();
-				} else {
-					objectMapper.writeValue(out, questions.get(0));
-					out.flush();
-					questions.remove(0);
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Question.class);
+			Marshaller marshaller = jc.createMarshaller();
+	        marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+			for (Socket s : playerSockets) {
+				try (OutputStream out = s.getOutputStream()) {
+					marshaller.marshal(questions, out);
+					out.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
-
+		} catch (JAXBException e1) {
+			e1.printStackTrace();
 		}
 	}
 
