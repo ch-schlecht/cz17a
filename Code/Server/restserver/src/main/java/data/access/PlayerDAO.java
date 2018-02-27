@@ -78,23 +78,6 @@ public class PlayerDAO {
 		}
 	}
 	
-	
-	/**
-	 *  Get Salt to User with id
-	 * @param name of user
-	 * @return Salt from user
-	 */
-	public String getSalt(String name) {
-		String salt = "";
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select u.salt from Player u where u.nickname := name");
-		query.setParameter("name", name);
-		salt = (String) query.uniqueResult();
-		session.close();
-		return salt;
-	}
-	
-	
 	public boolean passwordExist(String password) {
 		Player player;
 		Session session = HibernateUtil.getSessionFactory().openSession();

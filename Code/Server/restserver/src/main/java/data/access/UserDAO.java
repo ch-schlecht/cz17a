@@ -137,36 +137,6 @@ public class UserDAO {
 	}
 
 	/**
-	 * counts the number of users in the DB, (used to later generate new ID's for
-	 * users)
-	 * 
-	 * @return Integer Number of users
-	 */
-	public int countUsers() {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select count(u) from Person u");
-		int numberOfUsers = (int) (long) query.uniqueResult();
-		session.close();
-		return numberOfUsers;
-	}
-
-	/**
-	 *  Get Salt to User with id
-	 * @param name of user
-	 * @return Salt from user
-	 */
-	public String getSalt(String name) {
-		String salt = "";
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("Select u.salt from Person u where u.nickname := name");
-		query.setParameter("name", name);
-		salt = (String) query.uniqueResult();
-		session.close();
-		return salt;
-	}
-	
-	
-	/**
 	 * removes a user from the DB
 	 * 
 	 * @param id

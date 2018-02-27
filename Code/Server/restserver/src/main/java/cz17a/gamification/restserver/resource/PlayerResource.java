@@ -15,9 +15,13 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import cz17a.gamification.adminpanel.application.PasswordManager;
 import data.access.HibernateUtil;
+import data.access.PasswordCodeDAO;
 import data.access.PlayerDAO;
+import data.model.PasswordCode;
 import data.model.Player;
+import data.model.User;
 
 @Path("/players")
 public class PlayerResource {
@@ -31,16 +35,14 @@ public class PlayerResource {
 		String email = p.getMail();
 		String name = p.getNickname();
 		String password = p.getPassword();
+		String salt = p.getSalt();
 		if (dao.usernameExist(name)) {
 			return "Dieser Nickname existiert bereits";
 		} else if (dao.emailExist(email)) {
 			return "Diese Email existiert bereits";
-		} else if (dao.passwordExist(password)) {
-			return "Dieses Passwort existiert bereits";
 		} else {
-			Player player = new Player(email, name, password);
+			Player player = new Player(email, name, password, salt);
 			player.setRegistration(Calendar.getInstance());
-			player.setPlaytimeInMinutes(0);
 			dao.addPlayer(player);
 			if (dao.getPlayer(name) != null) {
 				return "Sie haben sich erfolgreich registriert";
@@ -71,13 +73,12 @@ public class PlayerResource {
 		}
 	}
 
-	
 	@GET
 	@Path("/salt/{name}")
 	public String getSalt(@PathParam("name") String name) {
-		return dao.getSalt(name);
+		Player player = dao.getPlayer(name);
+		return player.getSalt();
 	}
-	
 	
 	@POST
 	@Path("/logout/{name}")
@@ -87,7 +88,7 @@ public class PlayerResource {
 			return Response.status(200).build(); // for now just give the ok
 		} else {
 			return Response.status(400).build(); // user doesnt exist (or was not logged in before, see todo in
-													// loginUser), fail response
+									// loginUser), fail response
 		}
 	}
 
@@ -101,28 +102,32 @@ public class PlayerResource {
 		} else {
 			return Response.status(400).build(); // fail return, user has not been deleted from DB
 		}
-
 	}
 
 	@POST
-	@Path("/forgotPassword/{name}")
-	public Response sendPasswordToMail(@PathParam("name") String name) {
-		try { // sourround with try catch to check if mail sends correctly
-			Player user = dao.getPlayer(name);
-			String username = "cz17a"; // this is the username of our mail address
-			String password = "swtcz17a"; // corresponding password
-			String senderAddress = "cz17a@web.de";// our email-address
-			String recipientsAddress = user.getMail(); // receivers email
-			String subject = "Your Password for cz17a Quiz App";
-			String text = user.getPassword();
-			String smtpHost = "smtp.web.de"; // smtp host of web.de
+	@Path("/forgotPassword")
+	public String sendPasswordToMail(User user) {
+		String email = user.getMail();
+		if(dao.emailExist(email) == false) {
+			return "Diese E-Mailadresse existiert nicht.";
+		}
+		String code = PasswordManager.generateRandomCode();
+		String username = "cz17a"; // this is the username of our mail address
+		String password = "swtcz17a"; // corresponding password
+		String senderAddress = "cz17a@web.de";// our email-address
+		String recipientsAddress = email; // receivers email
+		String subject = "Your Password for cz17a Quiz App";
+		PasswordCode pwc = new PasswordCode(email, code);
+		new PasswordCodeDAO().addPasswordCode(pwc);
+		String text = "Ihr Link: pcai042.informatik.uni-leipzig.de:1810/forgot.jsp?email=" + email + "&code=" + code; // TODO
+		String smtpHost = "smtp.web.de"; // smtp host of web.de
+		try {
 			MailResource mail = new MailResource();
 			mail.sendMail(smtpHost, username, password, senderAddress, recipientsAddress, subject, text);
 		} catch (Exception ex) {
 			ex.printStackTrace(System.err);
-			return Response.status(400).build(); // if an exception occured while sending return fail code
-		} finally {
-			return Response.status(200).build();
+			return "Beim Senden der Mail ist ein Fehler aufgetreten. Versuchen Sie es bitte erneut"; // if an exception occured while sending return fail code
 		}
+		return "Die Mail wurde erfolgreich gesendet. Klicken Sie dort bitte auf den Link zum Zurücksetzen ihres Passwortes!";
 	}
 }

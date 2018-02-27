@@ -28,10 +28,11 @@ public class Player extends User implements Serializable {
 	
 	public Player() {}
 	
-	public Player(String mail, String nickname, String password) {
+	public Player(String mail, String nickname, String password, String salt) {
 		this.mail = mail;
 		this.nickname = nickname;
-		this.password = password; //TODO hash this password
+		this.password = password;
+		this.salt = salt;
 	}
 
 	public double getPlaytimeInMinutes() {
