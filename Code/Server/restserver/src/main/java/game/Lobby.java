@@ -10,11 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import data.model.Player;
 import data.model.Quiz;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 
 public class Lobby {
 	private Quiz quiz;
@@ -75,20 +74,29 @@ public class Lobby {
 	}
 
 	private void sendLobbyStateToPlayers() {
-		List<String> player_names = new ArrayList<String>();
-		ObjectMapper objectMapper = new ObjectMapper();
-		for (Player p : players) {
-			player_names.add(p.getNickname());
+		List<String> playerNames = new ArrayList<String>();
+		for(Player p : players) {
+			playerNames.add(p.getNickname());
+		}
+		String response = "{";
+		for (int i = 0; i < playerNames.size(); i++) {
+			String name = playerNames.get(i);
+			if(i < playerNames.size() - 1) {
+				response += name + ",";
+			}
+			else {
+				response += name + "}";
+			}
 		}
 		for (Entry<Integer, Socket> e : player_sockets.entrySet()) {
 			try (Socket socket = e.getValue();) {
 				OutputStream out = socket.getOutputStream();
-				objectMapper.writeValue(out, player_names);
-				out.flush();
+				PrintWriter wr = new PrintWriter(out);
+				wr.print(response);
+				wr.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
-
 		}
 	}
 
