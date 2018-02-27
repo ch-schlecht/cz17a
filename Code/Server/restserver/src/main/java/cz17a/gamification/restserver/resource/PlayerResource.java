@@ -42,7 +42,9 @@ public class PlayerResource {
 		} else if (dao.emailExist(email)) {
 			return "Diese Email existiert bereits";
 		} else {
-			Player player = new Player(email, name, password, salt);
+			Player player = new Player(email, name, password);
+			player.setSalt(salt);
+			player.setPlaytimeInMinutes(0);
 			player.setRegistration(Calendar.getInstance());
 			dao.addPlayer(player);
 			if (dao.getPlayer(name) != null) {
