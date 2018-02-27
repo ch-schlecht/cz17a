@@ -5,8 +5,6 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Base64;
-import java.util.logging.Level;
-
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
@@ -51,6 +49,9 @@ public class PasswordManager {
 		return random.generateSeed(20);
 	}
 	
+	public static String generateSaltAsString() {
+		return byteToString(generateSalt());
+	}
 	
 	public static String generateRandomCode() {
 		SecureRandom random = new SecureRandom();
