@@ -118,8 +118,8 @@ public class Game {
 	public void start() {
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream();) {
-				out.write(id);
-				out.flush();
+				String message = Integer.toString(id);
+				out.write(message.getBytes());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
