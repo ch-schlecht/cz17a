@@ -55,11 +55,9 @@ public class Jackpot {
 		amount = 0;
 	}
 	
-	public int payOut() {
-		int payOut = new Integer(amount);
+	public void payedOut() {
 		clear();
 		fill();
 		payoutCounter++;
-		return payOut;
 	}
 }
