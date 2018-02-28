@@ -146,14 +146,14 @@ public class Game {
 		}
 	}
 
-	private void startNextQuestion() {
+	public void startNextQuestion() {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else {
 			for (Socket s : playerSockets) {
+				ObjectMapper mapper = new ObjectMapper();
 				try (OutputStream out = s.getOutputStream()) {
-					out.write(1); // For now just 1 as signal, that next question can begin
-					out.flush();
+					mapper.writeValue(out, jackpot);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

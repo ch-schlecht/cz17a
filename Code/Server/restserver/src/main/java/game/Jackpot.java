@@ -10,10 +10,12 @@ public class Jackpot {
 	 * Counts, how many times the Jackpot was payed out
 	 */
 	private int payoutCounter;
+	private boolean isActive;
 	
 	public Jackpot() {
 		this.amount = initialPoints;
 		this.payoutCounter = 0;
+		this.isActive = false;
 	}
 	
 	public int getInitialPoints() {
@@ -36,11 +38,20 @@ public class Jackpot {
 		this.payoutCounter = payoutCounter;
 	}
 	
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public void fill() {
 		amount = initialPoints;
 	}
 	
 	public void clear() {
+		this.isActive = false;
 		amount = 0;
 	}
 	
