@@ -132,12 +132,13 @@ public class Game {
 		startRound();
 	}
 
-	private void startRound() {
+	public void startRound() {
 		List<Question> questions = getRound().getQuestions();
 		try {
 			JAXBContext jc = JAXBContext.newInstance(Question.class);
 			Marshaller marshaller = jc.createMarshaller();
 			marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+			marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
 			for (Socket s : playerSockets) {
 				try (OutputStream out = s.getOutputStream()) {
 					marshaller.marshal(questions, out);
