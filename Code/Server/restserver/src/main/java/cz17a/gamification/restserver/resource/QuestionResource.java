@@ -99,6 +99,8 @@ public class QuestionResource {
 		playedQuestion.setPlayer(player);
 		playedQuestion.setQuestion(question);
 		game.getRound().addPlayedQuestion(playedQuestion);
+		game.updateScoreboard(playerId, playedQuestion.getScore());
+		game.addWaitingPlayer(playerId);
 		return Response.status(200).build();
 	}
 }

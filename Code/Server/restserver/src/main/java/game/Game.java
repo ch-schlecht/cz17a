@@ -1,7 +1,6 @@
 package game;
 
 import data.access.RoundDAO;
-import data.model.Participation;
 import data.model.Player;
 import data.model.Question;
 import data.model.Quiz;
@@ -15,7 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -29,7 +27,7 @@ public class Game {
 	/**
 	 * Id's of the players, which have answered the current question
 	 */
-	private Set<Integer> waitingPlayers;
+	private Set<Integer> waitingPlayers = new HashSet<Integer>();
 	private Round round;
 	private Jackpot jackpot;
 	/**
@@ -37,14 +35,20 @@ public class Game {
 	 */
 	private int playedQuestions;
 	private List<Socket> playerSockets;
+	/**
+	 * Holds score for every player. Key is the id of a player
+	 */
+	private Map<Integer, Integer> scoreboard = new HashMap<Integer, Integer>();
 
 	public Game(int id, Quiz quiz, List<Player> players, List<Socket> sockets) {
 		this.id = id;
-		this.waitingPlayers = new HashSet<Integer>();
 		this.jackpot = new Jackpot();
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
 		this.playerSockets = sockets;
+		for(Player p : players) {
+			scoreboard.put(p.getId(), 0);
+		}
 	}
 
 	public int getId() {
@@ -103,6 +107,14 @@ public class Game {
 		this.playerSockets = player_sockets;
 	}
 
+	public Map<Integer, Integer> getScoreboard() {
+		return scoreboard;
+	}
+
+	public void setScoreboard(Map<Integer, Integer> scoreboard) {
+		this.scoreboard = scoreboard;
+	}
+
 	public void start() {
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream();) {
@@ -134,19 +146,6 @@ public class Game {
 		}
 	}
 
-	private void end() {
-		sendEndResults();
-		saveEndResults();
-		for (Socket s : playerSockets) {
-			try {
-				s.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		GamePool.removeGame(id);
-	}
-
 	private void startNextQuestion() {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
@@ -162,27 +161,28 @@ public class Game {
 			playedQuestions++;
 		}
 	}
-
-	private boolean hasAllPlayersAnswered() {
-		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
-		return allPlayeresAndwered;
+	
+	private void end() {
+		sendEndResults();
+		saveEndResults();
+		for (Socket s : playerSockets) {
+			try {
+				s.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		GamePool.removeGame(id);
 	}
 
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
-		Map<String, Integer> pointsMap = new HashMap<>();
-		for (Participation p : round.getParticipations()) {
-			Player player = p.getPlayer();
-			pointsMap.put(player.getNickname(), p.getScore());
-		}
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream()) {
-				objectMapper.writeValue(out, pointsMap);
-				out.flush();
+				objectMapper.writeValue(out, scoreboard);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
 	}
 
@@ -190,4 +190,16 @@ public class Game {
 		RoundDAO dao = new RoundDAO();
 		dao.addRound(round);
 	}
+	
+	public void updateScoreboard(int playerId, int points) {
+		int score = scoreboard.get(playerId);
+		score += points;
+		scoreboard.put(playerId, score);
+	}
+	
+	private boolean hasAllPlayersAnswered() {
+		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
+		return allPlayeresAndwered;
+	}
+	
 }
