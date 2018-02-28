@@ -1,7 +1,8 @@
 package game;
 
 public class Jackpot {
-	private final int initialPoints = 200;
+	private final int initialPoints = 1000;
+	private final int initialPayoutChance = 10;
 	/**
 	 * Current amount of points
 	 */
@@ -9,13 +10,13 @@ public class Jackpot {
 	/**
 	 * Counts, how many times the Jackpot was payed out
 	 */
-	private int payoutCounter;
-	private boolean isActive;
+	private int payoutCounter = 0;
+	private boolean isActive = false;
+	private int payoutChance;
 	
 	public Jackpot() {
 		this.amount = initialPoints;
-		this.payoutCounter = 0;
-		this.isActive = false;
+		this.payoutChance = initialPayoutChance;
 	}
 	
 	public int getInitialPoints() {
@@ -46,6 +47,14 @@ public class Jackpot {
 		this.isActive = isActive;
 	}
 
+	public int getPayoutChance() {
+		return payoutChance;
+	}
+
+	public void setPayoutChance(int payoutChance) {
+		this.payoutChance = payoutChance;
+	}
+
 	public void fill() {
 		amount = initialPoints;
 	}
@@ -58,6 +67,20 @@ public class Jackpot {
 	public void payedOut() {
 		clear();
 		fill();
+		payoutChance = initialPayoutChance;
 		payoutCounter++;
+	}
+	
+	public void increasePayoutChance(int value) {
+		payoutChance += value;
+	}
+	
+	public void randomActivation() {
+		int payoutTreshhold = 100 - payoutChance;
+		int random; 
+	    random = (int)(Math.random() * 100) + 1; 
+	    if(random >= payoutTreshhold) {
+	    	isActive = true;
+	    }
 	}
 }

@@ -46,7 +46,7 @@ public class Game {
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
 		this.playerSockets = sockets;
-		for(Player p : players) {
+		for (Player p : players) {
 			scoreboard.put(p.getId(), 0);
 		}
 	}
@@ -132,7 +132,7 @@ public class Game {
 		try {
 			JAXBContext jc = JAXBContext.newInstance(Question.class);
 			Marshaller marshaller = jc.createMarshaller();
-	        marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+			marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 			for (Socket s : playerSockets) {
 				try (OutputStream out = s.getOutputStream()) {
 					marshaller.marshal(questions, out);
@@ -149,7 +149,10 @@ public class Game {
 	public void startNextQuestion() {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
+		} else if (playedQuestions == round.getQuestions().size() - 1) {
+			jackpot.setActive(true);
 		} else {
+			jackpot.randomActivation();
 			for (Socket s : playerSockets) {
 				ObjectMapper mapper = new ObjectMapper();
 				try (OutputStream out = s.getOutputStream()) {
@@ -161,7 +164,7 @@ public class Game {
 			playedQuestions++;
 		}
 	}
-	
+
 	private void end() {
 		sendEndResults();
 		saveEndResults();
@@ -190,16 +193,16 @@ public class Game {
 		RoundDAO dao = new RoundDAO();
 		dao.addRound(round);
 	}
-	
+
 	public void updateScoreboard(int playerId, int points) {
 		int score = scoreboard.get(playerId);
 		score += points;
 		scoreboard.put(playerId, score);
 	}
-	
+
 	private boolean hasAllPlayersAnswered() {
 		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
 		return allPlayeresAndwered;
 	}
-	
+
 }

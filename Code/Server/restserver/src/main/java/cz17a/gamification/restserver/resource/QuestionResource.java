@@ -101,6 +101,9 @@ public class QuestionResource {
 		game.getRound().addPlayedQuestion(playedQuestion);
 		game.updateScoreboard(playerId, playedQuestion.getScore());
 		game.addWaitingPlayer(playerId);
+		if(playedQuestion.getIsCorrect() == false) {
+			game.getJackpot().increasePayoutChance(1);
+		}
 		if(playedQuestion.getIsJackpot() && playedQuestion.getIsCorrect()) {
 			game.getJackpot().payedOut();
 		}
