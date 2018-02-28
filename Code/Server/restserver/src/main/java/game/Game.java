@@ -1,6 +1,7 @@
 package game;
 
 import data.access.RoundDAO;
+import data.model.Participation;
 import data.model.Player;
 import data.model.Question;
 import data.model.Quiz;
@@ -9,11 +10,15 @@ import data.model.Round;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -190,6 +195,17 @@ public class Game {
 	}
 
 	private void saveEndResults() {
+		List<Participation> participations = round.getParticipations();
+		for(Participation p : participations) {
+			p.setScore(scoreboard.get(p.getPlayer().getId()));
+			participations.add(p);
+		}
+		Collections.sort(participations);
+		for(int rank = 1; rank <= participations.size(); rank++) {
+			participations.get(rank-1).setRank(rank);
+			if(rank == participations.size()) 
+				round.setWinner(participations.get(rank-1).getPlayer());
+		}
 		RoundDAO dao = new RoundDAO();
 		dao.addRound(round);
 	}

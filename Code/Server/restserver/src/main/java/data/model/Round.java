@@ -50,6 +50,7 @@ public class Round implements Serializable {
 			Participation participation = new Participation(p, this);
 			participation.setRank(0);
 			participation.setScore(0);
+			participations.add(participation);
 		}
 	}
 
