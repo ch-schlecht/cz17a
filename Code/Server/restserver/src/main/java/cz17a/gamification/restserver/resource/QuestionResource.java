@@ -21,6 +21,7 @@ import data.model.Question;
 import data.model.Quiz;
 import game.Game;
 import game.GamePool;
+import game.Jackpot;
 
 /**
  * Resource-Class for Questions
@@ -101,11 +102,13 @@ public class QuestionResource {
 		game.getRound().addPlayedQuestion(playedQuestion);
 		game.updateScoreboard(playerId, playedQuestion.getScore());
 		game.addWaitingPlayer(playerId);
+		Jackpot jackpot = game.getJackpot();
 		if(playedQuestion.getIsCorrect() == false) {
-			game.getJackpot().increasePayoutChance(1);
+			jackpot.increasePayoutChance(1);
+			jackpot.addPoints(question.getWorth());
 		}
 		if(playedQuestion.getIsJackpot() && playedQuestion.getIsCorrect()) {
-			game.getJackpot().payedOut();
+			jackpot.payedOut();
 		}
 		return Response.status(200).build();
 	}

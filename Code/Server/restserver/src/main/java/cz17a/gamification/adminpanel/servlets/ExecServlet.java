@@ -97,7 +97,8 @@ public class ExecServlet extends HttpServlet {
 													data[1],
 													Integer.parseInt(data[2].trim()),
 													Integer.parseInt(data[3].trim()),
-													data[4]);
+													data[4], Integer.parseInt(data[5].trim()) // TODO: letzter Paramter muss im CSV angepasst werden, da worth hinzugekommen ist
+													);
 										//	question.setId(IDquestion);
 											
 											

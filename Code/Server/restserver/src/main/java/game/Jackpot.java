@@ -83,4 +83,8 @@ public class Jackpot {
 	    	isActive = true;
 	    }
 	}
+	
+	public void addPoints(int points) {
+		amount += points;
+	}
 }

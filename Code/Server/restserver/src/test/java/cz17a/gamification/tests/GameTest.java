@@ -29,7 +29,7 @@ public class GameTest { //tests most getter methods with dummy elements to guara
 		players.add(player1);
 		players.add(player2);
 		//Game game = new Game(quiz,players);
-		Question question = new Question(10, "Welche Zahl ist die groe�te", 5, 5, "Test-Topic");
+		Question question = new Question(10, "Welche Zahl ist die groe�te", 5, 5, "Test-Topic", 200);
 		question.setQuiz(quiz);
 		Answer answer = new Answer("0", true);
 		Answer answer2 = new Answer("1", false);

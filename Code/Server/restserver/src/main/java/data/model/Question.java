@@ -33,6 +33,10 @@ public class Question implements Cloneable, Serializable {
 
 	@Column(name = "static_difficulty")
 	private int staticDifficulty;
+	
+	private int worth;
+	private String topic;
+	private String questioning;
 
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Answer> answers = new ArrayList<Answer>();
@@ -43,9 +47,6 @@ public class Question implements Cloneable, Serializable {
 
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
-
-	private String topic;
-	private String questioning;
 
 	/**
 	 * Default Constructor
@@ -65,6 +66,7 @@ public class Question implements Cloneable, Serializable {
 		this.questioning = q.getQuestioning();
 		this.dynamicDifficulty = q.getDynamicDifficulty();
 		this.staticDifficulty = q.getStaticDifficulty();
+		this.worth = q.getWorth();
 		this.topic = q.getTopic();
 		this.quiz = new Quiz(q.getQuiz());
 	}
@@ -83,12 +85,13 @@ public class Question implements Cloneable, Serializable {
 	 * @param topic
 	 *            String of topic of the question
 	 */
-	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic) {
+	public Question(int response_time, String questioning, int dynamicDifficulty, int staticDifficulty, String topic, int worth) {
 		this.responseTime = response_time;
 		this.questioning = questioning;
 		this.dynamicDifficulty = dynamicDifficulty;
 		this.staticDifficulty = staticDifficulty;
 		this.topic = topic;
+		this.worth = worth;
 	}
 
 	@XmlElement
@@ -134,6 +137,14 @@ public class Question implements Cloneable, Serializable {
 
 	public void setStaticDifficulty(int staticDifficulty) {
 		this.staticDifficulty = staticDifficulty;
+	}
+
+	public int getWorth() {
+		return worth;
+	}
+
+	public void setWorth(int worth) {
+		this.worth = worth;
 	}
 
 	@XmlElement
