@@ -69,8 +69,7 @@ public class Participation implements Serializable, Comparable<Participation> {
 	}
 
 	@Override
-	public int compareTo(Participation o) {
-		Participation p = (Participation) o;
+	public int compareTo(Participation p) {
 		if (score == p.getScore()) {
 			if (player.getId() == p.getPlayer().getId()) {
 				return 0;
