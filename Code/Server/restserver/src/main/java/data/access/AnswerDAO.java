@@ -13,6 +13,10 @@ import data.model.Answer;
  */
 public class AnswerDAO {
 
+	/**
+	 * gets all answers from DB
+	 * @return List<Answer>
+	 */
 	public List<Answer> getAnswers(){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("from Answer");
@@ -21,6 +25,11 @@ public class AnswerDAO {
 		return answers;	
 	}
 	
+	/**
+	 * gets an answer by id
+	 * @param id
+	 * @return Answer Object
+	 */
 	public Answer getAnswer(int id){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select a from Answer a where a.id = :id");

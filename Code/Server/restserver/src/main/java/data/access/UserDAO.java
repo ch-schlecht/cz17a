@@ -68,6 +68,11 @@ public class UserDAO {
 		return user;
 	}
 
+	/**
+	 * checks if Username already exists
+	 * @param name
+	 * @return true or false
+	 */
 	public boolean usernameExist(String name) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select u from Person u where u.nickname = :nickname");
@@ -82,6 +87,11 @@ public class UserDAO {
 
 	}
 
+	/**
+	 * checks if email already exists
+	 * @param email
+	 * @return true or false
+	 */
 	public boolean emailExist(String email) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select u from Person u where u.mail = :mail");
@@ -95,6 +105,11 @@ public class UserDAO {
 		}
 	}
 
+	/**
+	 * checks if password already exists
+	 * @param password
+	 * @return true or false
+	 */
 	public boolean passwordExist(String password) {
 		User user;
 		Session session = HibernateUtil.getSessionFactory().openSession();

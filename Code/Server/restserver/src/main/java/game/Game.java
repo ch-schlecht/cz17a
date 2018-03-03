@@ -72,6 +72,11 @@ public class Game {
 		this.waitingPlayers = waitingPlayers;
 	}
 
+	/**
+	 * adds a player to the waiting list (waiting because he has already answered)
+	 * if all players have answered the list will be cleared and a next question will be started
+	 * @param player_id
+	 */
 	public void addWaitingPlayer(int player_id) {
 		waitingPlayers.add(player_id);
 		if (hasAllPlayersAnswered() == true) {
@@ -120,6 +125,9 @@ public class Game {
 		this.scoreboard = scoreboard;
 	}
 
+	/**
+	 * outputs the game-ID to all Clients connected via Socket
+	 */
 	public void start() {
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream();) {
@@ -152,6 +160,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * starts the next question, but checks if there are no more questions (-->end), or if it is the last question (-->activate Jackpot)
+	 */
 	public void startNextQuestion() {
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
@@ -171,6 +182,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * saves results to DB, sends result to Clients to display them, removes game from GamePool, closes socket Connections
+	 */
 	private void end() {
 		sendEndResults();
 		saveEndResults();
@@ -184,6 +198,9 @@ public class Game {
 		GamePool.removeGame(id);
 	}
 
+	/**
+	 * sends the results of the game to every Client
+	 */
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		for (Socket s : playerSockets) {
@@ -195,6 +212,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * saves the results to DB
+	 */
 	private void saveEndResults() {
 		List<Participation> participations = round.getParticipations();
 		for(Participation p : participations) {
@@ -211,12 +231,21 @@ public class Game {
 		dao.addRound(round);
 	}
 
+	/**
+	 * updates the score of a player
+	 * @param playerId
+	 * @param points
+	 */
 	public void updateScoreboard(int playerId, int points) {
 		int score = scoreboard.get(playerId);
 		score += points;
 		scoreboard.put(playerId, score);
 	}
 
+	/**
+	 * checks if all players have sent their reply that they answered the question
+	 * @return true or false
+	 */
 	private boolean hasAllPlayersAnswered() {
 		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
 		return allPlayeresAndwered;

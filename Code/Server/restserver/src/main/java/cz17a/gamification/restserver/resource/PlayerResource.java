@@ -27,6 +27,11 @@ import data.model.User;
 public class PlayerResource {
 	private PlayerDAO dao = new PlayerDAO();
 
+	/**
+	 * Registers a user by JSON file
+	 * @param p Player that is created from the JSON
+	 * @return String message of status of registration
+	 */
 	@POST
 	@Path("/register")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -55,6 +60,11 @@ public class PlayerResource {
 		}
 	}
 
+	/**
+	 * Login by giving JSON file
+	 * @param p Player that is constructed from JSON
+	 * @return String message of status of login 
+	 */
 	@POST
 	@Path("/login")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -76,6 +86,11 @@ public class PlayerResource {
 		}
 	}
 
+	/**
+	 * logout a Player by giving name
+	 * @param name String of username
+	 * @return status code 200 if successful, 400 otherwise
+	 */
 	@POST
 	@Path("/logout/{name}")
 	public Response logout(@PathParam("name") String name) {
@@ -88,6 +103,11 @@ public class PlayerResource {
 		}
 	}
 
+	/**
+	 * deletes User from DB by giving ID
+	 * @param id User-ID
+	 * @return status code 200 if successful, 400 otherwise
+	 */
 	@DELETE
 	@Path("/{id}")
 	public Response delete(@PathParam("id") int id) {
@@ -100,6 +120,11 @@ public class PlayerResource {
 		}
 	}
 
+	/**
+	 * Sends an email to the users Email address containing a link to reset his password
+	 * @param user User to send the email to
+	 * @return String message of status of email send
+	 */
 	@POST
 	@Path("/forgotPassword")
 	public String sendPasswordToMail(User user) {

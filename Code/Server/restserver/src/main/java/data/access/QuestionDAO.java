@@ -9,7 +9,12 @@ import org.hibernate.Transaction;
 import data.model.Question;
 
 public class QuestionDAO {
-	
+
+	/**
+	 * Gets a question by ID
+	 * @param id
+	 * @return Question
+	 */
 	public Question getQuestion(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select q from Question q where q.id = :id");
@@ -20,6 +25,10 @@ public class QuestionDAO {
 		return question;
 	}
 	
+	/**
+	 * Gets a List of all questions
+	 * @return List<Question>
+	 */
 	public List<Question> getQuestions(){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select q from Question q");
@@ -28,6 +37,11 @@ public class QuestionDAO {
 		return questions;
 	}
 	
+	/**
+	 * Gets a list of question corresponding to the given topic
+	 * @param topic
+	 * @return List<Question>
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Question> getQuestionsByTopic(String topic){
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -38,6 +52,10 @@ public class QuestionDAO {
 		return questions;
 	}
 	
+	/**
+	 * Adds a question to DB
+	 * @param question
+	 */
 	public void addQuestion(Question question) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();

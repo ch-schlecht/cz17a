@@ -34,6 +34,11 @@ import game.Jackpot;
 public class QuestionResource {
 	private QuestionDAO dao = new QuestionDAO();
 
+	/**
+	 * Gets a question by id
+	 * @param questionId
+	 * @return Question as JSON
+	 */
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,12 +46,21 @@ public class QuestionResource {
 		return dao.getQuestion(questionId);
 	}
 
+	/**
+	 * get all Questions as JSON
+	 * @return List of Questions as JSON
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Question> getAllQuestions() {
 		return dao.getQuestions();
 	}
 
+	/**
+	 * get the answers to a question that is given by ID
+	 * @param question_id
+	 * @return answers as JSON
+	 */
 	@GET
 	@Path("/{id}/answers/")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -55,6 +69,11 @@ public class QuestionResource {
 		return answers;
 	}
 
+	/**
+	 * Adds a question to DB by giving JSON
+	 * @param questions List<Question> that is created from the JSON
+	 * @return String message of status
+	 */
 	@POST
 	@Path("/add")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -87,6 +106,14 @@ public class QuestionResource {
 		}
 	}
 
+	/**
+	 * Adds a played question (needed for saving games)
+	 * @param gameId
+	 * @param questionId
+	 * @param playerId
+	 * @param playedQuestion
+	 * @return status code 200
+	 */
 	@POST
 	@Path("/played/{game_id}/{question_id}/{player_id}")
 	@Consumes(MediaType.APPLICATION_JSON)

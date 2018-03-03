@@ -9,6 +9,12 @@ import org.hibernate.Transaction;
 import data.model.Player;
 
 public class PlayerDAO {
+	
+	/**
+	 * Gets a Player by ID
+	 * @param id
+	 * @return Player
+	 */
 	public Player getPlayer(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select p from Player p where p.id = :id");
@@ -18,6 +24,10 @@ public class PlayerDAO {
 		return player;
 	}
 
+	/**
+	 * Gets a List of all Players
+	 * @return List<Player>
+	 */
 	public List<Player> getPlayers() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("from Player");
@@ -26,6 +36,10 @@ public class PlayerDAO {
 		return players;
 	}
 
+	/**
+	 * Adds a Player to DB
+	 * @param player Player
+	 */
 	public void addPlayer(Player player) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
@@ -33,7 +47,10 @@ public class PlayerDAO {
 		ts.commit();
 		session.close();
 	}
-	
+	/**
+	 * Deletes a Player from DB
+	 * @param player Player
+	 */
 	public void deletePlayer(Player player) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
@@ -42,6 +59,11 @@ public class PlayerDAO {
 		session.close();
 	}
 
+	/**
+	 * Gets a Player by email
+	 * @param email
+	 * @return Player
+	 */
 	public Player getPlayerByMail(String email) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select p from Player p where p.mail = :mail");
@@ -51,6 +73,11 @@ public class PlayerDAO {
 		return player;
 	}
 
+	/**
+	 * Gets a Player by nickname
+	 * @param nickname
+	 * @return Player
+	 */
 	public Player getPlayer(String nickname) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select p from Player p where p.nickname = :nickname");
@@ -60,6 +87,11 @@ public class PlayerDAO {
 		return player;
 	}
 
+	/**
+	 * checks if a name is already used
+	 * @param name
+	 * @return true or false
+	 */
 	public boolean usernameExist(String name) {
 		Player player = getPlayer(name);
 		if (player != null) {
@@ -69,6 +101,11 @@ public class PlayerDAO {
 		}
 	}
 	
+	/**
+	 * checks if email already exists
+	 * @param email
+	 * @return true or false
+	 */
 	public boolean emailExist(String email) {
 		Player player = getPlayerByMail(email);
 		if (player != null) {
@@ -78,6 +115,11 @@ public class PlayerDAO {
 		}
 	}
 	
+	/**
+	 * checks if password already exists
+	 * @param password
+	 * @return true or false
+	 */
 	public boolean passwordExist(String password) {
 		Player player;
 		Session session = HibernateUtil.getSessionFactory().openSession();

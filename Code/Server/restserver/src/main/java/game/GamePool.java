@@ -10,6 +10,13 @@ import data.model.Quiz;
 public class GamePool {
 	public static Map<Integer, Game> games = new HashMap<Integer, Game>();
 	
+	/**
+	 * adds a game to the list of active games, starts it
+	 * current max: 1000 games
+	 * @param quiz
+	 * @param players
+	 * @param sockets
+	 */
 	public static void startGame(Quiz quiz, List<Player> players, List<Socket> sockets) {
 		int id;
 		for(id = 0; id <= 1000; id++) {
@@ -21,6 +28,10 @@ public class GamePool {
 		games.get(id).start();
 	}
 	
+	/**
+	 * removes game from list of active games after it has finished
+	 * @param id
+	 */
 	public static void removeGame(int id) {
 		if(games.containsKey(id)) {
 			games.remove(id);

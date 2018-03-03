@@ -9,6 +9,10 @@ import data.model.Question;
 
 public class PasswordCodeDAO {
 
+	/**
+	 * Adds a PasswordCode to DB
+	 * @param pwc PasswordCode
+	 */
 	public void addPasswordCode(PasswordCode pwc) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
@@ -17,6 +21,12 @@ public class PasswordCodeDAO {
 		session.close();
 	}
 	
+	/**
+	 * Authentification for PasswordCode
+	 * @param mail
+	 * @param code
+	 * @return Boolean if successful
+	 */
 	public boolean authCode(String mail, String code) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select q from PasswordCode where q.email = :email and q.code = :code");

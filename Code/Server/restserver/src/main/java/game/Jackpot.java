@@ -55,26 +55,41 @@ public class Jackpot {
 		this.payoutChance = payoutChance;
 	}
 
+	/**
+	 * called after payout, fills the Jackpot with the default value
+	 */
 	public void fill() {
 		amount = initialPoints;
 	}
 	
+	/**
+	 * empties the jackpot
+	 */
 	public void clear() {
 		this.isActive = false;
 		amount = 0;
 	}
 	
+	/**
+	 * called after payout, resets chance of payout, clears and fills jackpot with default
+	 */
 	public void payedOut() {
 		clear();
 		fill();
 		payoutChance = initialPayoutChance;
 		payoutCounter++;
 	}
-	
+	/**
+	 * increase payout chance by a certain value
+	 * @param value
+	 */
 	public void increasePayoutChance(int value) {
 		payoutChance += value;
 	}
 	
+	/**
+	 * randomly determines if a jackpot is going to be activated
+	 */
 	public void randomActivation() {
 		int payoutTreshhold = 100 - payoutChance;
 		int random; 

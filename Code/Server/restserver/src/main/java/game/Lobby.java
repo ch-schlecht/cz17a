@@ -42,6 +42,11 @@ public class Lobby {
 		this.players = players;
 	}
 	
+	/**
+	 * adds a player to the lobby, opens socket connection, updates lobby state (and sends state to players)
+	 * if enough players are in the lobby a game will be started
+	 * @param p Player
+	 */
 	public void addPlayer(Player p)  {
 		players.add(p);
 		try(Socket socket = new Socket(p.getIPAddress(), p.getPort())) {
@@ -54,7 +59,10 @@ public class Lobby {
 			openGame();
 		}
 	}
-	
+	/**
+	 * removes a Player from the lobby, closes socket connection and updates Lobby state (and sends it to players)
+	 * @param p
+	 */
 	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
 			players.remove(p);
@@ -67,12 +75,19 @@ public class Lobby {
 		}
 		sendLobbyStateToPlayers();
 	}
-		
+	
+	/**
+	 * checks if there are enough players to start a game
+	 * @return true or false
+	 */
 	public boolean hasRequiredPlayers() {
 		boolean requiredPlayers = players.size() >= quiz.getMinParticipants();
 		return requiredPlayers;
 	}
 
+	/**
+	 * outputs the current lobby state to Clients (Names of players as JSON)
+	 */
 	private void sendLobbyStateToPlayers() {
 		List<String> playerNames = new ArrayList<String>();
 		for(Player p : players) {
@@ -100,6 +115,9 @@ public class Lobby {
 		}
 	}
 
+	/**
+	 * opens a new game by taking players from the lobby
+	 */
 	private void openGame() {
 		List<Player> playersForGame = new ArrayList<Player>();
 		while(playersForGame.size() < quiz.getMinParticipants()) {

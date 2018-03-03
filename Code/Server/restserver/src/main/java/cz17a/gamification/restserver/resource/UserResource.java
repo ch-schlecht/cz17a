@@ -36,6 +36,11 @@ public class UserResource {
 	UserDAO dao = new UserDAO();
 	PasswordCodeDAO pwdao = new PasswordCodeDAO();
 
+	/**
+	 * gets User by name
+	 * @param name
+	 * @return user as JSON
+	 */
 	@GET
 	@Path("/{name}")
 	public User getUser(@PathParam("name") String name) {

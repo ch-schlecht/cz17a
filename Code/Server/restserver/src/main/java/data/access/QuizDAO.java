@@ -10,6 +10,12 @@ import data.model.Question;
 import data.model.Quiz;
 
 public class QuizDAO {
+	
+	/**
+	 * gets a quiz by ID
+	 * @param id
+	 * @return Quiz
+	 */
 	public Quiz getQuiz(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select q from Quiz q where q.id = :id");
@@ -19,6 +25,11 @@ public class QuizDAO {
 		return quiz;
 	}
 	
+	/**
+	 * Gets a quiz by title
+	 * @param title
+	 * @return Quiz
+	 */
 	public Quiz getQuiz(String title) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select q from Quiz q where q.title = :title");
@@ -28,6 +39,10 @@ public class QuizDAO {
 		return quiz;
 	}
 	
+	/**
+	 * gets a list of all quizzes
+	 * @return List<Quiz>
+	 */
 	public List<Quiz> getQuizzes() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("from Quiz");
@@ -36,6 +51,10 @@ public class QuizDAO {
 		return quizzes;
 	}
 	
+	/**
+	 * adds a quiz to DB
+	 * @param quiz
+	 */
 	public void addQuiz(Quiz quiz) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction ts = session.beginTransaction();
@@ -44,6 +63,10 @@ public class QuizDAO {
 		session.close();
 	}
 	
+	/**
+	 * updates an already existing question
+	 * @param question
+	 */
 	public void updateQuestion(Question question) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
