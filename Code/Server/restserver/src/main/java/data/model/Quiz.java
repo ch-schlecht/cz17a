@@ -1,6 +1,7 @@
 package data.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -76,14 +77,29 @@ public class Quiz {
 
 	/**
 	 * Produces a list of random questions (amount is equal to the length attribute
-	 * of the quiz) associated with the quiz. AP1: just returns all questions of the
-	 * quiz since the DB only has test questions
+	 * of the quiz) associated with the quiz. Questions that have a higher amount of wrong answers are preferred, 
+	 * but the choosing process persists to be random.
+	 * see git issue for detailed description of the algorithm.
 	 * 
 	 * @return List of Question
 	 */
 	public List<Question> getRandomQuestions() {
-		// For AP1 return just the question(s), we have
-		return questions;
+		List<Question> chooseList = this.getQuestions();
+		List<Question> returnList = new ArrayList<Question>();
+		Collections.sort(chooseList);
+		outer: while(returnList.size() < this.length) { //do the iteration until we have enough questions
+			for(int i = 0; i < chooseList.size(); i++) { //iterate over all questions
+				int threshold = (int) Math.random() * 5; //magic number: this is the maximum value for dynamic difficulty, to be changed however we decide
+				if(chooseList.get(i).getDynamicDifficulty() > threshold || i == (chooseList.size() - 1) ) { //if the difficulty is greater than the random value OR the question is the last in the list
+					if(!returnList.contains(chooseList.get(i))) { //if it was not already taken
+						returnList.add(chooseList.get(i)); //then take this question
+						continue outer; //once a question was taken, go back to the outer loop, because every iteration should only add one question
+					}
+				}
+			}
+		}
+		
+		return returnList;
 	}
 
 	@XmlElement

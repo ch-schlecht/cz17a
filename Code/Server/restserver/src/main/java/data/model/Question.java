@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @XmlRootElement
-public class Question implements Cloneable, Serializable {
+public class Question implements Cloneable, Serializable, Comparable<Question> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -209,5 +209,18 @@ public class Question implements Cloneable, Serializable {
 	 */
 	public void addPlayedQuestion(PlayedQuestion playedQuestion) {
 		this.playedQuestions.add(playedQuestion);
+	}
+	
+	@Override
+	public int compareTo(Question q) {
+		if(this.getDynamicDifficulty() == q.getDynamicDifficulty()) {
+			return 0;
+		}
+		else if(this.getDynamicDifficulty() > q.getDynamicDifficulty()) {
+			return -1;
+		}
+		else {
+			return 1;
+		}
 	}
 }
