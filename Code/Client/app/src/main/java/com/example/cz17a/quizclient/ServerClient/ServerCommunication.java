@@ -181,18 +181,13 @@ public class ServerCommunication {
     public boolean usrRegistry(String usrname, String pw, String email){   //players
         URL url = null;
         boolean success = false;
-        JSONObject usrreg = null;
-        try {
-            usrreg.put("nickname",usrname);
-            usrreg.put("password", pw);
-            usrreg.put("mail", email);
-        } catch (JSONException e) {
-            System.err.println("Data is no JSON");
-            e.printStackTrace();
-        }
+
+        User user = new User(email, usrname);
+        user.toJSON();
+
         try {
             url = urlHandler.genUsrUrl();
-           success = new ClientThreadPOST(usrreg).execute(url).get();
+           success = new ClientThreadPOST(user.toJSON()).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -208,6 +203,7 @@ public class ServerCommunication {
      * @return true by success
      */
     public boolean usrLogin(String usrname, String pw, String email){
+        email = "steinbach_willy@outlook.de";
         URL url = null;
         boolean success = false;
         JSONObject usrlog = new JSONObject();

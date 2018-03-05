@@ -122,6 +122,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        //Skip Login (only for testing)
+        Button skipLogin = findViewById(R.id.skipLoginButton);
+        skipLogin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = new User("steinbach_willy@outlook.de", "Name");
+                goToMain(user);
+            }
+        });
+
+
     }
 
     public void register(){
@@ -130,6 +142,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if(servCom.usrRegistry(nickname.getText().toString(),
                 mPasswordView.getText().toString(),
                 mEmailView.getText().toString())){
+            //Dummy User
             User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
             goToMain(user);
         }

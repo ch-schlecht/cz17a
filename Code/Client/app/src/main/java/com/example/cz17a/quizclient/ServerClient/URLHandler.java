@@ -23,7 +23,7 @@ public class URLHandler {
 
     public URL genUsrUrl(){
         try {
-            url = new URL(URLROOT + "/players/register");
+            url = new URL(URLROOT + "/player/register");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -36,7 +36,7 @@ public class URLHandler {
      */
     public URL genUsrLogInURL(){
         try {
-            url = new URL(URLROOT + "/players/login");
+            url = new URL(URLROOT + "/player/login");
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

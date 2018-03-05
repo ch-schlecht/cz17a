@@ -49,12 +49,26 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
             try {
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
                 connect.setRequestMethod("POST"); //throws ProtocolException
+                connect.setDoOutput(true);
+                connect.connect();
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
+                System.out.println("SendLoginUser: " + usr.toString());
+                out.write(usr.toString());
+
+        /*
                 connect.connect();
                 /*if (connect.getResponseCode() != 200) {
                     throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
-                }*/
+                }
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
                 out.write(usr.toString());
+
+*/
+                out.flush();
+                out.close();
+                int responseCode = connect.getResponseCode();
+                System.out.println("ResponseCode: " + responseCode);
+/*
                 BufferedReader cIn = new BufferedReader(new InputStreamReader(connect.getInputStream()));
                 String line = "";
                 String in = "";
@@ -62,13 +76,17 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                     System.out.println(line);
                     in += line;
                 }
+                cIn.close();
                 System.out.println(in);
+*/
                 connect.disconnect();
+
             } catch (ProtocolException e) {
                 e.printStackTrace();
                 return false;
             } catch (IOException e) {
                 System.out.println("cant connect to given URL");
+                e.printStackTrace();
                 return false;
             }
 
