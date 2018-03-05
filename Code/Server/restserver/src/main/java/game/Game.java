@@ -164,22 +164,22 @@ public class Game {
 	 * starts the next question, but checks if there are no more questions (-->end), or if it is the last question (-->activate Jackpot)
 	 */
 	public void startNextQuestion() {
+		playedQuestions++;
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else if (playedQuestions == round.getQuestions().size() - 1) {
 			jackpot.setActive(true);
 		} else {
 			jackpot.randomActivation();
-			for (Socket s : playerSockets) {
-				ObjectMapper mapper = new ObjectMapper();
-				try (OutputStream out = s.getOutputStream()) {
-					mapper.writeValue(out, jackpot);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			playedQuestions++;
 		}
+		for (Socket s : playerSockets) {
+			ObjectMapper mapper = new ObjectMapper();
+			try (OutputStream out = s.getOutputStream()) {
+				mapper.writeValue(out, jackpot);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
 	}
 
 	/**
