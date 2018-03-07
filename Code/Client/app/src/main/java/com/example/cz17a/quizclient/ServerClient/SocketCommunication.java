@@ -19,57 +19,85 @@ import java.net.UnknownHostException;
 
 public class SocketCommunication implements Runnable{
 
-    //ServerSocket socket = null;
-    Socket server = null;
-
+    ServerSocket server = null;
+    Socket client = null;
     BufferedReader in = null;
-    char buffer[] = new char[1024];
+    //char buffer[] = new char[1024];
     PrintWriter out = null;
     int port = 0;
     boolean running;
-    String[] statusMessages;
-    int playernumberGameStartedWith;
-    String gameID;
+    //String[] statusMessages;
+    //int playernumberGameStartedWith;
+    //String gameID;
 
     public SocketCommunication(int port){
 
         this.port = port;
 
         running = true;
-        connect();/*
-        */
+        connect();
     }
 
     /**
      * Establish a connection to the Server Socket and initialize Input- and OutputStreams.
      */
    public void connect() {
+       //try {
        try {
-           //socket = new ServerSocket(port);
-           server = new Socket("IP", port); //socket.accept(); //wait for connection from server (in this case client)
-           in = new BufferedReader(new InputStreamReader(server.getInputStream()));
-           out = new PrintWriter(server.getOutputStream(), true);
+           server = new ServerSocket(port);
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+       //server = new Socket("IP", port); //socket.accept(); //wait for connection from server (in this case client)
+
+           while (true){
+
+               try {
+                   client = server.accept();
+                   //receivedMessagesFromServer(client);
+
+               } catch (IOException ioe) {
+                   ioe.printStackTrace();
+               }
+           }
 
 
-       } catch (UnknownHostException uhe) {
+
+      /* } catch (UnknownHostException uhe) {
            uhe.printStackTrace();
 
        } catch (IOException ioe) {
            ioe.printStackTrace();
 
-       }
+       }*/
+   }
+
+    /**
+     * Method that receives a Message from the Client Socket from Server and returns this String.
+     * @return String
+     */
+   public String receivedMessagesFromServer() throws IOException{
+       in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+       String message;
+       message = in.readLine();
+       return message;
+   }
+
+   public void sendMessageToClientsocketAtServer(String message) throws IOException{
+       out = new PrintWriter(client.getOutputStream(), true);
+       out.println(message);
    }
 
     /**
      * Method that receives all Messages from Server Socket and saves them in the String Array.
      */
-   public void receiveMessagesFromServer(){
+   /*public String receivedMessagesFromServer(){
         int i=0;
         while (true){
             try {
                 System.out.println(in.readLine());
                 if (in.readLine() == null){
-                    continue;
+                    break;
                 }
                 else {
                     statusMessages[i] = in.readLine();
@@ -79,7 +107,7 @@ public class SocketCommunication implements Runnable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
    }
 
     /**
@@ -87,7 +115,7 @@ public class SocketCommunication implements Runnable{
      *
      * @return boolean if there are enough People to Play a Round in this Lobby.
      */
-   public boolean enoughPlayerToPlay(int minNumberofPlayer){
+   /*public boolean enoughPlayerToPlay(int minNumberofPlayer){
 
            int numberOfPeopleInLobby = 0;
            for(String message: statusMessages){
@@ -105,12 +133,12 @@ public class SocketCommunication implements Runnable{
            }
            return false;
 
-   }
+   }*/
 
     /**
      * Gets the gameID out of the status messages.
      */
-   void gameID(){
+   /*void gameID(){
        gameID = statusMessages[playernumberGameStartedWith-1];
    }
 
@@ -118,7 +146,7 @@ public class SocketCommunication implements Runnable{
      *
      * @return gameID from the started Game.
      */
-   public String getGameID(){
+   /*public String getGameID(){
        return gameID;
    }
 
@@ -129,14 +157,14 @@ public class SocketCommunication implements Runnable{
    }*/
 
 
-   public void sendAnswer(String answer){
+   /*public void sendAnswer(String answer){
 
        out.write(answer);
 
-   }
+   }*/
 
 
-   public Question getNextQuestion(){
+   /*public Question getNextQuestion(){
 
        Question question = new Question();
         /*
@@ -158,11 +186,11 @@ public class SocketCommunication implements Runnable{
 
 
 
-        question.dummyQuestion();
+      /*  question.dummyQuestion();
         System.out.println("DummyFrage: "+ question.toString());
 
        return question;
-   }
+   }*/
 
 
    public synchronized void stop(){
