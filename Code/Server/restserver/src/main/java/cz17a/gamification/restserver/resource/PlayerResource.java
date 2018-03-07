@@ -127,6 +127,8 @@ public class PlayerResource {
 	 */
 	@POST
 	@Path("/forgotPassword")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public String sendPasswordToMail(User user) {
 		String email = user.getMail();
 		if (dao.emailExist(email) == false) {
