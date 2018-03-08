@@ -21,6 +21,7 @@ public class Lobby {
 	private Map<Integer, Socket> player_sockets;
 	
 	public Lobby(Quiz quiz, Player firstPlayer) {
+		System.out.println("create Lobby:"+quiz);
 		this.quiz = quiz;
 		this.player_sockets = new HashMap<Integer, Socket>();
 		this.addPlayer(firstPlayer);
@@ -48,8 +49,11 @@ public class Lobby {
 	 * @param p Player
 	 */
 	public void addPlayer(Player p)  {
+
 		players.add(p);
+		System.out.println("Try to connect to:"+p.getIPAddress()+":"+p.getPort());
 		try(Socket socket = new Socket(p.getIPAddress(), p.getPort())) {
+			System.out.println("created Socket to:"+p.getIPAddress()+":"+p.getPort());
 			player_sockets.put(p.getId(), socket);
 		} catch (IOException ex) {
 			ex.printStackTrace();

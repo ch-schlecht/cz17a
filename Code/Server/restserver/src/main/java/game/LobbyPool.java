@@ -26,9 +26,11 @@ public class LobbyPool {
 		if(activeLobbies.containsKey(quiz_id) == false) {
 			Quiz quiz = new QuizDAO().getQuiz(quiz_id);
 			Lobby lobby = new Lobby(quiz, player);
+			System.out.println("Added player:"+player.getId()+" to Lobby"+quiz_id);
 			activeLobbies.put(quiz_id, lobby);
 		}
 		else {
+			System.out.println("Added player:"+player.getId()+" to Lobby"+quiz_id);
 			activeLobbies.get(quiz_id).addPlayer(player);
 		}
 	}

@@ -204,7 +204,8 @@ public class SocketCommunication implements Runnable{
 
     @Override
     public void run() {
-        connect();
+        System.out.println("Client Port:"+port+" inits connection");
+       connect();
         while(running){
 
         }

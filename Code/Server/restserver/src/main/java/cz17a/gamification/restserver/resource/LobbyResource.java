@@ -5,6 +5,7 @@ import java.net.UnknownHostException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -32,16 +33,20 @@ public class LobbyResource {
 	 * @return Response Status-Code
 	 * @since 1.0
 	 */
-	@PUT
+	@GET
 	@Path("/{quiz_id}/join/{user_id}/{port}")
 	//@Produces(MediaType.APPLICATION_JSON)
-	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id, @PathParam("port") int port){
+	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("user_id") int player_id, @PathParam("port") int port){
 		Player player = new PlayerDAO().getPlayer(player_id);
 		player.setPort(port);
+		
+		System.out.println("Join Lobby: "+player_id+" port:"+port);
+		
 		InetAddress ip;
 		try {
 			ip = InetAddress.getByName(request.getRemoteAddr());
 			player.setIPAddress(ip);
+			System.out.println("IP:"+ip);
 			LobbyPool.joinLobby(quiz_id, player);
 			return Response.status(200).build();
 		}

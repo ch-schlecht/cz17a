@@ -273,22 +273,27 @@ public class ServerCommunication {
     public boolean usrJoinLobby(String quizId, String usrId, String port) {
         URL url = null;
         boolean success = false;
-        User user = new User("test","testmail"); //TODO
-        user.setId(usrId);
+
+        usrId="1"; //TODO
+
+        SocketCommunication test_com = new SocketCommunication(Integer.parseInt(port));
+        new Thread(test_com).start();
+
         try {
             url = urlHandler.lobbyURL(quizId, usrId, port);
-            success = new ClientThreadPOST(user.toJSON()).execute(url).get();
-            System.out.println("Client Port:"+port+" inits connection");
+
+
+            System.out.println("URL:"+url);
+            new ClientThreadGETArray().execute(url).get();
+
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        if(success){
-            SocketCommunication test_com = new SocketCommunication(Integer.parseInt(port));
-            new Thread(test_com).start();
-        }
 
         return success;
 
