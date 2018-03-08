@@ -26,7 +26,7 @@ public class SocketCommunication implements Runnable{
     PrintWriter out = null;
     int port = 0;
     boolean running;
-    //String[] statusMessages;
+    String[] statusMessages;
     //int playernumberGameStartedWith;
     //String gameID;
 
@@ -35,7 +35,7 @@ public class SocketCommunication implements Runnable{
         this.port = port;
 
         running = true;
-        connect();
+
     }
 
     /**
@@ -50,10 +50,12 @@ public class SocketCommunication implements Runnable{
        }
        //server = new Socket("IP", port); //socket.accept(); //wait for connection from server (in this case client)
 
+        System.out.println("waiting...");
            while (true){
 
                try {
                    client = server.accept();
+                   System.out.println("...accepted");
                    //receivedMessagesFromServer(client);
 
                } catch (IOException ioe) {
@@ -91,24 +93,27 @@ public class SocketCommunication implements Runnable{
     /**
      * Method that receives all Messages from Server Socket and saves them in the String Array.
      */
-   /*public String receivedMessagesFromServer(){
-        int i=0;
-        while (true){
-            try {
-                System.out.println(in.readLine());
-                if (in.readLine() == null){
-                    break;
-                }
-                else {
-                    statusMessages[i] = in.readLine();
-                    i++;
-                }
+  /*
+   public String receivedMessagesFromServer() {
+       int i = 0;
+       while (true) {
+           try {
+               System.out.println(in.readLine());
+               if (in.readLine() == null) {
+                   break;
+               } else {
+                   statusMessages[i] = in.readLine();
+                   i++;
+               }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+        return "";
    }
+   */
+
 
     /**
      * Tests if there are enough Player for a Game.
@@ -157,14 +162,14 @@ public class SocketCommunication implements Runnable{
    }*/
 
 
-   /*public void sendAnswer(String answer){
+   public void sendAnswer(String answer){
 
        out.write(answer);
 
-   }*/
+   }
 
 
-   /*public Question getNextQuestion(){
+   public Question getNextQuestion(){
 
        Question question = new Question();
         /*
@@ -186,11 +191,11 @@ public class SocketCommunication implements Runnable{
 
 
 
-      /*  question.dummyQuestion();
+        question.dummyQuestion();
         System.out.println("DummyFrage: "+ question.toString());
 
        return question;
-   }*/
+   }
 
 
    public synchronized void stop(){
@@ -199,6 +204,7 @@ public class SocketCommunication implements Runnable{
 
     @Override
     public void run() {
+        connect();
         while(running){
 
         }

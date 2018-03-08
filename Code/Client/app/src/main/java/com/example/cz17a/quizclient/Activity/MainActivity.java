@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         quizzes = new Quizzes(servCom);
         quizzes.setUpQuizzes();
         TopicSelection.quizzes = quizzes;
+        TopicSelection.user = user;
         startActivity(intent);
     }
     public void goToProfile(){
