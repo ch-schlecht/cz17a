@@ -19,8 +19,9 @@ import java.net.UnknownHostException;
 
 public class SocketCommunication implements Runnable{
 
-    ServerSocket server = null;
-    Socket client = null;
+    //ServerSocket server = null;
+    //Socket client = null;
+    Socket server = null;
     BufferedReader in = null;
     //char buffer[] = new char[1024];
     PrintWriter out = null;
@@ -29,11 +30,12 @@ public class SocketCommunication implements Runnable{
     String[] statusMessages;
     //int playernumberGameStartedWith;
     //String gameID;
+    String ip;
 
-    public SocketCommunication(int port){
+    public SocketCommunication(int port, String ip){
 
         this.port = port;
-
+        this.ip = ip;
         running = true;
 
     }
@@ -44,13 +46,14 @@ public class SocketCommunication implements Runnable{
    public void connect() {
        //try {
        try {
-           server = new ServerSocket(port);
+           //server = new ServerSocket(port);
+           server = new Socket(ip, port); //socket.accept(); //wait for connection from server (in this case client)
        } catch (IOException e) {
            e.printStackTrace();
        }
-       //server = new Socket("IP", port); //socket.accept(); //wait for connection from server (in this case client)
 
-        System.out.println("waiting...");
+
+        /*System.out.println("waiting...");
            while (true){
 
                try {
@@ -61,7 +64,7 @@ public class SocketCommunication implements Runnable{
                } catch (IOException ioe) {
                    ioe.printStackTrace();
                }
-           }
+           }*/
 
 
 
@@ -79,14 +82,14 @@ public class SocketCommunication implements Runnable{
      * @return String
      */
    public String receivedMessagesFromServer() throws IOException{
-       in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+       in = new BufferedReader(new InputStreamReader(server.getInputStream()));
        String message;
        message = in.readLine();
        return message;
    }
 
-   public void sendMessageToClientsocketAtServer(String message) throws IOException{
-       out = new PrintWriter(client.getOutputStream(), true);
+   public void sendMessageToServersocketAtServer(String message) throws IOException{
+       out = new PrintWriter(server.getOutputStream(), true);
        out.println(message);
    }
 
