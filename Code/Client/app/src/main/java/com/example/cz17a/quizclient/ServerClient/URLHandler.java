@@ -10,7 +10,7 @@ import java.net.URL;
 public class URLHandler {
 
     private URL url = null;
-    final static public String SERVERROOT = /**"192.168.178.21";**/ "pcai042.informatik.uni-leipzig.de";
+    final static public String SERVERROOT =  /*"192.168.178.21";*/ "pcai042.informatik.uni-leipzig.de";
     final static private String URLROOT = "http://"+SERVERROOT+":1810/restserver/webapi"; //TODO 1810
     final static private String URLQUIZ = "/quizzes";
 

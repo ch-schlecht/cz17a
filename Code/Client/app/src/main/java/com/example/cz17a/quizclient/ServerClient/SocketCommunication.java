@@ -1,5 +1,6 @@
 package com.example.cz17a.quizclient.ServerClient;
 
+import com.example.cz17a.quizclient.Activity.LobbyActivity;
 import com.example.cz17a.quizclient.Src.Question;
 
 import org.json.JSONException;
@@ -34,12 +35,14 @@ public class SocketCommunication implements Runnable{
     //int playernumberGameStartedWith;
     //String gameID;
     String ip;
+    LobbyActivity lobby;
 
-    public SocketCommunication(int port, String ip){
+    public SocketCommunication(int port, String ip, LobbyActivity lobby){
 
         this.port = port;
         this.ip = ip;
         running = true;
+        this.lobby = lobby;
 
     }
 
@@ -199,8 +202,9 @@ public class SocketCommunication implements Runnable{
             String msg = receivedMessagesFromServer();
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
-                if(msg == "start_game"){
-        //TODO
+                if(msg.equals("start_game")){
+                    System.out.println("Go to Game");
+                    lobby.goToGame();
                 }
                 //TODO Lobbyanzeige
             }

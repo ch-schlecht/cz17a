@@ -151,8 +151,9 @@ public class Lobby {
 				Socket socket = e.getValue();
 				OutputStream out = socket.getOutputStream();
 				PrintWriter wr = new PrintWriter(out);
-				wr.print(response);
-				wr.close();
+				wr.println(response);
+				wr.flush();
+				//wr.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -174,7 +175,7 @@ public class Lobby {
 					Socket socket = e.getValue();
 					OutputStream out = socket.getOutputStream();
 					PrintWriter wr = new PrintWriter(out);
-					wr.print("start_game");
+					wr.println("start_game");
 					wr.close();
 				} catch (IOException ex) {
 					ex.printStackTrace();

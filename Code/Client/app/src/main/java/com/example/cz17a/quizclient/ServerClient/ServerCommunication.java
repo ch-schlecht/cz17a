@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.example.cz17a.quizclient.Activity.LobbyActivity;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
@@ -271,7 +272,7 @@ public class ServerCommunication {
      *
      * @return true by success
      */
-    public boolean usrJoinLobby(String quizId, String usrId) {
+    public boolean usrJoinLobby(String quizId, String usrId,LobbyActivity lobby) {
         URL url = null;
         boolean success = false;
         int port = 0;
@@ -295,7 +296,7 @@ public class ServerCommunication {
             e.printStackTrace();
         }
 
-        SocketCommunication test_com = new SocketCommunication(port,URLHandler.SERVERROOT);
+        SocketCommunication test_com = new SocketCommunication(port,URLHandler.SERVERROOT,lobby);
         new Thread(test_com).start();
 
         return success;

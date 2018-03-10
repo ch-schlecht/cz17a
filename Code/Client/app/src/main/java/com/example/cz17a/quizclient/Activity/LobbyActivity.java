@@ -37,7 +37,7 @@ public class LobbyActivity extends AppCompatActivity {
 
          **/
         ServerCommunication com = new ServerCommunication();
-        com.usrJoinLobby(""+quizId, ""+user.getId());
+        com.usrJoinLobby(""+quizId, ""+user.getId(),this);
 
 
     }
