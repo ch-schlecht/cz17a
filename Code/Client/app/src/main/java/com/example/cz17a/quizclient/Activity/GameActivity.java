@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cz17a.quizclient.GameLogic;
+import com.example.cz17a.quizclient.ServerClient.URLHandler;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
@@ -28,7 +29,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        socketCommunication = new SocketCommunication(50000);
+        socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT);
         quizId = getIntent().getExtras().getInt("quizId",1);
         newGame();
     }

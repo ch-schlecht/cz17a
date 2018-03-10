@@ -15,7 +15,7 @@
 		
 		<property name="hibernate.hbm2ddl.auto">validate</property>  
         <!-- Print executed SQL to stdout -->
-        <property name="show_sql">true</property>  
+        <property name="show_sql">false</property>  
         <property name="format_sql">true</property>  
         
         <property name="connection_pool_size">1</property>

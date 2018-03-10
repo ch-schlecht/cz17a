@@ -8,7 +8,11 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.Reader;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -19,8 +23,7 @@ import java.net.UnknownHostException;
 
 public class SocketCommunication implements Runnable{
 
-    //ServerSocket server = null;
-    //Socket client = null;
+
     Socket server = null;
     BufferedReader in = null;
     //char buffer[] = new char[1024];
@@ -47,49 +50,32 @@ public class SocketCommunication implements Runnable{
        //try {
        try {
            //server = new ServerSocket(port);
-           server = new Socket(ip, port); //socket.accept(); //wait for connection from server (in this case client)
+           System.out.println("conn to "+InetAddress.getByName(URLHandler.SERVERROOT)+":"+port);
+           server = new Socket(InetAddress.getByName(URLHandler.SERVERROOT),port); //socket.accept(); //wait for connection from server (in this case client)
+           in = new BufferedReader(new InputStreamReader(server.getInputStream()));
+           out = new PrintWriter(new OutputStreamWriter(server.getOutputStream()));
        } catch (IOException e) {
            e.printStackTrace();
        }
 
 
-        /*System.out.println("waiting...");
-           while (true){
-
-               try {
-                   client = server.accept();
-                   System.out.println("...accepted");
-                   //receivedMessagesFromServer(client);
-
-               } catch (IOException ioe) {
-                   ioe.printStackTrace();
-               }
-           }*/
-
-
-
-      /* } catch (UnknownHostException uhe) {
-           uhe.printStackTrace();
-
-       } catch (IOException ioe) {
-           ioe.printStackTrace();
-
-       }*/
    }
 
     /**
      * Method that receives a Message from the Client Socket from Server and returns this String.
      * @return String
      */
-   public String receivedMessagesFromServer() throws IOException{
-       in = new BufferedReader(new InputStreamReader(server.getInputStream()));
-       String message;
-       message = in.readLine();
+   public String receivedMessagesFromServer(){
+       String message = "";
+       try {
+           message = in.readLine();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
        return message;
    }
 
    public void sendMessageToServersocketAtServer(String message) throws IOException{
-       out = new PrintWriter(server.getOutputStream(), true);
        out.println(message);
    }
 
@@ -210,6 +196,14 @@ public class SocketCommunication implements Runnable{
         System.out.println("Client Port:"+port+" inits connection");
        connect();
         while(running){
+            String msg = receivedMessagesFromServer();
+            if(!((msg  == "") || (msg == null))){
+                System.out.println(msg);
+                if(msg == "start_game"){
+        //TODO
+                }
+                //TODO Lobbyanzeige
+            }
 
         }
     }

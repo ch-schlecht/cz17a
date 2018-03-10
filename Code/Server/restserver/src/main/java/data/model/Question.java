@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-@Entity
+@Entity(name="Question")
 @XmlRootElement
 public class Question implements Cloneable, Serializable, Comparable<Question> {
 

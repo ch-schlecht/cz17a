@@ -16,7 +16,6 @@ public class LobbyActivity extends AppCompatActivity {
     public static Quizzes quizzes;
     public static User user;
     int quizId;
-    int port = 50000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +37,7 @@ public class LobbyActivity extends AppCompatActivity {
 
          **/
         ServerCommunication com = new ServerCommunication();
-        com.usrJoinLobby(""+quizId, ""+user.getId(),""+port);
+        com.usrJoinLobby(""+quizId, ""+user.getId());
 
 
     }

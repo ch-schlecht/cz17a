@@ -3,7 +3,7 @@ package data.model;
 import javax.persistence.Entity;
 import javax.persistence.Column;
 
-@Entity
+@Entity(name="Admin")
 public class Admin extends User {
 	@Column(name = "first_name")
 	private String firstName;

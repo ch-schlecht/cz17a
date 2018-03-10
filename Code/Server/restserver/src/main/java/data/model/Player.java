@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-@Entity
+@Entity(name="Player")
 public class Player extends User implements Serializable {
 	@Column(name = "playtime_in_minutes")
 	private double playtimeInMinutes;

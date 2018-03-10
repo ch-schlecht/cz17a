@@ -10,7 +10,8 @@ import java.net.URL;
 public class URLHandler {
 
     private URL url = null;
-    final static private String URLROOT = "http://pcai042.informatik.uni-leipzig.de:1810/restserver/webapi";
+    final static public String SERVERROOT = /**"192.168.178.21";**/ "pcai042.informatik.uni-leipzig.de";
+    final static private String URLROOT = "http://"+SERVERROOT+":1810/restserver/webapi"; //TODO 1810
     final static private String URLQUIZ = "/quizzes";
 
     public static String getURLROOT() {
@@ -23,7 +24,7 @@ public class URLHandler {
 
     public URL genUsrUrl(){
         try {
-            url = new URL(URLROOT + "/player/register");
+            url = new URL(URLROOT + "/players/register");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -36,7 +37,7 @@ public class URLHandler {
      */
     public URL genUsrLogInURL(){
         try {
-            url = new URL(URLROOT + "/player/login");
+            url = new URL(URLROOT + "/players/login");
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -64,9 +65,9 @@ public class URLHandler {
         return url;
     }
 
-    public URL lobbyURL(String quizId, String usrId, String port){
+    public URL lobbyURL(String quizId, String usrId){
         try {
-            url = new URL(URLROOT +"/Lobbies/" + quizId+"/join/"+usrId+"/"+port);
+            url = new URL(URLROOT +"/Lobbies/" + quizId+"/join/"+usrId);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

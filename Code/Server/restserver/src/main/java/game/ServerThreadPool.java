@@ -9,8 +9,9 @@ import java.util.concurrent.Executors;
 /**
  * Dummy for Socket Communication -> Lobby ThreadPool
  * @author Michael
- * @version 1.0
+ * @version 1.1
  * @category Socket
+ * @deprecated 1.1
  */
 public class ServerThreadPool implements Runnable{
 
@@ -22,6 +23,8 @@ public class ServerThreadPool implements Runnable{
 	protected Thread runningThread = null;//Thread of Pool
 	protected ExecutorService threadPool = Executors.newFixedThreadPool(5); //ThreadPool
 
+	
+	protected String message;
 
 	/**
 	 * Inits ThreadPool on specific Port
@@ -55,13 +58,18 @@ public class ServerThreadPool implements Runnable{
 				}
 				throw new RuntimeException("Error accepting client connection",e);
 			}
-			this.threadPool.execute(new WorkerRunnable(clientSocket,"Thread Pooled Server")); //execute WorkerRunnable with clientSocket
+			this.threadPool.execute(new WorkerRunnable(clientSocket,this)); //execute WorkerRunnable with clientSocket
 			
 			
 		}
 		this.threadPool.shutdown(); //close ThreadPool (after isStopped = true)
 		
 		
+	}
+	
+	
+	public synchronized boolean isStopped() {
+		return this.isStopped;
 	}
 	
 	/**
@@ -89,5 +97,6 @@ public class ServerThreadPool implements Runnable{
 		}
 		
 	}
+	
 	
 }

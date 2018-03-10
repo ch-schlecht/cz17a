@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-@Entity
+@Entity(name="Round")
 public class Round implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

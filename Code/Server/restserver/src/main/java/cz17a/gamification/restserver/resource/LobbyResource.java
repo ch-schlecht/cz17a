@@ -14,6 +14,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONObject;
+
 import data.access.PlayerDAO;
 import data.model.Player;
 import game.LobbyPool;
@@ -34,27 +36,13 @@ public class LobbyResource {
 	 * @since 1.0
 	 */
 	@GET
-	@Path("/{quiz_id}/join/{user_id}/{port}")
+	@Path("/{quiz_id}/join/{user_id}")
 	//@Produces(MediaType.APPLICATION_JSON)
-	public Response joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("user_id") int player_id, @PathParam("port") int port){
+	public String joinLobby(@Context HttpServletRequest request, @PathParam("quiz_id") int quiz_id, @PathParam("user_id") int player_id){
 		Player player = new PlayerDAO().getPlayer(player_id);
-		player.setPort(port);
-		
-		System.out.println("Join Lobby: "+player_id+" port:"+port);
-		
-		InetAddress ip;
-		try {
-			ip = InetAddress.getByName(request.getRemoteAddr());
-			player.setIPAddress(ip);
-			System.out.println("IP:"+ip);
-			LobbyPool.joinLobby(quiz_id, player);
-			return Response.status(200).build();
-		}
-		catch(UnknownHostException e) {
-			e.printStackTrace();
-			//Verbesserungswürdig
-			return Response.status(400).build();
-		}
+		System.out.println("Join Lobby: "+player_id);
+		return LobbyPool.joinLobby(quiz_id, player);
+			
 	}
 	
 	/**

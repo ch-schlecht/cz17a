@@ -68,7 +68,10 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 out.close();
                 int responseCode = connect.getResponseCode();
                 System.out.println("ResponseCode: " + responseCode);
-/*
+
+
+
+                /*
                 BufferedReader cIn = new BufferedReader(new InputStreamReader(connect.getInputStream()));
                 String line = "";
                 String in = "";
@@ -81,6 +84,11 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
 */
                 connect.disconnect();
 
+                if(connect.getResponseMessage() ==
+                        "Sie haben sich erfolgreich angemeldet."){
+                        return true;
+                }
+
             } catch (ProtocolException e) {
                 e.printStackTrace();
                 return false;
@@ -91,6 +99,6 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
             }
 
         }
-        return true;
+        return false;
     }
 }

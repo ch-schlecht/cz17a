@@ -19,6 +19,7 @@ import cz17a.gamification.adminpanel.application.PasswordManager;
 import data.access.HibernateUtil;
 import data.access.PasswordCodeDAO;
 import data.access.PlayerDAO;
+import data.access.UserDAO;
 import data.model.PasswordCode;
 import data.model.Player;
 import data.model.User;
@@ -52,6 +53,11 @@ public class PlayerResource {
 			player.setPlaytimeInMinutes(0);
 			player.setRegistration(Calendar.getInstance());
 			dao.addPlayer(player);
+			
+			UserDAO daoUser = new UserDAO();
+			daoUser.addUser(player);
+			
+			
 			if (dao.getPlayer(name) != null) {
 				return "Sie haben sich erfolgreich registriert";
 			} else {

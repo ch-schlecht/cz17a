@@ -6,6 +6,7 @@ import android.support.annotation.RequiresApi;
 
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
+import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
@@ -270,21 +271,21 @@ public class ServerCommunication {
      *
      * @return true by success
      */
-    public boolean usrJoinLobby(String quizId, String usrId, String port) {
+    public boolean usrJoinLobby(String quizId, String usrId) {
         URL url = null;
         boolean success = false;
-
+        int port = 0;
         usrId="1"; //TODO
 
-        SocketCommunication test_com = new SocketCommunication(Integer.parseInt(port));
-        new Thread(test_com).start();
+
 
         try {
-            url = urlHandler.lobbyURL(quizId, usrId, port);
+            url = urlHandler.lobbyURL(quizId, usrId);
 
 
             System.out.println("URL:"+url);
-            new ClientThreadGETArray().execute(url).get();
+            port = Integer.parseInt(new ClientThreadGETString().execute(url).get());
+
 
 
 
@@ -294,6 +295,8 @@ public class ServerCommunication {
             e.printStackTrace();
         }
 
+        SocketCommunication test_com = new SocketCommunication(port,URLHandler.SERVERROOT);
+        new Thread(test_com).start();
 
         return success;
 

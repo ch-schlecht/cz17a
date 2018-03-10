@@ -22,16 +22,19 @@ public class LobbyPool {
 	 * @param quiz_id
 	 * @param player
 	 */
-	public static void joinLobby(int quiz_id, Player player) {
+	public static String joinLobby(int quiz_id, Player player) {
 		if(activeLobbies.containsKey(quiz_id) == false) {
 			Quiz quiz = new QuizDAO().getQuiz(quiz_id);
-			Lobby lobby = new Lobby(quiz, player);
+			Lobby lobby = new Lobby(quiz, player); //TODO
 			System.out.println("Added player:"+player.getId()+" to Lobby"+quiz_id);
 			activeLobbies.put(quiz_id, lobby);
+			return ""+lobby.PORT;
 		}
+		
 		else {
 			System.out.println("Added player:"+player.getId()+" to Lobby"+quiz_id);
 			activeLobbies.get(quiz_id).addPlayer(player);
+			return ""+activeLobbies.get(quiz_id).PORT;
 		}
 	}
 	
@@ -47,6 +50,7 @@ public class LobbyPool {
 			activeLobbies.remove(quiz_id);
 		}
 	}
+	
 	
 	
 	
