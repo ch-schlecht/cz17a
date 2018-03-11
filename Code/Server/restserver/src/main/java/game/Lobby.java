@@ -21,6 +21,12 @@ import data.model.Quiz;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
+/**
+ * Lobby-class Holding waiting Players on Sockets until enough Player registered
+ * @author Michael Fritz
+ * @version 1.2
+ * @category Sockets
+ */
 public class Lobby {
 	private Quiz quiz;
 	private Deque<Player> players = new ArrayDeque<Player>();
@@ -28,34 +34,61 @@ public class Lobby {
 	private Map<Integer, Socket> player_sockets;;
 	int PORT = 0;
 	
+	/**
+	 * create Lobby for quiz
+	 * @param quiz quiz the Lobby is for
+	 * @param firstPlayer first Player who registered in this Lobby
+	 * @since 1.0
+	 */
 	public Lobby(Quiz quiz, Player firstPlayer) {
 		System.out.println("create Lobby for:"+quiz.getTitle());
 		this.quiz = quiz;
 		try {
-			serverSocket = create(40000,40010);
+			serverSocket = create(1810,1819); //Search free Port on 1810 to 1819
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
-		this.PORT = serverSocket.getLocalPort();
+		this.PORT = serverSocket.getLocalPort(); //Set Port
 		System.out.println("createt on: "+PORT);
-		this.player_sockets = new HashMap<Integer, Socket>();
-		this.addPlayer(firstPlayer);
+		this.player_sockets = new HashMap<Integer, Socket>(); //init Player Map
+		this.addPlayer(firstPlayer); //add first Player to Lobby
 	}
 	
+	/**
+	 * Getter for Quiz
+	 * @return quiz the Lobby is for
+	 * @version 1.0
+	 */
 	public Quiz getQuiz() {
 		return quiz;
 	}
 
+	/**
+	 * Setter for Quiz
+	 * @param quiz to change to
+	 * @deprecated  1.2 Quiz shouldn't be changed after Lobby is created
+	 * @since 1.0
+	 */
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
 	
+	/**
+	 * Getter for List of Player
+	 * @return get all Players
+	 * @since 1.0
+	 */
 	public Deque<Player> getPlayers() {
 		return players;
 	}
 
+	/**
+	 * Setter for Players
+	 * @param players to override existing
+	 * @since 1.0 
+	 */
 	public void setPlayers(Deque<Player> players) {
 		this.players = players;
 	}
@@ -66,12 +99,14 @@ public class Lobby {
 	 * adds a player to the lobby, opens socket connection, updates lobby state (and sends state to players)
 	 * if enough players are in the lobby a game will be started
 	 * @param p Player
+	 * @since 1.0
 	 */
 	public void addPlayer(Player p)  {
 
 		players.add(p);
 
 
+		//Thread for Connection
 		PlayerThread thread = new PlayerThread(p) {
 
 			
@@ -97,13 +132,14 @@ public class Lobby {
 			}
 		};
 		
-		new Thread(thread).start();
+		new Thread(thread).start(); //start Thread, so Player can connect
 		
 
 	}
 	/**
 	 * removes a Player from the lobby, closes socket connection and updates Lobby state (and sends it to players)
 	 * @param p
+	 * @since 1.0
 	 */
 	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
@@ -121,6 +157,7 @@ public class Lobby {
 	/**
 	 * checks if there are enough players to start a game
 	 * @return true or false
+	 * @since 1.0
 	 */
 	public boolean hasRequiredPlayers() {
 		if(players.size() >= quiz.getMinParticipants())
@@ -130,6 +167,7 @@ public class Lobby {
 
 	/**
 	 * outputs the current lobby state to Clients (Names of players as JSON)
+	 * @since 1.0
 	 */
 	private void sendLobbyStateToPlayers() {
 		List<String> playerNames = new ArrayList<String>();
@@ -153,7 +191,6 @@ public class Lobby {
 				PrintWriter wr = new PrintWriter(out);
 				wr.println(response);
 				wr.flush();
-				//wr.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -162,6 +199,8 @@ public class Lobby {
 
 	/**
 	 * opens a new game by taking players from the lobby
+	 * sends "start_game" via Sockets
+	 * @since 1.0
 	 */
 	private void openGame() {
 		List<Player> playersForGame = new ArrayList<Player>();
@@ -176,7 +215,7 @@ public class Lobby {
 					OutputStream out = socket.getOutputStream();
 					PrintWriter wr = new PrintWriter(out);
 					wr.println("start_game");
-					wr.close();
+					wr.flush();
 				} catch (IOException ex) {
 					ex.printStackTrace();
 				}
@@ -190,19 +229,6 @@ public class Lobby {
 				player_sockets.remove(p.getId());
 			}
 			
-			/**
-			for (Socket socket : sockets) {
-				try {
-					OutputStream out = socket.getOutputStream();
-					PrintWriter wr = new PrintWriter(out);
-					wr.print("start_game");
-					wr.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			}**/
-			
-			
 			
 			
 			GamePool.startGame(quiz, playersForGame, sockets);
@@ -210,6 +236,14 @@ public class Lobby {
 	}
 	
 	
+	/**
+	 * Searching a free port between min and max value
+	 * @param port_min min port
+	 * @param port_max max port
+	 * @return free port
+	 * @throws IOException if no free Port exists
+	 * @since 1.2
+	 */
 	public ServerSocket create(int port_min, int port_max) throws IOException {
 	    for (int port = port_min; port <= port_max; port++) {
 	        try {
