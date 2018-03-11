@@ -53,11 +53,6 @@ public class PlayerResource {
 			player.setPlaytimeInMinutes(0);
 			player.setRegistration(Calendar.getInstance());
 			dao.addPlayer(player);
-			
-			UserDAO daoUser = new UserDAO();
-			daoUser.addUser(player);
-			
-			
 			if (dao.getPlayer(name) != null) {
 				return "Sie haben sich erfolgreich registriert";
 			} else {
