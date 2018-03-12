@@ -202,6 +202,16 @@ public class SocketCommunication implements Runnable{
             String msg = receivedMessagesFromServer();
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
+                //TODO identifier for player list
+                msg.replace("{","");
+                msg.replace("}","");
+                String[] players  = msg.split(",");
+
+              //  lobby.setPlayers(players);
+
+
+
+
                 if(msg.equals("start_game")){
                     System.out.println("Go to Game");
                     lobby.goToGame();

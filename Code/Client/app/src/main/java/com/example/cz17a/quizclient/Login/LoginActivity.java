@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -44,6 +45,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
+ * @version 1.3
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
@@ -78,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         nickname= (EditText) findViewById(R.id.nicknameInput);
@@ -115,6 +118,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 servCom = new ServerCommunication();
                 if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString(),null)){
                     User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+
+
+                    //Save in Shared Preference
+                    SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
+                    SharedPreferences.Editor Ed = sp.edit();
+                    Ed.putBoolean("loggedIn",true);
+                    Ed.putString("uId",user.getId());
+                    Ed.commit();
+                    System.out.println("Saved User in SharedPref: "+user.getId());
+
+
                     goToMain(user);
                 }
             }

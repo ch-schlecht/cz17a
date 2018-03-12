@@ -1,10 +1,12 @@
 package com.example.cz17a.quizclient.ServerClient;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
+import com.example.cz17a.quizclient.Login.LoginActivity;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
@@ -272,11 +274,11 @@ public class ServerCommunication {
      *
      * @return true by success
      */
-    public boolean usrJoinLobby(String quizId, String usrId,LobbyActivity lobby) {
+    public boolean usrJoinLobby(String quizId, String usrId, LobbyActivity lobby) {
         URL url = null;
         boolean success = false;
         int port = 0;
-        usrId="1"; //TODO
+
 
 
 
