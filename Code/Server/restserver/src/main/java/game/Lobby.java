@@ -101,13 +101,13 @@ public class Lobby {
 	 * @param p Player
 	 * @since 1.0
 	 */
-	public void addPlayer(Player p)  {
+	public void addPlayer(final Player p)  {
 
 		players.add(p);
 
 
 		//Thread for Connection
-		PlayerThread thread = new PlayerThread(p) {
+		Thread thread = new Thread() {
 
 			
 			@Override
@@ -132,7 +132,7 @@ public class Lobby {
 			}
 		};
 		
-		new Thread(thread).start(); //start Thread, so Player can connect
+		thread.start(); //start Thread, so Player can connect
 		
 
 	}
@@ -189,6 +189,7 @@ public class Lobby {
 				Socket socket = e.getValue();
 				OutputStream out = socket.getOutputStream();
 				PrintWriter wr = new PrintWriter(out);
+				System.out.print("sneding: "+response+" to "+e.getKey());
 				wr.println(response);
 				wr.flush();
 			} catch (IOException ex) {

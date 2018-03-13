@@ -11,13 +11,13 @@ import java.util.concurrent.Executors;
  * @author Michael
  * @version 1.1
  * @category Socket
- * @deprecated 1.1
+ * 
  */
 public class ServerThreadPool implements Runnable{
 
 	protected int size = 5; //(Max) Size of ThreadPool
 	
-	protected int PORT = 50000; //Standart Port
+	protected int PORT = 1811; //Standart Port
 	protected ServerSocket serverSocket = null;//ServerSocket 
 	protected boolean isStopped = false;//Pool-Loop control
 	protected Thread runningThread = null;//Thread of Pool
