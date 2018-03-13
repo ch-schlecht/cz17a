@@ -70,7 +70,7 @@ public class PlayerResource {
 	@Path("/login")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String login(Player p) {
+	public int login(Player p) {
 		Player player;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("Select p from Player p where p.nickname = :nickname OR p.mail = :mail");
@@ -81,9 +81,9 @@ public class PlayerResource {
 		String password = PasswordManager.hash(p.getPassword(), player.getSalt());
 		boolean isPasswordValid = PasswordManager.validatePassword(player.getPassword(), password);
 		if (player == null || isPasswordValid == false) {
-			return "Die eingegebenen Daten stimmen nicht überein";
+			return -1;
 		} else {
-			return "Sie haben sich erfolgreich angemeldet.";
+			return p.getId();
 		}
 	}
 
