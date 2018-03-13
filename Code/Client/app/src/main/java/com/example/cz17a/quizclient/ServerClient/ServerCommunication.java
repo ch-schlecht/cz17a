@@ -232,6 +232,7 @@ public class ServerCommunication {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        System.out.println("recieved: "+recieve);
         return Integer.parseInt(recieve);
     }
 

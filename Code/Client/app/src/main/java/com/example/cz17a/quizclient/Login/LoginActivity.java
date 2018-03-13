@@ -81,6 +81,25 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
+        String usrId= sp.getString("uId","-1"); //TODO other Default
+        Long last_login = sp.getLong("create",System.currentTimeMillis());
+        boolean loggedIn = sp.getBoolean("loggedIn",false);
+        System.out.println("Loaded User from SharedPref: "+usrId);
+
+        if(!usrId.equals("-1") && System.currentTimeMillis() <= last_login+86400000 && loggedIn){
+           //update last login
+            SharedPreferences sp2 = getSharedPreferences("Login", MODE_PRIVATE);
+            SharedPreferences.Editor Ed2 = sp2.edit();
+            Ed2.putLong("create",System.currentTimeMillis());
+            Ed2.commit();
+
+
+
+            goToMain();
+        }
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         nickname= (EditText) findViewById(R.id.nicknameInput);
@@ -127,12 +146,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     SharedPreferences.Editor Ed = sp.edit();
                     Ed.putBoolean("loggedIn",true);
                     Ed.putString("uId",user.getId());
+                    Ed.putString("name",user.getNickname());
+                    Ed.putString("mail",user.getMail());
                     Ed.putLong("create",System.currentTimeMillis());
                     Ed.commit();
                     System.out.println("Saved User in SharedPref: "+user.getId());
 
 
-                    goToMain(user);
+                    goToMain();
                 }
             }
         });
@@ -146,7 +167,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 User user = new User("steinbach_willy@outlook.de", "Name");
-                goToMain(user);
+                goToMain();
             }
         });
 
@@ -160,14 +181,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 mPasswordView.getText().toString(),
                 mEmailView.getText().toString())){
             //Dummy User
-            User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
-            goToMain(user);
+            //User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+            goToMain();
         }
     }
 
-    public void goToMain(User user){
+    public void goToMain(){
         Intent intent = new Intent(this, MainActivity.class);
-        MainActivity.user = user;
+       // MainActivity.user = user;
         startActivity(intent);
     }
 
