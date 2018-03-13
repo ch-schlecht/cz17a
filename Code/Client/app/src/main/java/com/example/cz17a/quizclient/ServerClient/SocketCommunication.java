@@ -207,7 +207,7 @@ public class SocketCommunication implements Runnable{
                 msg.replace("}","");
                 String[] players  = msg.split(",");
 
-              //  lobby.setPlayers(players);
+                lobby.setPlayers(players);
 
 
 

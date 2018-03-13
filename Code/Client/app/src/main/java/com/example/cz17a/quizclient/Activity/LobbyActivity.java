@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
@@ -23,17 +24,15 @@ public class LobbyActivity extends AppCompatActivity {
 //    public static User user;
     int quizId;
 
-    /*
+
     List<String> players; //List of Player Names
 
-    ArrayAdapter<String> playerlistAdapter =
-            new ArrayAdapter<String>(
-                    this, // Die aktuelle Umgebung (diese Activity)
-                    R.layout.list_player_item, // ID der XML-Layout Datei
-                    R.id.playerlist, // ID des TextViews
-                    players); // Beispieldaten in einer ArrayList
 
-*/
+    ListView playerListView;
+    ArrayAdapter<String> playerlistAdapter;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +70,17 @@ public class LobbyActivity extends AppCompatActivity {
         intent.putExtra("quizId", quizId);
         startActivity(intent);
     }
-/*
+
     public void setPlayers(String[] players){
         this.players = Arrays.asList(players);
+        playerlistAdapter =
+                new ArrayAdapter<String>(
+                        this, // Die aktuelle Umgebung (diese Activity)
+                        R.layout.list_player_item, // ID der XML-Layout Datei
+                        //R.id.playerlist, // ID des TextViews
+                        players); // Beispieldaten in einer ArrayList
+        playerListView = findViewById(R.id.playerlist);
+        playerListView.setAdapter(playerlistAdapter);
     }
-*/
+
 }

@@ -83,7 +83,7 @@ public class PlayerResource {
 		if (player == null || isPasswordValid == false) {
 			return -1;
 		} else {
-			return p.getId();
+			return player.getId();
 		}
 	}
 
