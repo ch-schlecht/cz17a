@@ -4,6 +4,11 @@ import android.os.AsyncTask;
 
 import com.example.cz17a.quizclient.Login.User;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,18 +16,20 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.Scanner;
 
 /**
  * @author Willy Steinbach, Thomas Gerbert
  * @version 0.2
  */
 
-public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
+public class ClientThreadPOST extends AsyncTask<URL, Integer, Integer> {
 
     private JSONObject usr = null;
 
@@ -41,11 +48,15 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
      * @return JSONArray
      */
     @Override
-    protected Boolean doInBackground(URL... urls) {
+    protected Integer doInBackground(URL... urls) {
+
+        String result="-1";
+
         if (urls.length == 0) {
-            return false;
+            return Integer.parseInt(result);
         }
         for (URL url : urls) {
+       /**
             try {
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
                 connect.setRequestMethod("POST"); //throws ProtocolException
@@ -55,33 +66,13 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 System.out.println("SendLoginUser: " + usr.toString());
                 out.write(usr.toString());
 
-        /*
-                connect.connect();
-                /*if (connect.getResponseCode() != 200) {
-                    throw new RuntimeException("Failed : HTTP error code: " + connect.getResponseCode());
-                }
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connect.getOutputStream()));
-                out.write(usr.toString());
 
-*/
                 out.flush();
                 out.close();
                 int responseCode = connect.getResponseCode();
                 System.out.println("ResponseCode: " + responseCode);
 
 
-
-                /*
-                BufferedReader cIn = new BufferedReader(new InputStreamReader(connect.getInputStream()));
-                String line = "";
-                String in = "";
-                while ((line = cIn.readLine()) != null) {
-                    System.out.println(line);
-                    in += line;
-                }
-                cIn.close();
-                System.out.println(in);
-*/
                 connect.disconnect();
 
                 if(connect.getResponseMessage() ==
@@ -98,7 +89,29 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Boolean> {
                 return false;
             }
 
+        }**/
+
+
+try {
+    StringEntity entity = new StringEntity(usr.toString()); //entity erzeugen
+
+    HttpClient client = HttpClientBuilder.create().build(); //http client erstellen
+    HttpPost request = new HttpPost(url.toString()); //request an die url setzen
+    request.setEntity(entity); //entity (payload) an die request anhaengen (in den http body)
+    request.setHeader("Content-type", "application/json");
+
+    HttpResponse response = client.execute(request); //abschicken
+    InputStream in = response.getEntity().getContent(); //Antwort vom Server bekommen
+    Scanner s = new Scanner(in).useDelimiter("\\A"); //ab hier werden nur noch die daten aus dem input stream in einen string umgewandelt
+    result = s.hasNext() ? s.next() : "";
+}catch(IOException e){
+    e.printStackTrace();
+}
+
+
         }
-        return false;
+        return Integer.parseInt(result);
+
+
     }
 }

@@ -116,8 +116,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
                 //attemptLogin();
                 servCom = new ServerCommunication();
-                if(servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString(),null)){
+                int ID = servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString(),null);
+                if( ID != -1){
                     User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+                    user.setId(""+ID);
 
 
                     //Save in Shared Preference
@@ -125,6 +127,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     SharedPreferences.Editor Ed = sp.edit();
                     Ed.putBoolean("loggedIn",true);
                     Ed.putString("uId",user.getId());
+                    Ed.putLong("create",System.currentTimeMillis());
                     Ed.commit();
                     System.out.println("Saved User in SharedPref: "+user.getId());
 

@@ -37,7 +37,7 @@ public class LobbyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        quizId = getIntent().getExtras().getInt("quizId",1);
+        quizId = getIntent().getExtras().getInt("quizId",160); //TODO
         //players = new List<String>;
         setContentView(R.layout.activity_lobby);
         Button skipLogin = findViewById(R.id.skipButton);
@@ -58,7 +58,7 @@ public class LobbyActivity extends AppCompatActivity {
 
         //Load UserID
         SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
-        String usrId= sp.getString("uId","1"); //TODO other Default
+        String usrId= sp.getString("uId","160"); //TODO other Default
         System.out.println("Loaded User from SharedPref: "+usrId);
 
         com.usrJoinLobby(""+quizId, usrId, this);
