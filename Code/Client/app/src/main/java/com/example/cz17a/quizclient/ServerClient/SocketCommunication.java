@@ -203,8 +203,8 @@ public class SocketCommunication implements Runnable{
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
                 //TODO identifier for player list
-                msg.replace("{","");
-                msg.replace("}","");
+                msg =  msg.replace("{","");
+                msg = msg.replace("}","");
                 String[] players  = msg.split(",");
 
                 lobby.setPlayers(players);
