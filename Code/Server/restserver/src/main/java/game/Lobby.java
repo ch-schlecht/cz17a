@@ -30,8 +30,10 @@ import java.io.PrintWriter;
 public class Lobby {
 	private Quiz quiz;
 	private Deque<Player> players = new ArrayDeque<Player>();
-	private ServerSocket serverSocket = null;
-	private Map<Integer, Socket> player_sockets;;
+	//private ServerSocket serverSocket = null;
+	private ServerThreadPool threadPool = null;
+	private Thread thread = null;
+	//private Map<Integer, Socket> player_sockets;;
 	int PORT = 0;
 	
 	/**
@@ -44,15 +46,17 @@ public class Lobby {
 		System.out.println("create Lobby for:"+quiz.getTitle());
 		this.quiz = quiz;
 		try {
-			serverSocket = create(1810,1819); //Search free Port on 1810 to 1819
+			threadPool =new ServerThreadPool(create(1810,1819)); //Search free Port on 1810 to 1819
+			thread = new Thread(threadPool);
+			thread.start();
 		} catch (IOException e) {
 			
 			e.printStackTrace();
 		}
 		
-		this.PORT = serverSocket.getLocalPort(); //Set Port
+		this.PORT = threadPool.PORT; //Set Port
 		System.out.println("createt on: "+PORT);
-		this.player_sockets = new HashMap<Integer, Socket>(); //init Player Map
+		//this.player_sockets = new HashMap<Integer, Socket>(); //init Player Map
 		this.addPlayer(firstPlayer); //add first Player to Lobby
 	}
 	
@@ -104,52 +108,27 @@ public class Lobby {
 	public void addPlayer(final Player p)  {
 
 		players.add(p);
-
-
-		//Thread for Connection
-		Thread thread = new Thread() {
-
-			
-			@Override
-			public void run() {
-
-	        	System.out.println("open for client at port: "+serverSocket.getLocalPort()+"@"+serverSocket.getInetAddress().toString());
-	        	try(Socket socket = serverSocket.accept()) {	
-	    			System.out.println("accepted Client");
-	    			player_sockets.put(p.getId(), socket);
-	    			//socket.getOutputStream().write("200".getBytes()); //TODO
-
-	    			sendLobbyStateToPlayers();
-	    			if(hasRequiredPlayers() == true) {
-	    				System.out.println("Lobby Full!");
-	    				openGame();
-	    			}
-	   
-	    		} catch (IOException ex) {
-	    			ex.printStackTrace();
-	    		}
-	        	
-			}
-		};
-		
-		thread.start(); //start Thread, so Player can connect
-		
+		sendLobbyStateToPlayers();
 
 	}
 	/**
 	 * removes a Player from the lobby, closes socket connection and updates Lobby state (and sends it to players)
 	 * @param p
 	 * @since 1.0
+	 * @deprecated
 	 */
 	public void removePlayer(Player p) {	
 		if(players.contains(p)) {
 			players.remove(p);
+			
+			/**
 			try(Socket s = player_sockets.get(p.getId())) {
 				s.close();
 				player_sockets.remove(p.getId());
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+			**/
 		}
 		sendLobbyStateToPlayers();
 	}
@@ -184,6 +163,11 @@ public class Lobby {
 				response += name + "}";
 			}
 		}
+		
+		for(int i = 0; i < 5; i++) {
+			threadPool.message.set(i, response);
+		}
+		/*
 		for (Entry<Integer, Socket> e : player_sockets.entrySet()) {
 			try  {
 				Socket socket = e.getValue();
@@ -196,6 +180,8 @@ public class Lobby {
 				ex.printStackTrace();
 			}
 		}
+		*/
+		
 	}
 
 	/**
@@ -207,9 +193,13 @@ public class Lobby {
 		List<Player> playersForGame = new ArrayList<Player>();
 		while(playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
-			List<Socket> sockets = new ArrayList<Socket>();
 			
+		
+			for(int i = 0; i < 5; i++) {
+				threadPool.message.set(i, "start_game");
+			}
 			
+			/*
 			for (Entry<Integer, Socket> e : player_sockets.entrySet()) {
 				try  {
 					Socket socket = e.getValue();
@@ -221,18 +211,11 @@ public class Lobby {
 					ex.printStackTrace();
 				}
 			}
+			*/
 			
 			
 			
-			for(Player p : playersForGame) {
-				Socket s = player_sockets.get(p.getId());
-				sockets.add(s);
-				player_sockets.remove(p.getId());
-			}
-			
-			
-			
-			GamePool.startGame(quiz, playersForGame, sockets);
+			GamePool.startGame(quiz, playersForGame, threadPool);
 		}
 	}
 	
@@ -245,10 +228,12 @@ public class Lobby {
 	 * @throws IOException if no free Port exists
 	 * @since 1.2
 	 */
-	public ServerSocket create(int port_min, int port_max) throws IOException {
+	public int create(int port_min, int port_max) throws IOException {
 	    for (int port = port_min; port <= port_max; port++) {
 	        try {
-	            return new ServerSocket(port);
+	            ServerSocket s = new ServerSocket(port);
+	            s.close();
+	            return port;
 	        } catch (IOException ex) {
 	        	System.out.println("port "+port+" not free");
 	            continue; // try next port
@@ -258,7 +243,6 @@ public class Lobby {
 	    // if the program gets here, no port in the range was found
 	    throw new IOException("no free port found");
 	}
-	
 	
 	
 	

@@ -17,11 +17,11 @@ public class GamePool {
 	 * @param players
 	 * @param sockets
 	 */
-	public static void startGame(Quiz quiz, List<Player> players, List<Socket> sockets) {
+	public static void startGame(Quiz quiz, List<Player> players, ServerThreadPool threadPool) {
 		int id;
 		for(id = 0; id <= 1000; id++) {
 			if(games.containsKey(id) == false) {
-				Game game = new Game(id, quiz, players, sockets);
+				Game game = new Game(id, quiz, players, threadPool);
 				games.put(id, game);
 			}
 		}

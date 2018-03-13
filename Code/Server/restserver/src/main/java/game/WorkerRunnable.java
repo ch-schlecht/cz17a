@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import data.model.Player;
+
 /**
  * Runnable for ThreadPool
  * @author Michael
@@ -15,10 +17,12 @@ public class WorkerRunnable implements Runnable{
 
 	protected Socket clientSocket = null;
     protected ServerThreadPool parent   = null;
-
-    public WorkerRunnable(Socket clientSocket, ServerThreadPool parent) {
+    protected int ID = 0;
+    
+    public WorkerRunnable(Socket clientSocket, ServerThreadPool parent, int ID) {
         this.clientSocket = clientSocket;
         this.parent = parent;
+        this.ID = ID;
     }
 
 
@@ -27,19 +31,20 @@ public class WorkerRunnable implements Runnable{
     	while(true){
     		OutputStream output = null;
             try {
-            	output = clientSocket.getOutputStream();
-				output.write(("First Test").getBytes());
-				System.out.println("Sending first test");
-			} catch (IOException e) {
+            	
+            	String msg = parent.message.get(ID);
+            	if(msg != "") {
+            		output = clientSocket.getOutputStream();
+    				output.write(msg.getBytes());
+    				output.flush();
+    				System.out.println("Sending "+msg+" to "+clientSocket.getInetAddress());
+    				parent.message.set(ID, "");
+            	}
+            	
+            	
+            } catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally {
-				try {
-					output.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			}
             
     		

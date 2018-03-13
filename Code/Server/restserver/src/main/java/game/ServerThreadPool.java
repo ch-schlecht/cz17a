@@ -5,6 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 
 /**
  * Dummy for Socket Communication -> Lobby ThreadPool
@@ -24,7 +26,7 @@ public class ServerThreadPool implements Runnable{
 	protected ExecutorService threadPool = Executors.newFixedThreadPool(5); //ThreadPool
 
 	
-	protected String message;
+	protected AtomicReferenceArray<String> message;
 
 	/**
 	 * Inits ThreadPool on specific Port
@@ -33,6 +35,7 @@ public class ServerThreadPool implements Runnable{
 	 */
 	public ServerThreadPool(int port) {
 		this.PORT = port;
+		message = new AtomicReferenceArray<String>(size);
 	}
 
 
@@ -41,7 +44,8 @@ public class ServerThreadPool implements Runnable{
 	 */
 	@Override
 	public void run() {
-	
+	System.out.println("Starting ThreadPool");
+	int ID = 0;
 		synchronized(this) { //only one Thread can be runningThread
 			this.runningThread = Thread.currentThread();
 		}
@@ -58,8 +62,8 @@ public class ServerThreadPool implements Runnable{
 				}
 				throw new RuntimeException("Error accepting client connection",e);
 			}
-			this.threadPool.execute(new WorkerRunnable(clientSocket,this)); //execute WorkerRunnable with clientSocket
-			
+			this.threadPool.execute(new WorkerRunnable(clientSocket,this,ID)); //execute WorkerRunnable with clientSocket
+			ID++;
 			
 		}
 		this.threadPool.shutdown(); //close ThreadPool (after isStopped = true)

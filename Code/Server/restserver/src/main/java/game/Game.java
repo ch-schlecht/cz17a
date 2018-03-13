@@ -39,18 +39,18 @@ public class Game {
 	 * Counts how many questions were played
 	 */
 	private int playedQuestions;
-	private List<Socket> playerSockets;
+	private ServerThreadPool threadPool;
 	/**
 	 * Holds score for every player. Key is the id of a player
 	 */
 	private Map<Integer, Integer> scoreboard = new HashMap<Integer, Integer>();
 
-	public Game(int id, Quiz quiz, List<Player> players, List<Socket> sockets) {
+	public Game(int id, Quiz quiz, List<Player> players, ServerThreadPool threadPool) {
 		this.id = id;
 		this.jackpot = new Jackpot();
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
-		this.playerSockets = sockets;
+		this.threadPool = threadPool;
 		for (Player p : players) {
 			scoreboard.put(p.getId(), 0);
 		}
@@ -109,13 +109,14 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
+	/*
 	public List<Socket> getPlayerSockets() {
 		return playerSockets;
 	}
 
 	public void setPlayerSockets(List<Socket> player_sockets) {
 		this.playerSockets = player_sockets;
-	}
+	}*/
 
 	public Map<Integer, Integer> getScoreboard() {
 		return scoreboard;
@@ -129,6 +130,7 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
+		/*
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream();) {
 				String message = Integer.toString(id);
@@ -137,6 +139,8 @@ public class Game {
 				e.printStackTrace();
 			}
 		}
+		*/
+		
 		startRound();
 	}
 
@@ -147,6 +151,7 @@ public class Game {
 			Marshaller marshaller = jc.createMarshaller();
 			marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 			marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
+		/*
 			for (Socket s : playerSockets) {
 				try (OutputStream out = s.getOutputStream()) {
 					marshaller.marshal(questions, out);
@@ -154,7 +159,7 @@ public class Game {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}
+			}*/
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 		}
@@ -172,6 +177,7 @@ public class Game {
 		} else {
 			jackpot.randomActivation();
 		}
+		/*
 		for (Socket s : playerSockets) {
 			ObjectMapper mapper = new ObjectMapper();
 			try (OutputStream out = s.getOutputStream()) {
@@ -179,7 +185,8 @@ public class Game {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}	
+		}
+		*/	
 	}
 
 	/**
@@ -188,13 +195,9 @@ public class Game {
 	private void end() {
 		sendEndResults();
 		saveEndResults();
-		for (Socket s : playerSockets) {
-			try {
-				s.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		
+		threadPool.stop();
+		
 		GamePool.removeGame(id);
 	}
 
@@ -203,6 +206,7 @@ public class Game {
 	 */
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
+		/*
 		for (Socket s : playerSockets) {
 			try (OutputStream out = s.getOutputStream()) {
 				objectMapper.writeValue(out, scoreboard);
@@ -210,6 +214,7 @@ public class Game {
 				e.printStackTrace();
 			}
 		}
+		*/
 	}
 
 	/**
