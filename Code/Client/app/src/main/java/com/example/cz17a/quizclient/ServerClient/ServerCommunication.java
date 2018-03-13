@@ -11,6 +11,7 @@ import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArr
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
+import com.example.cz17a.quizclient.ServerClient.ClientThread.PostRequest;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.Src.Topic;
@@ -191,13 +192,13 @@ public class ServerCommunication {
 
         try {
             url = urlHandler.genUsrUrl();
-           success = new ClientThreadPOST(user.toJSON()).execute(url).get();
+           new ClientThreadPOST(user.toJSON()).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-    return success;
+    return true;
     }
 
     /**
@@ -206,10 +207,12 @@ public class ServerCommunication {
      * @param pw
      * @return true by success
      */
-    public boolean usrLogin(String usrname, String pw, String email){
-        email = "steinbach_willy@outlook.de";
+    public int usrLogin(String usrname, String pw, String email){
+        //email = "steinbach_willy@outlook.de";
+
+
         URL url = null;
-        boolean success = false;
+        String recieve = "";
         JSONObject usrlog = new JSONObject();
         try {
             usrlog.put("nickname",usrname);
@@ -222,13 +225,14 @@ public class ServerCommunication {
         System.out.println("LOGIN:" + usrlog);
         try {
             url = urlHandler.genUsrLogInURL();
-            success = new ClientThreadPOST(usrlog).execute(url).get();
+            recieve =  ""+new ClientThreadPOST(usrlog).execute(url).get(); //PostRequest.doPostRequest(url.toString(),usrlog.toString());
+            //success = new ClientThreadPOST(usrlog).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return success;
+        return Integer.parseInt(recieve);
     }
 
     /**
@@ -241,13 +245,15 @@ public class ServerCommunication {
         boolean success = false;
         try {
             url = urlHandler.genUsrLogOutURL(usrname);
-            success = new ClientThreadPOST().execute(url).get();
+             new ClientThreadPOST().execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            return false;
         } catch (ExecutionException e) {
             e.printStackTrace();
+            return false;
         }
-        return success;
+        return true;
     }
 
     /**
@@ -260,13 +266,13 @@ public class ServerCommunication {
         boolean success = false;
         try {
             url = urlHandler.genUsrForgotURL(usrname);
-            success = new ClientThreadPOST().execute(url).get();
+            new ClientThreadPOST().execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return success;
+        return true;
 
     }
 
