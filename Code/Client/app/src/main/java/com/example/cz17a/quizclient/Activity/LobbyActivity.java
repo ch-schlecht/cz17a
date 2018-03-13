@@ -20,7 +20,7 @@ import java.util.List;
 
 public class LobbyActivity extends AppCompatActivity {
     public static Quizzes quizzes;
-    public static User user;
+//    public static User user;
     int quizId;
 
     /*
@@ -58,7 +58,7 @@ public class LobbyActivity extends AppCompatActivity {
 
         //Load UserID
         SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
-        String usrId= sp.getString("uId","160"); //TODO other Default
+        String usrId= sp.getString("uId","-1"); //TODO other Default
         System.out.println("Loaded User from SharedPref: "+usrId);
 
         com.usrJoinLobby(""+quizId, usrId, this);

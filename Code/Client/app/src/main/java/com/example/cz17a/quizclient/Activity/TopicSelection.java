@@ -17,7 +17,7 @@ import com.example.cz17a.quizclient.R;
 
 public class TopicSelection extends AppCompatActivity {
     public static Quizzes quizzes;
-    public static User user;
+    //public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,7 +32,7 @@ public class TopicSelection extends AppCompatActivity {
     public void goToGame(int quizId){
         Intent intent = new Intent(this,  LobbyActivity.class);
         LobbyActivity.quizzes = quizzes;
-        LobbyActivity.user = user;
+      //  LobbyActivity.user = user;
         intent.putExtra("quizId", quizId);
         startActivity(intent);
     }

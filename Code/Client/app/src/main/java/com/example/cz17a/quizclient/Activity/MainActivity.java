@@ -16,7 +16,6 @@ import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
  */
 
 public class MainActivity extends AppCompatActivity {
-    public static User user;
     ServerCommunication servCom;
     Quizzes quizzes;
 
@@ -50,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
         quizzes = new Quizzes(servCom);
         quizzes.setUpQuizzes();
         TopicSelection.quizzes = quizzes;
-        TopicSelection.user = user;
+        //TopicSelection.user = user;
         startActivity(intent);
     }
     public void goToProfile(){
         Intent intent = new Intent(this, ActivityProfile.class);
-        ActivityProfile.user = user;
+        //ActivityProfile.user = user;
         startActivity(intent);
     }
 
