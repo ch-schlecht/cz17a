@@ -9,6 +9,7 @@ import data.model.Round;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.StringWriter;
 import java.net.Socket;
 import java.util.Collections;
 import java.util.Comparator;
@@ -123,9 +124,8 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
-		for (int i = 0; i < threadPool.getSize(); i++) {
-			threadPool.message.set(i, Integer.toString(id));
-		}
+		String message = String.format("{%d}", id);
+		sendMessage(message);
 		startRound();
 	}
 
@@ -136,11 +136,10 @@ public class Game {
 			Marshaller marshaller = jc.createMarshaller();
 			marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 			marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
-			/*
-			 * for (Socket s : playerSockets) { try (OutputStream out = s.getOutputStream())
-			 * { marshaller.marshal(questions, out); out.close(); } catch (IOException e) {
-			 * e.printStackTrace(); } }
-			 */
+			StringWriter writer = new StringWriter();
+			marshaller.marshal(questions, writer);
+			String message = writer.toString();
+			sendMessage(message);
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 		}
@@ -228,5 +227,11 @@ public class Game {
 	private boolean hasAllPlayersAnswered() {
 		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
 		return allPlayeresAndwered;
+	}
+	
+	private void sendMessage(String message) {
+		for (int i = 0; i < threadPool.getSize(); i++) {
+			threadPool.message.set(i, message);
+		}
 	}
 }
