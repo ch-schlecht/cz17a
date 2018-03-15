@@ -111,13 +111,6 @@ public class Game {
 		this.playedQuestions = playedQuestions;
 	}
 
-	/*
-	 * public List<Socket> getPlayerSockets() { return playerSockets; }
-	 * 
-	 * public void setPlayerSockets(List<Socket> player_sockets) {
-	 * this.playerSockets = player_sockets; }
-	 */
-
 	public Map<Integer, Integer> getScoreboard() {
 		return scoreboard;
 	}
@@ -130,12 +123,9 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
-		/*
-		 * for (Socket s : playerSockets) { try (OutputStream out =
-		 * s.getOutputStream();) { String message = Integer.toString(id);
-		 * out.write(message.getBytes()); } catch (IOException e) { e.printStackTrace();
-		 * } }
-		 */
+		for (int i = 0; i < threadPool.getSize(); i++) {
+			threadPool.message.set(i, Integer.toString(id));
+		}
 		startRound();
 	}
 
