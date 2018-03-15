@@ -74,7 +74,9 @@ public class Game {
 
 	/**
 	 * adds a player to the waiting list (waiting because he has already answered)
-	 * if all players have answered the list will be cleared and a next question will be started
+	 * if all players have answered the list will be cleared and a next question
+	 * will be started
+	 * 
 	 * @param player_id
 	 */
 	public void addWaitingPlayer(int player_id) {
@@ -110,13 +112,11 @@ public class Game {
 	}
 
 	/*
-	public List<Socket> getPlayerSockets() {
-		return playerSockets;
-	}
-
-	public void setPlayerSockets(List<Socket> player_sockets) {
-		this.playerSockets = player_sockets;
-	}*/
+	 * public List<Socket> getPlayerSockets() { return playerSockets; }
+	 * 
+	 * public void setPlayerSockets(List<Socket> player_sockets) {
+	 * this.playerSockets = player_sockets; }
+	 */
 
 	public Map<Integer, Integer> getScoreboard() {
 		return scoreboard;
@@ -131,16 +131,11 @@ public class Game {
 	 */
 	public void start() {
 		/*
-		for (Socket s : playerSockets) {
-			try (OutputStream out = s.getOutputStream();) {
-				String message = Integer.toString(id);
-				out.write(message.getBytes());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		*/
-		
+		 * for (Socket s : playerSockets) { try (OutputStream out =
+		 * s.getOutputStream();) { String message = Integer.toString(id);
+		 * out.write(message.getBytes()); } catch (IOException e) { e.printStackTrace();
+		 * } }
+		 */
 		startRound();
 	}
 
@@ -151,22 +146,19 @@ public class Game {
 			Marshaller marshaller = jc.createMarshaller();
 			marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 			marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
-		/*
-			for (Socket s : playerSockets) {
-				try (OutputStream out = s.getOutputStream()) {
-					marshaller.marshal(questions, out);
-					out.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}*/
+			/*
+			 * for (Socket s : playerSockets) { try (OutputStream out = s.getOutputStream())
+			 * { marshaller.marshal(questions, out); out.close(); } catch (IOException e) {
+			 * e.printStackTrace(); } }
+			 */
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 		}
 	}
 
 	/**
-	 * starts the next question, but checks if there are no more questions (-->end), or if it is the last question (-->activate Jackpot)
+	 * starts the next question, but checks if there are no more questions (-->end),
+	 * or if it is the last question (-->activate Jackpot)
 	 */
 	public void startNextQuestion() {
 		playedQuestions++;
@@ -178,26 +170,20 @@ public class Game {
 			jackpot.randomActivation();
 		}
 		/*
-		for (Socket s : playerSockets) {
-			ObjectMapper mapper = new ObjectMapper();
-			try (OutputStream out = s.getOutputStream()) {
-				mapper.writeValue(out, jackpot);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		*/	
+		 * for (Socket s : playerSockets) { ObjectMapper mapper = new ObjectMapper();
+		 * try (OutputStream out = s.getOutputStream()) { mapper.writeValue(out,
+		 * jackpot); } catch (IOException e) { e.printStackTrace(); } }
+		 */
 	}
 
 	/**
-	 * saves results to DB, sends result to Clients to display them, removes game from GamePool, closes socket Connections
+	 * saves results to DB, sends result to Clients to display them, removes game
+	 * from GamePool, closes socket Connections
 	 */
 	private void end() {
 		sendEndResults();
 		saveEndResults();
-		
 		threadPool.stop();
-		
 		GamePool.removeGame(id);
 	}
 
@@ -207,14 +193,10 @@ public class Game {
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		/*
-		for (Socket s : playerSockets) {
-			try (OutputStream out = s.getOutputStream()) {
-				objectMapper.writeValue(out, scoreboard);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		*/
+		 * for (Socket s : playerSockets) { try (OutputStream out = s.getOutputStream())
+		 * { objectMapper.writeValue(out, scoreboard); } catch (IOException e) {
+		 * e.printStackTrace(); } }
+		 */
 	}
 
 	/**
@@ -222,15 +204,15 @@ public class Game {
 	 */
 	private void saveEndResults() {
 		List<Participation> participations = round.getParticipations();
-		for(Participation p : participations) {
+		for (Participation p : participations) {
 			p.setScore(scoreboard.get(p.getPlayer().getId()));
 			participations.add(p);
 		}
 		Collections.sort(participations);
-		for(int rank = 1; rank <= participations.size(); rank++) {
-			participations.get(rank-1).setRank(rank);
-			if(rank == participations.size()) 
-				round.setWinner(participations.get(rank-1).getPlayer());
+		for (int rank = 1; rank <= participations.size(); rank++) {
+			participations.get(rank - 1).setRank(rank);
+			if (rank == participations.size())
+				round.setWinner(participations.get(rank - 1).getPlayer());
 		}
 		RoundDAO dao = new RoundDAO();
 		dao.addRound(round);
@@ -238,6 +220,7 @@ public class Game {
 
 	/**
 	 * updates the score of a player
+	 * 
 	 * @param playerId
 	 * @param points
 	 */
@@ -249,11 +232,11 @@ public class Game {
 
 	/**
 	 * checks if all players have sent their reply that they answered the question
+	 * 
 	 * @return true or false
 	 */
 	private boolean hasAllPlayersAnswered() {
 		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
 		return allPlayeresAndwered;
 	}
-
 }
