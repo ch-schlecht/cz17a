@@ -23,6 +23,8 @@ public class ServerThreadPool implements Runnable {
 	protected Thread runningThread = null;// Thread of Pool
 	protected ExecutorService threadPool = Executors.newFixedThreadPool(5); // ThreadPool
 	protected AtomicReferenceArray<String> message;
+	
+	
 
 	/**
 	 * Inits ThreadPool on specific Port
@@ -34,6 +36,10 @@ public class ServerThreadPool implements Runnable {
 	public ServerThreadPool(int port) {
 		this.PORT = port;
 		message = new AtomicReferenceArray<String>(size);
+	}
+
+	public int getSize() {
+		return size;
 	}
 
 	/**
