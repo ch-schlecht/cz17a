@@ -126,6 +126,7 @@ public class Game {
 
 	public void startRound() {
 		List<Question> questions = getRound().getQuestions();
+		String questionList;
 		try {
 			JAXBContext jc = JAXBContext.newInstance(Question.class);
 			Marshaller marshaller = jc.createMarshaller();
@@ -133,11 +134,12 @@ public class Game {
 			marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
 			StringWriter writer = new StringWriter();
 			marshaller.marshal(questions, writer);
-			String message = writer.toString();
-			sendMessage(message);
+			questionList = writer.toString();
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
+			questionList = "[]";
 		}
+		sendMessage(questionList);
 	}
 
 	/**
@@ -154,14 +156,14 @@ public class Game {
 			jackpot.randomActivation();
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		String message;
+		String jackpotInformation;
 		try {
-			message = mapper.writeValueAsString(jackpot);
+			jackpotInformation = mapper.writeValueAsString(jackpot);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
-			message = "{}";
+			jackpotInformation = "{}";
 		}
-		sendMessage(message);
+		sendMessage(jackpotInformation);
 	}
 
 	/**
