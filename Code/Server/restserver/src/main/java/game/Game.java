@@ -26,6 +26,7 @@ import javax.xml.bind.Marshaller;
 
 import org.eclipse.persistence.jaxb.MarshallerProperties;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Game {
@@ -149,7 +150,7 @@ public class Game {
 	 * starts the next question, but checks if there are no more questions (-->end),
 	 * or if it is the last question (-->activate Jackpot)
 	 */
-	public void startNextQuestion() {
+	private void startNextQuestion() {
 		playedQuestions++;
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
@@ -158,11 +159,15 @@ public class Game {
 		} else {
 			jackpot.randomActivation();
 		}
-		/*
-		 * for (Socket s : playerSockets) { ObjectMapper mapper = new ObjectMapper();
-		 * try (OutputStream out = s.getOutputStream()) { mapper.writeValue(out,
-		 * jackpot); } catch (IOException e) { e.printStackTrace(); } }
-		 */
+		ObjectMapper mapper = new ObjectMapper();
+		String message;
+		try {
+			message = mapper.writeValueAsString(jackpot);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			message = "{}";
+		}
+		sendMessage(message);
 	}
 
 	/**
