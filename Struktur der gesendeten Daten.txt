@@ -1,0 +1,65 @@
+-------- Betreten der Lobby --------
+Lobbyport
+
+-------- Lobbystatus --------
+{Name1, Name2, ...}
+
+-------- Start des Spiels --------
+{GameId}
+
+-------- Start der Runde (Senden aller Fragen) --------
+Exemplarisches JSON
+[
+  {
+    "id": 2,
+    "responseTime": 60,
+    "dynamicDifficulty": 1,
+    "staticDifficulty": 1,
+    "worth": 200,
+    "topic": "Filmzitate raten",
+    "questioning": "Wenn die Legende zur Tatsache geworden ist, druck die Legende.",
+    "answers": [
+      {
+        "ID": 3,
+        "content": "Der Mann, der Liberty Valance erschoss",
+        "type": true
+      },
+      {
+        "ID": 4,
+        "content": "Spiderman",
+        "type": false
+      },
+      {
+        "ID": 5,
+        "content": "Spiel mir das Lied vom Tod",
+        "type": false
+      },
+      {
+        "ID": 6,
+        "content": "300",
+        "type": false
+      }
+    ]
+  },
+  {
+   ...
+  }
+]
+
+-------- Senden des Signals der nächsten Frage (Jackpotinformationen) --------
+JSON
+{
+  "initialPoints": 1000,
+  "initialPayoutChance": 10,
+  "amount": int,
+  "payoutCounter": int,
+  "isActive": bool,
+  "payoutChance": int
+}
+
+-------- Senden des Endergebnisses (Scoreboard) --------
+Exemplarisches JSON (erstes ist die playerId, danach die Punkte)
+{
+  "1": 400, 
+  "2": 300
+}
