@@ -17,6 +17,8 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Created by felixfink on 19.02.18.
@@ -36,6 +38,7 @@ public class SocketCommunication implements Runnable{
     //String gameID;
     String ip;
     LobbyActivity lobby;
+    Scanner scan = null;
 
     public SocketCommunication(int port, String ip, LobbyActivity lobby){
 
@@ -55,7 +58,8 @@ public class SocketCommunication implements Runnable{
            //server = new ServerSocket(port);
            System.out.println("conn to "+InetAddress.getByName(URLHandler.SERVERROOT)+":"+port);
            server = new Socket(InetAddress.getByName(URLHandler.SERVERROOT),port); //socket.accept(); //wait for connection from server (in this case client)
-           in = new BufferedReader(new InputStreamReader(server.getInputStream()));
+           //in = new BufferedReader(new InputStreamReader(server.getInputStream()));
+           scan = new Scanner(server.getInputStream());
            out = new PrintWriter(new OutputStreamWriter(server.getOutputStream()));
        } catch (IOException e) {
            e.printStackTrace();
@@ -70,9 +74,16 @@ public class SocketCommunication implements Runnable{
      */
    public String receivedMessagesFromServer(){
        String message = "";
+       System.out.println("i am in receive");
        try {
-           message = in.readLine();
-       } catch (IOException e) {
+           scan.useDelimiter(Pattern.quote("}"));
+           while(scan.hasNext()){
+               System.out.println("i am reading");
+               message = scan.next();
+               System.out.println(message);
+               return message;
+           }
+       } catch (Exception e) {
            e.printStackTrace();
        }
        return message;
