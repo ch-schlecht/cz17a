@@ -7,19 +7,13 @@ import data.model.Question;
 import data.model.Quiz;
 import data.model.Round;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.io.StringWriter;
-import java.net.Socket;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -186,11 +180,14 @@ public class Game {
 	 */
 	private void sendEndResults() {
 		ObjectMapper objectMapper = new ObjectMapper();
-		/*
-		 * for (Socket s : playerSockets) { try (OutputStream out = s.getOutputStream())
-		 * { objectMapper.writeValue(out, scoreboard); } catch (IOException e) {
-		 * e.printStackTrace(); } }
-		 */
+		String endResults;
+		try {
+			endResults = objectMapper.writeValueAsString(scoreboard);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			endResults = "{}";
+		}
+		sendMessage(endResults);
 	}
 
 	/**
