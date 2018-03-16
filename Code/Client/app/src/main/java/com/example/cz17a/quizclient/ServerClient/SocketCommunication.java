@@ -76,7 +76,7 @@ public class SocketCommunication implements Runnable{
        String message = "";
        System.out.println("i am in receive");
        try {
-           scan.useDelimiter(Pattern.quote("}"));
+           scan.useDelimiter(Pattern.quote("$"));
            while(scan.hasNext()){
                System.out.println("i am reading");
                message = scan.next();
