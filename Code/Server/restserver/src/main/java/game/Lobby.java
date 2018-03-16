@@ -137,7 +137,7 @@ public class Lobby {
 			if (i < playerNames.size() - 1) {
 				response += name + ",";
 			} else {
-				response += name + "}";
+				response += name + "}$";
 			}
 		}
 		for (int i = 0; i < threadPool.getSize(); i++) {
@@ -157,7 +157,7 @@ public class Lobby {
 			playersForGame.add(players.removeFirst());
 		}
 		for (int i = 0; i < 5; i++) {
-			threadPool.message.set(i, "start_game");
+			threadPool.message.set(i, "start_game$");
 		}
 		GamePool.startGame(quiz, playersForGame, threadPool);
 	}

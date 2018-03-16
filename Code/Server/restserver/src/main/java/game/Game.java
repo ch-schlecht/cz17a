@@ -119,7 +119,7 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
-		String message = String.format("{%d}", id);
+		String message = String.format("{%d}$", id);
 		sendMessage(message);
 		startRound();
 	}
@@ -139,7 +139,7 @@ public class Game {
 			e1.printStackTrace();
 			questionList = "[]";
 		}
-		sendMessage(questionList);
+		sendMessage(questionList + "$");
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class Game {
 			e.printStackTrace();
 			jackpotInformation = "{}";
 		}
-		sendMessage(jackpotInformation);
+		sendMessage(jackpotInformation + "$");
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class Game {
 			e.printStackTrace();
 			endResults = "{}";
 		}
-		sendMessage(endResults);
+		sendMessage(endResults + "$");
 	}
 
 	/**

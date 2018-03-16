@@ -76,7 +76,7 @@ public class SocketCommunication implements Runnable{
        String message = "";
        System.out.println("i am in receive");
        try {
-           scan.useDelimiter(Pattern.quote("}"));
+           scan.useDelimiter(Pattern.quote("$"));
            while(scan.hasNext()){
                System.out.println("i am reading");
                message = scan.next();
@@ -91,6 +91,7 @@ public class SocketCommunication implements Runnable{
 
    public void sendMessageToServersocketAtServer(String message) throws IOException{
        out.println(message);
+       out.flush();
    }
 
     /**
@@ -218,7 +219,7 @@ public class SocketCommunication implements Runnable{
                 msg = msg.replace("}","");
                 String[] players  = msg.split(",");
 
-                lobby.setPlayers(players);
+                //lobby.setPlayers(players);
 
 
 
@@ -227,6 +228,11 @@ public class SocketCommunication implements Runnable{
                     System.out.println("Go to Game");
                     lobby.goToGame();
                 }
+                if(msg.matches("/^[0-9{}]+$/")){
+                    System.out.println("GameID is: " + msg);
+                }
+
+
                 //TODO Lobbyanzeige
             }
 
