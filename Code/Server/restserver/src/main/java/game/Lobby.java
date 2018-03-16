@@ -89,6 +89,9 @@ public class Lobby {
 		players.add(p);
 		sendLobbyStateToPlayers();
 		if (hasRequiredPlayers()) {
+			for(int i = 0; i < threadPool.getSize(); i++) {
+				threadPool.message.set(i, "");
+			}
 			openGame();
 		}
 	}
@@ -156,7 +159,7 @@ public class Lobby {
 		while (playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < threadPool.getSize(); i++) {
 			threadPool.message.set(i, "start_game$");
 		}
 		GamePool.startGame(quiz, playersForGame, threadPool);

@@ -228,7 +228,7 @@ public class SocketCommunication implements Runnable{
                     System.out.println("Go to Game");
                     lobby.goToGame();
                 }
-                if(msg.matches("/^[0-9{}]+$/")){
+                if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
                 }
 
