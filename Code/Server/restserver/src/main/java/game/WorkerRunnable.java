@@ -29,6 +29,9 @@ public class WorkerRunnable implements Runnable {
 	public void run() {
 		System.out.println("running Pool");
 		while (true) {
+			
+			//check connection
+			
 			OutputStream output = null;
 			try {
 				String msg = parent.message.get(ID);

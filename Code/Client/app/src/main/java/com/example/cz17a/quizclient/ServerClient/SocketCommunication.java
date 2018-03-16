@@ -84,7 +84,7 @@ public class SocketCommunication implements Runnable{
                return message;
            }
        } catch (Exception e) {
-           e.printStackTrace();
+          // e.printStackTrace();
        }
        return message;
    }

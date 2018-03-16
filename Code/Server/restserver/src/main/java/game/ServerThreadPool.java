@@ -33,9 +33,14 @@ public class ServerThreadPool implements Runnable {
 	 *            for threadPool
 	 * @since 1.0
 	 */
-	public ServerThreadPool(int port) {
+	public ServerThreadPool(int port, int size) {
 		this.PORT = port;
+		this.size = size;
 		message = new AtomicReferenceArray<String>(size);
+		for(int i = 0; i < size; i++) {
+			message.set(i, "");
+		}
+		
 	}
 
 	public int getSize() {
@@ -57,6 +62,7 @@ public class ServerThreadPool implements Runnable {
 			Socket clientSocket = null;
 			try {
 				clientSocket = this.serverSocket.accept();
+				System.out.println("Accepted Socket");
 			} catch (IOException e) {
 				if (isStopped) {
 					System.out.println("Server Stopped");

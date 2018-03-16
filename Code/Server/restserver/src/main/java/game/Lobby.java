@@ -33,16 +33,25 @@ public class Lobby {
 	 * @since 1.0
 	 */
 	public Lobby(Quiz quiz, Player firstPlayer) {
+		System.out.println("Create new Lobby");
 		this.quiz = quiz;
 		// Search free Port on 1810 to 1819
 		int port = choosePort(1810, 1819);
 		if (port != -1) {
-			threadPool = new ServerThreadPool(port);
+			threadPool = new ServerThreadPool(port,5);
 			this.PORT = port;
+			thread = new Thread(threadPool);
+			thread.start();
+			
+		
+			System.out.println("Thread for ThreadPool started");
+			
+			this.addPlayer(firstPlayer);
 		}
-		thread = new Thread(threadPool);
-		thread.start();
-		this.addPlayer(firstPlayer);
+		else {
+			System.out.println("No free Port");
+		}
+
 	}
 
 	/**
@@ -86,6 +95,7 @@ public class Lobby {
 	 * @since 1.0
 	 */
 	public void addPlayer(final Player p) {
+		System.out.println("Add Player: "+p.getNickname()+" to "+this.quiz+"-Lobby");
 		players.add(p);
 		if (hasRequiredPlayers()) {
 			openGame();
@@ -142,8 +152,29 @@ public class Lobby {
 				response += name + "}$";
 			}
 		}
-		for (int i = 0; i < threadPool.getSize(); i++) {
-			threadPool.message.set(i, response);
+		sendMessageToPlayers(response,1);
+	}
+	
+	/**
+	 * Sending Messages to Player witrh methode
+	 * 0 = add
+	 * 1 = override
+	 * @param msg
+	 * @param methode
+	 */
+	private void sendMessageToPlayers(String msg, int methode) {
+		
+		for (int i = 0; i < players.size(); i++) {
+	
+			if(methode == 0) {
+				threadPool.message.set(i, threadPool.message.get(i)+msg);
+			}else {
+				threadPool.message.set(i, msg);
+			}
+			System.out.println("Setting ThreadPoolStack "+i+ "to: "+msg); //DEBUG
+			
+
+	
 		}
 	}
 
@@ -158,9 +189,7 @@ public class Lobby {
 		while (playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
 		}
-		for (int i = 0; i < threadPool.getSize(); i++) {
-			threadPool.message.set(i, "start_game$");
-		}
+		sendMessageToPlayers("start_game$",0);
 		GamePool.startGame(quiz, playersForGame, threadPool);
 	}
 
@@ -183,6 +212,7 @@ public class Lobby {
 				s.close();
 				return port;
 			} catch (IOException ex) {
+				System.out.println("Port:"+port+"is not free");
 				continue;
 			}
 		}
