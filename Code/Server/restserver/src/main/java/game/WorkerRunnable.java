@@ -36,7 +36,7 @@ public class WorkerRunnable implements Runnable {
 					output = clientSocket.getOutputStream();
 					output.write(msg.getBytes());
 					output.flush();
-					System.out.println("Sending " + msg + " to " + clientSocket.getInetAddress());
+					System.out.println("Sending " + msg + " to " + clientSocket.getInetAddress() + " from ID: " + ID);
 					parent.message.set(ID, "");
 				}
 

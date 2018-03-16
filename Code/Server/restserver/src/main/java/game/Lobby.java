@@ -87,12 +87,11 @@ public class Lobby {
 	 */
 	public void addPlayer(final Player p) {
 		players.add(p);
-		sendLobbyStateToPlayers();
 		if (hasRequiredPlayers()) {
-			for(int i = 0; i < threadPool.getSize(); i++) {
-				threadPool.message.set(i, "");
-			}
 			openGame();
+		}
+		else {
+			sendLobbyStateToPlayers();
 		}
 	}
 
