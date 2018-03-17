@@ -23,6 +23,7 @@ public class ServerThreadPool implements Runnable {
 	protected Thread runningThread = null;// Thread of Pool
 	protected ExecutorService threadPool = Executors.newFixedThreadPool(5); // ThreadPool
 	protected AtomicReferenceArray<String> message;
+	protected boolean readingFlag = false; //we cannot simply let a worker always read, because readline blocks for input
 	
 	
 
@@ -105,5 +106,9 @@ public class ServerThreadPool implements Runnable {
 		} catch (IOException e) {
 			throw new RuntimeException("Cannot open port " + PORT, e);
 		}
+	}
+	
+	public void setReadingFlag(boolean flag) {
+		this.readingFlag = flag;
 	}
 }
