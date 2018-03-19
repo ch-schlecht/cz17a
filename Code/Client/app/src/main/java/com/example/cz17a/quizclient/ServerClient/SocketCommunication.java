@@ -163,12 +163,23 @@ public class SocketCommunication implements Runnable{
                     System.out.println("GameID is: " + msg);
                     gameId = msg;
                 }
-                if(msg.startsWith("[{")){
+                if(msg.contains("question")){
+                    System.out.println("Found Questions");
                     //TODO get questions
-                    Question[] questionList = null;
+                    Question[] questionList = null;             //list of questions init
                     try {
                         JSONArray jsonList = new JSONArray((msg));
-
+                        int count = jsonList.length();
+                        Question[] questionArray = new Question[count];
+                        for(int i = 0; i < jsonList.length(); i++){
+                            questionArray[i] = new Question();
+                            try {
+                                questionArray[i].jsonToQuestion(jsonList.getJSONObject(i)); //questlist i = inc array i
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        /**
                         questionList = new Question[jsonList.length()];
 
                         for(int i = 0; i < jsonList.length(); i++){
@@ -176,11 +187,10 @@ public class SocketCommunication implements Runnable{
                             questionList[i] = (Question) jsonList.get(i);
                         }
 
-
+                        **/
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                     lobby.goToGame(gameId,questionList);
                 }
 
