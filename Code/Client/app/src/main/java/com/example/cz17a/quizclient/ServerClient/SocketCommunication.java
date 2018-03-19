@@ -3,6 +3,7 @@ package com.example.cz17a.quizclient.ServerClient;
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
 import com.example.cz17a.quizclient.Src.Question;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -74,7 +75,7 @@ public class SocketCommunication implements Runnable{
      */
    public String receivedMessagesFromServer(){
        String message = "";
-       System.out.println("i am in receive");
+     //  System.out.println("i am in receive");
        try {
            scan.useDelimiter(Pattern.quote("$"));
            while(scan.hasNext()){
@@ -94,76 +95,6 @@ public class SocketCommunication implements Runnable{
        out.flush();
    }
 
-    /**
-     * Method that receives all Messages from Server Socket and saves them in the String Array.
-     */
-  /*
-   public String receivedMessagesFromServer() {
-       int i = 0;
-       while (true) {
-           try {
-               System.out.println(in.readLine());
-               if (in.readLine() == null) {
-                   break;
-               } else {
-                   statusMessages[i] = in.readLine();
-                   i++;
-               }
-
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-       }
-        return "";
-   }
-   */
-
-
-    /**
-     * Tests if there are enough Player for a Game.
-     *
-     * @return boolean if there are enough People to Play a Round in this Lobby.
-     */
-   /*public boolean enoughPlayerToPlay(int minNumberofPlayer){
-
-           int numberOfPeopleInLobby = 0;
-           for(String message: statusMessages){
-               if (message.startsWith("player:") && message != null){
-                   numberOfPeopleInLobby++;
-                   if (numberOfPeopleInLobby >= minNumberofPlayer){
-                       playernumberGameStartedWith = numberOfPeopleInLobby;
-                       return true;
-
-                   }else continue;
-
-               } else if (message == null){
-                   return false;
-               } else continue;
-           }
-           return false;
-
-   }*/
-
-    /**
-     * Gets the gameID out of the status messages.
-     */
-   /*void gameID(){
-       gameID = statusMessages[playernumberGameStartedWith-1];
-   }
-
-    /**
-     *
-     * @return gameID from the started Game.
-     */
-   /*public String getGameID(){
-       return gameID;
-   }
-
-  /* public void disconnect() throws IOException {
-       if(socket != null && !socket.isClosed()){
-           socket.close();
-       }
-   }*/
 
 
    public void sendAnswer(String answer){
@@ -214,31 +145,55 @@ public class SocketCommunication implements Runnable{
     @Override
     public void run() {
         System.out.println("Client Port:"+port+" inits connection");
+        String gameId = "";
        connect();
         while(running){
             String msg = receivedMessagesFromServer();
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
-                //TODO identifier for player list
                 msg =  msg.replace("{","");
                 msg = msg.replace("}","");
                 String[] players  = msg.split(",");
 
-                //lobby.setPlayers(players);
+
+                //TODO Lobbyanzeige                //lobby.setPlayers(players);
 
 
-
-
-                if(msg.equals("start_game")){
-                    System.out.println("Go to Game");
-                    lobby.goToGame();
-                }
                 if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
+                    gameId = msg;
+                }
+                if(msg.contains("question")){
+                    System.out.println("Found Questions");
+                    //TODO get questions
+                    Question[] questionList = null;             //list of questions init
+                    try {
+                        JSONArray jsonList = new JSONArray((msg));
+                        int count = jsonList.length();
+                        Question[] questionArray = new Question[count];
+                        for(int i = 0; i < jsonList.length(); i++){
+                            questionArray[i] = new Question();
+                            try {
+                                questionArray[i].jsonToQuestion(jsonList.getJSONObject(i)); //questlist i = inc array i
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        /**
+                        questionList = new Question[jsonList.length()];
+
+                        for(int i = 0; i < jsonList.length(); i++){
+                            //Mapping
+                            questionList[i] = (Question) jsonList.get(i);
+                        }
+
+                        **/
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    lobby.goToGame(gameId,questionList);
                 }
 
-
-                //TODO Lobbyanzeige
             }
 
         }

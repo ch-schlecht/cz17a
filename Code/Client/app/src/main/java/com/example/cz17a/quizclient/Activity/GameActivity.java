@@ -18,19 +18,24 @@ import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
  */
 
 public class GameActivity extends AppCompatActivity {
-    SocketCommunication socketCommunication;
     public static Quizzes quizzes;
     int quizId;
+    int gameId;
+    Question[] questionList;
     TextView indicator = null;
     TextView timer = null;
     TextView questionText = null;
     GameLogic game= null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
+        //socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
         quizId = getIntent().getExtras().getInt("quizId",1);
+        gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
+        questionList = (Question[]) getIntent().getExtras().get("questionList");
+
         newGame();
     }
 
@@ -49,11 +54,13 @@ public class GameActivity extends AppCompatActivity {
         indicator = findViewById(R.id.indicator);
         TextView timer = findViewById(R.id.timer);
         TextView questionText = findViewById(R.id.fragenText);
+        TextView scoreView = findViewById(R.id.points);
+        TextView jackpotView = findViewById(R.id.jackpot);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        final GameLogic game = new GameLogic(quizId, buttons, questionText, indicator, timer);
+        final GameLogic game = new GameLogic(quizId, buttons, questionText, indicator, timer, scoreView, jackpotView);
 
-        game.playNewQuestion(socketCommunication.getNextQuestion());
+        game.playNewQuestion(questionList[0]);
     }
     public void triggerNewQuestion(Question question){
         game.playNewQuestion(question);

@@ -13,6 +13,7 @@ import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
+import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
 import com.example.cz17a.quizclient.Src.Quiz;
@@ -41,11 +42,11 @@ public class LobbyActivity extends AppCompatActivity {
         quizId = getIntent().getExtras().getInt("quizId",160); //TODO
         //players = new List<String>;
         setContentView(R.layout.activity_lobby);
-        Button skipLogin = findViewById(R.id.skipButton);
-        skipLogin.setOnClickListener(new View.OnClickListener() {
+        Button skipLobby = findViewById(R.id.skipButton);
+        skipLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToGame();
+                //goToGame();
             }
         });
 
@@ -56,7 +57,7 @@ public class LobbyActivity extends AppCompatActivity {
                //leave Lobby
                ServerCommunication com = new ServerCommunication();
                 com.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
-                goBack();
+                onBackPressed();
 
                //goto TopicSelection
            }
@@ -83,10 +84,12 @@ public class LobbyActivity extends AppCompatActivity {
 
 
     }
-    public void goToGame(){
+    public void goToGame(String gameId, Question[] questionList){
         Intent intent = new Intent(this,  GameActivity.class);
         GameActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
+        intent.putExtra("gameId",gameId);
+        intent.putExtra("questionList",questionList);
         startActivity(intent);
     }
 

@@ -1,17 +1,24 @@
 package com.example.cz17a.quizclient;
 
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Jackpot;
+import com.example.cz17a.quizclient.Src.Timer;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Collections;
 
 /**
  * Created by Willy Steinbach on 11.01.2018.
@@ -21,24 +28,28 @@ public class GameLogic {
     private int quizId;
     private int questioncount;
     private Question questionlist[];
-    private ServerCommunication servCom;
     private Button[] buttons;
     private TextView questionText;
     private TextView indicator;
-    private TextView timer;
-    private SocketCommunication socketCommunication;
+    private TextView scoreView;
+    private TextView timerView;
+    private TextView jackpotView;
     private int gameId;
     Jackpot jackpot;
+    private Timer countdownTimer;
+    private int score;
 
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
-                     final TextView indicator, final TextView timer){
+                     final TextView indicator, final TextView timer, final TextView scoreView, final TextView jackpotView) {
         this.quizId = quizID;
         this.buttons = buttons;
         this.questionText = questionText;
         this.indicator = indicator;
-        this.timer = timer;
+        this.timerView = timer;
         this.jackpot = new Jackpot();
-        servCom = new ServerCommunication();
+        this.score = 0;
+        this.scoreView = scoreView;
+        this.jackpotView = jackpotView;
         //questionlist = servCom.getQuestions(quizId);
         //questioncount = questionlist.length;
     }
@@ -49,56 +60,70 @@ public class GameLogic {
      * @param question The question that is going to be played
      */
     public void playNewQuestion(final Question question){
+        //sets the timer
+        jackpotView.setText(jackpot.getAmount());
+        countdownTimer = new Timer(this, question);
         indicator.setVisibility(View.INVISIBLE);
         //initializes the buttons for this question
         for(int i = 0; i<4; i++){
             final int finalI = i;
-            buttons[i].setText(question.getAnswers(i));
+            List<String> shuffledAnswers = new ArrayList<>();
+            for(String answer : question.getAnswers()) {
+                shuffledAnswers.add(answer);
+            }
+            Collections.shuffle(shuffledAnswers);
+            buttons[i].setText(shuffledAnswers.get(i));
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    evaluation(buttons, finalI , question, indicator);
-                    socketCommunication.sendAnswer(buttons[finalI].getText().toString());
+                    countdownTimer.stopTimer();
+                    evaluation(finalI , question);
                 }
             });
         }
         questionText.setText(question.getQuestioning());
         buttonsActivate(buttons);
-        //sets the timer
-        new CountDownTimer(question.getAnswertime(),1000){
-            public void onTick(long millisUntilFinished){
-                timer.setText("Zeit: " + millisUntilFinished/1000+ "s");
-            }
-            public void onFinish(){
-                if(!question.getValuated()){
-                    evaluation(buttons, -1 , question, indicator);
-                    socketCommunication.sendAnswer(null);
-                }
-
-            }
-        }.start();
+        countdownTimer.startTimer();
     }
 
     /**
      * Method that valuates if the given answer was right or wrong
-     * @param buttons Array of the answer buttons of the GameActivity
      * @param i Arrayindex of the button which was pressed
      * @param question The question which is evaluated
-     * @param indicator The TextView which shows if the question is answered right or wrong
      */
-    public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
+    public void evaluation(int i, Question question) {
         buttonsDeactivate(buttons);
-        socketCommunication.sendAnswer(buttons[i].getText().toString());
         //i<0, if no answer was given
+        int score = 0;
+        double responseTime = countdownTimer.getResponseTime();
         if(i < 0){
+            question.setCorrect(false);
             indicator.setText("Zeit vorbei!");
         }else{
             if (buttons[i].getText().equals(question.getAnswers(0))) {
+                question.setCorrect(true);
+                if(jackpot.isActive()) {
+                    score = jackpot.payout(responseTime);
+                }
+                else {
+                    score = question.getWorth();
+                }
                 indicator.setText("RICHTIG!");
             }else {
+                question.setCorrect(false);
                 indicator.setText("FALSCH!");
+                buttons[i].setBackgroundColor(Color.RED);
             }
         }
+        for(Button button : buttons) {
+            if(button.getText().equals(question.getAnswers(0)))
+                button.setBackgroundColor(Color.GREEN);
+        }
+        this.score += score;
+        scoreView.setText(score);
+        question.setSpeedInSeconds(responseTime);
+        question.setScore(score);
+        sendQuestionEvaluation(question);
         indicator.setVisibility(View.VISIBLE);
         question.setValuated(true);
     }
@@ -124,7 +149,6 @@ public class GameLogic {
     }
 
     private void sendQuestionEvaluation(Question question) {
-        ServerCommunication serverCommunication = new ServerCommunication();
         JSONObject json = new JSONObject();
         try {
             json.put("isJackpot", jackpot.isActive());
@@ -134,7 +158,11 @@ public class GameLogic {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        serverCommunication.postPlayedQuestion(gameId, question.getId(), json);
+        ServerCommunication.postPlayedQuestion(gameId, question.getId(), json);
     }
+    public TextView getTimerView(){
+        return this.timerView;
+    }
+
 }
 
