@@ -174,6 +174,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         switch (result){
             case "Sie haben sich erfolgreich registriert":
                 goToMain(user);
+                break;
+            default:
+                System.out.println(result);
 
         }
 
