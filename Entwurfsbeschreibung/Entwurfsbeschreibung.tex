@@ -119,6 +119,9 @@ Der Server verfügt über Methoden, um die grundlegende Spiellogik zu verarbeite
 \subsection{Client}
 Der Client wird um Screens für Registrierung, Login und Logout erweitert. Die eingegebenen Daten werden als POST-Request an die REST-Schnittstelle zur Verarbeitung gesendet. 
 
+\section{Arbeitspaket 3 - Spielmechanismus}
+Es wird die Kommunikation zwischen Server und Client implementiert. Über die Sockets wird der Spielablauf gesteuert, das heißt Signale vom Server zum Client zum Starten eines Spiels und zum Starten einer neuen Frage werden über die Sockets gesendet. Die Antwort vom Client darauf wird jedoch über REST erfolgen.
+
 
 
 \Chapter{Datenmodell}

@@ -31,17 +31,17 @@ include 'header.inc.php';
 
 
         <article class="article"> <!-- Infomation about the Project and meeting -->
-            <h2>Abgabe R1</h2>
+            <h2>Abgabe R3</h2>
             <p>
-            <b>Abgabe zum 22.01.2018</b><br/>
-            Die Abgabe R1 besteht aus:
-            <li>dem ersten Release, in welchem das Vorprojekt realisiert wird</li>
+            <b>Abgabe zum 19.03.2018</b><br/>
+            Die Abgabe R3 besteht aus:
+            <li>dem dritten Release, in welchem der Spielmechanismus erweitert wird</li>
             <li>der aktuellen Entwurfsbeschreibung</li>
-			<li>dem aktuellen Aufwandsbericht</li>
+	    <li>dem aktuellen Aufwandsbericht</li>
             </p>
             <hr/>
             <p>
-            <a href="abgabe/R1/Release1.zip">Release 1</a>   
+            <a href="abgabe/R3/Release3.zip">Release 3</a>   
             
             </p>
         </article>
