@@ -13,11 +13,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Punktestand" />
+            android:text="Punktestand:" />
 
         <TextView
             android:id="@+id/timer"
@@ -33,15 +33,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/jackpot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="Jackpot:" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Jackpot "
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
