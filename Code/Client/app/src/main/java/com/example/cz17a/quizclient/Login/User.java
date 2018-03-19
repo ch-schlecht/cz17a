@@ -17,6 +17,7 @@ public class User {
     private Timestamp lastLogin;
     private Timestamp regristration;
     private float playtime;
+    private String password;
 
     public User(String mail, String nickname){
         this.mail = mail;
@@ -47,15 +48,16 @@ public class User {
         return nickname;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public JSONObject toJSON(){
         JSONObject usrJSON = new JSONObject();
         try {
-            usrJSON.put("id", this.id);
             usrJSON.put("mail", this.mail);
-            usrJSON.put("nickname", this.mail);
-            usrJSON.put("lastLogin", this.lastLogin);
-            usrJSON.put("registry", this.regristration);
-            usrJSON.put("playtime", this.playtime);
+            usrJSON.put("nickname", this.nickname);
+            usrJSON.put("password",this.password);
         } catch (JSONException e) {
             e.printStackTrace();
         }

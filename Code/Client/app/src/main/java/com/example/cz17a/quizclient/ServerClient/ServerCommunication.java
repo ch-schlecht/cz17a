@@ -174,22 +174,22 @@ public class ServerCommunication {
      * @param email
      * @return true by success
      */
-    public boolean usrRegistry(String usrname, String pw, String email){   //players
+    public String usrRegistry(User user){   //players
         URL url = null;
         boolean success = false;
 
-        User user = new User(email, usrname);
-        user.toJSON();
 
+        user.toJSON();
+        String result = null;
         try {
             url = urlHandler.genUsrUrl();
-           new ClientThreadPOST(user.toJSON()).execute(url).get();
+           result = new ClientThreadPOST(user.toJSON()).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-    return true;
+        return result;
     }
 
     /**
