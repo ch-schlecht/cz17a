@@ -4,16 +4,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by stein on 11.01.2018.
  */
 
 public class Question {
-   private String questionText;
-   private String questionID;
-   private String[] answers;
+    private int id;
+   private String questioning;
+   private List<String> answers = new ArrayList<String>();
    private Boolean isValuated = false;
-   private int answertime;
+   private int dynamicDifficulty;
+   private int responseTime;
+   private int worth;
+   private String topic;
+
+    public Question (){
+    }
 
     public Boolean getValuated() {
         return isValuated;
@@ -24,26 +33,23 @@ public class Question {
     }
 
     public int getAnswertime() {
-        if(answertime >0 ){
-            return answertime;
+        if(responseTime >0 ){
+            return responseTime;
         }else{
             return 15000;
         }
-
     }
 
     public void setAnswertime(int answertime) {
-        this.answertime = answertime;
+        this.responseTime = answertime;
     }
 
-    public Question (){
-    }
 
     /**
      * Sets the answers of this question
      * @param answerlist Stringarray of the answers
      */
-    public void setAnswers(String[] answerlist){
+    public void setAnswers(List<String> answerlist){
         answers = answerlist;
     }
 
@@ -51,16 +57,16 @@ public class Question {
      * Sets the question text
      * @param question String of the question text
      */
-    public void setQuestionText(String question){
-        questionText = question;
+    public void setQuestioning(String question){
+        questioning = question;
     }
 
     /**
      * Sets the question id
      * @param id int for the question id
      */
-    public void setQuestionID(String id){
-        questionID = id;
+    public void setId(int id){
+        this.id = id;
     }
 
     /**
@@ -69,32 +75,34 @@ public class Question {
      * @return String of this answer
      */
     public String getAnswers(int i){
-        return answers[i];
+        return answers.get(i);
     }
 
     /**
      * Gets the question text of this question
      * @return String of this question Text
      */
-    public String getQuestionText(){
-        return questionText;
+    public String getQuestioning(){
+        return questioning;
     }
 
     /**
      * Gets the ID of this question
      * @return ID as a int
      */
-    public String getID(){
-        return questionID;
+    public int getId(){
+        return this.id;
     }
+
     public void jsonToQuestion(JSONObject json){
         try {
-            this.questionText = json.getString("questioning");
-            this.questionID = json.getString("questioning");
-            answers = new String[4];
-            for(int i = 0; i<4;i++){
-
-                answers[i] = json.getJSONArray("answers").getJSONObject(i).getString("content");
+            this.questioning = json.getString("questioning");
+            this.id = json.getInt("id");
+            this.worth = json.getInt("worth");
+            answers = new ArrayList<String>();
+            this.dynamicDifficulty = json.getInt("dynamicDifficulty");
+            for(int i = 0; i < 4; i++){
+                answers.add(json.getJSONArray("answers").getJSONObject(i).getString("content"));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -102,11 +110,11 @@ public class Question {
 
     }
     public void dummyQuestion(){
-        questionText = "DUMMY TESTFRAGE ";
-        questionID = "1";
-        answers = new String[4];
-        for (int i =0; i<4;i++){
-            answers[i]= "Test Antwort";
+        questioning = "DUMMY TESTFRAGE ";
+        id = 1;
+        answers = new ArrayList<String>();
+        for (int i = 0; i < 4; i++){
+            answers.add("Test Antwort" + i);
         }
     }
 }

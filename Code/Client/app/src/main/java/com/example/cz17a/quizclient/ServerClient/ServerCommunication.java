@@ -7,7 +7,7 @@ import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETStr
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
-import com.example.cz17a.quizclient.Src.Topic;
+import com.example.cz17a.quizclient.Src.Quiz;
 import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
@@ -101,12 +101,10 @@ public class ServerCommunication {
         JSONArray jsonArray = null;
         jsonArray =getQuizzesJSON();
         for(int i = 0; i<jsonArray.length();i++){
-            quizzes.getTopics().add(new Topic());
+            quizzes.getTopics().add(new Quiz());
             try {
                 quizzes.getTopics().get(i).setTitle(jsonArray.getJSONObject(i).getString("title"));
                 quizzes.getTopics().get(i).setId(jsonArray.getJSONObject(i).getInt("id"));
-                quizzes.getTopics().get(i).setMaxParticipants(jsonArray.getJSONObject(i).getInt("maxParticipants"));
-                quizzes.getTopics().get(i).setMinParticipants(jsonArray.getJSONObject(i).getInt("minParticipants"));
                 quizzes.getTopics().get(i).setLength(jsonArray.getJSONObject(i).getInt("length"));
             } catch (JSONException e) {
                 e.printStackTrace();

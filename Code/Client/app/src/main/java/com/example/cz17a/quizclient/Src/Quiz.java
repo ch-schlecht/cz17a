@@ -9,11 +9,9 @@ import android.widget.Button;
 /**
  * Representation for a single quiztype/topic
  */
-public class Topic {
+public class Quiz {
    private int id;
    private String title;
-   private int maxParticipants;
-   private int minParticipants;
    private int length;
    private Button topicButton;
 
@@ -23,14 +21,6 @@ public class Topic {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setMaxParticipants(int maxParticipants) {
-        this.maxParticipants = maxParticipants;
-    }
-
-    public void setMinParticipants(int minParticipants) {
-        this.minParticipants = minParticipants;
     }
 
     public void setLength(int length) {
@@ -49,14 +39,6 @@ public class Topic {
         return title;
     }
 
-    public int getMaxParticipants() {
-        return maxParticipants;
-    }
-
-    public int getMinParticipants() {
-        return minParticipants;
-    }
-
     public int getLength() {
         return length;
     }
@@ -68,8 +50,7 @@ public class Topic {
     public String toString(){
         StringBuilder retString = new StringBuilder();
         retString.append("ID: ").append(id).append(", Title: ").append(title).append(", Length: ")
-                .append(length).append(", MinParticipants: ").append(minParticipants)
-                .append(", MaxParticipants: ").append(maxParticipants).append("\n");
+                .append(length).append("\n");
         return retString.toString();
     }
 }

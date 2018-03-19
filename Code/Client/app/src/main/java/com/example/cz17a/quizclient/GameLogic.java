@@ -55,7 +55,7 @@ public class GameLogic {
                 }
             });
         }
-        questionText.setText(question.getQuestionText());
+        questionText.setText(question.getQuestioning());
         buttonsActivate(buttons);
         //sets the timer
         new CountDownTimer(question.getAnswertime(),1000){
