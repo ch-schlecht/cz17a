@@ -297,16 +297,15 @@ public class ServerCommunication {
             port = Integer.parseInt(new ClientThreadGETString().execute(url).get());
 
 
-
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        SocketCommunication test_com = new SocketCommunication(port,URLHandler.SERVERROOT,lobby);
-        new Thread(test_com).start();
+        SocketCommunication com = new SocketCommunication(port,URLHandler.SERVERROOT,lobby);
+        SocketHandler.setSocket(com); //setting SocketCommunication into Holder
+        new Thread(com).start();
 
         return success;
 
