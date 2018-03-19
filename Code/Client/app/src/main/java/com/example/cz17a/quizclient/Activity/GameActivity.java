@@ -46,7 +46,7 @@ public class GameActivity extends AppCompatActivity {
         buttons[2] = findViewById(R.id.antwort3but);
         buttons[3] = findViewById(R.id.antwort4but);
 
-        indicator = findViewById(R.id.indicatior);
+        indicator = findViewById(R.id.indicator);
         TextView timer = findViewById(R.id.timer);
         TextView questionText = findViewById(R.id.fragenText);
         questionText.setGravity(Gravity.CENTER);
