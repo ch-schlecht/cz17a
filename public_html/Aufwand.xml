@@ -121,12 +121,50 @@
 		<done who="SL" A="3" S="3" Zeit="1.5">Client-Modellierung</done>
 		<done who="CS" A="3" S="3" Zeit="1">Release</done>
 	</Analyse>
-	<Analyse von="2018-01-23" bis="2018-01-29" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
+	<Analyse von="2018-01-29" bis="2018-02-04" gruppe="cz17a" createdBy="CS" createdAt="2018-01-29">
 		<done who="TG,WS" A="3" S="3" Zeit="18">Client</done>
 		<done who="MF" A="3" S="3" Zeit="10">Client und Server</done>
 		<done who="CS" A="3" S="3" Zeit="5">Server und Datenbank</done>
 		<done who="CS" A="3" S="3" Zeit="1.5">Release und QM</done>
-		<done who="SV" A="3" S="3" Zeit="2">Praesentation M2</done>
+		<done who="SL" A="3" S="3" Zeit="2">Praesentation M2</done>
 		<done who="FF" A="3" S="3" Zeit="9">Client und Android Studio</done>
+		<done who="LV" A="2" S="1" Zeit="0.5">Issueverwaltung und Erstellung</done>
+		<done who="LV" A="3" S="4" Zeit="4">Lobby-Modellierung</done>
+	</Analyse>
+	<Analyse von="2018-02-05" bis="2018-02-11" gruppe="cz17a" createdBy="CS" createdAt="2018-02-05">
+		<done who="TG,WS,MF,LV,FF,CS,SL,FZ" A="3" S="3" Zeit="2">internes Treffen</done>
+		<done who="CS,LV" A="2" S="3" Zeit="1">Issueverwaltung und Erstellung</done>
+	</Analyse>
+	<Analyse von="2018-02-12" bis="2018-02-18" gruppe="cz17a" createdBy="CS" createdAt="2018-02-12">
+		<done who="CS" A="3" S="3" Zeit="7">User serverseitig</done>
+		<done who="LV" A="3" S="4" Zeit="2.5">Game-Modellierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.75">Lobby-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="2.5">Game-Implementierung</done>
+		<done who="LV" A="3" S="2" Zeit="0.75">IP und Port vom Client auslesen</done>
+		<done who="FZ,SL" A="4" S="4" Zeit="8">Server</done>
+		<done who="FZ,MF,SL,TG,WS" A="4" S="4" Zeit="12">Client und Server</done>		
+	</Analyse>
+	<Analyse von="2018-02-19" bis="2018-02-25" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
+		<done who="SL,LV,MF,TG,WS,FZ" A="3" S="3" Zeit="1">Praesenztreffen</done>
+		<done who="FF,MF,WS,FZ,SL,TG" A="3" S="3" Zeit="12">internes Treffen</done>
+		<done who="SL" A="3" S="3" Zeit="3">Server</done>
+		<done who="FZ" A="3" S="3" Zeit="2">Server</done>
+	</Analyse>
+	<Analyse von="2018-02-26" bis="2018-03-04" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
+		<done who="FF" A="3" S="3" Zeit="3">Sockets am Client</done>
+		<done who="CS" A="3" S="3" Zeit="10">Server</done>
+	</Analyse>
+	<Analyse von="2018-03-05" bis="2018-03-11" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
+		<done who="FF,MF,SL,FZ,LV,CS,TG,WS" A="4" S="4" Zeit="10">internes Treffen</done>
+		<done who="SL,CS,FZ,FF" A="3" S="3" Zeit="1">Praesenztreffen</done>
+		<done who="SL" A="3" S="3" Zeit="3">Client</done>
+		<done who="FF,MF,WS" A="3" S="3" Zeit="8">Sockets</done>
+		<done who="CS" A="1" S="1" Zeit="1">Organisation</done>
+	</Analyse>
+	<Analyse von="2018-03-12" bis="2018-03-18" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
+		<done who="TG,SL,CS,FZ" A="4" S="4" Zeit="2.5">internes Treffen</done>
+		<done who="FF,MF,SL,FZ,LV,CS,TG,WS" A="4" S="4" Zeit="10">internes Treffen</done>
+		<done who="CS,MF" A="5" S="5" Zeit="20">Bug Fixing</done>
+		<done who="SL" A="3" S="3" Zeit="3">Client</done>
 	</Analyse>
 </Bericht>

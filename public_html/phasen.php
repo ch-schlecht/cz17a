@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * projekt.php
@@ -40,10 +40,10 @@ include 'header.inc.php';
             <div class="bar-el done" id="M1">M1</div>
             <div class="bar-el done" id="A4">A4</div>
             <div class="bar-el done" id="R1">R1</div>
-            <div class="bar-el ak" id="M2">M2</div>
-            <div class="bar-el" id="R2">R2</div>
-            <div class="bar-el" id="R3">R3</div>
-            <div class="bar-el" id="R4">R4</div>
+            <div class="bar-el done" id="M2">M2</div>
+            <div class="bar-el done" id="R2">R2</div>
+            <div class="bar-el done" id="R3">R3</div>
+            <div class="bar-el ak" id="R4">R4</div>
             <div class="bar-el" id="R5">R5</div>
         </div>
         
@@ -92,7 +92,14 @@ include 'header.inc.php';
 		<li>Client</li>
 		<li>Datenbank</li>
 		<li>Admin-Panel</li>
-        
+	
+		<p>Die sechste Phase und Abgabe <b>R2</b> wurde <font color="green">abgeschlossen</font></br>
+		In dieser Phase wurde das zweite Releasebündel erarbeitet, in welchem Client und Server erweitert wurden:
+		<li>Login/Logout</li>
+		<li>Registrierung</li>
+
+		<p>Die siebte Phase und Abgabe <b>R3</b> wurde <font color="green">abgeschlossen</font></br>
+		In Dieser Phase wurde das dritte Releasebündel erarbeitet, darin wurde der Spielmechanismus erweitert.        
         
 
     </article>
