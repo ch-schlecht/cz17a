@@ -98,9 +98,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             //Setting UsrId to Static Context
             SocketHandler.setUsrId(usrId);
+            User user = new User(sp.getString("mail", "nomail"), sp.getString("name","defaultnickname"));
 
-
-            goToMain();
+            goToMain(user);
         }
 
         // Set up the login form.
@@ -141,25 +141,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 int ID = servCom.usrLogin(nickname.getText().toString(), mPasswordView.getText().toString(),null);
                 if( ID != -1){
                     User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
+                    user.setPassword(mPasswordView.getText().toString());
                     user.setId(""+ID);
 
 
-                    //Save in Shared Preference
-                    SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
-                    SharedPreferences.Editor Ed = sp.edit();
-                    Ed.putBoolean("loggedIn",true);
-                    Ed.putString("uId",user.getId());
-                    Ed.putString("name",user.getNickname());
-                    Ed.putString("mail",user.getMail());
-                    Ed.putLong("create",System.currentTimeMillis());
-                    Ed.commit();
-                    System.out.println("Saved User in SharedPref: "+user.getId());
+
 
                     //Save UserId in Static Context
                     SocketHandler.setUsrId(user.getId());
 
 
-                    goToMain();
+                    goToMain(user);
                 }
             }
         });
@@ -167,15 +159,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        //Skip Login (only for testing)
-        Button skipLogin = findViewById(R.id.skipLoginButton);
-        skipLogin.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                User user = new User("steinbach_willy@outlook.de", "Name");
-                goToMain();
-            }
-        });
+
 
 
     }
@@ -183,18 +167,30 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void register(){
         servCom = new ServerCommunication();
         System.out.println(nickname.getText().toString());
-        if(servCom.usrRegistry(nickname.getText().toString(),
-                mPasswordView.getText().toString(),
-                mEmailView.getText().toString())){
-            //Dummy User
-            //User user = new User(nickname.getText().toString(), mEmailView.getText().toString());
-            goToMain();
+        System.out.println("PASSWORT: " + mPasswordView.getText().toString());
+        User user = new User(mEmailView.getText().toString(), nickname.getText().toString());
+        user.setPassword( mPasswordView.getText().toString());
+        String result = servCom.usrRegistry(user);
+        switch (result){
+            case "Sie haben sich erfolgreich registriert":
+                goToMain(user);
+
         }
+
     }
 
-    public void goToMain(){
+    public void goToMain(User user){
         Intent intent = new Intent(this, MainActivity.class);
-       // MainActivity.user = user;
+        //Save in Shared Preference
+        SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
+        SharedPreferences.Editor Ed = sp.edit();
+        Ed.putBoolean("loggedIn",true);
+        Ed.putString("uId",user.getId());
+        Ed.putString("name",user.getNickname());
+        Ed.putString("mail",user.getMail());
+        Ed.putLong("create",System.currentTimeMillis());
+        Ed.commit();
+        System.out.println("Saved User in SharedPref: "+user.getId());
         startActivity(intent);
     }
 

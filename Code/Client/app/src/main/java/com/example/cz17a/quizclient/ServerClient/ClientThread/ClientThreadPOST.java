@@ -29,7 +29,7 @@ import java.util.Scanner;
  * @version 0.2
  */
 
-public class ClientThreadPOST extends AsyncTask<URL, Integer, Integer> {
+public class ClientThreadPOST extends AsyncTask<URL, Integer, String> {
 
     private JSONObject usr = null;
 
@@ -48,12 +48,12 @@ public class ClientThreadPOST extends AsyncTask<URL, Integer, Integer> {
      * @return JSONArray
      */
     @Override
-    protected Integer doInBackground(URL... urls) {
+    protected String doInBackground(URL... urls) {
 
         String result="-1";
 
         if (urls.length == 0) {
-            return Integer.parseInt(result);
+            return result;
         }
         for (URL url : urls) {
        /**
@@ -110,7 +110,7 @@ try {
 
 
         }
-        return Integer.parseInt(result);
+        return result;
 
 
     }
