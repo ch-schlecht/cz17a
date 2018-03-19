@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
+import com.example.cz17a.quizclient.Src.Jackpot;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +28,7 @@ public class GameLogic {
     private TextView timer;
     private SocketCommunication socketCommunication;
     private int gameId;
+    Jackpot jackpot;
 
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
                      final TextView indicator, final TextView timer){
@@ -35,6 +37,7 @@ public class GameLogic {
         this.questionText = questionText;
         this.indicator = indicator;
         this.timer = timer;
+        this.jackpot = new Jackpot();
         servCom = new ServerCommunication();
         //questionlist = servCom.getQuestions(quizId);
         //questioncount = questionlist.length;
@@ -124,7 +127,7 @@ public class GameLogic {
         ServerCommunication serverCommunication = new ServerCommunication();
         JSONObject json = new JSONObject();
         try {
-            json.put("isJackpot", false);
+            json.put("isJackpot", jackpot.isActive());
             json.put("isCorrect", question.isCorrect());
             json.put("speedInSeconds", question.getSpeedInSeconds());
             json.put("score", question.getScore());
