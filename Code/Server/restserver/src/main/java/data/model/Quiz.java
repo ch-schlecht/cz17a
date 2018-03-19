@@ -84,6 +84,7 @@ public class Quiz {
 	 * @return List of Question
 	 */
 	public List<Question> getRandomQuestions() {
+		/*
 		List<Question> chooseList = this.getQuestions();
 		List<Question> returnList = new ArrayList<Question>();
 		Collections.sort(chooseList);
@@ -100,6 +101,12 @@ public class Quiz {
 		}
 		
 		return returnList;
+		*/
+		List<Question> questionList = new ArrayList<Question>();
+		for(int i = 0; i < 10; i++) {
+			questionList.add(questions.get(i));
+		}
+		return questionList;
 	}
 
 	@XmlElement
