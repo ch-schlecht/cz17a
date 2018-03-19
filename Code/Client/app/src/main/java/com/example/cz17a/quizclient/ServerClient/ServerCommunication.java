@@ -286,9 +286,6 @@ public class ServerCommunication {
         boolean success = false;
         int port = 0;
 
-
-
-
         try {
             url = urlHandler.lobbyURL(quizId, usrId);
 
@@ -309,6 +306,28 @@ public class ServerCommunication {
 
         return success;
 
+    }
+
+
+    public  boolean usrLeaveLobby(String quizId,String usrId){
+        boolean success = false;
+        URL url = null;
+
+        url = urlHandler.leaveLobbyURL(quizId,usrId);
+
+        try {
+            new ClientThreadGETString().execute(url).get(); //TODO
+            System.out.println("leave lobby -> sucess");
+            return true;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        //TODO
+
+        return success;
     }
 
 

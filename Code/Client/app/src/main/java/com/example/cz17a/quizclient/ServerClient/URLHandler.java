@@ -74,6 +74,16 @@ public class URLHandler {
         }
         return url;
     }
+
+    public URL leaveLobbyURL(String quizId, String usrId){
+        try {
+            url = new URL(URLROOT+"/Lobbies"+quizId+"/leave/"+usrId);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
     public URL genUsrRequestURL(String usrname){
         try {
             url = new URL(URLROOT + "/users/" + usrname);

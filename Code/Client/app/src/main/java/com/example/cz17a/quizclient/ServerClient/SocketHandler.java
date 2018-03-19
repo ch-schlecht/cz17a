@@ -11,7 +11,11 @@ import com.example.cz17a.quizclient.Activity.GameActivity;
 
 public class SocketHandler {
     private static SocketCommunication socketCom; //var for SocketCommunication
+
     private static GameActivity game; //var for GameActivity
+
+
+    private static String userId;
 
 
     /**
@@ -49,6 +53,15 @@ public class SocketHandler {
     public static synchronized  GameActivity getGame (){
         return game;
     }
+
+    public static void setUsrId(String usrId){
+        SocketHandler.userId = usrId;
+    }
+
+    public static String getUserId(){
+        return SocketHandler.userId;
+    }
+
 
 
 }

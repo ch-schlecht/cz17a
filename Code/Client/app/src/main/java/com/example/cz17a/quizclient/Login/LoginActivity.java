@@ -37,6 +37,7 @@ import android.widget.TextView;
 import com.example.cz17a.quizclient.Activity.MainActivity;
 import com.example.cz17a.quizclient.R;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Ed2.putLong("create",System.currentTimeMillis());
             Ed2.commit();
 
+            //Setting UsrId to Static Context
+            SocketHandler.setUsrId(usrId);
 
 
             goToMain();
@@ -151,6 +154,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     Ed.putLong("create",System.currentTimeMillis());
                     Ed.commit();
                     System.out.println("Saved User in SharedPref: "+user.getId());
+
+                    //Save UserId in Static Context
+                    SocketHandler.setUsrId(user.getId());
 
 
                     goToMain();

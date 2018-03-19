@@ -12,8 +12,10 @@ import android.widget.ListView;
 import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketHandler;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
+import com.example.cz17a.quizclient.Src.Topic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +49,18 @@ public class LobbyActivity extends AppCompatActivity {
             }
         });
 
+        Button leaveButton = findViewById(R.id.leaveButton);
+        leaveButton.setOnClickListener(new View.OnClickListener(){
+           @Override
+            public void onClick(View view){
+               //leave Lobby
+                ServerCommunication.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
+                goBack();
+
+               //goto TopicSelection
+           }
+        });
+
 
         /**
         Thread socketCom = new Thread(new SocketCommunication(port));
@@ -56,9 +70,13 @@ public class LobbyActivity extends AppCompatActivity {
         ServerCommunication com = new ServerCommunication();
 
         //Load UserID
+        /**
         SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
         String usrId= sp.getString("uId","-1"); //TODO other Default
         System.out.println("Loaded User from SharedPref: "+usrId);
+**/
+        String usrId = SocketHandler.getUserId();
+
 
         com.usrJoinLobby(""+quizId, usrId, this);
 
@@ -68,6 +86,11 @@ public class LobbyActivity extends AppCompatActivity {
         Intent intent = new Intent(this,  GameActivity.class);
         GameActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
+        startActivity(intent);
+    }
+
+    public void goBack(){
+        Intent intent = new Intent(this, TopicSelection.class);
         startActivity(intent);
     }
 
