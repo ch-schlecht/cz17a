@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        nickname= (EditText) findViewById(R.id.nicknameInput);
+        nickname= (EditText) findViewById(R.id.nicknameLogin);
         Button resetpasswordButton = findViewById(R.id.passwordreset);
         Button registration = findViewById(R.id.registrationButton);
         registration.setOnClickListener(new OnClickListener() {
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
         populateAutoComplete();
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = (EditText) findViewById(R.id.passwordLogin);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
