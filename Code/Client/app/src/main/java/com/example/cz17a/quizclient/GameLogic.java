@@ -21,12 +21,10 @@ public class GameLogic {
     private int quizId;
     private int questioncount;
     private Question questionlist[];
-    private ServerCommunication servCom;
     private Button[] buttons;
     private TextView questionText;
     private TextView indicator;
     private TextView timer;
-    private SocketCommunication socketCommunication;
     private int gameId;
     Jackpot jackpot;
 
@@ -38,7 +36,6 @@ public class GameLogic {
         this.indicator = indicator;
         this.timer = timer;
         this.jackpot = new Jackpot();
-        servCom = new ServerCommunication();
         //questionlist = servCom.getQuestions(quizId);
         //questioncount = questionlist.length;
     }
@@ -58,7 +55,7 @@ public class GameLogic {
                 @Override
                 public void onClick(View view) {
                     evaluation(buttons, finalI , question, indicator);
-                    socketCommunication.sendAnswer(buttons[finalI].getText().toString());
+                    sendQuestionEvaluation(question);
                 }
             });
         }
@@ -72,7 +69,7 @@ public class GameLogic {
             public void onFinish(){
                 if(!question.getValuated()){
                     evaluation(buttons, -1 , question, indicator);
-                    socketCommunication.sendAnswer(null);
+                    sendQuestionEvaluation(question);
                 }
 
             }
@@ -88,7 +85,6 @@ public class GameLogic {
      */
     public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
-        socketCommunication.sendAnswer(buttons[i].getText().toString());
         //i<0, if no answer was given
         if(i < 0){
             indicator.setText("Zeit vorbei!");
@@ -124,7 +120,6 @@ public class GameLogic {
     }
 
     private void sendQuestionEvaluation(Question question) {
-        ServerCommunication serverCommunication = new ServerCommunication();
         JSONObject json = new JSONObject();
         try {
             json.put("isJackpot", jackpot.isActive());
@@ -134,7 +129,7 @@ public class GameLogic {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        serverCommunication.postPlayedQuestion(gameId, question.getId(), json);
+        ServerCommunication.postPlayedQuestion(gameId, question.getId(), json);
     }
 }
 
