@@ -31,19 +31,25 @@ public class GameLogic {
     private Button[] buttons;
     private TextView questionText;
     private TextView indicator;
+    private TextView scoreView;
     private TextView timerView;
+    private TextView jackpotView;
     private int gameId;
     Jackpot jackpot;
     private Timer countdownTimer;
+    private int score;
 
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
-                     final TextView indicator, final TextView timer){
+                     final TextView indicator, final TextView timer, final TextView scoreView, final TextView jackpotView) {
         this.quizId = quizID;
         this.buttons = buttons;
         this.questionText = questionText;
         this.indicator = indicator;
         this.timerView = timer;
         this.jackpot = new Jackpot();
+        this.score = 0;
+        this.scoreView = scoreView;
+        this.jackpotView = jackpotView;
         //questionlist = servCom.getQuestions(quizId);
         //questioncount = questionlist.length;
     }
@@ -55,6 +61,7 @@ public class GameLogic {
      */
     public void playNewQuestion(final Question question){
         //sets the timer
+        jackpotView.setText(jackpot.getAmount());
         countdownTimer = new Timer(this, question);
         indicator.setVisibility(View.INVISIBLE);
         //initializes the buttons for this question
@@ -112,6 +119,8 @@ public class GameLogic {
             if(button.getText().equals(question.getAnswers(0)))
                 button.setBackgroundColor(Color.GREEN);
         }
+        this.score += score;
+        scoreView.setText(score);
         question.setSpeedInSeconds(responseTime);
         question.setScore(score);
         sendQuestionEvaluation(question);
