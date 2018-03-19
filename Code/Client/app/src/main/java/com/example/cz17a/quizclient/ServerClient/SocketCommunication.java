@@ -3,6 +3,7 @@ package com.example.cz17a.quizclient.ServerClient;
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
 import com.example.cz17a.quizclient.Src.Question;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -74,7 +75,7 @@ public class SocketCommunication implements Runnable{
      */
    public String receivedMessagesFromServer(){
        String message = "";
-       System.out.println("i am in receive");
+     //  System.out.println("i am in receive");
        try {
            scan.useDelimiter(Pattern.quote("$"));
            while(scan.hasNext()){
@@ -150,12 +151,12 @@ public class SocketCommunication implements Runnable{
             String msg = receivedMessagesFromServer();
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
-                //TODO identifier for player list
                 msg =  msg.replace("{","");
                 msg = msg.replace("}","");
                 String[] players  = msg.split(",");
 
-                //lobby.setPlayers(players);
+
+                //TODO Lobbyanzeige                //lobby.setPlayers(players);
 
 
                 if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
@@ -163,11 +164,26 @@ public class SocketCommunication implements Runnable{
                     gameId = msg;
                 }
                 if(msg.startsWith("[{")){
-                    lobby.goToGame(gameId);
+                    //TODO get questions
+                    Question[] questionList = null;
+                    try {
+                        JSONArray jsonList = new JSONArray((msg));
+
+                        questionList = new Question[jsonList.length()];
+
+                        for(int i = 0; i < jsonList.length(); i++){
+                            //Mapping
+                            questionList[i] = (Question) jsonList.get(i);
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    lobby.goToGame(gameId,questionList);
                 }
 
-
-                //TODO Lobbyanzeige
             }
 
         }

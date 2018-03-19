@@ -13,6 +13,7 @@ import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
+import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
 import com.example.cz17a.quizclient.Src.Quiz;
@@ -83,11 +84,12 @@ public class LobbyActivity extends AppCompatActivity {
 
 
     }
-    public void goToGame(String gameId){
+    public void goToGame(String gameId, Question[] questionList){
         Intent intent = new Intent(this,  GameActivity.class);
         GameActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
         intent.putExtra("gameId",gameId);
+        intent.putExtra("questionList",questionList);
         startActivity(intent);
     }
 
