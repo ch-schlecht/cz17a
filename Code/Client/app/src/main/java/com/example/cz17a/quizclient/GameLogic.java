@@ -131,5 +131,9 @@ public class GameLogic {
         }
         ServerCommunication.postPlayedQuestion(gameId, question.getId(), json);
     }
+    public TextView getTimer(){
+        return this.timer;
+    }
+
 }
 
