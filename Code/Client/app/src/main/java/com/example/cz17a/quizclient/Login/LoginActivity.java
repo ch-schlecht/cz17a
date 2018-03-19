@@ -72,7 +72,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    EditText nickname;
+    private EditText nicknameRegister;
+    private EditText passwordRegister;
+
+    private EditText nickname;
     private boolean registrationShowed;
     private LinearLayout linearLayout;
     ServerCommunication servCom;
@@ -104,7 +107,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        nicknameRegister = findViewById(R.id.nicknameRegister);
+        passwordRegister = findViewById(R.id.passwordRegister);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.emailRegister);
         nickname= (EditText) findViewById(R.id.nicknameLogin);
         Button resetpasswordButton = findViewById(R.id.passwordreset);
         Button registration = findViewById(R.id.registrationButton);
@@ -166,10 +171,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     public void register(){
         servCom = new ServerCommunication();
-        System.out.println(nickname.getText().toString());
-        System.out.println("PASSWORT: " + mPasswordView.getText().toString());
-        User user = new User(mEmailView.getText().toString(), nickname.getText().toString());
-        user.setPassword( mPasswordView.getText().toString());
+        System.out.println(nicknameRegister.getText().toString());
+        System.out.println("PASSWORT: " + passwordRegister.getText().toString());
+        User user = new User(mEmailView.getText().toString(), nicknameRegister.getText().toString());
+        user.setPassword( passwordRegister.getText().toString());
         String result = servCom.usrRegistry(user);
         switch (result){
             case "Sie haben sich erfolgreich registriert":

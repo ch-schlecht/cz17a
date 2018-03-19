@@ -88,7 +88,7 @@
                         android:layout_height="match_parent">
 
                         <EditText
-                            android:id="@+id/editText2"
+                            android:id="@+id/passwordRegister"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -102,10 +102,11 @@
                         android:layout_height="match_parent">
 
                         <android.support.design.widget.TextInputEditText
+                            android:id="@+id/nicknameRegister"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Nickname"
-                            android:inputType="textPassword" />
+                            android:inputType="text" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -114,7 +115,7 @@
                         android:layout_height="match_parent">
 
                         <AutoCompleteTextView
-                            android:id="@+id/email"
+                            android:id="@+id/emailRegister"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/prompt_email"
