@@ -135,6 +135,7 @@ public class Game {
 			StringWriter writer = new StringWriter();
 			marshaller.marshal(questions, writer);
 			questionList = writer.toString();
+			System.out.println(questionList);
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 			questionList = "[]";
