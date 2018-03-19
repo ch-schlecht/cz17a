@@ -17,8 +17,9 @@ public class Timer {
     private CountDownTimer countDownTimer;
     private GameLogic gameLogic;
     private Question question;
-    public Timer(int time, final GameLogic gameLogic, Question question){
-        this.time = time;
+
+    public Timer(final GameLogic gameLogic, Question question){
+        this.time = question.getAnswertime();
         this.gameLogic = gameLogic;
         this.question = question;
     }
@@ -26,7 +27,7 @@ public class Timer {
         countDownTimer = new CountDownTimer(time,1000){
             public void onTick(long millisUntilFinished){
                 currentState = (int) millisUntilFinished/1000;
-                gameLogic.getTimer().setText("Zeit: " + millisUntilFinished/1000+ "s");
+                gameLogic.getTimerView().setText("Zeit: " + millisUntilFinished/1000+ "s");
             }
             public void onFinish(){
                     gameLogic.evaluation(-1 , question);

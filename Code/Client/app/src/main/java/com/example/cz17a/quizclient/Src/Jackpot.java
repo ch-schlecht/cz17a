@@ -48,7 +48,7 @@ public class Jackpot {
         this.isActive = false;
     }
 
-    public int payout(int responseTime){
+    public int payout(double responseTime){
         if(isActive) {
             if (responseTime < 5) {
                 return this.amount;
