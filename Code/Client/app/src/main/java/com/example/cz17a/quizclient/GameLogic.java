@@ -165,36 +165,5 @@ public class GameLogic {
         return this.timerView;
     }
 
-    public void createScoreboard(String playerWithScores){
-        String[][] separated = separatePlayerscores(playerWithScores);
-        String[][] sorted = sortedByScoreDescending(separated);
-        TextView player1 =
-
-    }
-
-    private String[][] sortedByScoreDescending(String[][] separated){
-        String[][] sorted = null;
-        boolean changed = false;
-        for (){
-
-        }
-    }
-
-    /**
-     * Method that separates the String into the playerindex and the associated score.
-     * @param playerWithScores
-     * @return 's a String[][]
-     */
-    private String[][] separatePlayerscores(String playerWithScores){
-        String[][] sAA = null;
-        String[] sA = playerWithScores.split(",");
-        for (int i=0; i<sA.length; i++){
-            String[] s = sA[i].split(": ");
-            sAA[i][0] =  s[0].substring(1,s[0].length()-2);
-            sAA[i][1] = s[1].substring(1,s[1].length()-2);
-        }
-        return sAA;
-    }
-
 }
 
