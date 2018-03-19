@@ -103,7 +103,7 @@ public class Quiz {
 		return returnList;
 		*/
 		List<Question> questionList = new ArrayList<Question>();
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 5; i++) {
 			questionList.add(questions.get(i));
 		}
 		return questionList;
