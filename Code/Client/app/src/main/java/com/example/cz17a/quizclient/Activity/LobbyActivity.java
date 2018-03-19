@@ -54,7 +54,8 @@ public class LobbyActivity extends AppCompatActivity {
            @Override
             public void onClick(View view){
                //leave Lobby
-                ServerCommunication.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
+               ServerCommunication com = new ServerCommunication();
+                com.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
                 goBack();
 
                //goto TopicSelection
