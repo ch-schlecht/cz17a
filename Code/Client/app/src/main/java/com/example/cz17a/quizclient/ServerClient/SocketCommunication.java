@@ -204,6 +204,11 @@ public class SocketCommunication implements Runnable{
 
    public synchronized void stop(){
        running = false;
+       try {
+           server.close();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
    }
 
     @Override

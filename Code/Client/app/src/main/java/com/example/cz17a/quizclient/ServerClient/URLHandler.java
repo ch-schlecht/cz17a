@@ -77,7 +77,7 @@ public class URLHandler {
 
     public URL leaveLobbyURL(String quizId, String usrId){
         try {
-            url = new URL(URLROOT+"/Lobbies"+quizId+"/leave/"+usrId);
+            url = new URL(URLROOT+"/Lobbies/"+quizId+"/leave/"+usrId);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

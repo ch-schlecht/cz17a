@@ -1,17 +1,10 @@
 package com.example.cz17a.quizclient.ServerClient;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
-import com.example.cz17a.quizclient.Login.LoginActivity;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
-import com.example.cz17a.quizclient.ServerClient.ClientThread.PostRequest;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.Src.Topic;
@@ -20,10 +13,8 @@ import com.example.cz17a.quizclient.Login.User;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
@@ -315,6 +306,8 @@ public class ServerCommunication {
 
         url = urlHandler.leaveLobbyURL(quizId,usrId);
 
+        System.out.println("Leave: "+url);
+
         try {
             new ClientThreadGETString().execute(url).get(); //TODO
             System.out.println("leave lobby -> sucess");
@@ -326,6 +319,9 @@ public class ServerCommunication {
         }
 
         //TODO
+
+        SocketHandler.getSocket().stop();
+        SocketHandler.setSocket(null);
 
         return success;
     }
