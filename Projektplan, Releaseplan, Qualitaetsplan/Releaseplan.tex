@@ -80,19 +80,30 @@ Im zweiten Release werden Spieleraccounts eingeführt und das Quiz erweitert.
 
 \Chapter{Arbeitspaket 3 - Quizfinalisierung}
 \textit{Release: 19.03.18} \\
-Das dritte Arbeitspaket finalisiert das eigentliche Quiz.
-\begin{itemize}
-\item die zusammenfassende Ergebnisübersicht wird um ein anonymes Leaderboard der Runde erweitert.
-\end{itemize}
-
 \section{Quizerweiterung}
 \begin{itemize}
 \item Das Quiz wird auf mehrere Spieler (mind. 5 pro Runde) erweitert.
 \end{itemize}
+
+\section{Jackpot}
+\begin{itemize}
+\item der Jackpot füllt sich durch die Punkte der Spieler, falls diese eine Frage falsch beantworten.
+\end{itemize}
+
+\section{weitere Frageneigenschaften}
+\begin{itemize}
+\item In Abhängigkeit des Schwierigkeitsgrades erhält der Punktwert einer Frage einen Multiplikator.
+\item Ein Import von Excel-Dateien für Fragen wird angebunden.
+\end{itemize}
+
+\Chapter{Arbeitspaket 4 - Administration}
+\textit{Release: 02.04.2018} \\
+\section{Quizerweiterung}
 \subsection{Quizablauf}
 \begin{itemize}
 \item Eine Quizrunde wird auf mehrere Fragen aufeinanderfolgend erweitert
 \item Nach Beendigung der Runde erfolgt eine zusammenfassende Ergebnisübersicht
+\item die zusammenfassende Ergebnisübersicht wird um ein anonymes Leaderboard der Runde erweitert.
 \end{itemize}
 \subsection{weitere Quizeigenschaften}
 \begin{itemize}
@@ -101,23 +112,17 @@ Das dritte Arbeitspaket finalisiert das eigentliche Quiz.
 
 \section{Jackpot}
 \begin{itemize}
-\item der Jackpot füllt sich durch die Punkte der Spieler, falls diese eine Frage falsch beantworten.
 \item eine Jackpot-Frage kann zufällig ausgelöst werden. Dann wird um die gesamte Punktzahl im Jackpot gespielt. Bei richtiger Antwort ist ein Anteil des Jackpots garantiert.
 \item die Wahrscheinlichkeit des Auftretens einer Jackpot-Frage steigt mit zunehmend falsch beantworteten Fragen.
-\item Initial und nach Ausschüttung des Jackpots wird dieser mit einer gewissen Anzahl an Punkten gefüllt.
 \end{itemize}
 
 \section{weitere Frageneigenschaften}
 \begin{itemize}
 \item Fragen werden generell zufällig aus dem Fragenpool ausgewählt. Je häufiger eine Frage jedoch falsch beantwortet wird, desto größer wird die Wahrscheinlichkeit des Auftretens.
-\item der Fragen wird bei Einfügung ins System ein statischer Schwierigkeitsgrad mit übergeben. Anhand der Beantwortungsstatistiken (Richtig/Falsche beantwortet) wird dieser dynamisch angepasst.
-\item In Abhängigkeit des Schwierigkeitsgrades erhält der Punktwert einer Frage einen Multiplikator.
-\item Ein Import von Excel-Dateien für Fragen wird an das Admin-Panel angebunden.
+\item den Fragen wird bei Einfügung ins System ein statischer Schwierigkeitsgrad mit übergeben. Anhand der Beantwortungsstatistiken (Richtig/Falsche beantwortet) wird dieser dynamisch angepasst.
 \end{itemize}
 
-\Chapter{Arbeitspaket 4 - Administration}
-\textit{Release: 02.04.2018} \\
-Arbeitspaket 4 beschäftigt sich mit der Vervollständigung der Administrationsoberfläche und Einbindung der ACL.
+\section{ACL}
 \begin{itemize}
 \item Es werden zwei Kontrollzustände in der ACL eingerichtet: Ein Administrator mit uneingeschränkten Rechten und ein User, welche das Spiel spielen und seine persönlichen Daten einsehen kann.
 \item Dem Administrator werden alle Einstellungsmöglichkeiten über einen externen Webservice zur Verfügung gestellt (Admin-Panel aus dem Vorprojekt).
