@@ -41,11 +41,11 @@ public class LobbyActivity extends AppCompatActivity {
         quizId = getIntent().getExtras().getInt("quizId",160); //TODO
         //players = new List<String>;
         setContentView(R.layout.activity_lobby);
-        Button skipLogin = findViewById(R.id.skipButton);
-        skipLogin.setOnClickListener(new View.OnClickListener() {
+        Button skipLobby = findViewById(R.id.skipButton);
+        skipLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToGame();
+                //goToGame();
             }
         });
 
@@ -83,10 +83,11 @@ public class LobbyActivity extends AppCompatActivity {
 
 
     }
-    public void goToGame(){
+    public void goToGame(String gameId){
         Intent intent = new Intent(this,  GameActivity.class);
         GameActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
+        intent.putExtra("gameId",gameId);
         startActivity(intent);
     }
 

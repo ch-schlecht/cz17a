@@ -21,6 +21,7 @@ public class GameActivity extends AppCompatActivity {
     SocketCommunication socketCommunication;
     public static Quizzes quizzes;
     int quizId;
+    int gameId;
     TextView indicator = null;
     TextView timer = null;
     TextView questionText = null;
@@ -31,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
         quizId = getIntent().getExtras().getInt("quizId",1);
+        gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
         newGame();
     }
 

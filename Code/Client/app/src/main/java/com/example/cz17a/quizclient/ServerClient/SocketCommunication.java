@@ -94,76 +94,6 @@ public class SocketCommunication implements Runnable{
        out.flush();
    }
 
-    /**
-     * Method that receives all Messages from Server Socket and saves them in the String Array.
-     */
-  /*
-   public String receivedMessagesFromServer() {
-       int i = 0;
-       while (true) {
-           try {
-               System.out.println(in.readLine());
-               if (in.readLine() == null) {
-                   break;
-               } else {
-                   statusMessages[i] = in.readLine();
-                   i++;
-               }
-
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-       }
-        return "";
-   }
-   */
-
-
-    /**
-     * Tests if there are enough Player for a Game.
-     *
-     * @return boolean if there are enough People to Play a Round in this Lobby.
-     */
-   /*public boolean enoughPlayerToPlay(int minNumberofPlayer){
-
-           int numberOfPeopleInLobby = 0;
-           for(String message: statusMessages){
-               if (message.startsWith("player:") && message != null){
-                   numberOfPeopleInLobby++;
-                   if (numberOfPeopleInLobby >= minNumberofPlayer){
-                       playernumberGameStartedWith = numberOfPeopleInLobby;
-                       return true;
-
-                   }else continue;
-
-               } else if (message == null){
-                   return false;
-               } else continue;
-           }
-           return false;
-
-   }*/
-
-    /**
-     * Gets the gameID out of the status messages.
-     */
-   /*void gameID(){
-       gameID = statusMessages[playernumberGameStartedWith-1];
-   }
-
-    /**
-     *
-     * @return gameID from the started Game.
-     */
-   /*public String getGameID(){
-       return gameID;
-   }
-
-  /* public void disconnect() throws IOException {
-       if(socket != null && !socket.isClosed()){
-           socket.close();
-       }
-   }*/
 
 
    public void sendAnswer(String answer){
@@ -214,6 +144,7 @@ public class SocketCommunication implements Runnable{
     @Override
     public void run() {
         System.out.println("Client Port:"+port+" inits connection");
+        String gameId = "";
        connect();
         while(running){
             String msg = receivedMessagesFromServer();
@@ -227,14 +158,12 @@ public class SocketCommunication implements Runnable{
                 //lobby.setPlayers(players);
 
 
-
-
-                if(msg.equals("start_game")){
-                    System.out.println("Go to Game");
-                    lobby.goToGame();
-                }
                 if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
+                    gameId = msg;
+                }
+                if(msg.startsWith("[{")){
+                    lobby.goToGame(gameId);
                 }
 
 
