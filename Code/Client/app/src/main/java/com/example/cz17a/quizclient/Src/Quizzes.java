@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * Representation of all quiztypes and topics
  */
 public class Quizzes {
-    private ArrayList<Topic> topics = new ArrayList<>();
+    private ArrayList<Quiz> topics = new ArrayList<>();
     private ServerCommunication servCom;
 
-    public ArrayList<Topic> getTopics() {
+    public ArrayList<Quiz> getTopics() {
         return topics;
     }
 

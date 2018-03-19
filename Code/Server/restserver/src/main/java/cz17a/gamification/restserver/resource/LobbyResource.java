@@ -56,7 +56,7 @@ public class LobbyResource {
 	 * @return Response Status-Code
 	 * @since 1.0
 	 */
-	@PUT
+	@GET
 	@Path("/{quiz_id}/leave/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response leaveLobby(@PathParam("quiz_id") int quiz_id, @PathParam("player_id") int player_id) {

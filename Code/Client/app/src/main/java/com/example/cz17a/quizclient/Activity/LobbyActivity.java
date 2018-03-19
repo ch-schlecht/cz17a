@@ -15,7 +15,7 @@ import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
-import com.example.cz17a.quizclient.Src.Topic;
+import com.example.cz17a.quizclient.Src.Quiz;
 
 import java.util.ArrayList;
 import java.util.Arrays;

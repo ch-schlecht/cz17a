@@ -1,29 +1,20 @@
 package com.example.cz17a.quizclient.ServerClient;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
-import com.example.cz17a.quizclient.Login.LoginActivity;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETArray;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETObject;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadGETString;
 import com.example.cz17a.quizclient.ServerClient.ClientThread.ClientThreadPOST;
-import com.example.cz17a.quizclient.ServerClient.ClientThread.PostRequest;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
-import com.example.cz17a.quizclient.Src.Topic;
+import com.example.cz17a.quizclient.Src.Quiz;
 import com.example.cz17a.quizclient.Login.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
@@ -34,14 +25,12 @@ import java.util.concurrent.ExecutionException;
 
 public class ServerCommunication {
 
-    URLHandler urlHandler = new URLHandler();
-
     /**
      *  generates quest-url
      * @param id = QuizId
      * @return URL
      */
-    public String createUrlQuestion(String id){
+    public static String createUrlQuestion(String id){
         String urlQuest = "/quizzes/" + id + "/random_questions";
         return urlQuest;
     }
@@ -52,9 +41,8 @@ public class ServerCommunication {
      * @return URL
      * @deprecated
      */
-    public String createUrlAnswer(String id){
+    public static String createUrlAnswer(String id){
         String urlAnswer = "/questions/"+ id + "/answers";
-
         return urlAnswer;
     }
 
@@ -63,7 +51,7 @@ public class ServerCommunication {
      * used to pull topic/quiz-list
      * @return list of all quizzes as a JSON
      */
-    public JSONArray getQuizzesJSON() {
+    public static JSONArray getQuizzesJSON() {
         JSONArray jType = null;
         try {
             URL url = new URL(URLHandler.getURLROOT()  + URLHandler.getURLQUIZ());
@@ -84,7 +72,7 @@ public class ServerCommunication {
      * @param id = quizId
      * @return list of questions from quiz as a JSON
      */
-    public JSONArray getRandQuestionsJSON(String id) {
+    public static JSONArray getRandQuestionsJSON(String id) {
         JSONArray jType = null;
         try {
             URL url = new URL(URLHandler.getURLROOT()  + createUrlQuestion(id));
@@ -106,16 +94,14 @@ public class ServerCommunication {
      * got from the Server
      * @param quizzes The object the quizzes should be added to
      */
-    public void setUpQuizzes(Quizzes quizzes){
+    public static void setUpQuizzes(Quizzes quizzes){
         JSONArray jsonArray = null;
         jsonArray =getQuizzesJSON();
         for(int i = 0; i<jsonArray.length();i++){
-            quizzes.getTopics().add(new Topic());
+            quizzes.getTopics().add(new Quiz());
             try {
                 quizzes.getTopics().get(i).setTitle(jsonArray.getJSONObject(i).getString("title"));
                 quizzes.getTopics().get(i).setId(jsonArray.getJSONObject(i).getInt("id"));
-                quizzes.getTopics().get(i).setMaxParticipants(jsonArray.getJSONObject(i).getInt("maxParticipants"));
-                quizzes.getTopics().get(i).setMinParticipants(jsonArray.getJSONObject(i).getInt("minParticipants"));
                 quizzes.getTopics().get(i).setLength(jsonArray.getJSONObject(i).getInt("length"));
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -131,7 +117,7 @@ public class ServerCommunication {
      * @deprecated
      */
 
-    public Question[] getQuestions(int quizId){
+    public static Question[] getQuestions(int quizId){
         JSONArray jsonArray = null;
         jsonArray = getRandQuestionsJSON(String.valueOf(quizId));
         int questionCount = jsonArray.length();
@@ -154,10 +140,10 @@ public class ServerCommunication {
      * @return usr stats
      */
 
-    public User getUser(User usr){
+    public static User getUser(User usr){
         JSONObject jUsr = null;
         try {
-            URL url = urlHandler.genUsrRequestURL(usr.getNickname());
+            URL url = URLHandler.genUsrRequestURL(usr.getNickname());
             jUsr = new ClientThreadGETObject().execute(url).get();
             return usr;
         } catch (InterruptedException e) {
@@ -178,20 +164,14 @@ public class ServerCommunication {
 
     /**
      *
-     * @param usrname
-     * @param pw
-     * @param email
      * @return true by success
      */
-    public String usrRegistry(User user){   //players
+    public static String usrRegistry(User user){   //players
         URL url = null;
         boolean success = false;
-
-
-        user.toJSON();
         String result = null;
         try {
-            url = urlHandler.genUsrUrl();
+            url = URLHandler.genUsrUrl();
            result = new ClientThreadPOST(user.toJSON()).execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -207,10 +187,8 @@ public class ServerCommunication {
      * @param pw
      * @return true by success
      */
-    public int usrLogin(String usrname, String pw, String email){
+    public static int usrLogin(String usrname, String pw, String email){
         //email = "steinbach_willy@outlook.de";
-
-
         URL url = null;
         String recieve = "";
         JSONObject usrlog = new JSONObject();
@@ -224,7 +202,7 @@ public class ServerCommunication {
         }
         System.out.println("LOGIN:" + usrlog);
         try {
-            url = urlHandler.genUsrLogInURL();
+            url = URLHandler.genUsrLogInURL();
             recieve =  ""+new ClientThreadPOST(usrlog).execute(url).get(); //PostRequest.doPostRequest(url.toString(),usrlog.toString());
             //success = new ClientThreadPOST(usrlog).execute(url).get();
         } catch (InterruptedException e) {
@@ -241,11 +219,11 @@ public class ServerCommunication {
      * @param usrname
      * @return true by success
      */
-    public boolean userLogout(String usrname){
+    public static boolean userLogout(String usrname){
         URL url = null;
         boolean success = false;
         try {
-            url = urlHandler.genUsrLogOutURL(usrname);
+            url = URLHandler.genUsrLogOutURL(usrname);
              new ClientThreadPOST().execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -262,11 +240,11 @@ public class ServerCommunication {
      * @param usrname
      * @return true by success
      */
-    public boolean userForgotPW(String usrname) {
+    public static boolean userForgotPW(String usrname) {
         URL url = null;
         boolean success = false;
         try {
-            url = urlHandler.genUsrForgotURL(usrname);
+            url = URLHandler.genUsrForgotURL(usrname);
             new ClientThreadPOST().execute(url).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -281,13 +259,13 @@ public class ServerCommunication {
      *
      * @return true by success
      */
-    public boolean usrJoinLobby(String quizId, String usrId, LobbyActivity lobby) {
+    public static boolean usrJoinLobby(String quizId, String usrId, LobbyActivity lobby) {
         URL url = null;
         boolean success = false;
         int port = 0;
 
         try {
-            url = urlHandler.lobbyURL(quizId, usrId);
+            url = URLHandler.lobbyURL(quizId, usrId);
 
 
             System.out.println("URL:"+url);
@@ -309,11 +287,13 @@ public class ServerCommunication {
     }
 
 
-    public  boolean usrLeaveLobby(String quizId,String usrId){
+    public  static boolean usrLeaveLobby(String quizId,String usrId){
         boolean success = false;
         URL url = null;
 
-        url = urlHandler.leaveLobbyURL(quizId,usrId);
+        url = URLHandler.leaveLobbyURL(quizId,usrId);
+
+        System.out.println("Leave: "+url);
 
         try {
             new ClientThreadGETString().execute(url).get(); //TODO
@@ -327,9 +307,25 @@ public class ServerCommunication {
 
         //TODO
 
+        SocketHandler.getSocket().stop();
+        SocketHandler.setSocket(null);
+
         return success;
     }
 
-
+    public static boolean postPlayedQuestion(int gameId, int questionId, JSONObject json) {
+        boolean success = false;
+       URL url = URLHandler.genPlayedQuestionURL(gameId, questionId, Integer.parseInt(SocketHandler.getUserId()));
+       String result = null;
+        try {
+            result = new ClientThreadPOST(json).execute(url).get();
+            success = true;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }
 

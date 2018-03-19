@@ -8,6 +8,10 @@ import android.widget.TextView;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
+import com.example.cz17a.quizclient.Src.Jackpot;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Willy Steinbach on 11.01.2018.
@@ -17,12 +21,12 @@ public class GameLogic {
     private int quizId;
     private int questioncount;
     private Question questionlist[];
-    private ServerCommunication servCom;
     private Button[] buttons;
     private TextView questionText;
     private TextView indicator;
     private TextView timer;
-    private SocketCommunication socketCommunication;
+    private int gameId;
+    Jackpot jackpot;
 
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
                      final TextView indicator, final TextView timer){
@@ -31,7 +35,7 @@ public class GameLogic {
         this.questionText = questionText;
         this.indicator = indicator;
         this.timer = timer;
-        servCom = new ServerCommunication();
+        this.jackpot = new Jackpot();
         //questionlist = servCom.getQuestions(quizId);
         //questioncount = questionlist.length;
     }
@@ -51,11 +55,11 @@ public class GameLogic {
                 @Override
                 public void onClick(View view) {
                     evaluation(buttons, finalI , question, indicator);
-                    socketCommunication.sendAnswer(buttons[finalI].getText().toString());
+                    sendQuestionEvaluation(question);
                 }
             });
         }
-        questionText.setText(question.getQuestionText());
+        questionText.setText(question.getQuestioning());
         buttonsActivate(buttons);
         //sets the timer
         new CountDownTimer(question.getAnswertime(),1000){
@@ -65,7 +69,7 @@ public class GameLogic {
             public void onFinish(){
                 if(!question.getValuated()){
                     evaluation(buttons, -1 , question, indicator);
-                    socketCommunication.sendAnswer(null);
+                    sendQuestionEvaluation(question);
                 }
 
             }
@@ -81,7 +85,6 @@ public class GameLogic {
      */
     public void evaluation(Button[] buttons, int i, Question question, TextView indicator){
         buttonsDeactivate(buttons);
-        socketCommunication.sendAnswer(buttons[i].getText().toString());
         //i<0, if no answer was given
         if(i < 0){
             indicator.setText("Zeit vorbei!");
@@ -94,9 +97,6 @@ public class GameLogic {
         }
         indicator.setVisibility(View.VISIBLE);
         question.setValuated(true);
-
-
-
     }
 
     /**
@@ -117,6 +117,19 @@ public class GameLogic {
         for (int i= 0; i<4;i++){
             buttons[i].setClickable(true);
         }
+    }
+
+    private void sendQuestionEvaluation(Question question) {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("isJackpot", jackpot.isActive());
+            json.put("isCorrect", question.isCorrect());
+            json.put("speedInSeconds", question.getSpeedInSeconds());
+            json.put("score", question.getScore());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ServerCommunication.postPlayedQuestion(gameId, question.getId(), json);
     }
 }
 
