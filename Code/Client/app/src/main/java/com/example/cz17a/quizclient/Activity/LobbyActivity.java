@@ -57,7 +57,7 @@ public class LobbyActivity extends AppCompatActivity {
                //leave Lobby
                ServerCommunication com = new ServerCommunication();
                 com.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
-                goBack();
+                onBackPressed();
 
                //goto TopicSelection
            }
