@@ -45,7 +45,6 @@ public class ServerCommunication {
      */
     public String createUrlAnswer(String id){
         String urlAnswer = "/questions/"+ id + "/answers";
-
         return urlAnswer;
     }
 
@@ -175,9 +174,6 @@ public class ServerCommunication {
     public String usrRegistry(User user){   //players
         URL url = null;
         boolean success = false;
-
-
-        user.toJSON();
         String result = null;
         try {
             url = urlHandler.genUsrUrl();
@@ -198,8 +194,6 @@ public class ServerCommunication {
      */
     public int usrLogin(String usrname, String pw, String email){
         //email = "steinbach_willy@outlook.de";
-
-
         URL url = null;
         String recieve = "";
         JSONObject usrlog = new JSONObject();
@@ -324,6 +318,19 @@ public class ServerCommunication {
         return success;
     }
 
-
+    public boolean postPlayedQuestion(int gameId, int questionId, JSONObject json) {
+        boolean success = false;
+       URL url = urlHandler.genPlayedQuestionURL(gameId, questionId, Integer.parseInt(SocketHandler.getUserId()));
+       String result = null;
+        try {
+            result = new ClientThreadPOST(json).execute(url).get();
+            success = true;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }
 

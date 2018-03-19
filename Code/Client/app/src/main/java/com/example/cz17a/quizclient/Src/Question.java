@@ -20,6 +20,69 @@ public class Question {
    private int responseTime;
    private int worth;
    private String topic;
+   private double speedInSeconds;
+   private boolean isCorrect;
+   private int score;
+
+    public List<String> getAnswers() {
+        return answers;
+    }
+
+    public int getDynamicDifficulty() {
+        return dynamicDifficulty;
+    }
+
+    public void setDynamicDifficulty(int dynamicDifficulty) {
+        this.dynamicDifficulty = dynamicDifficulty;
+    }
+
+    public int getResponseTime() {
+        return responseTime;
+    }
+
+    public void setResponseTime(int responseTime) {
+        this.responseTime = responseTime;
+    }
+
+    public int getWorth() {
+        return worth;
+    }
+
+    public void setWorth(int worth) {
+        this.worth = worth;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public double getSpeedInSeconds() {
+        return speedInSeconds;
+    }
+
+    public void setSpeedInSeconds(double speedInSeconds) {
+        this.speedInSeconds = speedInSeconds;
+    }
+
+    public boolean isCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(boolean correct) {
+        isCorrect = correct;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public Question (){
     }

@@ -9,6 +9,9 @@ import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Willy Steinbach on 11.01.2018.
  */
@@ -23,6 +26,7 @@ public class GameLogic {
     private TextView indicator;
     private TextView timer;
     private SocketCommunication socketCommunication;
+    private int gameId;
 
     public GameLogic(int quizID, final Button[] buttons, TextView questionText,
                      final TextView indicator, final TextView timer){
@@ -94,9 +98,6 @@ public class GameLogic {
         }
         indicator.setVisibility(View.VISIBLE);
         question.setValuated(true);
-
-
-
     }
 
     /**
@@ -117,6 +118,20 @@ public class GameLogic {
         for (int i= 0; i<4;i++){
             buttons[i].setClickable(true);
         }
+    }
+
+    private void sendQuestionEvaluation(Question question) {
+        ServerCommunication serverCommunication = new ServerCommunication();
+        JSONObject json = new JSONObject();
+        try {
+            json.put("isJackpot", false);
+            json.put("isCorrect", question.isCorrect());
+            json.put("speedInSeconds", question.getSpeedInSeconds());
+            json.put("score", question.getScore());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        serverCommunication.postPlayedQuestion(gameId, question.getId(), json);
     }
 }
 

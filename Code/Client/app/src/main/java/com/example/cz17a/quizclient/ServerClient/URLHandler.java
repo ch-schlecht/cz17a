@@ -94,7 +94,12 @@ public class URLHandler {
         return url;
     }
 
-
-
-
+    public URL genPlayedQuestionURL(int gameId, int questionId, int playerId) {
+        try {
+            url = new URL(URLROOT + String.format("/questions/played/%d/%d/%d", gameId, questionId, playerId));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
 }
