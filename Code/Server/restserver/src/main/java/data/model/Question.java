@@ -55,6 +55,8 @@ public class Question implements Cloneable, Serializable, Comparable<Question> {
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 
+        private int counter = 10;
+        
 	/**
 	 * Default Constructor
 	 */
@@ -221,4 +223,12 @@ public class Question implements Cloneable, Serializable, Comparable<Question> {
 			return 1;
 		}
 	}
+        
+        public int getCounter() {
+            return counter;
+        }
+        
+        public void setCounter(int counter) {
+            this.counter = counter;
+        }
 }

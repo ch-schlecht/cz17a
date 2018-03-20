@@ -63,4 +63,12 @@ public class QuestionDAO {
 		transaction.commit();
 		session.close();
 	}
+        
+        public void updateDynamicDifficulty(int id, int dynamicDifficulty) {
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                Query query = session.createQuery("Update Question set dynamic_difficulty = :dynamicDifficulty where id = :id");
+                query.setParameter("dynamicDifficulty", dynamicDifficulty);
+                query.setParameter("id", id);
+                session.close();
+        }        
 }

@@ -22,6 +22,7 @@ import org.eclipse.persistence.jaxb.MarshallerProperties;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import data.access.QuestionDAO;
 
 public class Game {
 	private int id;
@@ -203,6 +204,31 @@ public class Game {
 		for (Participation p : participations) {
 			p.setScore(scoreboard.get(p.getPlayer().getId()));
 			participations.add(p);
+                        
+                        QuestionDAO qdao = new QuestionDAO();
+                        int newDifficulty;
+                        for(int i = 0; i < p.getRound().getPlayedQuestions().size(); i++) {
+                                if(p.getRound().getPlayedQuestions().get(i).getIsCorrect() == false) {
+                                        p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter()+1);
+                                } else {
+                                        p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter()-1);
+                                }
+                                
+                                if(p.getRound().getQuestions().get(i).getCounter() >= 20) {
+                                        if(p.getRound().getQuestions().get(i).getDynamicDifficulty() > 1) {
+                                                newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty()-1;
+                                                p.getRound().getQuestions().get(i).setCounter(10);
+                                                qdao.updateDynamicDifficulty(i, newDifficulty);
+                                        } else {
+                                                newDifficulty = 1;
+                                                p.getRound().getQuestions().get(i).setCounter(10);
+                                                qdao.updateDynamicDifficulty(i, newDifficulty);
+                                        }
+                                } else if(p.getRound().getQuestions().get(i).getCounter() <= 0) {
+                                        newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty()+1;
+                                        p.getRound().getQuestions().get(i).setCounter(10);
+                                        qdao.updateDynamicDifficulty(i, newDifficulty);
+                                }
 		}
 		Collections.sort(participations);
 		for (int rank = 1; rank <= participations.size(); rank++) {
