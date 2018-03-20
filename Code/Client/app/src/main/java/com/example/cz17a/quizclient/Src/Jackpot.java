@@ -31,12 +31,8 @@ public class Jackpot {
         return this.isActive;
     }
 
-    public void activateJackpot(){
-        this.isActive = true;
-    }
-
-    public void deactivateJackpot(){
-        this.isActive = false;
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     public void updatePoints(int amount){

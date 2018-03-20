@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Jackpot;
 import com.example.cz17a.quizclient.Src.Timer;
@@ -50,8 +51,16 @@ public class GameLogic {
         this.score = 0;
         this.scoreView = scoreView;
         this.jackpotView = jackpotView;
+        SocketCommunication.game = this;
     }
 
+    public Jackpot getJackpot() {
+        return jackpot;
+    }
+
+    public TextView getTimerView() {
+        return this.timerView;
+    }
     /**
      * Method for playing a specified Question
      * Modifies Buttons and TextFields of the GameActivity
@@ -158,10 +167,6 @@ public class GameLogic {
             e.printStackTrace();
         }
         ServerCommunication.postPlayedQuestion(gameId, question.getId(), json);
-    }
-
-    public TextView getTimerView() {
-        return this.timerView;
     }
 }
 

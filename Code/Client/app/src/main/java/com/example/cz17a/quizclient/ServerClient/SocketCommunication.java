@@ -180,6 +180,16 @@ public class SocketCommunication implements Runnable {
                     }
                     lobby.goToGame(gameId,questionList);
                 }
+                if(msg.contains("amount")) {
+                    try {
+                        JSONObject json = new JSONObject(msg);
+                        game.getJackpot().setAmount(json.getInt("amount"));
+                        game.getJackpot().setActive(json.getBoolean("isActive"));
+                        game.playNewQuestion();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
