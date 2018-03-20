@@ -2,13 +2,19 @@
 Lobbyport
 
 -------- Lobbystatus --------
-{Name1, Name2, ...}
+{"lobby": [
+	    "Name1", 
+	    "Name2", 
+	    ...
+	  ]
+}
 
 -------- Start des Spiels --------
-{GameId}
+{"gameId": int}
 
 -------- Start der Runde (Senden aller Fragen) --------
 Exemplarisches JSON
+{"questions":
 [
   {
     "id": 2,
@@ -45,21 +51,24 @@ Exemplarisches JSON
    ...
   }
 ]
+}
 
 -------- Senden des Signals der nächsten Frage (Jackpotinformationen) --------
 JSON
-{
-  "initialPoints": 1000,
-  "initialPayoutChance": 10,
-  "amount": int,
-  "payoutCounter": int,
-  "isActive": bool,
-  "payoutChance": int
+{"jackpot": {
+  	      "initialPoints": 1000,
+  	      "initialPayoutChance": 10,
+  	      "amount": int,
+  	      "payoutCounter": int,
+ 	      "isActive": bool,
+  	      "payoutChance": int
+	    }
 }
 
 -------- Senden des Endergebnisses (Scoreboard) --------
 Exemplarisches JSON (erstes ist die playerId, danach die Punkte)
-{
-  "1": 400, 
-  "2": 300
+{"scoreboard": {
+  	         "1": 400, 
+  		 "2": 300
+	       }
 }
