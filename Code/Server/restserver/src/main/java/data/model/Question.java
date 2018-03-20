@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.*;
 
 
@@ -55,7 +56,8 @@ public class Question implements Cloneable, Serializable, Comparable<Question> {
 	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 
-        private int counter = 10;
+	@Transient
+    private int counter = 10;
         
 	/**
 	 * Default Constructor
