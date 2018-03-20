@@ -6,8 +6,15 @@ import android.widget.TextView;
 
 import com.example.cz17a.quizclient.R;
 
-public class ScoreboardActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class ScoreboardActivity extends AppCompatActivity {
+    String endResult;
     private TextView player1;
     private TextView player2;
     private TextView player3;
@@ -33,6 +40,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         score3 = findViewById(R.id.score3);
         score4 = findViewById(R.id.score4);
         score5 = findViewById(R.id.score5);
+        endResult = getIntent().getExtras().getString("endResult");
     }
 
     public void createScoreboard(String playerWithScores){
@@ -77,4 +85,21 @@ public class ScoreboardActivity extends AppCompatActivity {
         return sAA;
     }
 
+    private Map<String, Integer> endResultAsMap() {
+        Map<String, Integer> endResultMap = new HashMap<String, Integer>();
+        JSONObject json;
+        try {
+            json = new JSONObject(this.endResult);
+            Iterator<String> keys = json.keys();
+            int value = 0;
+            while(keys.hasNext()) {
+                String key = keys.next();
+                value = json.getInt(key);
+                endResultMap.put(key, value);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return endResultMap;
+    }
 }

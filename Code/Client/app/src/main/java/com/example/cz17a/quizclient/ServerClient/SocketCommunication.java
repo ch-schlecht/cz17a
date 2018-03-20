@@ -21,6 +21,9 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -40,7 +43,7 @@ public class SocketCommunication implements Runnable {
     //String gameID;
     String ip;
     LobbyActivity lobby;
-    public static GameLogic game;
+    public static GameActivity gameActivity;
     Scanner scan = null;
 
     public SocketCommunication(int port, String ip, LobbyActivity lobby) {
@@ -183,12 +186,17 @@ public class SocketCommunication implements Runnable {
                 if(msg.contains("amount")) {
                     try {
                         JSONObject json = new JSONObject(msg);
-                        game.getJackpot().setAmount(json.getInt("amount"));
-                        game.getJackpot().setActive(json.getBoolean("isActive"));
-                        game.playNewQuestion();
+                        Jackpot jackpot =  gameActivity.getGame().getJackpot();
+                        jackpot.setAmount(json.getInt("amount"));
+                        jackpot.setActive(json.getBoolean("isActive"));
+                        gameActivity.triggerNewQuestion();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                }
+                GameLogic game = gameActivity.getGame();
+                if(game.getCurrentQuestionIndex() == game.getQuestions().length) {
+                    gameActivity.goToScoreboard(msg);
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.example.cz17a.quizclient.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -7,10 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cz17a.quizclient.GameLogic;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.R;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Willy Steinbach
@@ -23,10 +27,12 @@ public class GameActivity extends AppCompatActivity {
     TextView indicator = null;
     TextView timer = null;
     TextView questionText = null;
-    GameLogic game= null;
+    GameLogic game = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SocketCommunication.gameActivity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         //socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
@@ -34,6 +40,10 @@ public class GameActivity extends AppCompatActivity {
         gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
         questionList = (Question[]) getIntent().getExtras().get("questionList");
         newGame();
+    }
+
+    public GameLogic getGame() {
+        return game;
     }
 
     /**
@@ -55,8 +65,14 @@ public class GameActivity extends AppCompatActivity {
         TextView jackpotView = findViewById(R.id.jackpot);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        final GameLogic game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);
+        game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);
         game.playNewQuestion();
+    }
+
+    public void goToScoreboard(String endResult) {
+        Intent intent = new Intent(this,  ScoreboardActivity.class);
+        intent.putExtra("endResult", endResult);
+        startActivity(intent);
     }
 
     public void triggerNewQuestion(){

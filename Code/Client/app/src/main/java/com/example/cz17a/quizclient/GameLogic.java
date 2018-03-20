@@ -51,7 +51,14 @@ public class GameLogic {
         this.score = 0;
         this.scoreView = scoreView;
         this.jackpotView = jackpotView;
-        SocketCommunication.game = this;
+    }
+
+    public Question[] getQuestions() {
+        return questions;
+    }
+
+    public int getCurrentQuestionIndex() {
+        return currentQuestionIndex;
     }
 
     public Jackpot getJackpot() {
