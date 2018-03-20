@@ -37,7 +37,6 @@ public class Game {
 	 */
 	private int playedQuestions;
 	private ServerThreadPool threadPool;
-	private int player_anz;
 	/**
 	 * Holds score for every player. Key is the id of a player
 	 */
@@ -52,7 +51,6 @@ public class Game {
 		for (Player p : players) {
 			scoreboard.put(p.getId(), 0);
 		}
-		player_anz = players.size();
 	}
 
 	public int getId() {
@@ -122,8 +120,8 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
-		String message = String.format("{%d}$", id);
-		sendMessage(message);
+		String gameId = String.format("{\"gameId\": %d}", id);
+		sendMessage(gameId);
 		startRound();
 	}
 
@@ -143,7 +141,8 @@ public class Game {
 			e1.printStackTrace();
 			questionList = "[]";
 		}
-		sendMessage(questionList + "$");
+		questionList = String.format("{\"questions:\" %s}", questionList);
+		sendMessage(questionList);
 	}
 
 	/**
@@ -167,7 +166,8 @@ public class Game {
 			e.printStackTrace();
 			jackpotInformation = "{}";
 		}
-		sendMessage(jackpotInformation + "$");
+		jackpotInformation = String.format("{\"jackpot:\" %s}", jackpotInformation);
+		sendMessage(jackpotInformation);
 	}
 
 	/**
@@ -193,7 +193,8 @@ public class Game {
 			e.printStackTrace();
 			endResults = "{}";
 		}
-		sendMessage(endResults + "$");
+		endResults = String.format("{\"scoreboard:\" %s}", endResults);
+		sendMessage(endResults);
 	}
 
 	/**
@@ -204,31 +205,32 @@ public class Game {
 		for (Participation p : participations) {
 			p.setScore(scoreboard.get(p.getPlayer().getId()));
 			participations.add(p);
-                        
-                        QuestionDAO qdao = new QuestionDAO();
-                        int newDifficulty;
-                        for(int i = 0; i < p.getRound().getPlayedQuestions().size(); i++) {
-                                if(p.getRound().getPlayedQuestions().get(i).getIsCorrect() == false) {
-                                        p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter()+1);
-                                } else {
-                                        p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter()-1);
-                                }
-                                
-                                if(p.getRound().getQuestions().get(i).getCounter() >= 20) {
-                                        if(p.getRound().getQuestions().get(i).getDynamicDifficulty() > 1) {
-                                                newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty()-1;
-                                                p.getRound().getQuestions().get(i).setCounter(10);
-                                                qdao.updateDynamicDifficulty(i, newDifficulty);
-                                        } else {
-                                                newDifficulty = 1;
-                                                p.getRound().getQuestions().get(i).setCounter(10);
-                                                qdao.updateDynamicDifficulty(i, newDifficulty);
-                                        }
-                                } else if(p.getRound().getQuestions().get(i).getCounter() <= 0) {
-                                        newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty()+1;
-                                        p.getRound().getQuestions().get(i).setCounter(10);
-                                        qdao.updateDynamicDifficulty(i, newDifficulty);
-                                }
+
+			QuestionDAO qdao = new QuestionDAO();
+			int newDifficulty;
+			for (int i = 0; i < p.getRound().getPlayedQuestions().size(); i++) {
+				if (p.getRound().getPlayedQuestions().get(i).getIsCorrect() == false) {
+					p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter() + 1);
+				} else {
+					p.getRound().getQuestions().get(i).setCounter(p.getRound().getQuestions().get(i).getCounter() - 1);
+				}
+
+				if (p.getRound().getQuestions().get(i).getCounter() >= 20) {
+					if (p.getRound().getQuestions().get(i).getDynamicDifficulty() > 1) {
+						newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty() - 1;
+						p.getRound().getQuestions().get(i).setCounter(10);
+						qdao.updateDynamicDifficulty(i, newDifficulty);
+					} else {
+						newDifficulty = 1;
+						p.getRound().getQuestions().get(i).setCounter(10);
+						qdao.updateDynamicDifficulty(i, newDifficulty);
+					}
+				} else if (p.getRound().getQuestions().get(i).getCounter() <= 0) {
+					newDifficulty = p.getRound().getQuestions().get(i).getDynamicDifficulty() + 1;
+					p.getRound().getQuestions().get(i).setCounter(10);
+					qdao.updateDynamicDifficulty(i, newDifficulty);
+				}
+			}
 		}
 		Collections.sort(participations);
 		for (int rank = 1; rank <= participations.size(); rank++) {
@@ -261,10 +263,10 @@ public class Game {
 		boolean allPlayeresAndwered = waitingPlayers.size() == round.getParticipations().size();
 		return allPlayeresAndwered;
 	}
-	
+
 	private void sendMessage(String message) {
-		for (int i = 0; i < player_anz; i++) {
-			threadPool.message.set(i, message);
+		for (int i = 0; i < round.getParticipations().size(); i++) {
+			threadPool.message.set(i, message + "$");
 		}
 	}
 }
