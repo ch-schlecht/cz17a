@@ -7,18 +7,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cz17a.quizclient.GameLogic;
-import com.example.cz17a.quizclient.ServerClient.URLHandler;
 import com.example.cz17a.quizclient.Src.Question;
-import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
-import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
+
+import java.util.Arrays;
 
 /**
  * Created by Willy Steinbach
  */
 
 public class GameActivity extends AppCompatActivity {
-    public static Quizzes quizzes;
     int quizId;
     int gameId;
     Question[] questionList;
@@ -35,7 +33,6 @@ public class GameActivity extends AppCompatActivity {
         quizId = getIntent().getExtras().getInt("quizId",1);
         gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
         questionList = (Question[]) getIntent().getExtras().get("questionList");
-
         newGame();
     }
 
@@ -58,13 +55,12 @@ public class GameActivity extends AppCompatActivity {
         TextView jackpotView = findViewById(R.id.jackpot);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        final GameLogic game = new GameLogic(quizId, buttons, questionText, indicator, timer, scoreView, jackpotView);
-
-        game.playNewQuestion(questionList[0]);
+        final GameLogic game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);
+        game.playNewQuestion();
     }
-    public void triggerNewQuestion(Question question){
-        game.playNewQuestion(question);
 
+    public void triggerNewQuestion(){
+        game.playNewQuestion();
     }
 }
 
