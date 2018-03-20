@@ -188,6 +188,7 @@ public class Lobby {
 		List<Player> playersForGame = new ArrayList<Player>();
 		while (playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
+			System.out.println("adding Player");
 		}
 		sendMessageToPlayers("start_game$",0);
 		GamePool.startGame(quiz, playersForGame, threadPool);
