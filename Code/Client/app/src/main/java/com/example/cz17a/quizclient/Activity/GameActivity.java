@@ -27,11 +27,15 @@ public class GameActivity extends AppCompatActivity {
     TextView indicator = null;
     TextView timer = null;
     TextView questionText = null;
+    TextView scoreView = null;
+    TextView jackpotView;
     GameLogic game = null;
+    final Button[] buttons = new Button[4];
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("Game Activity startup");
         SocketCommunication.gameActivity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
@@ -39,6 +43,16 @@ public class GameActivity extends AppCompatActivity {
         quizId = getIntent().getExtras().getInt("quizId",1);
         gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
         questionList = (Question[]) getIntent().getExtras().get("questionList");
+        buttons[0] = findViewById(R.id.antwort1but);
+        buttons[1] = findViewById(R.id.antwort2but);
+        buttons[2] = findViewById(R.id.antwort3but);
+        buttons[3] = findViewById(R.id.antwort4but);
+        indicator = findViewById(R.id.indicator);
+        TextView timer = findViewById(R.id.timer);
+        TextView questionText = findViewById(R.id.fragenText);
+        scoreView = findViewById(R.id.points);
+        jackpotView = findViewById(R.id.jackpot);
+        game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);
         newGame();
     }
 
@@ -51,21 +65,10 @@ public class GameActivity extends AppCompatActivity {
      * and the GameLogic with Questions and Answers
      */
     public void newGame() {
-        final Button[] buttons = new Button[4];
-        //defines the Buttons and TextViews
-        buttons[0] = findViewById(R.id.antwort1but);
-        buttons[1] = findViewById(R.id.antwort2but);
-        buttons[2] = findViewById(R.id.antwort3but);
-        buttons[3] = findViewById(R.id.antwort4but);
 
-        indicator = findViewById(R.id.indicator);
-        TextView timer = findViewById(R.id.timer);
-        TextView questionText = findViewById(R.id.fragenText);
-        TextView scoreView = findViewById(R.id.points);
-        TextView jackpotView = findViewById(R.id.jackpot);
         questionText.setGravity(Gravity.CENTER);
         indicator.setGravity(Gravity.CENTER);
-        game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);
+
         game.playNewQuestion();
     }
 

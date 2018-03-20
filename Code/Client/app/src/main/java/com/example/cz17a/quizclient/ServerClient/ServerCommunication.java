@@ -317,6 +317,7 @@ public class ServerCommunication {
         boolean success = false;
        URL url = URLHandler.genPlayedQuestionURL(gameId, questionId, Integer.parseInt(SocketHandler.getUserId()));
        String result = null;
+       System.out.println("SEND PLAYED QUESTION: " + json.toString());
         try {
             result = new ClientThreadPOST(json).execute(url).get();
             success = true;

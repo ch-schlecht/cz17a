@@ -39,6 +39,7 @@ public class SocketCommunication implements Runnable {
     int port = 0;
     boolean running;
     String[] statusMessages;
+    GameLogic game;
     //int playernumberGameStartedWith;
     //String gameID;
     String ip;
@@ -141,6 +142,7 @@ public class SocketCommunication implements Runnable {
        connect();
         while(running){
             String msg = receivedMessagesFromServer();
+            System.out.println("SOCKET IN: " +msg);
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
                 msg =  msg.replace("{","");
@@ -194,9 +196,11 @@ public class SocketCommunication implements Runnable {
                         e.printStackTrace();
                     }
                 }
-                GameLogic game = gameActivity.getGame();
-                if(game.getCurrentQuestionIndex() == game.getQuestions().length) {
-                    gameActivity.goToScoreboard(msg);
+                if(game != null){
+                    GameLogic game = gameActivity.getGame();
+                    if(game.getCurrentQuestionIndex() == game.getQuestions().length) {
+                        gameActivity.goToScoreboard(msg);
+                    }
                 }
             }
         }
