@@ -143,13 +143,13 @@ public class Lobby {
 		for (Player p : players) {
 			playerNames.add(p.getNickname());
 		}
-		String response = "{";
+		String response = "{ \"lobby\": [";
 		for (int i = 0; i < playerNames.size(); i++) {
 			String name = playerNames.get(i);
 			if (i < playerNames.size() - 1) {
-				response += name + ",";
+				response += String.format("\"%s\",", name);
 			} else {
-				response += name + "}$";
+				response += String.format("\"%s\"]}$", name);
 			}
 		}
 		sendMessageToPlayers(response,1);
@@ -162,19 +162,14 @@ public class Lobby {
 	 * @param msg
 	 * @param methode
 	 */
-	private void sendMessageToPlayers(String msg, int methode) {
-		
+	private void sendMessageToPlayers(String msg, int methode) { //Wofür steht Methode? Besser lieber ein aussagekräftigen Enum	
 		for (int i = 0; i < players.size(); i++) {
-	
 			if(methode == 0) {
-				threadPool.message.set(i, threadPool.message.get(i)+msg);
+				threadPool.message.set(i, threadPool.message.get(i) + msg);
 			}else {
 				threadPool.message.set(i, msg);
 			}
-			System.out.println("Setting ThreadPoolStack "+i+ "to: "+msg); //DEBUG
-			
-
-	
+			System.out.println("Setting ThreadPoolStack " + i + "to: " + msg); //DEBUG
 		}
 	}
 
