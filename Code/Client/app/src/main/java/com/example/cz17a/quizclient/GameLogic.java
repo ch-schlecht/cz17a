@@ -66,13 +66,13 @@ public class GameLogic {
         countdownTimer = new Timer(this, question);
         indicator.setVisibility(View.INVISIBLE);
         //initializes the buttons for this question
-        for(int i = 0; i<4; i++){
+        List<String> shuffledAnswers = new ArrayList<>();
+        for(String answer : question.getAnswers()) {
+            shuffledAnswers.add(answer);
+        }
+        Collections.shuffle(shuffledAnswers);
+        for(int i = 0; i < buttons.length; i++){
             final int finalI = i;
-            List<String> shuffledAnswers = new ArrayList<>();
-            for(String answer : question.getAnswers()) {
-                shuffledAnswers.add(answer);
-            }
-            Collections.shuffle(shuffledAnswers);
             buttons[i].setText(shuffledAnswers.get(i));
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -134,7 +134,7 @@ public class GameLogic {
      * @param buttons Array of the answer buttons of the GameActivity
      */
     public void buttonsDeactivate(Button[] buttons){
-        for (int i= 0; i<4;i++){
+        for (int i= 0; i < buttons.length;i++){
             buttons[i].setClickable(false);
         }
     }
@@ -144,7 +144,7 @@ public class GameLogic {
      * @param buttons Array of the answer buttons of the GameActivity
      */
     public void buttonsActivate(Button[] buttons){
-        for (int i= 0; i<4;i++){
+        for (int i= 0; i < buttons.length; i++){
             buttons[i].setClickable(true);
         }
     }
