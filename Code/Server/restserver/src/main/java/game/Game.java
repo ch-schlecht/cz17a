@@ -141,7 +141,7 @@ public class Game {
 			e1.printStackTrace();
 			questionList = "[]";
 		}
-		questionList = String.format("{\"questions:\" %s}", questionList);
+		questionList = String.format("{\"questions\": %s}", questionList);
 		sendMessage(questionList);
 	}
 
@@ -166,7 +166,7 @@ public class Game {
 			e.printStackTrace();
 			jackpotInformation = "{}";
 		}
-		jackpotInformation = String.format("{\"jackpot:\" %s}", jackpotInformation);
+		jackpotInformation = String.format("{\"jackpot\": %s}", jackpotInformation);
 		sendMessage(jackpotInformation);
 	}
 
@@ -193,7 +193,7 @@ public class Game {
 			e.printStackTrace();
 			endResults = "{}";
 		}
-		endResults = String.format("{\"scoreboard:\" %s}", endResults);
+		endResults = String.format("{\"scoreboard\": %s}", endResults);
 		sendMessage(endResults);
 	}
 
