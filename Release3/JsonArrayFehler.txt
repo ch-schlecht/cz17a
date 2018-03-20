@@ -1,0 +1,160 @@
+org.json.JSONException: Unterminated array at character 6 of ["id":85,"responseTime":60,"dynamicDifficulty":1,"staticDifficulty":1,"worth":200,"topic":"Filmzitate raten","questioning":"Wenn die Legende zur Tatsache geworden...
+
+
+[  
+   {  
+      "id":85,
+      "responseTime":60,
+      "dynamicDifficulty":1,
+      "staticDifficulty":1,
+      "worth":200,
+      "topic":"Filmzitate raten",
+      "questioning":"Wenn die Legende zur Tatsache geworden ist, druck die Legende.",
+      "answers":[  
+         {  
+            "ID":86,
+            "content":"Der Mann, der Liberty Valance erschoss",
+            "type":true
+         },
+         {  
+            "ID":87,
+            "content":"Spiderman",
+            "type":false
+         },
+         {  
+            "ID":88,
+            "content":"Spiel mir das Lied vom Tod",
+            "type":false
+         },
+         {  
+            "ID":89,
+            "content":"300",
+            "type":false
+         }
+      ]
+   },
+   {  
+      "id":90,
+      "responseTime":60,
+      "dynamicDifficulty":1,
+      "staticDifficulty":1,
+      "worth":200,
+      "topic":"Filmzitate raten",
+      "questioning":"Willkommen in der Wüste der Wirklichkeit",
+      "answers":[  
+         {  
+            "ID":91,
+            "content":"Matrix",
+            "type":true
+         },
+         {  
+            "ID":92,
+            "content":"Blade Runner",
+            "type":false
+         },
+         {  
+            "ID":93,
+            "content":"Der dunkle Turm",
+            "type":false
+         },
+         {  
+            "ID":94,
+            "content":"Der Wüstenplanet",
+            "type":false
+         }
+      ]
+   },
+   {  
+      "id":95,
+      "responseTime":60,
+      "dynamicDifficulty":1,
+      "staticDifficulty":1,
+      "worth":200,
+      "topic":"Filmzitate raten",
+      "questioning":"Wir sterben mit der Waffe in der Hand ... wenn es sein muss.",
+      "answers":[  
+         {  
+            "ID":96,
+            "content":"Asterix bei den Briten",
+            "type":true
+         },
+         {  
+            "ID":97,
+            "content":"Troja",
+            "type":false
+         },
+         {  
+            "ID":98,
+            "content":"Guardians of the Galaxy",
+            "type":false
+         },
+         {  
+            "ID":99,
+            "content":"Star Wars - Das Imperium schlägt zurück",
+            "type":false
+         }
+      ]
+   },
+   {  
+      "id":100,
+      "responseTime":60,
+      "dynamicDifficulty":1,
+      "staticDifficulty":1,
+      "worth":200,
+      "topic":"Filmzitate raten",
+      "questioning":"Ich will doch nur dass dir nichts passiert. Du bist doch mein kleiner Lieblingsneffe.",
+      "answers":[  
+         {  
+            "ID":101,
+            "content":"Der König der Löwen",
+            "type":true
+         },
+         {  
+            "ID":102,
+            "content":"Der Heer der Ringe",
+            "type":false
+         },
+         {  
+            "ID":103,
+            "content":"Harry Potter und der Stein der Weisen",
+            "type":false
+         },
+         {  
+            "ID":104,
+            "content":"Zurück in die Zukunft",
+            "type":false
+         }
+      ]
+   },
+   {  
+      "id":105,
+      "responseTime":60,
+      "dynamicDifficulty":1,
+      "staticDifficulty":1,
+      "worth":200,
+      "topic":"Filmzitate raten",
+      "questioning":"Hey Lady, ich spreche nur meine Sprache und damit hab ich schon Probleme!",
+      "answers":[  
+         {  
+            "ID":106,
+            "content":"Das fünfte Element",
+            "type":true
+         },
+         {  
+            "ID":107,
+            "content":"Avatar",
+            "type":false
+         },
+         {  
+            "ID":108,
+            "content":"Irgendwann in Mexico",
+            "type":false
+         },
+         {  
+            "ID":109,
+            "content":"Mad Max",
+            "type":false
+         }
+      ]
+   }
+]

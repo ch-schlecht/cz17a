@@ -9,6 +9,9 @@ import com.example.cz17a.quizclient.Src.Question;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
+
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -160,6 +163,7 @@ public class SocketCommunication implements Runnable {
                     //TODO get questions
                     Question[] questionList = null;             //list of questions init
                     try {
+
                         JSONArray jsonList = new JSONArray(msg);
                         int count = jsonList.length();
                         Question[] questionArray = new Question[count];
@@ -187,6 +191,7 @@ public class SocketCommunication implements Runnable {
                 }
                 if(msg.contains("amount")) {
                     try {
+
                         JSONObject json = new JSONObject(msg);
                         Jackpot jackpot =  gameActivity.getGame().getJackpot();
                         jackpot.setAmount(json.getInt("amount"));
