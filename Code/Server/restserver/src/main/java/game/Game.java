@@ -36,6 +36,7 @@ public class Game {
 	 */
 	private int playedQuestions;
 	private ServerThreadPool threadPool;
+	private int player_anz;
 	/**
 	 * Holds score for every player. Key is the id of a player
 	 */
@@ -50,6 +51,7 @@ public class Game {
 		for (Player p : players) {
 			scoreboard.put(p.getId(), 0);
 		}
+		player_anz = players.size();
 	}
 
 	public int getId() {
@@ -235,7 +237,7 @@ public class Game {
 	}
 	
 	private void sendMessage(String message) {
-		for (int i = 0; i < threadPool.getSize(); i++) {
+		for (int i = 0; i < player_anz; i++) {
 			threadPool.message.set(i, message);
 		}
 	}
