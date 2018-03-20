@@ -1,7 +1,6 @@
 package com.example.cz17a.quizclient.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.cz17a.quizclient.Login.User;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
-import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
-import com.example.cz17a.quizclient.Src.Quiz;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,15 +21,9 @@ public class LobbyActivity extends AppCompatActivity {
     public static Quizzes quizzes;
 //    public static User user;
     int quizId;
-
-
     List<String> players; //List of Player Names
-
-
     ListView playerListView;
     ArrayAdapter<String> playerlistAdapter;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +38,6 @@ public class LobbyActivity extends AppCompatActivity {
                 //goToGame();
             }
         });
-
         Button leaveButton = findViewById(R.id.leaveButton);
         leaveButton.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -58,16 +46,13 @@ public class LobbyActivity extends AppCompatActivity {
                ServerCommunication com = new ServerCommunication();
                 com.usrLeaveLobby(""+quizId, SocketHandler.getUserId());
                 onBackPressed();
-
                //goto TopicSelection
            }
         });
 
-
         /**
         Thread socketCom = new Thread(new SocketCommunication(port));
         socketCom.run();
-
          **/
         ServerCommunication com = new ServerCommunication();
 
@@ -78,27 +63,22 @@ public class LobbyActivity extends AppCompatActivity {
         System.out.println("Loaded User from SharedPref: "+usrId);
 **/
         String usrId = SocketHandler.getUserId();
-
-
         com.usrJoinLobby(""+quizId, usrId, this);
-
-
     }
-    public void goToGame(String gameId, Question[] questionList){
+    public void goToGame(String gameId, Question[] questionList) {
         Intent intent = new Intent(this,  GameActivity.class);
-        GameActivity.quizzes = quizzes;
         intent.putExtra("quizId", quizId);
         intent.putExtra("gameId",gameId);
         intent.putExtra("questionList",questionList);
         startActivity(intent);
     }
 
-    public void goBack(){
+    public void goBack() {
         Intent intent = new Intent(this, TopicSelection.class);
         startActivity(intent);
     }
 
-    public void setPlayers(String[] players){
+    public void setPlayers(String[] players) {
         this.players = Arrays.asList(players);
         playerlistAdapter =
                 new ArrayAdapter<String>(
@@ -109,5 +89,4 @@ public class LobbyActivity extends AppCompatActivity {
         playerListView = findViewById(R.id.playerlist);
         playerListView.setAdapter(playerlistAdapter);
     }
-
 }

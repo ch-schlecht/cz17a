@@ -1,6 +1,9 @@
 package com.example.cz17a.quizclient.ServerClient;
 
+import com.example.cz17a.quizclient.Activity.GameActivity;
 import com.example.cz17a.quizclient.Activity.LobbyActivity;
+import com.example.cz17a.quizclient.GameLogic;
+import com.example.cz17a.quizclient.Src.Jackpot;
 import com.example.cz17a.quizclient.Src.Question;
 
 import org.json.JSONArray;
@@ -25,9 +28,7 @@ import java.util.regex.Pattern;
  * Created by felixfink on 19.02.18.
  */
 
-public class SocketCommunication implements Runnable{
-
-
+public class SocketCommunication implements Runnable {
     Socket server = null;
     BufferedReader in = null;
     //char buffer[] = new char[1024];
@@ -39,15 +40,14 @@ public class SocketCommunication implements Runnable{
     //String gameID;
     String ip;
     LobbyActivity lobby;
+    public static GameLogic game;
     Scanner scan = null;
 
-    public SocketCommunication(int port, String ip, LobbyActivity lobby){
-
+    public SocketCommunication(int port, String ip, LobbyActivity lobby) {
         this.port = port;
         this.ip = ip;
         running = true;
         this.lobby = lobby;
-
     }
 
     /**
@@ -65,8 +65,6 @@ public class SocketCommunication implements Runnable{
        } catch (IOException e) {
            e.printStackTrace();
        }
-
-
    }
 
     /**
@@ -95,17 +93,12 @@ public class SocketCommunication implements Runnable{
        out.flush();
    }
 
-
-
    public void sendAnswer(String answer){
-
        out.write(answer);
-
    }
 
 
    public Question getNextQuestion(){
-
        Question question = new Question();
         /*
        try{
@@ -123,12 +116,8 @@ public class SocketCommunication implements Runnable{
            e.printStackTrace();
        }
        */
-
-
-
         question.dummyQuestion();
         System.out.println("DummyFrage: "+ question.toString());
-
        return question;
    }
 
@@ -155,9 +144,7 @@ public class SocketCommunication implements Runnable{
                 msg = msg.replace("}","");
                 String[] players  = msg.split(",");
 
-
                 //TODO Lobbyanzeige                //lobby.setPlayers(players);
-
 
                 if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
@@ -168,7 +155,7 @@ public class SocketCommunication implements Runnable{
                     //TODO get questions
                     Question[] questionList = null;             //list of questions init
                     try {
-                        JSONArray jsonList = new JSONArray((msg));
+                        JSONArray jsonList = new JSONArray(msg);
                         int count = jsonList.length();
                         Question[] questionArray = new Question[count];
                         for(int i = 0; i < jsonList.length(); i++){
@@ -193,9 +180,7 @@ public class SocketCommunication implements Runnable{
                     }
                     lobby.goToGame(gameId,questionList);
                 }
-
             }
-
         }
     }
 }
