@@ -148,11 +148,20 @@ public class SocketCommunication implements Runnable {
             System.out.println("SOCKET IN: " +msg);
             if(!((msg  == "") || (msg == null))){
                 System.out.println(msg);
-                msg =  msg.replace("{","");
-                msg = msg.replace("}","");
-                String[] players  = msg.split(",");
+                //msg =  msg.replace("{","");
+                //msg = msg.replace("}","");
+                final String[] players  = msg.split(",");
 
-                //TODO Lobbyanzeige                //lobby.setPlayers(players);
+                //TODO Lobbyanzeige
+
+
+                lobby.runOnUiThread(new Runnable() {
+                    final String[] finalplayers = players;
+                    @Override
+                    public void run() {
+                        lobby.setPlayers(finalplayers);
+                    }
+                });
 
                 if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
@@ -175,15 +184,13 @@ public class SocketCommunication implements Runnable {
                                 e.printStackTrace();
                             }
                         }
-                        /**
                         questionList = new Question[jsonList.length()];
-
                         for(int i = 0; i < jsonList.length(); i++){
                             //Mapping
                             questionList[i] = (Question) jsonList.get(i);
+                            System.out.println("Mapped Question: " + questionList[i].toString());
                         }
 
-                        **/
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

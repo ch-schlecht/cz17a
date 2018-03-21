@@ -13,16 +13,16 @@ import java.util.List;
 
 public class Question {
     private int id;
-   private String questioning;
-   private List<String> answers = new ArrayList<String>();
-   private Boolean isValuated = false;
-   private int dynamicDifficulty;
-   private int responseTime;
-   private int worth;
-   private String topic;
-   private double speedInSeconds;
-   private boolean isCorrect;
-   private int score;
+    private String questioning;
+    private List<String> answers = new ArrayList<String>();
+    private Boolean isValuated = false;
+    private int dynamicDifficulty;
+    private int responseTime;
+    private int worth;
+    private String topic;
+    private double speedInSeconds;
+    private boolean isCorrect;
+    private int score;
 
     public List<String> getAnswers() {
         return answers;
@@ -171,6 +171,11 @@ public class Question {
             e.printStackTrace();
         }
 
+    }
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID: ").append(id).append("Questioning: ").append(questioning);
+        return sb.toString();
     }
     public void dummyQuestion(){
         questioning = "DUMMY TESTFRAGE ";
