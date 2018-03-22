@@ -8,6 +8,4 @@ public class ModifiedObservable extends Observable{
 	public void setChanged() {
 		super.setChanged();
 	}
-
-
 }

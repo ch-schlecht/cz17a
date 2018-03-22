@@ -133,18 +133,7 @@ public class Lobby {
 				response += String.format("\"%s\"]}", name);
 			}
 		}
-		sendMessageToPlayers(response);
-	}
-	
-	/**
-	 * Sending Messages to Player witrh methode
-	 * 0 = add
-	 * 1 = override
-	 * @param msg
-	 * @param methode
-	 */
-	private void sendMessageToPlayers(String message) {
-		ServerStarter.getInstance().notifyAllClients(message);
+		ServerStarter.getInstance().notifyAllClients(response);
 	}
 
 	/**

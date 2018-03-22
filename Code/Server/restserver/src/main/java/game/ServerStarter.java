@@ -22,15 +22,11 @@ public class ServerStarter {
     // observable to notify client threads
     private final ModifiedObservable observable = new ModifiedObservable();
     // fair lock (can use unfair lock if message broadcasting order is not important)
-    private final Lock fairLock = new ReentrantLock(true);
-    
-    public static final int PORT = 1811;
-    
+    private final Lock fairLock = new ReentrantLock(true);    
+    public static final int PORT = 1811; 
     private boolean sendingFlag = false;
 
-    private ServerStarter() {
-    	ServerStarter.getInstance().start();
-    }
+    private ServerStarter() {}
    
     public static ServerStarter getInstance() {
         return singleton;
@@ -44,13 +40,12 @@ public class ServerStarter {
     	this.sendingFlag = flag;
     }
 
-
     public void start() {
         ServerSocket server = null;
         try {
             //server configs,from left to right is: PORT,BackLog,Address
             server = new ServerSocket(PORT);
-            while (!ServerStarter.getInstance().isShutdown()) {
+            while (!isShutdown()) {
                 Socket sock = server.accept();
                 //BufferedReader inFromClient = new BufferedReader(new InputStreamReader(sock.getInputStream()));
                 //each clients run on it's own thread!
