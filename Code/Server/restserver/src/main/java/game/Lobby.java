@@ -19,9 +19,6 @@ import data.model.Quiz;
 public class Lobby {
 	private Quiz quiz;
 	private Deque<Player> players = new ArrayDeque<Player>();
-	private ServerThreadPool threadPool = null;
-	private Thread thread = null;
-	int PORT = 0;
 
 	/**
 	 * create Lobby for quiz
@@ -34,24 +31,8 @@ public class Lobby {
 	 */
 	public Lobby(Quiz quiz, Player firstPlayer) {
 		System.out.println("Create new Lobby");
-		this.quiz = quiz;
-		// Search free Port on 1810 to 1819
-		int port = choosePort(1810, 1819);
-		if (port != -1) {
-			threadPool = new ServerThreadPool(port,5);
-			this.PORT = port;
-			thread = new Thread(threadPool);
-			thread.start();
-			
-		
-			System.out.println("Thread for ThreadPool started");
-			
-			this.addPlayer(firstPlayer);
-		}
-		else {
-			System.out.println("No free Port");
-		}
-
+		this.quiz = quiz;	
+		this.addPlayer(firstPlayer);
 	}
 
 	/**
@@ -149,10 +130,10 @@ public class Lobby {
 			if (i < playerNames.size() - 1) {
 				response += String.format("\"%s\",", name);
 			} else {
-				response += String.format("\"%s\"]}$", name);
+				response += String.format("\"%s\"]}", name);
 			}
 		}
-		sendMessageToPlayers(response,1);
+		sendMessageToPlayers(response);
 	}
 	
 	/**
@@ -162,15 +143,8 @@ public class Lobby {
 	 * @param msg
 	 * @param methode
 	 */
-	private void sendMessageToPlayers(String msg, int methode) { //Wofür steht Methode? Besser lieber ein aussagekräftigen Enum	
-		for (int i = 0; i < players.size(); i++) {
-			if(methode == 0) {
-				threadPool.message.set(i, threadPool.message.get(i) + msg);
-			}else {
-				threadPool.message.set(i, msg);
-			}
-			System.out.println("Setting ThreadPoolStack " + i + "to: " + msg); //DEBUG
-		}
+	private void sendMessageToPlayers(String message) {
+		ServerStarter.getInstance().notifyAllClients(message);
 	}
 
 	/**
@@ -185,33 +159,7 @@ public class Lobby {
 			playersForGame.add(players.removeFirst());
 			System.out.println("adding Player");
 		}
-		sendMessageToPlayers("start_game$",0);
-		GamePool.startGame(quiz, playersForGame, threadPool);
-	}
-
-	/**
-	 * Searching a free port between min and max value
-	 * 
-	 * @param port_min
-	 *            min port
-	 * @param port_max
-	 *            max port
-	 * @return free port
-	 * @throws IOException
-	 *             if no free Port exists
-	 * @since 1.2
-	 */
-	public int choosePort(int port_min, int port_max) {
-		for (int port = port_min; port <= port_max; port++) {
-			try {
-				ServerSocket s = new ServerSocket(port);
-				s.close();
-				return port;
-			} catch (IOException ex) {
-				System.out.println("Port:"+port+"is not free");
-				continue;
-			}
-		}
-		return -1; // Use, because it is not good, that an exception can be throw in constructor
+		
+		GamePool.startGame(quiz, playersForGame);
 	}
 }
