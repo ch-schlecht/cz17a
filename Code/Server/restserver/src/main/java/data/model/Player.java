@@ -112,6 +112,13 @@ public class Player extends User implements Serializable {
 	}
 	
 	public double rightAnswersRatio() {
-		return 0.0; //TODO
+		int rightAnswersCount = 0;
+		for(PlayedQuestion p : playedQuestions) {
+			if(p.getIsCorrect()) {
+				rightAnswersCount++;
+			}
+		}
+		double rightAnswersRatio = rightAnswersCount / playedQuestions.size();
+		return rightAnswersRatio;
 	}
 }
