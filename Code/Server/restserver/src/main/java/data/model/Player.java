@@ -88,7 +88,12 @@ public class Player extends User implements Serializable {
 	}
 	
 	public double averageAnswerTime() {
-		return 0.0; //TODO
+		double overallAnswerTime = 0;
+		for(PlayedQuestion p : playedQuestions) {
+			overallAnswerTime += p.getSpeedInSeconds();
+		}
+		double averageAnswerTime = overallAnswerTime / playedQuestions.size();
+		return averageAnswerTime;
 	}
 	
 	public double averageScore() {
