@@ -80,7 +80,14 @@ public class Player extends User implements Serializable {
 	}
 
 	public double winnedRoundsRatio() {
-		return 0.0; //TODO
+		int winnedRoundsCount = 0;
+		for(Participation p : playedRounds) {
+			if(p.getRound().getWinner().getId() == id) {
+				winnedRoundsCount++;
+			}
+		}
+		double winnedRoundsRatio = winnedRoundsCount / playedRounds.size();
+		return winnedRoundsRatio;
 	}
 	
 	public Quiz bestQuiz() {
