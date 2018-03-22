@@ -79,4 +79,32 @@ public class Player extends User implements Serializable {
 		this.port = port;
 	}
 
+	public double winnedRoundsRatio() {
+		return 0.0; //TODO
+	}
+	
+	public Quiz bestQuiz() {
+		return null; //TODO
+	}
+	
+	public double averageAnswerTime() {
+		return 0.0; //TODO
+	}
+	
+	public double averageScore() {
+		return 0.0; //TODO
+	}
+	
+	public int maxScore() {
+		return 0; //TODO
+	}
+	
+	public int alltimeScore() {
+		return 0; //TODO
+	}
+	
+	public double rightAnswersRatio() {
+		return 0.0; //TODO
+	}
+	
 }
