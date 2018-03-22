@@ -91,7 +91,24 @@ public class Player extends User implements Serializable {
 	}
 	
 	public Quiz bestQuiz() {
-		return null; //TODO
+		Quiz quiz = new Quiz();
+		Round round = new Round();
+		int maxScore = maxScore();
+		for(Participation p : playedRounds) {
+			if(maxScore == p.getScore()) {
+				round = p.getRound();
+			}
+		}
+		if(!round.getQuestions().isEmpty()) {
+			quiz = round.getQuestions().get(0).getQuiz();
+		}
+		return quiz;
+	}
+
+	public String bestTopic() {
+		String topic = "";
+		topic = bestQuiz().getQuestions().get(0).getTopic();
+		return topic;
 	}
 	
 	public double averageAnswerTime() {
