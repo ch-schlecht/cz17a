@@ -104,8 +104,8 @@ public class Player extends User implements Serializable {
 	}
 	
 	public double averageScore() {
-		int averageScore = 0;
-		int counter = 0;
+		double averageScore = 0;
+		double counter = 0;
 		for(Participation p : playedRounds) {
 			averageScore += p.getScore();
 			counter++;
