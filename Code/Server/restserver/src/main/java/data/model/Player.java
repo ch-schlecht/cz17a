@@ -104,7 +104,11 @@ public class Player extends User implements Serializable {
 	}
 	
 	public int alltimeScore() {
-		return 0; //TODO
+		int alltimeScore = 0;
+		for(Participation p : playedRounds) {
+			alltimeScore +=  p.getScore();
+		}
+		return alltimeScore;
 	}
 	
 	public double rightAnswersRatio() {
