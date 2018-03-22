@@ -104,7 +104,14 @@ public class Player extends User implements Serializable {
 	}
 	
 	public double averageScore() {
-		return 0.0; //TODO
+		int averageScore = 0;
+		int counter = 0;
+		for(Participation p : playedRounds) {
+			averageScore += p.getScore();
+			counter++;
+		}
+		averageScore /= counter;
+		return averageScore;
 	}
 	
 	public int maxScore() {
