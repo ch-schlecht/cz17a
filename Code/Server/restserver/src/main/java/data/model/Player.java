@@ -96,7 +96,11 @@ public class Player extends User implements Serializable {
 	}
 	
 	public int maxScore() {
-		return 0; //TODO
+		int maxScore = 0;
+		for(Participation p : playedRounds) {
+			maxScore = Math.max(maxScore, p.getScore());
+		}
+		return maxScore;
 	}
 	
 	public int alltimeScore() {
@@ -106,5 +110,4 @@ public class Player extends User implements Serializable {
 	public double rightAnswersRatio() {
 		return 0.0; //TODO
 	}
-	
 }
