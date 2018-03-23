@@ -32,6 +32,7 @@ public class SocketThread implements Runnable, Observer {
 	@Override
 	public void update(Observable o, Object message) {
 		try {
+			System.out.println("in update @ SocketThread");
 			OutputStream output = this.clientSocket.getOutputStream();
 			String EOFStr = "\n";
 			message = message.toString() + EOFStr;

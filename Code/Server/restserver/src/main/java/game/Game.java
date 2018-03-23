@@ -120,6 +120,7 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
+		System.out.println(" in start @ game");
 		String gameId = String.format("{\"gameId\": %d}", id);
 		sendMessage(gameId);
 		startRound();
@@ -136,12 +137,13 @@ public class Game {
 			StringWriter writer = new StringWriter();
 			marshaller.marshal(questions, writer);
 			questionList = writer.toString();
-			System.out.println(questionList);
+			//System.out.println(questionList);
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 			questionList = "[]";
 		}
 		questionList = String.format("{\"questions\": %s}", questionList);
+		System.out.println(questionList);
 		sendMessage(questionList);
 	}
 
@@ -264,6 +266,7 @@ public class Game {
 	}
 
 	private void sendMessage(String message) {
+		System.out.println("in Send message @ game");
 		ServerStarter.getInstance().notifyAllClients(message);
 	}
 }

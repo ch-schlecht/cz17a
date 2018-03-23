@@ -44,7 +44,7 @@ public class LobbyResource {
 		Player player = new PlayerDAO().getPlayer(player_id);
 		System.out.println("Join Lobby: " + player_id);
 		ServerStarter servStarter = ServerStarter.getInstance();
-		servStarter.start();
+		new Thread(servStarter).start();
 		return LobbyPool.joinLobby(quiz_id, player);
 	}
 

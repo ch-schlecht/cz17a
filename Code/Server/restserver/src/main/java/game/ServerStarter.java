@@ -12,9 +12,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 
-public class ServerStarter {
+public class ServerStarter implements Runnable{
 
-    private static final ServerStarter singleton = new ServerStarter();
+    private static volatile ServerStarter singleton;
+    private static Object mutex = new Object();
 
     private volatile boolean shutdown;
     // thread pool executor
@@ -29,7 +30,17 @@ public class ServerStarter {
     private ServerStarter() {}
    
     public static ServerStarter getInstance() {
-        return singleton;
+    	ServerStarter result = singleton;
+    	if(result == null) {
+    		synchronized(mutex) {
+    			result = singleton;
+    			if(result == null) {
+    				singleton = result = new ServerStarter();
+    			}
+    		}
+    	}
+    	return result;
+       
     }
     
     public boolean isReadyToSend() {
@@ -39,14 +50,22 @@ public class ServerStarter {
     public void setSendingFlag(boolean flag) {
     	this.sendingFlag = flag;
     }
+    
+    @Override
+    public void run() {
+    	start();
+    }
 
     public void start() {
         ServerSocket server = null;
+        System.out.println("started ServerStarter");
         try {
             //server configs,from left to right is: PORT,BackLog,Address
             server = new ServerSocket(PORT);
             while (!isShutdown()) {
+            	System.out.println("waiting for connection");
                 Socket sock = server.accept();
+                System.out.println("accepted Connection");
                 //BufferedReader inFromClient = new BufferedReader(new InputStreamReader(sock.getInputStream()));
                 //each clients run on it's own thread!
                 SocketThread clientThread = new SocketThread(sock);
@@ -82,6 +101,8 @@ public class ServerStarter {
     }
 
     public void notifyAllClients(final Object message) {
+    	System.out.println("in notifyAllClients @ ServerStarter");
+    	System.out.println("going to notify " + observable.countObservers() + " Clients");
         fairLock.lock();
         try {
             executorService.submit(new MessageBroadcaster(message));
