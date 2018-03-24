@@ -143,7 +143,7 @@ public class Game {
 			questionList = "[]";
 		}
 		questionList = String.format("{\"questions\": %s}", questionList);
-		System.out.println(questionList);
+		//System.out.println(questionList);
 		sendMessage(questionList);
 	}
 

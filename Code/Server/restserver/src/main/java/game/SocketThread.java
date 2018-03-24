@@ -14,9 +14,11 @@ public class SocketThread implements Runnable, Observer {
 	public SocketThread(Socket clientSocket) {
 		this.clientSocket = clientSocket;
 		// this.inFromClient = inFromClient;
+		System.out.println("initiated SocketThread");
 	}
 
 	public void run() {
+		System.out.println("in run @ SocketThread");
 		String fromClient;
 		while (!ServerStarter.getInstance().isShutdown()) {
 			// TODO...prepare message to broadcast
@@ -25,7 +27,7 @@ public class SocketThread implements Runnable, Observer {
 			// Object message = messageStr;
 			// ServerStarter.getInstance().notifyAllClients(message);
 		}
-
+		System.out.println("left run @ SocketThread");
 		ServerStarter.getInstance().unregisterClientThread(this);
 	}
 

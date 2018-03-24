@@ -14,8 +14,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ServerStarter implements Runnable{
 
-    private static volatile ServerStarter singleton;
-    private static Object mutex = new Object();
+    private static ServerStarter singleton;
+    //private static Object mutex = new Object();
 
     private volatile boolean shutdown;
     // thread pool executor
@@ -27,19 +27,19 @@ public class ServerStarter implements Runnable{
     public static final int PORT = 1811; 
     private boolean sendingFlag = false;
 
-    private ServerStarter() {}
+    private ServerStarter() {
+    	new Thread(this).start();
+    }
    
     public static ServerStarter getInstance() {
-    	ServerStarter result = singleton;
-    	if(result == null) {
-    		synchronized(mutex) {
-    			result = singleton;
-    			if(result == null) {
-    				singleton = result = new ServerStarter();
+    	if(singleton == null) {
+    		synchronized(ServerStarter.class) {
+    			if(singleton == null) {
+    				singleton = new ServerStarter();
     			}
     		}
     	}
-    	return result;
+    	return singleton;
        
     }
     
@@ -69,8 +69,11 @@ public class ServerStarter implements Runnable{
                 //BufferedReader inFromClient = new BufferedReader(new InputStreamReader(sock.getInputStream()));
                 //each clients run on it's own thread!
                 SocketThread clientThread = new SocketThread(sock);
-                ServerStarter.getInstance().registerClientThread(clientThread);
-                ServerStarter.getInstance().startClientThread(clientThread);
+                observable.addObserver(clientThread); //move function bodies start and register directly up
+                executorService.submit(clientThread);
+                
+               // ServerStarter.getInstance().registerClientThread(clientThread);
+               // ServerStarter.getInstance().startClientThread(clientThread);
             }
         } catch (IOException e) {
             if (server != null) {
@@ -129,6 +132,7 @@ public class ServerStarter implements Runnable{
 
         @Override
         public void run() {
+        	System.out.println("in run @ messageBroadcaster");
             fairLock.lock();
             try {
             	observable.setChanged();
