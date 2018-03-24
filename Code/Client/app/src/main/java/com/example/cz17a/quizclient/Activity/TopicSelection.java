@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.cz17a.quizclient.Login.User;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
+import com.example.cz17a.quizclient.ServerClient.URLHandler;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
 
@@ -32,8 +34,9 @@ public class TopicSelection extends AppCompatActivity {
     public void goToGame(int quizId){
         Intent intent = new Intent(this,  LobbyActivity.class);
         LobbyActivity.quizzes = quizzes;
-      //  LobbyActivity.user = user;
         intent.putExtra("quizId", quizId);
+        SocketCommunication socketCommunication = new SocketCommunication(1811, URLHandler.SERVERROOT);
+        new Thread(socketCommunication).start();
         startActivity(intent);
     }
 

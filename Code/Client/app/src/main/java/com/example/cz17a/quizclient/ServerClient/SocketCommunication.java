@@ -24,9 +24,11 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Observable;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -37,18 +39,17 @@ import java.util.regex.Pattern;
 public class SocketCommunication implements Runnable {
     Socket server = null;
     BufferedReader in = null;
-    //char buffer[] = new char[1024];
-    PrintWriter out = null;
     int port = 0;
     boolean running;
-    String[] statusMessages;
     GameLogic game;
-    //int playernumberGameStartedWith;
-    //String gameID;
     String ip;
-    LobbyActivity lobby;
+    public static LobbyActivity lobby;
     public static GameActivity gameActivity;
-    Scanner scan = null;
+
+    public SocketCommunication(int port, String ip) {
+        this.port = port;
+        this.ip = ip;
+    }
 
     public SocketCommunication(int port, String ip, LobbyActivity lobby) {
         this.port = port;
@@ -61,14 +62,10 @@ public class SocketCommunication implements Runnable {
      * Establish a connection to the Server Socket and initialize Input- and OutputStreams.
      */
    public void connect() {
-       //try {
        try {
-           //server = new ServerSocket(port);
            System.out.println("conn to "+InetAddress.getByName(URLHandler.SERVERROOT)+":"+port);
            server = new Socket(InetAddress.getByName(URLHandler.SERVERROOT),port); //socket.accept(); //wait for connection from server (in this case client)
-           //in = new BufferedReader(new InputStreamReader(server.getInputStream()));
-           scan = new Scanner(server.getInputStream());
-           out = new PrintWriter(new OutputStreamWriter(server.getOutputStream()));
+           in = new BufferedReader(new InputStreamReader(server.getInputStream()));
        } catch (IOException e) {
            e.printStackTrace();
        }
@@ -78,56 +75,16 @@ public class SocketCommunication implements Runnable {
      * Method that receives a Message from the Client Socket from Server and returns this String.
      * @return String
      */
-   public String receivedMessagesFromServer(){
-       String message = "";
-     //  System.out.println("i am in receive");
+   public String receivedMessageFromServer(){
+       String message = null;
        try {
-           scan.useDelimiter(Pattern.quote("\\n"));
-           while(scan.hasNext()){
-               System.out.println("i am reading");
-               message = scan.next();
-               System.out.println(message);
-               return message;
-           }
-       } catch (Exception e) {
-          // e.printStackTrace();
+           message = in.readLine();
+       } catch (IOException e) {
+           e.printStackTrace();
        }
+       System.out.println("Received Message: " + message);
        return message;
    }
-
-   public void sendMessageToServersocketAtServer(String message) throws IOException{
-       out.println(message);
-       out.flush();
-   }
-
-   public void sendAnswer(String answer){
-       out.write(answer);
-   }
-
-
-   public Question getNextQuestion(){
-       Question question = new Question();
-        /*
-       try{
-           int anz = in.read(buffer, 0, 200); // blockiert bis Nachricht empfangen
-           String data = new String(buffer, 0, anz);
-           JSONObject object = new JSONObject(data);
-
-           question = new Question();
-           question.jsonToQuestion(object);
-
-
-       }catch(IOException e){
-           e.printStackTrace();
-       }catch(JSONException e){
-           e.printStackTrace();
-       }
-       */
-        question.dummyQuestion();
-        System.out.println("DummyFrage: "+ question.toString());
-       return question;
-   }
-
 
    public synchronized void stop(){
        running = false;
@@ -140,32 +97,42 @@ public class SocketCommunication implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Client Port:"+port+" inits connection");
-        String gameId = "";
+       running = true;
+        int gameId = 0;
        connect();
         while(running){
-            String msg = receivedMessagesFromServer();
-            System.out.println("SOCKET IN: " +msg);
-            if(!((msg  == "") || (msg == null))){
+            String msg = receivedMessageFromServer();
+            if(msg != null) {
                 System.out.println(msg);
-                //msg =  msg.replace("{","");
-                //msg = msg.replace("}","");
-                final String[] players  = msg.split(",");
+                final ArrayList<String> players = new ArrayList<>();
+                try {
+                    JSONObject jsonObject = new JSONObject(msg);
+                    JSONArray jsonArray =  jsonObject.getJSONArray("lobby");
+                    for(int i = 0; i < jsonArray.length(); i++) {
+                        String player = jsonArray.getString(i);
+                        players.add(player);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 //TODO Lobbyanzeige
-
-
                 lobby.runOnUiThread(new Runnable() {
-                    final String[] finalplayers = players;
                     @Override
                     public void run() {
-                        lobby.setPlayers(finalplayers);
+                        lobby.setPlayers(players);
                     }
                 });
 
-                if(msg.matches("^[0-9{}]+$")){ //regex to match the gameID
+                if(msg.contains("gameId")){ //regex to match the gameID
                     System.out.println("GameID is: " + msg);
-                    gameId = msg;
+                    try {
+                        JSONObject json = new JSONObject(msg);
+                        gameId = json.getInt("gameId");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 if(msg.contains("question")){
                     System.out.println("Found Questions");

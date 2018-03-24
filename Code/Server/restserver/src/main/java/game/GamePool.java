@@ -18,15 +18,15 @@ public class GamePool {
 	 * @param sockets
 	 */
 	public static void startGame(Quiz quiz, List<Player> players) {
-		int id2 = 0;
-		for(int id = 0; id <= 1000; id++) {
+		int id;
+		for(id = 0; id <= 1000; id++) {
 			if(games.containsKey(id) == false) {
 				Game game = new Game(id, quiz, players);
 				games.put(id, game);
-				id2 = id;
+				break;
 			}
 		}
-		games.get(id2).start();
+		games.get(id).start();
 	}
 	
 	/**

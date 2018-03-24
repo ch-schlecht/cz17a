@@ -143,12 +143,12 @@ public class Lobby {
 	 * @since 1.0
 	 */
 	private void openGame() {
+		System.out.println("Spiel wird geöffnet für " + players.size() + " Spieler");
 		List<Player> playersForGame = new ArrayList<Player>();
 		while (playersForGame.size() < quiz.getMinParticipants()) {
 			playersForGame.add(players.removeFirst());
 			System.out.println("adding Player");
 		}
-		
 		GamePool.startGame(quiz, playersForGame);
 	}
 }

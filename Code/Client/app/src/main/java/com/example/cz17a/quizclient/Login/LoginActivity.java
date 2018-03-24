@@ -37,7 +37,9 @@ import android.widget.TextView;
 import com.example.cz17a.quizclient.Activity.MainActivity;
 import com.example.cz17a.quizclient.R;
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
+import com.example.cz17a.quizclient.ServerClient.URLHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,8 +86,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
         SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
         String usrId= sp.getString("uId","-1"); //TODO other Default
         Long last_login = sp.getLong("create",System.currentTimeMillis());
