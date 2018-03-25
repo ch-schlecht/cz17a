@@ -41,7 +41,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         //socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
         quizId = getIntent().getExtras().getInt("quizId",1);
-        gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
+        gameId = getIntent().getExtras().getInt("gameId",1);
         questionList = (Question[]) getIntent().getExtras().get("questionList");
         buttons[0] = findViewById(R.id.antwort1but);
         buttons[1] = findViewById(R.id.antwort2but);

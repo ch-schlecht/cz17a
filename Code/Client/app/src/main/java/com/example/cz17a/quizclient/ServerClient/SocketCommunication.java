@@ -98,51 +98,58 @@ public class SocketCommunication implements Runnable {
     @Override
     public void run() {
        running = true;
-        int gameId = 0;
+        int gameId = -1; //default -1 to indicate failure
        connect();
         while(running){
             String msg = receivedMessageFromServer();
             if(msg != null) {
-                System.out.println(msg);
+                //System.out.println(msg);
                 final ArrayList<String> players = new ArrayList<>();
-                try {
-                    JSONObject jsonObject = new JSONObject(msg);
-                    JSONArray jsonArray =  jsonObject.getJSONArray("lobby");
-                    for(int i = 0; i < jsonArray.length(); i++) {
-                        String player = jsonArray.getString(i);
-                        players.add(player);
+                if(msg.contains("lobby")) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(msg);
+                        JSONArray jsonArray = jsonObject.getJSONArray("lobby");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            String wholePlayers = jsonArray.getString(i);
+                            System.out.println("Players in String: " + wholePlayers);
+                            String[] playerSeparation = wholePlayers.split(",");
+                            for(int j = 0; j < playerSeparation.length; j++) {
+                                players.add(playerSeparation[j]);
+                            }
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    //TODO Lobbyanzeige
+                    lobby.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            lobby.setPlayers(players);
+                        }
+                    });
                 }
-
-                //TODO Lobbyanzeige
-                lobby.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        lobby.setPlayers(players);
-                    }
-                });
-
-                if(msg.contains("gameId")){ //regex to match the gameID
-                    System.out.println("GameID is: " + msg);
+                else if(msg.contains("gameId")){ //regex to match the gameID
+                    System.out.println("message for GameID is: " + msg);
                     try {
                         JSONObject json = new JSONObject(msg);
                         gameId = json.getInt("gameId");
+                        System.out.println("gameID is: " + gameId);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                if(msg.contains("question")){
+                else if(msg.contains("questions")){
                     System.out.println("Found Questions");
                     //TODO get questions
-                    Question[] questionList = null;             //list of questions init
+                    //Question[] questionList = null;
+                    Question[] questionArray = null;//list of questions init
                     try {
-
-                        JSONArray jsonList = new JSONArray(msg);
+                        JSONObject json = new JSONObject(msg);
+                        JSONArray jsonList = json.getJSONArray("questions");
                         int count = jsonList.length();
-                        Question[] questionArray = new Question[count];
+                        questionArray = new Question[count];
                         for(int i = 0; i < jsonList.length(); i++){
                             questionArray[i] = new Question();
                             try {
@@ -151,19 +158,19 @@ public class SocketCommunication implements Runnable {
                                 e.printStackTrace();
                             }
                         }
-                        questionList = new Question[jsonList.length()];
-                        for(int i = 0; i < jsonList.length(); i++){
+                        //questionList = new Question[jsonList.length()];
+                        //for(int i = 0; i < jsonList.length(); i++){
                             //Mapping
-                            questionList[i] = (Question) jsonList.get(i);
-                            System.out.println("Mapped Question: " + questionList[i].toString());
-                        }
+                            //questionList[i] = (Question) jsonList.get(i);
+                            //System.out.println("Mapped Question: " + questionList[i].toString());
+                        //}
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    lobby.goToGame(gameId,questionList);
+                    lobby.goToGame(gameId,questionArray);
                 }
-                if(msg.contains("amount")) {
+                else if(msg.contains("jackpot")) {
                     try {
 
                         JSONObject json = new JSONObject(msg);
