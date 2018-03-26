@@ -126,7 +126,7 @@ public class Game {
 		startRound();
 	}
 
-	public void startRound() {
+	private void startRound() {
 		List<Question> questions = getRound().getQuestions();
 		String questionList;
 		try {
@@ -145,6 +145,7 @@ public class Game {
 		questionList = String.format("{\"questions\": %s}", questionList);
 		//System.out.println(questionList);
 		sendMessage(questionList);
+		startNextQuestion();
 	}
 
 	/**
@@ -152,7 +153,6 @@ public class Game {
 	 * or if it is the last question (-->activate Jackpot)
 	 */
 	private void startNextQuestion() {
-		playedQuestions++;
 		if (playedQuestions == round.getQuestions().size()) {
 			end();
 		} else if (playedQuestions == round.getQuestions().size() - 1) {
@@ -170,6 +170,7 @@ public class Game {
 		}
 		jackpotInformation = String.format("{\"jackpot\": %s}", jackpotInformation);
 		sendMessage(jackpotInformation);
+		playedQuestions++;
 	}
 
 	/**
