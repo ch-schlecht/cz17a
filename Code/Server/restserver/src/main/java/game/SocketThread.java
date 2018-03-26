@@ -8,7 +8,6 @@ import java.util.Observer;
 
 public class SocketThread implements Runnable, Observer {
 	Socket clientSocket;
-	// BufferedReader inFromClient;
 
 	public SocketThread(Socket clientSocket) {
 		this.clientSocket = clientSocket;
@@ -17,8 +16,7 @@ public class SocketThread implements Runnable, Observer {
 
 	public void run() {
 		System.out.println("in run @ SocketThread");
-		while (!ServerStarter.getInstance().isShutdown()) {
-			
+		while (!ServerStarter.getInstance().isShutdown()) {	
 		}
 		System.out.println("left run @ SocketThread");
 		ServerStarter.getInstance().unregisterClientThread(this);

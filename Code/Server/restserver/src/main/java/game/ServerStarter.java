@@ -1,11 +1,8 @@
 package game;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Observable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
@@ -60,20 +57,14 @@ public class ServerStarter implements Runnable{
         ServerSocket server = null;
         System.out.println("started ServerStarter");
         try {
-            //server configs,from left to right is: PORT,BackLog,Address
             server = new ServerSocket(PORT);
             while (!isShutdown()) {
             	System.out.println("waiting for connection");
                 Socket sock = server.accept();
                 System.out.println("accepted Connection");
-                //BufferedReader inFromClient = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-                //each clients run on it's own thread!
                 SocketThread clientThread = new SocketThread(sock);
-                observable.addObserver(clientThread); //move function bodies start and register directly up
+                observable.addObserver(clientThread);
                 executorService.submit(clientThread);
-                
-               // ServerStarter.getInstance().registerClientThread(clientThread);
-               // ServerStarter.getInstance().startClientThread(clientThread);
             }
         } catch (IOException e) {
             if (server != null) {
@@ -97,10 +88,6 @@ public class ServerStarter implements Runnable{
 
     public void startClientThread(SocketThread clientThread) {
         executorService.submit(clientThread);
-    }
-
-    private void registerClientThread(SocketThread clientThread) {
-        observable.addObserver(clientThread);
     }
 
     public void notifyAllClients(final Object message) {
