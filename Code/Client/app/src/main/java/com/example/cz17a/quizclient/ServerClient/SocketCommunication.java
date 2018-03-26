@@ -177,7 +177,13 @@ public class SocketCommunication implements Runnable {
                         Jackpot jackpot =  gameActivity.getGame().getJackpot();
                         jackpot.setAmount(json.getInt("amount"));
                         jackpot.setActive(json.getBoolean("active"));
-                        gameActivity.triggerNewQuestion();
+                        lobby.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                gameActivity.triggerNewQuestion();
+                            }
+                        });
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
