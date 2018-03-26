@@ -172,11 +172,11 @@ public class SocketCommunication implements Runnable {
                 }
                 else if(msg.contains("jackpot")) {
                     try {
-
-                        JSONObject json = new JSONObject(msg);
+                        JSONObject pureJSON = new JSONObject(msg); //this is the original JSON
+                        JSONObject json = pureJSON.getJSONObject("jackpot"); //this is the JSON behind the "jackpot" key
                         Jackpot jackpot =  gameActivity.getGame().getJackpot();
                         jackpot.setAmount(json.getInt("amount"));
-                        jackpot.setActive(json.getBoolean("isActive"));
+                        jackpot.setActive(json.getBoolean("active"));
                         gameActivity.triggerNewQuestion();
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by stein on 11.01.2018.
  */
 
-public class Question {
+public class Question implements Serializable{
     private int id;
     private String questioning;
     private List<String> answers = new ArrayList<String>();

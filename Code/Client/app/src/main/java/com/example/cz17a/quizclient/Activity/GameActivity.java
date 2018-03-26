@@ -48,8 +48,8 @@ public class GameActivity extends AppCompatActivity {
         buttons[2] = findViewById(R.id.antwort3but);
         buttons[3] = findViewById(R.id.antwort4but);
         indicator = findViewById(R.id.indicator);
-        TextView timer = findViewById(R.id.timer);
-        TextView questionText = findViewById(R.id.fragenText);
+        timer = findViewById(R.id.timer);
+        questionText = findViewById(R.id.fragenText);
         scoreView = findViewById(R.id.points);
         jackpotView = findViewById(R.id.jackpot);
         game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);

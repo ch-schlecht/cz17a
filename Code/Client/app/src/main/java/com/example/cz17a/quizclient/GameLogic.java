@@ -75,7 +75,7 @@ public class GameLogic {
     public void playNewQuestion() {
         final Question question = questions[currentQuestionIndex];
         //sets the timer
-        jackpotView.setText(jackpot.getAmount());
+        jackpotView.setText(String.valueOf(jackpot.getAmount()));
         countdownTimer = new Timer(this, question);
         indicator.setVisibility(View.INVISIBLE);
         //initializes the buttons for this question
@@ -84,6 +84,7 @@ public class GameLogic {
             shuffledAnswers.add(answer);
         }
         Collections.shuffle(shuffledAnswers);
+        questionText.setText(question.getQuestioning());
         for(int i = 0; i < buttons.length; i++){
             final int finalI = i;
             buttons[i].setText(shuffledAnswers.get(i));
@@ -95,7 +96,6 @@ public class GameLogic {
                 }
             });
         }
-        questionText.setText(question.getQuestioning());
         buttonsActivate(buttons);
         countdownTimer.startTimer();
     }
@@ -134,7 +134,7 @@ public class GameLogic {
                 button.setBackgroundColor(Color.GREEN);
         }
         this.score += score;
-        scoreView.setText(score);
+        scoreView.setText(String.valueOf(score));
         question.setSpeedInSeconds(responseTime);
         question.setScore(score);
         sendQuestionEvaluation(question);
