@@ -22,6 +22,8 @@ import org.eclipse.persistence.jaxb.MarshallerProperties;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import client.communication.ServerStarter;
 import data.access.QuestionDAO;
 
 public class Game {

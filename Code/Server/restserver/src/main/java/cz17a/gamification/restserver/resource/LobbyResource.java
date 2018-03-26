@@ -11,10 +11,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import client.communication.ServerStarter;
 import data.access.PlayerDAO;
 import data.model.Player;
 import game.LobbyPool;
-import game.ServerStarter;
 
 /**
  * REST-Resource for Lobbies

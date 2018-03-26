@@ -1,4 +1,4 @@
-package game;
+package client.communication;
 
 import java.util.Observable;
 
