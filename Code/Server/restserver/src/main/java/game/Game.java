@@ -36,18 +36,18 @@ public class Game {
 	 * Counts how many questions were played
 	 */
 	private int playedQuestions;
-	private ServerThreadPool threadPool;
+
 	/**
 	 * Holds score for every player. Key is the id of a player
 	 */
 	private Map<Integer, Integer> scoreboard = new HashMap<Integer, Integer>();
 
-	public Game(int id, Quiz quiz, List<Player> players, ServerThreadPool threadPool) {
+	public Game(int id, Quiz quiz, List<Player> players) {
 		this.id = id;
 		this.jackpot = new Jackpot();
 		this.playedQuestions = 0;
 		this.round = new Round(quiz.getRandomQuestions(), players);
-		this.threadPool = threadPool;
+	
 		for (Player p : players) {
 			scoreboard.put(p.getId(), 0);
 		}
@@ -120,6 +120,7 @@ public class Game {
 	 * outputs the game-ID to all Clients connected via Socket
 	 */
 	public void start() {
+		System.out.println(" in start @ game");
 		String gameId = String.format("{\"gameId\": %d}", id);
 		sendMessage(gameId);
 		startRound();
@@ -136,12 +137,13 @@ public class Game {
 			StringWriter writer = new StringWriter();
 			marshaller.marshal(questions, writer);
 			questionList = writer.toString();
-			System.out.println(questionList);
+			//System.out.println(questionList);
 		} catch (JAXBException e1) {
 			e1.printStackTrace();
 			questionList = "[]";
 		}
 		questionList = String.format("{\"questions\": %s}", questionList);
+		//System.out.println(questionList);
 		sendMessage(questionList);
 	}
 
@@ -177,7 +179,6 @@ public class Game {
 	private void end() {
 		sendEndResults();
 		saveEndResults();
-		threadPool.stop();
 		GamePool.removeGame(id);
 	}
 
@@ -265,8 +266,7 @@ public class Game {
 	}
 
 	private void sendMessage(String message) {
-		for (int i = 0; i < round.getParticipations().size(); i++) {
-			threadPool.message.set(i, message + "$");
-		}
+		System.out.println("in Send message @ game");
+		ServerStarter.getInstance().notifyAllClients(message);
 	}
 }

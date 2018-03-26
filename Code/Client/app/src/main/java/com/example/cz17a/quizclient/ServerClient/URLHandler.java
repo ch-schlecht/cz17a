@@ -66,7 +66,7 @@ public class URLHandler {
 
     public static URL lobbyURL(String quizId, String usrId){
         try {
-            return new URL(URLROOT +"/Lobbies/" + quizId+"/join/"+usrId);
+            return new URL(URLROOT +"/lobbies/" + quizId+"/join/"+usrId);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -76,7 +76,7 @@ public class URLHandler {
 
     public static URL leaveLobbyURL(String quizId, String usrId){
         try {
-            return new URL(URLROOT+"/Lobbies/"+quizId+"/leave/"+usrId);
+            return new URL(URLROOT+"/lobbies/"+quizId+"/leave/"+usrId);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

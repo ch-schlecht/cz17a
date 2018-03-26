@@ -41,15 +41,15 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         //socketCommunication = new SocketCommunication(50000, URLHandler.SERVERROOT,null);
         quizId = getIntent().getExtras().getInt("quizId",1);
-        gameId = Integer.parseInt(getIntent().getExtras().getString("gameId","1"));
+        gameId = getIntent().getExtras().getInt("gameId",1);
         questionList = (Question[]) getIntent().getExtras().get("questionList");
         buttons[0] = findViewById(R.id.antwort1but);
         buttons[1] = findViewById(R.id.antwort2but);
         buttons[2] = findViewById(R.id.antwort3but);
         buttons[3] = findViewById(R.id.antwort4but);
         indicator = findViewById(R.id.indicator);
-        TextView timer = findViewById(R.id.timer);
-        TextView questionText = findViewById(R.id.fragenText);
+        timer = findViewById(R.id.timer);
+        questionText = findViewById(R.id.fragenText);
         scoreView = findViewById(R.id.points);
         jackpotView = findViewById(R.id.jackpot);
         game = new GameLogic(quizId, gameId, questionList, buttons, questionText, indicator, timer, scoreView, jackpotView);

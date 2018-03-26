@@ -30,13 +30,11 @@ public class LobbyPool {
 			Quiz quiz = new QuizDAO().getQuiz(quiz_id);
 			Lobby lobby = new Lobby(quiz, player);
 			activeLobbies.put(quiz_id, lobby);
-			return "" + lobby.PORT;
 		}
-
 		else {
 			activeLobbies.get(quiz_id).addPlayer(player);
-			return "" + activeLobbies.get(quiz_id).PORT;
 		}
+		return Integer.toString(ServerStarter.PORT);
 	}
 
 	/**

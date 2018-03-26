@@ -9,24 +9,31 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.cz17a.quizclient.ServerClient.ServerCommunication;
+import com.example.cz17a.quizclient.ServerClient.SocketCommunication;
 import com.example.cz17a.quizclient.ServerClient.SocketHandler;
 import com.example.cz17a.quizclient.Src.Question;
 import com.example.cz17a.quizclient.Src.Quizzes;
 import com.example.cz17a.quizclient.R;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 public class LobbyActivity extends AppCompatActivity {
     public static Quizzes quizzes;
 //    public static User user;
     int quizId;
-    List<String> players; //List of Player Names
+    ArrayList<String> players; //List of Player Names
     ListView playerListView;
     ArrayAdapter<String> playerlistAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SocketCommunication.lobby = this;
         super.onCreate(savedInstanceState);
         quizId = getIntent().getExtras().getInt("quizId",160); //TODO
         //players = new List<String>;
@@ -65,7 +72,7 @@ public class LobbyActivity extends AppCompatActivity {
         String usrId = SocketHandler.getUserId();
         com.usrJoinLobby(""+quizId, usrId, this);
     }
-    public void goToGame(String gameId, Question[] questionList) {
+    public void goToGame(int gameId, Question[] questionList) {
         Intent intent = new Intent(this,  GameActivity.class);
         intent.putExtra("quizId", quizId);
         intent.putExtra("gameId",gameId);
@@ -78,8 +85,8 @@ public class LobbyActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void setPlayers(String[] players) {
-        this.players = Arrays.asList(players);
+    public void setPlayers(ArrayList<String> players) {
+        this.players = players;
         playerlistAdapter =
                 new ArrayAdapter<String>(
                         this, // Die aktuelle Umgebung (diese Activity)

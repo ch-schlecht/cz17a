@@ -17,16 +17,16 @@ public class GamePool {
 	 * @param players
 	 * @param sockets
 	 */
-	public static void startGame(Quiz quiz, List<Player> players, ServerThreadPool threadPool) {
-		int id2 = 0;
-		for(int id = 0; id <= 1000; id++) {
+	public static void startGame(Quiz quiz, List<Player> players) {
+		int id;
+		for(id = 0; id <= 1000; id++) {
 			if(games.containsKey(id) == false) {
-				Game game = new Game(id, quiz, players, threadPool);
+				Game game = new Game(id, quiz, players);
 				games.put(id, game);
-				id2 = id;
+				break;
 			}
 		}
-		games.get(id2).start();
+		games.get(id).start();
 	}
 	
 	/**

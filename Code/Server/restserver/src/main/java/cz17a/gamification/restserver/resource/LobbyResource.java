@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import data.access.PlayerDAO;
 import data.model.Player;
 import game.LobbyPool;
+import game.ServerStarter;
 
 /**
  * REST-Resource for Lobbies
@@ -22,7 +23,7 @@ import game.LobbyPool;
  * @version 1.0
  * @category Resource
  */
-@Path("/Lobbies")
+@Path("/lobbies")
 @Consumes(MediaType.APPLICATION_JSON)
 public class LobbyResource {
 	/**
@@ -42,8 +43,8 @@ public class LobbyResource {
 			@PathParam("user_id") int player_id) {
 		Player player = new PlayerDAO().getPlayer(player_id);
 		System.out.println("Join Lobby: " + player_id);
+		ServerStarter servStarter = ServerStarter.getInstance();
 		return LobbyPool.joinLobby(quiz_id, player);
-
 	}
 
 	/**
