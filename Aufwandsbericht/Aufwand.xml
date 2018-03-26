@@ -149,10 +149,20 @@
 		<done who="FF,MF,WS,FZ,SL,TG" A="3" S="3" Zeit="12">internes Treffen</done>
 		<done who="SL" A="3" S="3" Zeit="3">Server</done>
 		<done who="FZ" A="3" S="3" Zeit="2">Server</done>
+		<done who="LV" A="3" S="4" Zeit="4">Game-Mechanik</done>
+		<done who="LV" A="3" S="1" Zeit="1">Fixes</done>
+		<done who="LV" A="3" S="2" Zeit="0.5">Modellierung</done>
+		<done who="LV" A="3" S="3" Zeit="3">REST</done>
 	</Analyse>
 	<Analyse von="2018-02-26" bis="2018-03-04" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
 		<done who="FF" A="3" S="3" Zeit="3">Sockets am Client</done>
 		<done who="CS" A="3" S="3" Zeit="10">Server</done>
+		<done who="LV" A="3" S="3" Zeit="4">REST</done>
+		<done who="LV" A="3" S="2" Zeit="0.15">Einarbeitung Android Studio</done>
+		<done who="LV" A="3" S="1" Zeit="0.45">Projektorganisation</done>
+		<done who="LV" A="3" S="3" Zeit="1.5">Password-Hashing</done>
+		<done who="LV" A="4" S="3" Zeit="8">Game-Mechanik</done>
+		<done who="LV" A="3" S="1" Zeit="1.5">Fixes</done>
 	</Analyse>
 	<Analyse von="2018-03-05" bis="2018-03-11" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
 		<done who="FF,MF,SL,FZ,LV,CS,TG,WS" A="4" S="4" Zeit="10">internes Treffen</done>
@@ -160,11 +170,13 @@
 		<done who="SL" A="3" S="3" Zeit="3">Client</done>
 		<done who="FF,MF,WS" A="3" S="3" Zeit="8">Sockets</done>
 		<done who="CS" A="1" S="1" Zeit="1">Organisation</done>
+		<done who="LV" A="4" S="3" Zeit="0.75">Fixes</done>
 	</Analyse>
 	<Analyse von="2018-03-12" bis="2018-03-18" gruppe="cz17a" createdBy="CS" createdAt="2018-03-19">
 		<done who="TG,SL,CS,FZ" A="4" S="4" Zeit="2.5">internes Treffen</done>
 		<done who="FF,MF,SL,FZ,LV,CS,TG,WS" A="4" S="4" Zeit="10">internes Treffen</done>
 		<done who="CS,MF" A="5" S="5" Zeit="20">Bug Fixing</done>
 		<done who="SL" A="3" S="3" Zeit="3">Client</done>
+		<done who="LV" A="3" S="5" Zeit="3.75">Sockets</done>
 	</Analyse>
 </Bericht>
