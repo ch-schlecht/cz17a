@@ -13,13 +13,18 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity(name = "Player")
 public class Player extends User implements Serializable {
 	@Column(name = "playtime_in_minutes")
 	private double playtimeInMinutes;
 	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Participation> playedRounds = new ArrayList<Participation>();
 	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "winner")
 	private List<Round> winnedRounds;
