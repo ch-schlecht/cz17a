@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Round implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "winner", nullable = false)
 	private Player winner;
-	@OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<PlayedQuestion> playedQuestions = new ArrayList<PlayedQuestion>();
 	@OneToMany(mappedBy = "round")
 	private List<Participation> participations = new ArrayList<Participation>();
