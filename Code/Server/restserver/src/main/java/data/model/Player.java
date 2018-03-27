@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-@Entity(name="Player")
+@Entity(name = "Player")
 public class Player extends User implements Serializable {
 	@Column(name = "playtime_in_minutes")
 	private double playtimeInMinutes;
@@ -27,9 +27,10 @@ public class Player extends User implements Serializable {
 	private InetAddress IPAddress;
 	@Transient
 	private Integer port;
-	
-	public Player() {}
-	
+
+	public Player() {
+	}
+
 	public Player(String mail, String nickname, String password) {
 		this.mail = mail;
 		this.nickname = nickname;
@@ -43,22 +44,30 @@ public class Player extends User implements Serializable {
 	public void setPlaytimeInMinutes(double playtimeInMinutes) {
 		this.playtimeInMinutes = playtimeInMinutes;
 	}
+
 	/**
 	 * adds a played question to List of played questions of the player
-	 * @param question Playedquestion that is to be added
+	 * 
+	 * @param question
+	 *            Playedquestion that is to be added
 	 */
 	public void addPlayedQuestion(PlayedQuestion question) {
 		this.playedQuestions.add(question);
 	}
+
 	/**
 	 * adds a game round to the list of participation of the player
-	 * @param round participation
+	 * 
+	 * @param round
+	 *            participation
 	 */
 	public void addRound(Participation round) {
 		this.playedRounds.add(round);
 	}
+
 	/**
 	 * Returns all played questions
+	 * 
 	 * @return List of played questions in that PlayedQuestion
 	 */
 	public List<PlayedQuestion> getPlayedQuestion() {
@@ -83,83 +92,102 @@ public class Player extends User implements Serializable {
 
 	public double winnedRoundsRatio() {
 		int winnedRoundsCount = 0;
-		for(Participation p : playedRounds) {
-			if(p.getRound().getWinner().getId() == id) {
+		for (Participation p : playedRounds) {
+			if (p.getRound().getWinner().getId() == id) {
 				winnedRoundsCount++;
 			}
 		}
-		double winnedRoundsRatio = winnedRoundsCount / playedRounds.size();
+		double winnedRoundsRatio;
+		if (playedQuestions.size() != 0) {
+			winnedRoundsRatio = winnedRoundsCount / playedRounds.size();
+		} else {
+			winnedRoundsRatio = 0.0;
+		}
 		return winnedRoundsRatio;
 	}
-	
+
 	public Quiz bestQuiz() {
 		Quiz quiz = new Quiz();
 		Round round = new Round();
 		int maxScore = maxScore();
-		for(Participation p : playedRounds) {
-			if(maxScore == p.getScore()) {
+		for (Participation p : playedRounds) {
+			if (maxScore == p.getScore()) {
 				round = p.getRound();
 			}
 		}
-		if(!round.getQuestions().isEmpty()) {
+		if (!round.getQuestions().isEmpty()) {
 			quiz = round.getQuestions().get(0).getQuiz();
 		}
 		return quiz;
 	}
 
 	public String bestTopic() {
-		String topic = "";
-		topic = bestQuiz().getQuestions().get(0).getTopic();
+		String topic = bestQuiz().getTitle();
 		return topic;
 	}
-	
+
 	public double averageAnswerTime() {
 		double overallAnswerTime = 0;
-		for(PlayedQuestion p : playedQuestions) {
+		for (PlayedQuestion p : playedQuestions) {
 			overallAnswerTime += p.getSpeedInSeconds();
 		}
-		double averageAnswerTime = overallAnswerTime / playedQuestions.size();
+		double averageAnswerTime;
+		if (playedQuestions.size() != 0) {
+			averageAnswerTime = overallAnswerTime / playedQuestions.size();
+		} else {
+			averageAnswerTime = 0.0;
+		}
 		return averageAnswerTime;
 	}
-	
+
 	public double averageScore() {
 		double averageScore = 0;
 		double counter = 0;
-		for(Participation p : playedRounds) {
+		for (Participation p : playedRounds) {
 			averageScore += p.getScore();
 			counter++;
+		}
+		if (counter != 0) {
+			averageScore /= counter;
+		} else {
+			averageScore = 0.0;
 		}
 		averageScore /= counter;
 		return averageScore;
 	}
-	
+
 	public int maxScore() {
 		int maxScore = 0;
-		for(Participation p : playedRounds) {
+		for (Participation p : playedRounds) {
 			maxScore = Math.max(maxScore, p.getScore());
 		}
 		return maxScore;
 	}
-	
+
 	public int alltimeScore() {
 		int alltimeScore = 0;
-		for(Participation p : playedRounds) {
-			alltimeScore +=  p.getScore();
+		for (Participation p : playedRounds) {
+			alltimeScore += p.getScore();
 		}
 		return alltimeScore;
 	}
-	
+
 	public double rightAnswersRatio() {
 		int rightAnswersCount = 0;
-		for(PlayedQuestion p : playedQuestions) {
-			if(p.getIsCorrect()) {
+		for (PlayedQuestion p : playedQuestions) {
+			if (p.getIsCorrect()) {
 				rightAnswersCount++;
 			}
 		}
-		double rightAnswersRatio = rightAnswersCount / playedQuestions.size();
+		double rightAnswersRatio;
+		if (playedQuestions.size() != 0) {
+			rightAnswersRatio = rightAnswersCount / playedQuestions.size();
+		} else {
+			rightAnswersRatio = 0.0;
+		}
 		return rightAnswersRatio;
 	}
-	
+
 	public double playtimePerDay() {
 		double playtimePerDay = 0.0;
 		GregorianCalendar today = new GregorianCalendar();
