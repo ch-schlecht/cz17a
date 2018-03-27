@@ -3,7 +3,9 @@ package data.model;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -156,5 +158,14 @@ public class Player extends User implements Serializable {
 		}
 		double rightAnswersRatio = rightAnswersCount / playedQuestions.size();
 		return rightAnswersRatio;
+	}
+	
+	public double playtimePerDay() {
+		double playtimePerDay = 0.0;
+		GregorianCalendar today = new GregorianCalendar();
+		long difference = today.getTimeInMillis() - registration.getTimeInMillis();
+		long daysPlayed = TimeUnit.MILLISECONDS.toDays(difference);
+		playtimePerDay = playtimeInMinutes / daysPlayed;
+		return playtimePerDay;
 	}
 }
