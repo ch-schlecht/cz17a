@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.json.JSONObject;
 
 import cz17a.gamification.adminpanel.application.PasswordManager;
 import data.access.HibernateUtil;
@@ -157,5 +158,23 @@ public class PlayerResource {
 																										// code
 		}
 		return "Die Mail wurde erfolgreich gesendet. Klicken Sie dort bitte auf den Link zum Zurücksetzen ihres Passwortes!";
+	}
+	
+	@POST
+	@Path("/{id}/statistic")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String statistic(@PathParam("id") int id) {
+		Player player = dao.getPlayer(id);
+		JSONObject json = new JSONObject();
+		json.put("rightAnswersRatio", player.rightAnswersRatio());
+		json.put("winnedRoundsRatio", player.winnedRoundsRatio());
+		json.put("averageAnswerTime", player.averageAnswerTime());
+		json.put("averageScore", player.averageScore());
+		json.put("maxScore", player.maxScore());
+		json.put("alltimeScore", player.alltimeScore());
+		json.put("bestQuiz", player.bestTopic());
+		json.put("playtimePerDay", player.playtimePerDay());
+		String response = json.toString();
+		return  response;
 	}
 }
