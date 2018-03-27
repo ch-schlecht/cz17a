@@ -112,7 +112,7 @@ public class Player extends User implements Serializable {
 	}
 
 	public Quiz bestQuiz() {
-		Quiz quiz = new Quiz();
+		Quiz quiz = null;
 		Round round = new Round();
 		int maxScore = maxScore();
 		for (Participation p : playedRounds) {
@@ -120,14 +120,20 @@ public class Player extends User implements Serializable {
 				round = p.getRound();
 			}
 		}
-		if (!round.getQuestions().isEmpty()) {
-			quiz = round.getQuestions().get(0).getQuiz();
+		if(round.getQuestions() != null) {
+			if (!round.getQuestions().isEmpty()) {
+				quiz = round.getQuestions().get(0).getQuiz();
+			}
 		}
 		return quiz;
 	}
 
 	public String bestTopic() {
-		String topic = bestQuiz().getTitle();
+		String topic = "null";
+		Quiz bestQuiz = bestQuiz();
+		if(bestQuiz != null) {
+			topic = bestQuiz.getTitle();
+		}
 		return topic;
 	}
 
@@ -157,7 +163,6 @@ public class Player extends User implements Serializable {
 		} else {
 			averageScore = 0.0;
 		}
-		averageScore /= counter;
 		return averageScore;
 	}
 
